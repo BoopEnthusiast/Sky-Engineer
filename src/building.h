@@ -21,15 +21,15 @@ public:
         return singleton;
     }
 
-    static PackedVector3Array points;
-    static Vector3 manipulator_mesh_global_position;
-    static void add_point(Vector3 point);
+    PackedVector3Array points;
+    Vector3 manipulator_mesh_global_position;
+    void add_point(Vector3 point);
 
-    static void process_points();
+    void process_points();
     
-    static int closest_point_to_manipulator;
-    static PackedVector3Array vertices;
-    static ArrayMesh mesh;
+    int closest_point_to_manipulator;
+    PackedVector3Array vertices;
+    ArrayMesh mesh;
 
 	Building();
 	~Building();
