@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://cywqtlrqsvtew"]
+
+[ext_resource type="Script" uid="uid://cmsl2jhlavwko" path="res://interactibles/spinny_camera.gd" id="1_86qsy"]
+
+[node name="SpinnyCamera" type="Node3D"]
+script = ExtResource("1_86qsy")
+
+[node name="Camera" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 4)

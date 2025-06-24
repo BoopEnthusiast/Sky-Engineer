@@ -1,0 +1,36 @@
+[gd_scene load_steps=6 format=3 uid="uid://cb7kbv03antsr"]
+
+[ext_resource type="Script" uid="uid://dntpbkdr02v0n" path="res://interactibles/player.gd" id="1_jysyn"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_3d65y"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_jysyn"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jysyn"]
+emission_enabled = true
+emission = Color(1, 1, 1, 1)
+
+[sub_resource type="SphereMesh" id="SphereMesh_jysyn"]
+material = SubResource("StandardMaterial3D_jysyn")
+radius = 0.05
+height = 0.1
+radial_segments = 16
+rings = 8
+
+[node name="Player" type="CharacterBody3D"]
+script = ExtResource("1_jysyn")
+
+[node name="Collider" type="CollisionShape3D" parent="."]
+shape = SubResource("CapsuleShape3D_3d65y")
+
+[node name="Mesh" type="MeshInstance3D" parent="."]
+mesh = SubResource("CapsuleMesh_jysyn")
+
+[node name="Camera" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+
+[node name="PointManipulator" type="Marker3D" parent="Camera"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2)
+
+[node name="Mesh" type="MeshInstance3D" parent="Camera/PointManipulator"]
+mesh = SubResource("SphereMesh_jysyn")

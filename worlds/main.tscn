@@ -1,0 +1,52 @@
+[gd_scene load_steps=10 format=3 uid="uid://cxus3ioklaaki"]
+
+[ext_resource type="Script" uid="uid://csloofv1l6ahd" path="res://interactibles/building.gd" id="1_felrd"]
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_felrd"]
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_felrd"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_felrd"]
+albedo_color = Color(1, 1, 0.576471, 1)
+emission_enabled = true
+emission = Color(1, 1, 0.576471, 1)
+
+[sub_resource type="SphereMesh" id="SphereMesh_felrd"]
+material = SubResource("StandardMaterial3D_felrd")
+radius = 0.1
+height = 0.2
+radial_segments = 16
+rings = 8
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_felrd"]
+
+[sub_resource type="Sky" id="Sky_m313i"]
+sky_material = SubResource("ProceduralSkyMaterial_felrd")
+
+[sub_resource type="Environment" id="Environment_46j3l"]
+background_mode = 2
+sky = SubResource("Sky_m313i")
+
+[sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_bnm7t"]
+
+[node name="Main" type="Node3D"]
+
+[node name="Building" type="StaticBody3D" parent="."]
+script = ExtResource("1_felrd")
+
+[node name="Mesh" type="MeshInstance3D" parent="Building"]
+mesh = SubResource("ArrayMesh_felrd")
+skeleton = NodePath("../..")
+
+[node name="Collider" type="CollisionShape3D" parent="Building"]
+shape = SubResource("ConcavePolygonShape3D_felrd")
+
+[node name="SelectorMesh" type="MeshInstance3D" parent="Building"]
+mesh = SubResource("SphereMesh_felrd")
+
+[node name="Sun" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.819792, -0.450579, 0.353439, 0, 0.617187, 0.786817, -0.572661, -0.645026, 0.505965, 0, 3.90252, 0)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_46j3l")
+camera_attributes = SubResource("CameraAttributesPractical_bnm7t")
