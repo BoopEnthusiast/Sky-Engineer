@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://c3hiixxejgdol"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_46w14"]
+albedo_color = Color(0.697622, 0.712862, 0.915742, 1)
+emission_enabled = true
+emission = Color(0.543513, 0.699021, 0.919789, 1)
+
+[sub_resource type="SphereMesh" id="SphereMesh_46w14"]
+material = SubResource("StandardMaterial3D_46w14")
+radius = 0.05
+height = 0.1
+radial_segments = 8
+rings = 4
+
+[node name="VertexPoint" type="MeshInstance3D"]
+mesh = SubResource("SphereMesh_46w14")
