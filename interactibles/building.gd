@@ -26,10 +26,11 @@ func _process(_delta: float) -> void:
 	if Input.is_action_just_pressed("build"):
 		points.append(Nodes.player.point_manipulator.global_position)
 	
+	
+	
 	var vertices: PackedVector3Array
 	
 	var closest_point_to_manipulator: int = -1
-	
 	
 	var i: int = 0
 	for point: Vector3 in points:
@@ -86,6 +87,8 @@ func _generate(vertices: PackedVector3Array) -> void:
 	
 	for vertex: Vector3 in vertices:
 		surface.add_vertex(vertex)
+	
+	surface.index()
 	
 	mesh.mesh = surface.commit()
 	

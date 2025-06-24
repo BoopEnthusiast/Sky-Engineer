@@ -11,25 +11,23 @@ namespace godot {
 class Building : public Object {
     GDCLASS(Building, Object)
 
-    static Building *singleton;
+    const int NEAREST_POINTS_COUNT = 2;
+    const int MAX_CONNECTING_DISTANCE = 7;
+    const int MAX_SELECTING_DISTANCE = 1;
 
 protected:
 	static void _bind_methods();
 
 public:
-    static Building *get_singleton() {
-        return singleton;
-    }
 
     PackedVector3Array points;
-    Vector3 manipulator_mesh_global_position;
-    void add_point(Vector3 point);
+    Vector3 manipulator_global_position;
 
     void process_points();
     
     int closest_point_to_manipulator;
     PackedVector3Array vertices;
-    ArrayMesh mesh;
+    Ref<ArrayMesh> generate_mesh();
 
 	Building();
 	~Building();
@@ -37,4 +35,4 @@ public:
 
 }
 
-#endif
+#endif // BUILDING_H

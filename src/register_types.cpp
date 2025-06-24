@@ -5,6 +5,7 @@
 #include <gdextension_interface.h>
 #include <godot_cpp/core/defs.hpp>
 #include <godot_cpp/godot.hpp>
+#include <godot_cpp/classes/engine.hpp>
 
 using namespace godot;
 
@@ -14,12 +15,16 @@ void initialize_building_module(ModuleInitializationLevel p_level) {
 	}
 
     GDREGISTER_CLASS(Building);
+
+    Engine::get_singleton()->register_singleton("BuildingSingleton", memnew(Building));
 }
 
 void uninitialize_building_module(ModuleInitializationLevel p_level) {
 	if (p_level != MODULE_INITIALIZATION_LEVEL_SCENE) {
 		return;
 	}
+
+    Engine::get_singleton()->unregister_singleton("BuildingSingleton");
 }
 
 extern "C" {
