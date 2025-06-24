@@ -36,15 +36,15 @@ void Building::process_points() {
 
     closest_point_to_manipulator = -1;
 
-    int i = 0;
+    int index = 0;
     for (const Vector3 point : points) {
         // Find the closest point to the point manipulator 
         float distance_to_manipulator = point.distance_squared_to(manipulator_global_position);
 
         if (distance_to_manipulator < MAX_SELECTING_DISTANCE && closest_point_to_manipulator < 0) {
-            closest_point_to_manipulator = i;
+            closest_point_to_manipulator = index;
         } else if (points[closest_point_to_manipulator].distance_squared_to(manipulator_global_position) > distance_to_manipulator && distance_to_manipulator < MAX_SELECTING_DISTANCE) {
-            closest_point_to_manipulator = i;
+            closest_point_to_manipulator = index;
         }
 
         // Find the points in range
@@ -67,7 +67,7 @@ void Building::process_points() {
             }
         }
 
-        i++;
+        index++;
     }
 }
 

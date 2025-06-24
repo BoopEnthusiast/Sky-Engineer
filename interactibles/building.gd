@@ -23,6 +23,7 @@ func _enter_tree() -> void:
 
 
 func _process(_delta: float) -> void:
+	print("0")
 	if Input.is_action_just_pressed("build"):
 		points.append(Nodes.player.point_manipulator.global_position)
 	print("1")
