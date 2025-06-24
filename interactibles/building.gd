@@ -1,11 +1,10 @@
-class_name Building
+class_name BuildingNode
 extends StaticBody3D
 
 
 const NEAREST_POINTS_COUNT = 2
 const MAX_CONNECTING_DISTANCE = 7
 const MAX_SELECTING_DISTANCE = 1
-
 
 var points: Array[Vector3] = [
 	Vector3(1, 0, 1),
@@ -30,6 +29,7 @@ func _process(_delta: float) -> void:
 	var vertices: PackedVector3Array
 	
 	var closest_point_to_manipulator: int = -1
+	
 	
 	var i: int = 0
 	for point: Vector3 in points:

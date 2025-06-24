@@ -1,5 +1,5 @@
 extends Node
 
 
-var building: Building
+var building: BuildingNode
 var player: Player
