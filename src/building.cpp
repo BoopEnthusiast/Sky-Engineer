@@ -32,19 +32,20 @@ Building::~Building() {
 }
 
 void Building::process_points() {
-    print_line("Hello");
-
     closest_point_to_manipulator = -1;
+    vertices = PackedVector3Array();
 
     int index = 0;
     for (const Vector3 point : points) {
         // Find the closest point to the point manipulator 
         float distance_to_manipulator = point.distance_squared_to(manipulator_global_position);
 
-        if (distance_to_manipulator < MAX_SELECTING_DISTANCE && closest_point_to_manipulator < 0) {
-            closest_point_to_manipulator = index;
-        } else if (points[closest_point_to_manipulator].distance_squared_to(manipulator_global_position) > distance_to_manipulator && distance_to_manipulator < MAX_SELECTING_DISTANCE) {
-            closest_point_to_manipulator = index;
+        if (distance_to_manipulator < MAX_SELECTING_DISTANCE) {
+            if (closest_point_to_manipulator < 0) {
+                closest_point_to_manipulator = index;
+            } else if (points.get(closest_point_to_manipulator).distance_squared_to(manipulator_global_position) > distance_to_manipulator) {
+                closest_point_to_manipulator = index;
+            }
         }
 
         // Find the points in range
@@ -61,8 +62,8 @@ void Building::process_points() {
 
         for (int i = 0; i < nearest_points.size() - 1; i++) {
             for (int o = i + 1; o < nearest_points.size(); o++) {
-                vertices.append(nearest_points[o]);
-                vertices.append(nearest_points[i]);
+                vertices.append(nearest_points.get(o));
+                vertices.append(nearest_points.get(i));
                 vertices.append(point);
             }
         }
@@ -72,16 +73,17 @@ void Building::process_points() {
 }
 
 Ref<ArrayMesh> Building::generate_mesh() {
-    SurfaceTool surface = SurfaceTool();
-    surface.begin(Mesh::PrimitiveType::PRIMITIVE_TRIANGLES);
+    Ref<SurfaceTool> surface;
+    surface.instantiate();
+    surface->begin(Mesh::PrimitiveType::PRIMITIVE_TRIANGLES);
 
     for (Vector3 vertex : vertices) {
-        surface.add_vertex(vertex);
+        surface->add_vertex(vertex);
     }
 
-    surface.index();
+    surface->index();
 
-    return surface.commit();
+    return surface->commit();
 }
 
 void Building::set_points(const PackedVector3Array the_points) {

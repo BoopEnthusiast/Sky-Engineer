@@ -23,23 +23,22 @@ func _enter_tree() -> void:
 
 
 func _process(_delta: float) -> void:
-	print("0")
 	if Input.is_action_just_pressed("build"):
 		points.append(Nodes.player.point_manipulator.global_position)
-	print("1")
+		
 	Building.points = points
 	Building.manipulator_global_position = Nodes.player.point_manipulator.global_position
-	print("2")
+	
 	Building.process_points()
-	print("3")
+	
 	# Generate the mesh and collider
-	Building.generate_mesh()
+	mesh.mesh = Building.generate_mesh()
 	var shape: ConcavePolygonShape3D = collider.shape as ConcavePolygonShape3D
 	shape.set_faces(Building.vertices)
-	print("4")
+	
 	if Input.is_action_pressed("select"):
 		points[Building.closest_point_to_manipulator] = Nodes.player.point_manipulator.global_position
-	print("5")
+		
 	# Move the selector to the manipulated point
 	_move_selector_mesh(Building.closest_point_to_manipulator)
 
