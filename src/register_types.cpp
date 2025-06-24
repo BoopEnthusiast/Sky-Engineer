@@ -16,7 +16,7 @@ void initialize_building_module(ModuleInitializationLevel p_level) {
 
     GDREGISTER_CLASS(Building);
 
-    Engine::get_singleton()->register_singleton("BuildingSingleton", memnew(Building));
+    Engine::get_singleton()->register_singleton("Building", memnew(Building));
 }
 
 void uninitialize_building_module(ModuleInitializationLevel p_level) {
@@ -24,7 +24,7 @@ void uninitialize_building_module(ModuleInitializationLevel p_level) {
 		return;
 	}
 
-    Engine::get_singleton()->unregister_singleton("BuildingSingleton");
+    Engine::get_singleton()->unregister_singleton("Building");
 }
 
 extern "C" {

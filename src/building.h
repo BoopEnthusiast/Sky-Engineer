@@ -15,19 +15,32 @@ class Building : public Object {
     const int MAX_CONNECTING_DISTANCE = 7;
     const int MAX_SELECTING_DISTANCE = 1;
 
+    // Things to set before processing points
+    PackedVector3Array points;
+    Vector3 manipulator_global_position;
+
+    // Set after processing points
+    int closest_point_to_manipulator;
+    PackedVector3Array vertices;
+    Ref<ArrayMesh> generate_mesh();
+
 protected:
 	static void _bind_methods();
 
 public:
+    void set_points(const PackedVector3Array the_points);
+    PackedVector3Array get_points() const;
 
-    PackedVector3Array points;
-    Vector3 manipulator_global_position;
+    void set_manipulator_global_position(const Vector3 the_manipulator_global_position);
+    Vector3 get_manipulator_global_position() const;
 
     void process_points();
-    
-    int closest_point_to_manipulator;
-    PackedVector3Array vertices;
-    Ref<ArrayMesh> generate_mesh();
+
+    void set_closest_point_to_manipulator(const int the_closest_point_to_manipulator); 
+    int get_closest_point_to_manipulator() const;
+
+    void set_vertices(const PackedVector3Array the_vertices);
+    PackedVector3Array get_vertices() const;
 
 	Building();
 	~Building();

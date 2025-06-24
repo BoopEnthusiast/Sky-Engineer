@@ -11,9 +11,12 @@ const SPINNY_CAMERA = preload("res://interactibles/spinny_camera.tscn")
 
 func _on_main_menu_play_game() -> void:
 	main_menu.visible = false
+	print("setting up main")
 	
 	var main = MAIN.instantiate()
 	add_child(main)
+	
+	print("setting up player")
 	
 	var player = PLAYER.instantiate()
 	add_child(player)

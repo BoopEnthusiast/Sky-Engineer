@@ -25,75 +25,22 @@ func _enter_tree() -> void:
 func _process(_delta: float) -> void:
 	if Input.is_action_just_pressed("build"):
 		points.append(Nodes.player.point_manipulator.global_position)
-	
-	
-	
-	var vertices: PackedVector3Array
-	
-	var closest_point_to_manipulator: int = -1
-	
-	var i: int = 0
-	for point: Vector3 in points:
-		# Find the closest point to the point manipulator on the player
-		var manipulator_position: Vector3 = Nodes.player.point_manipulator.global_position
-		var distance_to_manipulator: float = point.distance_squared_to(manipulator_position)
-		
-		if distance_to_manipulator < MAX_SELECTING_DISTANCE and closest_point_to_manipulator < 0:
-			closest_point_to_manipulator = i
-		
-		elif points[closest_point_to_manipulator].distance_squared_to(manipulator_position) > distance_to_manipulator \
-		and distance_to_manipulator < MAX_SELECTING_DISTANCE:
-			closest_point_to_manipulator = i
-		
-		# Find the two nearest points
-		var nearest_points: Array[Vector3]
-		for other_point: Vector3 in points:
-			if other_point == point:
-				continue
-			
-			var distance_between_points: float = point.distance_squared_to(other_point)
-			
-			if distance_between_points < MAX_CONNECTING_DISTANCE and nearest_points.size() < NEAREST_POINTS_COUNT:
-				nearest_points.append(other_point)
-			else:
-				for near_point: Vector3 in nearest_points:
-					if distance_between_points < MAX_CONNECTING_DISTANCE \
-					and distance_between_points < point.distance_squared_to(near_point):
-						nearest_points.erase(near_point)
-						nearest_points.append(other_point)
-						break
-		
-		# Create triangle from this point and the two closest ones
-		if nearest_points.size() == NEAREST_POINTS_COUNT:
-			vertices.append(point)
-			for near_point: Vector3 in nearest_points:
-				vertices.append(near_point)
-		
-		i += 1
-	
+	print("1")
+	Building.points = points
+	Building.manipulator_global_position = Nodes.player.point_manipulator.global_position
+	print("2")
+	Building.process_points()
+	print("3")
 	# Generate the mesh and collider
-	_generate(vertices)
-	
-	if Input.is_action_pressed("select"):
-		points[closest_point_to_manipulator] = Nodes.player.point_manipulator.global_position
-	
-	# Move the selector to the manipulated point
-	_move_selector_mesh(closest_point_to_manipulator)
-
-
-func _generate(vertices: PackedVector3Array) -> void:
-	var surface = SurfaceTool.new()
-	surface.begin(Mesh.PRIMITIVE_TRIANGLES)
-	
-	for vertex: Vector3 in vertices:
-		surface.add_vertex(vertex)
-	
-	surface.index()
-	
-	mesh.mesh = surface.commit()
-	
+	Building.generate_mesh()
 	var shape: ConcavePolygonShape3D = collider.shape as ConcavePolygonShape3D
-	shape.set_faces(vertices)
+	shape.set_faces(Building.vertices)
+	print("4")
+	if Input.is_action_pressed("select"):
+		points[Building.closest_point_to_manipulator] = Nodes.player.point_manipulator.global_position
+	print("5")
+	# Move the selector to the manipulated point
+	_move_selector_mesh(Building.closest_point_to_manipulator)
 
 
 func _move_selector_mesh(closest_point_to_manipulator: int) -> void:
