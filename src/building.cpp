@@ -156,12 +156,11 @@ void Building::process_points(bool calculate_points) {
             }
         }
 
-        // Sort points that'll be used (AI)
+        // Sort points that'll be used
         int connections_to_use = std::min((int)nearby_points.size(), MAX_VERTICY_CONNECTIONS);
         if (connections_to_use > 1) {
-            std::partial_sort(
+            std::sort(
                 nearby_points.begin(),
-                nearby_points.begin() + connections_to_use,
                 nearby_points.end(),
                 [](const NearbyPoint& a, const NearbyPoint& b) {
                     return a.distance < b.distance;
