@@ -11,9 +11,11 @@ namespace godot {
 class Building : public Object {
     GDCLASS(Building, Object)
 
-    const int NEAREST_POINTS_COUNT = 2;
-    const int MAX_CONNECTING_DISTANCE = 7;
-    const int MAX_SELECTING_DISTANCE = 1;
+    const int NEAREST_POINTS_COUNT = 2.0;
+    const int MAX_CONNECTING_DISTANCE = 5.0;
+    const int MIN_DISTANCE_BETWEEN_POINTS = 1.0;
+    const int MAX_SELECTING_DISTANCE = 1.0;
+    const int MAX_VERTICY_CONNECTIONS = 5.0;
 
     // Things to set before processing points
     PackedVector3Array points;
@@ -34,7 +36,7 @@ public:
     void set_manipulator_global_position(const Vector3 the_manipulator_global_position);
     Vector3 get_manipulator_global_position() const;
 
-    void process_points();
+    void process_points(bool calculate_points);
 
     void set_closest_point_to_manipulator(const int the_closest_point_to_manipulator); 
     int get_closest_point_to_manipulator() const;

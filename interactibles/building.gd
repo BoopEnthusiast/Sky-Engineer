@@ -19,25 +19,40 @@ var points: PackedVector3Array = [
 @onready var collider: CollisionShape3D = $Collider
 @onready var selector_mesh: MeshInstance3D = $SelectorMesh
 @onready var vertex_points: Node3D = $VertexPoints
+@onready var debug_label: Label = $CanvasLayer/DebugLabel
 
 
 func _enter_tree() -> void:
 	Nodes.building = self
 
 
+func _ready() -> void:
+	_process_points.call_deferred(true)
+
+
 func _process(_delta: float) -> void:
+	var has_processed_points := false
+	
 	# Add new points
 	if Input.is_action_just_pressed("build"):
 		points.append(Nodes.player.point_manipulator.global_position)
-	
-	_process_points()
+		_process_points(true)
+		has_processed_points = true
 	
 	# Move points
 	if Input.is_action_pressed("select") and Building.closest_point_to_manipulator >= 0:
 		points[Building.closest_point_to_manipulator] = Nodes.player.point_manipulator.global_position
-		
+		if not has_processed_points:
+			_process_points(true)
+			has_processed_points = true
+	
+	if not has_processed_points:
+		_process_points(false)
+	
 	# Move the selector to the manipulated point
 	_move_selector_mesh(Building.closest_point_to_manipulator)
+	
+	debug_label.text = str(points.size()) + "\n" + str(Engine.get_frames_per_second())
 
 
 func _move_selector_mesh(closest_point_to_manipulator: int) -> void:
@@ -47,20 +62,25 @@ func _move_selector_mesh(closest_point_to_manipulator: int) -> void:
 		selector_mesh.global_position = points[closest_point_to_manipulator]
 
 
-func _process_points() -> void:
+func _process_points(calculate_points: bool) -> void:
 	# Setup pre-process things
 	Building.points = points
 	Building.manipulator_global_position = Nodes.player.point_manipulator.global_position
 	
 	# Process the points
-	Building.process_points()
+	_profile_process_points(calculate_points)
 	
-	# Generate the mesh and collider
-	_profile_generate_mesh()
-	_profile_generate_collision()
+	if calculate_points:
+		# Generate the mesh and collider
+		_profile_generate_mesh.call_deferred()
+		_profile_generate_collision.call_deferred()
 	
-	# Add points for vertices
-	_add_verticy_points()
+		# Add points for vertices
+		_add_verticy_points()
+
+
+func _profile_process_points(calculate_points: bool) -> void:
+	Building.process_points(calculate_points)
 
 
 func _profile_generate_mesh() -> void:
