@@ -63,6 +63,7 @@ void Building::process_points(bool calculate_points) {
             for (Vector3 other_point : points) {
                 // Check it's not the same point
                 if (other_point == point) {
+                    other_index++;
                     continue;
                 }
 
@@ -98,8 +99,8 @@ void Building::process_points(bool calculate_points) {
             }
 
             // Generate geometry points
-            for (int i = 0; i < nearest_points.size() - 1 || i >= MAX_VERTICY_CONNECTIONS; i++) {
-                for (int o = i + 1; o < nearest_points.size() || o >= MAX_VERTICY_CONNECTIONS; o++) {
+            for (int i = 0; i < nearest_points.size() - 1 && i <= MAX_VERTICY_CONNECTIONS; i++) {
+                for (int o = i + 1; o < nearest_points.size() && o <= MAX_VERTICY_CONNECTIONS; o++) {
                     // Generate vertices
                     vertices.append(nearest_points.get(i));
                     vertex_colors.append(nearest_point_colors.get(i));
