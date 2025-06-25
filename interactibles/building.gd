@@ -15,10 +15,10 @@ var points: PackedVector3Array = [
 	Vector3(-1, 0.3, -1),
 ]
 var colors: PackedColorArray = [
-	Color.from_ok_hsl(0.0, 0.8, 0.8),
-	Color.from_ok_hsl(0.25, 0.8, 0.8),
-	Color.from_ok_hsl(0.5, 0.8, 0.8),
-	Color.from_ok_hsl(0.75, 0.8, 0.8),
+	Color.from_ok_hsl(0.0, 1.0, 0.8),
+	Color.from_ok_hsl(0.25, 1.0, 0.8),
+	Color.from_ok_hsl(0.5, 1.0, 0.8),
+	Color.from_ok_hsl(0.75, 1.0, 0.8),
 ]
 
 var coloring: int = -1
@@ -51,7 +51,7 @@ func _process(_delta: float) -> void:
 	# Add new points
 	if Input.is_action_just_pressed("build"):
 		points.append(Nodes.player.point_manipulator.global_position)
-		colors.append(Color.from_ok_hsl(randf(), 0.8, 0.8))
+		colors.append(Color.from_ok_hsl(randf(), 1.0, 0.8))
 		
 		_process_points(true)
 		has_processed_points = true
