@@ -41,7 +41,7 @@ func _ready() -> void:
 func _unhandled_input(event: InputEvent) -> void:
 	if event is InputEventMouseMotion and coloring >= 0:
 		var col: Color = colors[coloring]
-		colors[coloring] = Color.from_ok_hsl(col.ok_hsl_h + event.relative.x / 1000.0, col.ok_hsl_s, col.ok_hsl_l)
+		colors[coloring] = Color.from_ok_hsl(col.ok_hsl_h + event.relative.x / 1000.0, col.ok_hsl_s, col.ok_hsl_l + event.relative.y / 1000.0)
 		get_viewport().set_input_as_handled()
 
 
