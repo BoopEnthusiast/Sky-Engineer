@@ -1,26 +1,18 @@
-[gd_scene load_steps=13 format=3 uid="uid://cxus3ioklaaki"]
+[gd_scene load_steps=11 format=3 uid="uid://cxus3ioklaaki"]
 
 [ext_resource type="Script" uid="uid://csloofv1l6ahd" path="res://interactibles/building.gd" id="1_felrd"]
 
-[sub_resource type="Gradient" id="Gradient_felrd"]
-colors = PackedColorArray(0.757325, 0.595993, 0.816558, 1, 0.842097, 0.679426, 0.599575, 1)
-
-[sub_resource type="FastNoiseLite" id="FastNoiseLite_m313i"]
-seed = 4515
-frequency = 0.001
-
-[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_46j3l"]
-color_ramp = SubResource("Gradient_felrd")
-noise = SubResource("FastNoiseLite_m313i")
-
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_m313i"]
-albedo_texture = SubResource("NoiseTexture2D_46j3l")
+shading_mode = 2
+vertex_color_use_as_albedo = true
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_felrd"]
 
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_felrd"]
 backface_collision = true
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_felrd"]
-albedo_color = Color(1, 1, 0.576471, 1)
+albedo_color = Color(0.755517, 0.753153, 0.977644, 1)
 emission_enabled = true
 emission = Color(1, 1, 0.576471, 1)
 
@@ -49,6 +41,7 @@ script = ExtResource("1_felrd")
 
 [node name="Mesh" type="MeshInstance3D" parent="Building"]
 material_override = SubResource("StandardMaterial3D_m313i")
+mesh = SubResource("ArrayMesh_felrd")
 skeleton = NodePath("../..")
 
 [node name="Collider" type="CollisionShape3D" parent="Building"]

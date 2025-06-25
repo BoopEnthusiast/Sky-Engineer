@@ -14,6 +14,14 @@ var points: PackedVector3Array = [
 	Vector3(1, 0, -1),
 	Vector3(-1, 0.3, -1),
 ]
+var colors: PackedColorArray = [
+	Color.from_ok_hsl(0.0, 0.8, 0.8),
+	Color.from_ok_hsl(0.25, 0.8, 0.8),
+	Color.from_ok_hsl(0.5, 0.8, 0.8),
+	Color.from_ok_hsl(0.75, 0.8, 0.8),
+]
+
+var coloring: int = -1
 
 @onready var mesh: MeshInstance3D = $Mesh
 @onready var collider: CollisionShape3D = $Collider
@@ -30,21 +38,38 @@ func _ready() -> void:
 	_process_points.call_deferred(true)
 
 
+func _unhandled_input(event: InputEvent) -> void:
+	if event is InputEventMouseMotion and coloring >= 0:
+		var col: Color = colors[coloring]
+		colors[coloring] = Color.from_ok_hsl(col.ok_hsl_h + event.relative.x / 1000.0, col.ok_hsl_s, col.ok_hsl_l)
+		get_viewport().set_input_as_handled()
+
+
 func _process(_delta: float) -> void:
 	var has_processed_points := false
 	
 	# Add new points
 	if Input.is_action_just_pressed("build"):
 		points.append(Nodes.player.point_manipulator.global_position)
+		colors.append(Color.from_ok_hsl(randf(), 0.8, 0.8))
+		
 		_process_points(true)
 		has_processed_points = true
 	
 	# Move points
 	if Input.is_action_pressed("select") and Building.closest_point_to_manipulator >= 0:
 		points[Building.closest_point_to_manipulator] = Nodes.player.point_manipulator.global_position
+		if Input.is_action_pressed("color"):
+			Nodes.player.mouse_captured = false
+			coloring = Building.closest_point_to_manipulator
+		
 		if not has_processed_points:
 			_process_points(true)
 			has_processed_points = true
+	
+	if Input.is_action_just_released("color"):
+		Nodes.player.mouse_captured = true
+		coloring = -1
 	
 	if not has_processed_points:
 		_process_points(false)
@@ -65,6 +90,7 @@ func _move_selector_mesh(closest_point_to_manipulator: int) -> void:
 func _process_points(calculate_points: bool) -> void:
 	# Setup pre-process things
 	Building.points = points
+	Building.colors = colors
 	Building.manipulator_global_position = Nodes.player.point_manipulator.global_position
 	
 	# Process the points
@@ -72,7 +98,7 @@ func _process_points(calculate_points: bool) -> void:
 	
 	if calculate_points:
 		# Generate the mesh and collider
-		_profile_generate_mesh.call_deferred()
+		_profile_generate_mesh()
 		_profile_generate_collision.call_deferred()
 	
 		# Add points for vertices
