@@ -99,8 +99,8 @@ func _process_points(calculate_points: bool) -> void:
 	if calculate_points:
 		# Generate the mesh and collider
 		_profile_generate_mesh()
-		_profile_generate_collision.call_deferred()
-	
+		_profile_generate_collision()
+		
 		# Add points for vertices
 		_add_verticy_points()
 
