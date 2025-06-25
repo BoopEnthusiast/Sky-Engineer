@@ -2,7 +2,9 @@
 #include <godot_cpp/core/class_db.hpp>
 #include <godot_cpp/classes/surface_tool.hpp>
 #include <godot_cpp/classes/random_number_generator.hpp>
+#include <godot_cpp/templates/hash_map.hpp>
 #include <algorithm>
+#include <unordered_map>
 
 using namespace godot;
 
@@ -38,81 +40,164 @@ Building::~Building() {
 }
 
 void Building::process_points(bool calculate_points) {
+    float min_manipulator_distance = MAX_SELECTING_DISTANCE;
     closest_point_to_manipulator = -1;
-    vertices = PackedVector3Array();
-    vertex_colors = PackedColorArray();
+    vertices.clear();
+    vertex_colors.clear();
 
-    int index = 0;
-    for (const Vector3 point : points) {
+    // Pre-allocate with possible size (AI)
+    if (calculate_points) {
+        int estimated_trignales = points.size() * MAX_VERTICY_CONNECTIONS * (MAX_VERTICY_CONNECTIONS - 1) / 2;
+        vertices.resize(estimated_trignales * 3);
+        vertex_colors.resize(estimated_trignales * 3);
+    }
+
+    // Spacial partitioning (AI)
+    HashMap<Vector2i, PackedInt32Array> spatial_grid;
+    const float GRID_SIZE = sqrt(MAX_CONNECTING_DISTANCE);
+
+    // Build spacial grid (AI)
+    for (int i = 0; i < points.size(); i++) {
+        Vector3 point = points[i];
+        Vector2i grid_pos = Vector2i(
+            static_cast<int>(point.x / GRID_SIZE),
+            static_cast<int>(point.z / GRID_SIZE)
+        );
+
+        if (!spatial_grid.has(grid_pos)) {
+            spatial_grid[grid_pos] = PackedInt32Array();
+        }
+        spatial_grid[grid_pos].append(i);
+    }
+
+    int vertex_write_index = 0;
+
+    for (int index = 0; index < points.size(); index++) {
+        const Vector3& point = points[index];
+
         // Find the closest point to the point manipulator 
         float distance_to_manipulator = point.distance_squared_to(manipulator_global_position);
 
-        if (distance_to_manipulator < MAX_SELECTING_DISTANCE) {
-            if (closest_point_to_manipulator < 0) {
-                closest_point_to_manipulator = index;
-            } else if (points.get(closest_point_to_manipulator).distance_squared_to(manipulator_global_position) > distance_to_manipulator) {
-                closest_point_to_manipulator = index;
-            }
+        if (distance_to_manipulator < min_manipulator_distance) {
+            min_manipulator_distance = distance_to_manipulator;
+            closest_point_to_manipulator = index;
         }
 
-        if (calculate_points) {
-            // Find the points in range
-            TypedArray<Vector3> nearest_points = TypedArray<Vector3>();
-            PackedColorArray nearest_point_colors = PackedColorArray();
-            int other_index = 0;
-            for (Vector3 other_point : points) {
-                // Check it's not the same point
-                if (other_point == point) {
-                    other_index++;
+        if (!calculate_points) {
+            continue;
+        }
+
+        // Use spacial grid to find nearby points (AI)
+        Vector2i center_grid = Vector2i(
+            static_cast<int>(point.x / GRID_SIZE),
+            static_cast<int>(point.z / GRID_SIZE)
+        );
+
+        // Structure to store nearby points with distances (AI)
+        struct NearbyPoint {
+            Vector3 position;
+            Color color;
+            float distance;
+            int original_index;
+        };
+
+        std::vector<NearbyPoint> nearby_points;
+        nearby_points.reserve(MAX_VERTICY_CONNECTIONS_TEST);
+
+        // Check surrounding grid cells (AI)
+        for (int dx = -1; dx < 1; dx++) {
+            for (int dz = -1; dz < 1; dz++) {
+                // Get the grid position to check
+                Vector2i check_posisition = center_grid + Vector2i(dx, dz);
+                if (!spatial_grid.has(check_posisition)) {
                     continue;
                 }
 
-                // Find nearby points
-                if (point.distance_squared_to(other_point) < MAX_CONNECTING_DISTANCE) {
-                    nearest_points.append(other_point);
-                    nearest_point_colors.append(colors.get(other_index));
-
-                    if (nearest_points.size() >= MAX_VERTICY_CONNECTIONS_TEST) {
-                        break;
+                const PackedInt32Array& cell_indices = spatial_grid[check_posisition];
+                for (int i = 0; i < cell_indices.size(); i++) {
+                    // Get the other point to check
+                    int other_index = cell_indices[i];
+                    if (other_index == index) {
+                        continue;
                     }
-                }
+                    const Vector3& other_point = points[other_index];
+                    float distance = point.distance_squared_to(other_point);
 
-                other_index++;
-            }
+                    // Add ones within range to nearby points (partial sort)
+                    if (distance < MAX_CONNECTING_DISTANCE) {
+                        if (nearby_points.size() < MAX_VERTICY_CONNECTIONS_TEST) {
+                            nearby_points.push_back({
+                                other_point,
+                                colors[other_index],
+                                distance,
+                                other_index
+                            });
+                        } else if (distance < nearby_points.back().distance) {
+                            nearby_points.back() = {
+                                other_point,
+                                colors[other_index],
+                                distance,
+                                other_index
+                            };
+                        }
 
-            // Sort by closest (AI wrote this bit)
-            // Create vector of pairs to sort
-            std::vector<std::pair<Vector3, Color>> pairs;
-            for (int i =0; i < nearest_points.size(); i++) {
-                pairs.emplace_back(nearest_points[i], nearest_point_colors[i]);
-            }
-            // Sort the pairs
-            std::sort(pairs.begin(), pairs.end(), [&](const std::pair<Vector3, Color> &a, const std::pair<Vector3, Color> &b) {
-                return point.distance_squared_to(a.first) < point.distance_squared_to(b.first);
-            });
-            // Write back to the typed array
-            nearest_points.clear();
-            nearest_point_colors.clear();
-            for (auto &pair : pairs) {
-                nearest_points.append(pair.first);
-                nearest_point_colors.append(pair.second);
-            }
-
-            // Generate geometry points
-            for (int i = 0; i < nearest_points.size() - 1 && i <= MAX_VERTICY_CONNECTIONS; i++) {
-                for (int o = i + 1; o < nearest_points.size() && o <= MAX_VERTICY_CONNECTIONS; o++) {
-                    // Generate vertices
-                    vertices.append(nearest_points.get(i));
-                    vertex_colors.append(nearest_point_colors.get(i));
-                    vertices.append(nearest_points.get(o));
-                    vertex_colors.append(nearest_point_colors.get(o));
-                    vertices.append(point);
-                    vertex_colors.append(colors.get(index));
+                        // Keep partially sorted
+                        if (nearby_points.size() == MAX_VERTICY_CONNECTIONS_TEST) {
+                            std::partial_sort(
+                                nearby_points.begin(),
+                                nearby_points.begin() + MAX_VERTICY_CONNECTIONS,
+                                nearby_points.end(),
+                                [](const NearbyPoint& a, const NearbyPoint& b) {
+                                    return a.distance < b.distance;
+                                });
+                        }
+                    }
                 }
             }
         }
 
-        index++;
+        // Sort points that'll be used (AI)
+        int connections_to_use = std::min((int)nearby_points.size(), MAX_VERTICY_CONNECTIONS);
+        if (connections_to_use > 1) {
+            std::partial_sort(
+                nearby_points.begin(),
+                nearby_points.begin() + connections_to_use,
+                nearby_points.end(),
+                [](const NearbyPoint& a, const NearbyPoint& b) {
+                    return a.distance < b.distance;
+                }
+            );
+        }
+
+        // Generate triangles
+        for (int i = 0; i < connections_to_use - 1 && i < MAX_VERTICY_CONNECTIONS; i++) {
+            for (int o = i + 1; o < connections_to_use && o < MAX_VERTICY_CONNECTIONS; o++) {
+                // Make sure to not go over preallocated size (AI)
+                if (vertex_write_index + 2 > vertices.size()) {
+                    vertices.resize(vertices.size() * 2);
+                    vertex_colors.resize(vertex_colors.size() * 2);
+                }
+
+                // Generate vertices
+                vertices[vertex_write_index] = nearby_points[i].position;
+                vertex_colors[vertex_write_index] = nearby_points[i].color;
+                vertex_write_index++;
+
+                vertices[vertex_write_index] = nearby_points[o].position;
+                vertex_colors[vertex_write_index] = nearby_points[o].color;
+                vertex_write_index++;
+
+                vertices[vertex_write_index] = point;
+                vertex_colors[vertex_write_index] = colors[index];
+                vertex_write_index++;
+            }
+        }
+    }
+
+    // Trim arrays to actual size (AI)
+    if (calculate_points) {
+        vertices.resize(vertex_write_index);
+        vertex_colors.resize(vertex_write_index);
     }
 }
 
