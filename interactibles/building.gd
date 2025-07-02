@@ -49,7 +49,7 @@ func _process(_delta: float) -> void:
 	var has_processed_points := false
 	
 	# Add new points
-	if Input.is_action_just_pressed("build"):
+	if Input.is_action_just_pressed("build") and PlayerState.is_playing_game:
 		points.append(Nodes.player.point_manipulator.global_position)
 		colors.append(Color.from_ok_hsl(randf(), 1.0, 0.8))
 		
@@ -57,7 +57,7 @@ func _process(_delta: float) -> void:
 		has_processed_points = true
 	
 	# Move points
-	if Input.is_action_pressed("select") and Building.closest_point_to_manipulator >= 0:
+	if Input.is_action_pressed("select") and Building.closest_point_to_manipulator >= 0 and PlayerState.is_playing_game:
 		points[Building.closest_point_to_manipulator] = Nodes.player.point_manipulator.global_position
 		if Input.is_action_pressed("color"):
 			Nodes.player.mouse_captured = false

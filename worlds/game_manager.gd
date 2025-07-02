@@ -19,5 +19,4 @@ func _on_main_menu_play_game() -> void:
 	add_child(player)
 	player.global_position.y += 5
 	
-	#var spinny_camera = SPINNY_CAMERA.instantiate()
-	#add_child(spinny_camera)
+	PlayerState.is_playing_game = true
