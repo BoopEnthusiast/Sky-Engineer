@@ -12,12 +12,12 @@ namespace godot {
 class Building : public Object {
     GDCLASS(Building, Object)
 
-    const int NEAREST_POINTS_COUNT = 2;
-    const int MAX_CONNECTING_DISTANCE = 5;
-    const int MIN_DISTANCE_BETWEEN_POINTS = 1;
-    const int MAX_SELECTING_DISTANCE = 1;
-    const int MAX_VERTICY_CONNECTIONS_TEST = 20;
-    const int MAX_VERTICY_CONNECTIONS = 5;
+    const float NEAREST_POINTS_COUNT = 2;
+    const float MAX_CONNECTING_DISTANCE = 9;
+    const float MIN_DISTANCE_BETWEEN_POINTS = 0.5;
+    const float MAX_SELECTING_DISTANCE = 1;
+    const float MAX_VERTICY_CONNECTIONS_TEST = 20;
+    const float MAX_VERTICY_CONNECTIONS = 2;
 
     // Things to set before processing points
     PackedVector3Array points;

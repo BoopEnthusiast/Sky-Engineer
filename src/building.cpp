@@ -54,7 +54,7 @@ void Building::process_points(bool calculate_points) {
 
     // Spacial partitioning (AI)
     HashMap<Vector2i, PackedInt32Array> spatial_grid;
-    const float GRID_SIZE = sqrt(MAX_CONNECTING_DISTANCE);
+    const float GRID_SIZE = MAX_CONNECTING_DISTANCE;
 
     // Build spacial grid (AI)
     for (int i = 0; i < points.size(); i++) {
@@ -105,8 +105,8 @@ void Building::process_points(bool calculate_points) {
         nearby_points.reserve(MAX_VERTICY_CONNECTIONS_TEST);
 
         // Check surrounding grid cells (AI)
-        for (int dx = -1; dx < 1; dx++) {
-            for (int dz = -1; dz < 1; dz++) {
+        for (int dx = -1; dx <= 1; dx++) {
+            for (int dz = -1; dz <= 1; dz++) {
                 // Get the grid position to check
                 Vector2i check_posisition = center_grid + Vector2i(dx, dz);
                 if (!spatial_grid.has(check_posisition)) {
@@ -157,7 +157,7 @@ void Building::process_points(bool calculate_points) {
         }
 
         // Sort points that'll be used
-        int connections_to_use = std::min((int)nearby_points.size(), MAX_VERTICY_CONNECTIONS);
+        int connections_to_use = std::min((float)nearby_points.size(), MAX_VERTICY_CONNECTIONS);
         if (connections_to_use > 1) {
             std::sort(
                 nearby_points.begin(),
@@ -177,13 +177,20 @@ void Building::process_points(bool calculate_points) {
                     vertex_colors.resize(vertex_colors.size() * 2);
                 }
 
+                NearbyPoint near_point_1 = nearby_points[i];
+                NearbyPoint near_point_2 = nearby_points[o];
+
+                if (near_point_1.position.distance_squared_to(near_point_2.position) > MAX_CONNECTING_DISTANCE) {
+                    continue;
+                }
+
                 // Generate vertices
-                vertices[vertex_write_index] = nearby_points[i].position;
-                vertex_colors[vertex_write_index] = nearby_points[i].color;
+                vertices[vertex_write_index] = near_point_1.position;
+                vertex_colors[vertex_write_index] = near_point_1.color;
                 vertex_write_index++;
 
-                vertices[vertex_write_index] = nearby_points[o].position;
-                vertex_colors[vertex_write_index] = nearby_points[o].color;
+                vertices[vertex_write_index] = near_point_2.position;
+                vertex_colors[vertex_write_index] = near_point_2.color;
                 vertex_write_index++;
 
                 vertices[vertex_write_index] = point;
