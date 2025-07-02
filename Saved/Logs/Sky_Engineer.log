@@ -2891,3 +2891,330 @@ LogConfig: Set CVar [[r.Shadow.DetectVertexShaderLayerAtRuntime:1]]
 [2025.07.02-19.18.39:192][624]SourceControl: Error: warning: could not open directory 'Content/__ExternalObjects__/Map/D/': No such file or directory
 [2025.07.02-19.18.39:192][624]SourceControl: Error: warning: could not open directory 'Content/__ExternalObjects__/Map/D/': No such file or directory
 [2025.07.02-19.18.39:192][624]SourceControl: Error: warning: could not open directory 'Content/__ExternalObjects__/Map/E/': No such file or directory
+[2025.07.02-19.19.10:593][759]LogNavigationPoint: PostEditMove Clear paths rebuilt
+[2025.07.02-19.19.11:816][831]LogNavigationPoint: PostEditMove Clear paths rebuilt
+[2025.07.02-19.19.15:473][853]SourceControl: Error: warning: could not open directory 'Content/__ExternalObjects__/Map/6/': No such file or directory
+[2025.07.02-19.19.15:473][853]SourceControl: Error: warning: could not open directory 'Content/__ExternalObjects__/Map/A/': No such file or directory
+[2025.07.02-19.19.15:473][853]SourceControl: Error: warning: could not open directory 'Content/__ExternalObjects__/Map/D/': No such file or directory
+[2025.07.02-19.19.15:473][853]SourceControl: Error: warning: could not open directory 'Content/__ExternalObjects__/Map/D/': No such file or directory
+[2025.07.02-19.19.15:473][853]SourceControl: Error: warning: could not open directory 'Content/__ExternalObjects__/Map/E/': No such file or directory
+[2025.07.02-19.19.15:878][853]LogFileHelpers: InternalPromptForCheckoutAndSave started...
+[2025.07.02-19.19.16:157][853]LogUObjectHash: Compacting FUObjectHashTables data took   0.47ms
+[2025.07.02-19.19.16:178][853]LogUObjectHash: Compacting FUObjectHashTables data took   0.52ms
+[2025.07.02-19.19.16:196][853]LogUObjectHash: Compacting FUObjectHashTables data took   0.44ms
+[2025.07.02-19.19.16:200][853]LogSavePackage: Moving output files for package: /Game/__ExternalActors__/Map/5/XN/7HQAL0TRFJP5JVHT0P65QE
+[2025.07.02-19.19.16:201][853]LogSavePackage: Moving '../../../../../Documents/Unreal Projects/Sky_Engineer/Saved/7HQAL0TRFJP5JVHT0P65QECDB9CB36C95C48E0A19375DDB3D2FC3F.tmp' to '../../../../../Documents/Unreal Projects/Sky_Engineer/Content/__ExternalActors__/Map/5/XN/7HQAL0TRFJP5JVHT0P65QE.uasset'
+[2025.07.02-19.19.16:257][853]LogFileHelpers: InternalPromptForCheckoutAndSave took 378.767 ms (total: 3:39 min)
+[2025.07.02-19.19.16:498][853]LogContentValidation: Display: Starting to validate 1 assets
+[2025.07.02-19.19.16:498][853]LogContentValidation: Enabled validators:
+[2025.07.02-19.19.16:498][853]LogContentValidation: 	/Script/DataValidation.EditorValidator_Material
+[2025.07.02-19.19.16:498][853]LogContentValidation: 	/Script/DataValidation.DirtyFilesChangelistValidator
+[2025.07.02-19.19.16:498][853]LogContentValidation: 	/Script/DataValidation.EditorValidator_Localization
+[2025.07.02-19.19.16:498][853]LogContentValidation: 	/Script/DataValidation.PackageFileValidator
+[2025.07.02-19.19.16:499][853]LogContentValidation: 	/Script/DataValidation.WorldPartitionChangelistValidator
+[2025.07.02-19.19.16:499][853]LogContentValidation: 	/Script/InputBlueprintNodes.EnhancedInputUserWidgetValidator
+[2025.07.02-19.19.16:499][853]AssetCheck: /Game/Map Validating asset
+[2025.07.02-19.19.16:608][853]LogAutomationController: Ignoring very large delta of 4.41 seconds in calls to FAutomationControllerManager::Tick() and not penalizing unresponsive tests
+[2025.07.02-19.19.19:723][999]SourceControl: Error: warning: could not open directory 'Content/__ExternalObjects__/Map/6/': No such file or directory
+[2025.07.02-19.19.19:723][999]SourceControl: Error: warning: could not open directory 'Content/__ExternalObjects__/Map/A/': No such file or directory
+[2025.07.02-19.19.19:723][999]SourceControl: Error: warning: could not open directory 'Content/__ExternalObjects__/Map/D/': No such file or directory
+[2025.07.02-19.19.19:723][999]SourceControl: Error: warning: could not open directory 'Content/__ExternalObjects__/Map/D/': No such file or directory
+[2025.07.02-19.19.19:723][999]SourceControl: Error: warning: could not open directory 'Content/__ExternalObjects__/Map/E/': No such file or directory
+[2025.07.02-19.19.22:560][126]LogContentBrowser: Deferred new asset folder creation: NewFolder
+[2025.07.02-19.19.22:603][126]LogContentBrowser: Creating deferred item: NewFolder
+[2025.07.02-19.19.22:637][127]LogContentBrowser: Renaming the item being created (Deferred Item: NewFolder).
+[2025.07.02-19.19.25:314][291]LogContentBrowser: Attempting asset rename: NewFolder -> Player
+[2025.07.02-19.19.25:314][291]LogContentBrowser: End creating deferred item NewFolder
+[2025.07.02-19.19.41:245][836]LogSlate: Window 'Pick Parent Class' being destroyed
+[2025.07.02-19.19.41:325][836]LogAutomationController: Ignoring very large delta of 5.21 seconds in calls to FAutomationControllerManager::Tick() and not penalizing unresponsive tests
+[2025.07.02-19.21.45:450][103]LogSlate: Window 'Add C++ Class' being destroyed
+[2025.07.02-19.22.07:100][493]LogAudioMixer: Display: Audio Buffer Underrun (starvation) detected. InstanceID=1
+[2025.07.02-19.22.46:442][611]LogAudioMixer: Display: Audio Buffer Underrun (starvation) detected. InstanceID=1
+[2025.07.02-19.23.14:946][696]LogAudioMixer: Display: Audio Buffer Underrun (starvation) detected. InstanceID=1
+[2025.07.02-19.23.51:534][806]LogAudioMixer: Display: Audio Buffer Underrun (starvation) detected. InstanceID=1
+[2025.07.02-19.25.45:628][148]LogAudioMixer: Display: Audio Buffer Underrun (starvation) detected. InstanceID=1
+[2025.07.02-19.26.09:898][221]LogAudioMixer: Display: Audio Buffer Underrun (starvation) detected. InstanceID=1
+[2025.07.02-19.27.23:963][786]LogVulkanRHI: Warning: Failed to allocate Device Memory, Requested=9840.00Kb MemTypeIndex=1
+[2025.07.02-19.27.25:899][885]LogVulkanRHI: Warning: Failed to allocate Device Memory, Requested=9840.00Kb MemTypeIndex=1
+[2025.07.02-19.27.30:035][125]LogVulkanRHI: Warning: Failed to allocate Device Memory, Requested=9840.00Kb MemTypeIndex=1
+[2025.07.02-19.27.31:335][201]LogVulkanRHI: Warning: Failed to allocate Device Memory, Requested=9840.00Kb MemTypeIndex=1
+[2025.07.02-19.27.38:975][434]LogVulkanRHI: Warning: Failed to allocate Device Memory, Requested=9840.00Kb MemTypeIndex=1
+[2025.07.02-19.27.40:142][506]LogVulkanRHI: Warning: Failed to allocate Device Memory, Requested=9840.00Kb MemTypeIndex=1
+[2025.07.02-19.28.09:981][171]LogVulkanRHI: Warning: Failed to allocate Device Memory, Requested=8192.00Kb MemTypeIndex=1
+[2025.07.02-19.28.09:982][171]LogVulkanRHI: Warning: Failed to allocate Device Memory, Requested=8192.00Kb MemTypeIndex=1
+[2025.07.02-19.28.09:984][171]LogVulkanRHI: Warning: Failed to allocate Device Memory, Requested=9840.00Kb MemTypeIndex=1
+[2025.07.02-19.28.09:993][171]LogVulkanRHI: Warning: Failed to allocate Device Memory, Requested=8192.00Kb MemTypeIndex=1
+[2025.07.02-19.28.09:993][171]LogVulkanRHI: Warning: Failed to allocate Device Memory, Requested=8192.00Kb MemTypeIndex=1
+[2025.07.02-19.28.09:994][171]LogVulkanRHI: Warning: Failed to allocate Device Memory, Requested=8192.00Kb MemTypeIndex=1
+[2025.07.02-19.28.11:068][229]LogVulkanRHI: Warning: Failed to allocate Device Memory, Requested=9840.00Kb MemTypeIndex=1
+[2025.07.02-19.28.20:594][577]LogHotReload: Recompiling module Sky_Engineer...
+[2025.07.02-19.28.20:594][577]LogStreaming: Display: FlushAsyncLoading(502): 1 QueuedPackages, 0 AsyncPackages
+[2025.07.02-19.28.20:769][577]Candidate modules for hot reload:
+[2025.07.02-19.28.20:770][577]  Sky_Engineer
+[2025.07.02-19.28.20:806][577]Launching UnrealBuildTool... [/home/boop/Packages/Linux_Unreal_Engine_5.5.4/Engine/Build/BatchFiles/Linux/Build.sh  -ModuleWithSuffix=Sky_Engineer,6097 Sky_EngineerEditor Linux Development -Project="/home/boop/Documents/Unreal Projects/Sky_Engineer/Sky_Engineer.uproject" "/home/boop/Documents/Unreal Projects/Sky_Engineer/Sky_Engineer.uproject"  -IgnoreJunk -progress]
+[2025.07.02-19.28.28:928][577]Setting up bundled DotNet SDK
+Running command : dotnet Engine/Binaries/DotNET/UnrealBuildTool/UnrealBuildTool.dll -ModuleWithSuffix=Sky_Engineer,6097 Sky_EngineerEditor Linux Development -Project=/home/boop/Documents/Unreal Projects/Sky_Engineer/Sky_Engineer.uproject /home/boop/Documents/Unreal Projects/Sky_Engineer/Sky_Engineer.uproject -IgnoreJunk -progress
+Log file: /home/boop/.config/Epic/UnrealBuildTool/Log.txt
+Using 'git status' to determine working set for adaptive non-unity build (/home/boop/Documents/Unreal Projects/Sky_Engineer).
+Creating makefile for Sky_EngineerEditor (.uproject file is newer)
+@progress push 5%
+@progress 'Generating code...' 0%
+@progress 'Generating code...' 33%
+Parsing headers for Sky_EngineerEditor
+  Running Internal UnrealHeaderTool "/home/boop/Documents/Unreal Projects/Sky_Engineer/Sky_Engineer.uproject" "/home/boop/Documents/Unreal Projects/Sky_Engineer/Intermediate/Build/Linux/Sky_EngineerEditor/Development/Sky_EngineerEditor.uhtmanifest" -WarningsAsErrors -installed
+Total of 4 written
+Reflection code generated for Sky_EngineerEditor in 3.0400659 seconds
+@progress 'Generating code...' 67%
+@progress 'Generating code...' 100%
+@progress pop
+------- Build details --------
+Using toolchain located at '/home/boop/Packages/Linux_Unreal_Engine_5.5.4/Engine/Extras/ThirdPartyNotUE/SDKs/HostLinux/Linux_x64/v23_clang-18.1.0-rockylinux8/x86_64-unknown-linux-gnu'.
+Using clang (/home/boop/Packages/Linux_Unreal_Engine_5.5.4/Engine/Extras/ThirdPartyNotUE/SDKs/HostLinux/Linux_x64/v23_clang-18.1.0-rockylinux8/x86_64-unknown-linux-gnu/bin/clang++) version 'clang version 18.1.0rc (github.com/llvm/llvm-project 461274b81d8641eab64d494accddc81d7db8a09e)
+Target: x86_64-unknown-linux-gnu
+Thread model: posix
+InstalledDir: /home/boop/Packages/Linux_Unreal_Engine_5.5.4/Engine/Extras/ThirdPartyNotUE/SDKs/HostLinux/Linux_x64/v23_clang-18.1.0-rockylinux8/x86_64-unknown-linux-gnu/bin' (string), 18 (major), 1 (minor), 0 (patch)
+Using bundled libc++ standard C++ library.
+Using lld linker
+Using llvm-ar (/home/boop/Packages/Linux_Unreal_Engine_5.5.4/Engine/Extras/ThirdPartyNotUE/SDKs/HostLinux/Linux_x64/v23_clang-18.1.0-rockylinux8/x86_64-unknown-linux-gnu/bin/llvm-ar) version 'LLVM (http://llvm.org/):
+  LLVM version 18.1.0rc
+  Optimized build. (string)'
+Using fast way to relink  circularly dependent libraries (no FixDeps).
+Compressing debug files
+Targeted minimum CPU architecture: None
+------------------------------
+Building Sky_EngineerEditor...
+[Adaptive Build] Excluded from Sky_Engineer unity file: MainGameMode.cpp
+Determining max actions to execute in parallel (20 physical cores, 28 logical cores)
+  Executing up to 20 processes, one per physical core
+  Requested 1.5 GB memory per action, 10.6 GB available: limiting max parallel actions to 7
+Using Unreal Build Accelerator local executor to run 7 action(s)
+  Storage capacity 40Gb
+---- Starting trace ----
+UbaSessionServer - Disable remote execution (remote sessions will finish current processes)
+@progress 'Compiling C++ source code...' 0%
+------ Building 7 action(s) started ------
+@progress 'Compiling C++ source code...' 14%
+@progress 'Compiling C++ source code...' 29%
+[1/7] Compile Sky_Engineer.init.gen.cpp
+@progress 'Compiling C++ source code...' 43%
+[2/7] Compile Sky_Engineer.cpp
+@progress 'Compiling C++ source code...' 57%
+[3/7] Compile MainGameMode.cpp
+@progress 'Compiling C++ source code...' 71%
+[4/7] Compile PerModuleInline.gen.cpp
+@progress 'Compiling C++ source code...' 86%
+[5/7] Compile MainGameMode.gen.cpp
+[6/7] Link (lld) libUnrealEditor-Sky_Engineer-6097.so (UBA disabled)
+@progress 'Compiling C++ source code...' 100%
+[7/7] WriteMetadata Sky_EngineerEditor.target (UBA disabled)
+Trace file written to /home/boop/.config/Epic/UnrealBuildTool/Log.uba with size 2.5kb
+Total time in Unreal Build Accelerator local executor: 1.89 seconds
+Total execution time: 7.96 seconds
+
+[2025.07.02-19.28.28:929][577]CompilerResultsLog: Setting up bundled DotNet SDK
+[2025.07.02-19.28.28:929][577]CompilerResultsLog: Running command : dotnet Engine/Binaries/DotNET/UnrealBuildTool/UnrealBuildTool.dll -ModuleWithSuffix=Sky_Engineer,6097 Sky_EngineerEditor Linux Development -Project=/home/boop/Documents/Unreal Projects/Sky_Engineer/Sky_Engineer.uproject /home/boop/Documents/Unreal Projects/Sky_Engineer/Sky_Engineer.uproject -IgnoreJunk -progress
+[2025.07.02-19.28.28:929][577]CompilerResultsLog: Log file: /home/boop/.config/Epic/UnrealBuildTool/Log.txt
+[2025.07.02-19.28.28:929][577]CompilerResultsLog: Using 'git status' to determine working set for adaptive non-unity build (/home/boop/Documents/Unreal Projects/Sky_Engineer).
+[2025.07.02-19.28.28:929][577]CompilerResultsLog: Creating makefile for Sky_EngineerEditor (.uproject file is newer)
+[2025.07.02-19.28.28:929][577]CompilerResultsLog: @progress push 5%
+[2025.07.02-19.28.28:929][577]CompilerResultsLog: @progress 'Generating code...' 0%
+[2025.07.02-19.28.28:930][577]CompilerResultsLog: @progress 'Generating code...' 33%
+[2025.07.02-19.28.28:930][577]CompilerResultsLog: Parsing headers for Sky_EngineerEditor
+[2025.07.02-19.28.28:930][577]CompilerResultsLog:   Running Internal UnrealHeaderTool "/home/boop/Documents/Unreal Projects/Sky_Engineer/Sky_Engineer.uproject" "/home/boop/Documents/Unreal Projects/Sky_Engineer/Intermediate/Build/Linux/Sky_EngineerEditor/Development/Sky_EngineerEditor.uhtmanifest" -WarningsAsErrors -installed
+[2025.07.02-19.28.28:930][577]CompilerResultsLog: Total of 4 written
+[2025.07.02-19.28.28:930][577]CompilerResultsLog: Reflection code generated for Sky_EngineerEditor in 3.0400659 seconds
+[2025.07.02-19.28.28:930][577]CompilerResultsLog: @progress 'Generating code...' 67%
+[2025.07.02-19.28.28:930][577]CompilerResultsLog: @progress 'Generating code...' 100%
+[2025.07.02-19.28.28:930][577]CompilerResultsLog: @progress pop
+[2025.07.02-19.28.28:930][577]CompilerResultsLog: ------- Build details --------
+[2025.07.02-19.28.28:930][577]CompilerResultsLog: Using toolchain located at '/home/boop/Packages/Linux_Unreal_Engine_5.5.4/Engine/Extras/ThirdPartyNotUE/SDKs/HostLinux/Linux_x64/v23_clang-18.1.0-rockylinux8/x86_64-unknown-linux-gnu'.
+[2025.07.02-19.28.28:930][577]CompilerResultsLog: Using clang (/home/boop/Packages/Linux_Unreal_Engine_5.5.4/Engine/Extras/ThirdPartyNotUE/SDKs/HostLinux/Linux_x64/v23_clang-18.1.0-rockylinux8/x86_64-unknown-linux-gnu/bin/clang++) version 'clang version 18.1.0rc (github.com/llvm/llvm-project 461274b81d8641eab64d494accddc81d7db8a09e)
+[2025.07.02-19.28.28:930][577]CompilerResultsLog: Target: x86_64-unknown-linux-gnu
+[2025.07.02-19.28.28:930][577]CompilerResultsLog: Thread model: posix
+[2025.07.02-19.28.28:930][577]CompilerResultsLog: InstalledDir: /home/boop/Packages/Linux_Unreal_Engine_5.5.4/Engine/Extras/ThirdPartyNotUE/SDKs/HostLinux/Linux_x64/v23_clang-18.1.0-rockylinux8/x86_64-unknown-linux-gnu/bin' (string), 18 (major), 1 (minor), 0 (patch)
+[2025.07.02-19.28.28:930][577]CompilerResultsLog: Using bundled libc++ standard C++ library.
+[2025.07.02-19.28.28:930][577]CompilerResultsLog: Using lld linker
+[2025.07.02-19.28.28:930][577]CompilerResultsLog: Using llvm-ar (/home/boop/Packages/Linux_Unreal_Engine_5.5.4/Engine/Extras/ThirdPartyNotUE/SDKs/HostLinux/Linux_x64/v23_clang-18.1.0-rockylinux8/x86_64-unknown-linux-gnu/bin/llvm-ar) version 'LLVM (http://llvm.org/):
+[2025.07.02-19.28.28:930][577]CompilerResultsLog:   LLVM version 18.1.0rc
+[2025.07.02-19.28.28:930][577]CompilerResultsLog:   Optimized build. (string)'
+[2025.07.02-19.28.28:930][577]CompilerResultsLog: Using fast way to relink  circularly dependent libraries (no FixDeps).
+[2025.07.02-19.28.28:930][577]CompilerResultsLog: Compressing debug files
+[2025.07.02-19.28.28:930][577]CompilerResultsLog: Targeted minimum CPU architecture: None
+[2025.07.02-19.28.28:930][577]CompilerResultsLog: ------------------------------
+[2025.07.02-19.28.28:930][577]CompilerResultsLog: Building Sky_EngineerEditor...
+[2025.07.02-19.28.28:930][577]CompilerResultsLog: [Adaptive Build] Excluded from Sky_Engineer unity file: MainGameMode.cpp
+[2025.07.02-19.28.28:930][577]CompilerResultsLog: Determining max actions to execute in parallel (20 physical cores, 28 logical cores)
+[2025.07.02-19.28.28:930][577]CompilerResultsLog:   Executing up to 20 processes, one per physical core
+[2025.07.02-19.28.28:930][577]CompilerResultsLog:   Requested 1.5 GB memory per action, 10.6 GB available: limiting max parallel actions to 7
+[2025.07.02-19.28.28:930][577]CompilerResultsLog: Using Unreal Build Accelerator local executor to run 7 action(s)
+[2025.07.02-19.28.28:930][577]CompilerResultsLog:   Storage capacity 40Gb
+[2025.07.02-19.28.28:930][577]CompilerResultsLog: ---- Starting trace ----
+[2025.07.02-19.28.28:930][577]CompilerResultsLog: UbaSessionServer - Disable remote execution (remote sessions will finish current processes)
+[2025.07.02-19.28.28:930][577]CompilerResultsLog: @progress 'Compiling C++ source code...' 0%
+[2025.07.02-19.28.28:930][577]CompilerResultsLog: ------ Building 7 action(s) started ------
+[2025.07.02-19.28.28:930][577]CompilerResultsLog: @progress 'Compiling C++ source code...' 14%
+[2025.07.02-19.28.28:930][577]CompilerResultsLog: @progress 'Compiling C++ source code...' 29%
+[2025.07.02-19.28.28:931][577]CompilerResultsLog: [1/7] Compile Sky_Engineer.init.gen.cpp
+[2025.07.02-19.28.28:931][577]CompilerResultsLog: @progress 'Compiling C++ source code...' 43%
+[2025.07.02-19.28.28:931][577]CompilerResultsLog: [2/7] Compile Sky_Engineer.cpp
+[2025.07.02-19.28.28:931][577]CompilerResultsLog: @progress 'Compiling C++ source code...' 57%
+[2025.07.02-19.28.28:931][577]CompilerResultsLog: [3/7] Compile MainGameMode.cpp
+[2025.07.02-19.28.28:931][577]CompilerResultsLog: @progress 'Compiling C++ source code...' 71%
+[2025.07.02-19.28.28:931][577]CompilerResultsLog: [4/7] Compile PerModuleInline.gen.cpp
+[2025.07.02-19.28.28:931][577]CompilerResultsLog: @progress 'Compiling C++ source code...' 86%
+[2025.07.02-19.28.28:931][577]CompilerResultsLog: [5/7] Compile MainGameMode.gen.cpp
+[2025.07.02-19.28.28:931][577]CompilerResultsLog: [6/7] Link (lld) libUnrealEditor-Sky_Engineer-6097.so (UBA disabled)
+[2025.07.02-19.28.28:931][577]CompilerResultsLog: @progress 'Compiling C++ source code...' 100%
+[2025.07.02-19.28.28:931][577]CompilerResultsLog: [7/7] WriteMetadata Sky_EngineerEditor.target (UBA disabled)
+[2025.07.02-19.28.28:931][577]CompilerResultsLog: Trace file written to /home/boop/.config/Epic/UnrealBuildTool/Log.uba with size 2.5kb
+[2025.07.02-19.28.28:931][577]CompilerResultsLog: Total time in Unreal Build Accelerator local executor: 1.89 seconds
+[2025.07.02-19.28.28:931][577]CompilerResultsLog: Total execution time: 7.96 seconds
+[2025.07.02-19.28.28:931][577]LogMainFrame: MainFrame: Module compiling took 8.336 seconds
+[2025.07.02-19.28.28:932][577]Unloading module before compile.
+[2025.07.02-19.28.28:932][577]Module being reloaded does not support dynamic unloading -- abandoning existing loaded module so that we can load the recompiled version!
+[2025.07.02-19.28.28:932][577]Reloading module Sky_Engineer after successful compile.
+[2025.07.02-19.28.28:957][577]LogClass: Could not find existing package /Script/Sky_Engineer for reload of class MainGameMode, assuming a new package.
+[2025.07.02-19.28.28:993][577]LogUObjectHash: Compacting FUObjectHashTables data took   0.55ms
+[2025.07.02-19.28.28:997][577]Display: Reload/Re-instancing Complete: 1 package new, 1 class new
+[2025.07.02-19.28.29:548][577]LogSlate: Window 'Add C++ Class' being destroyed
+[2025.07.02-19.28.29:843][577]LogAutomationController: Ignoring very large delta of 12.40 seconds in calls to FAutomationControllerManager::Tick() and not penalizing unresponsive tests
+[2025.07.02-19.28.30:394][580]LogVulkanRHI: Warning: Failed to allocate Device Memory, Requested=9840.00Kb MemTypeIndex=1
+[2025.07.02-19.28.38:809][607]LogAudioMixer: Display: Audio Buffer Underrun (starvation) detected. InstanceID=1
+[2025.07.02-19.29.52:091][827]LogVulkanRHI: Warning: Failed to allocate Device Memory, Requested=9840.00Kb MemTypeIndex=1
+[2025.07.02-19.29.53:185][883]LogVulkanRHI: Warning: Failed to allocate Device Memory, Requested=8192.00Kb MemTypeIndex=1
+[2025.07.02-19.29.53:185][883]LogVulkanRHI: Warning: Failed to allocate Device Memory, Requested=8192.00Kb MemTypeIndex=1
+[2025.07.02-19.29.53:186][883]LogVulkanRHI: Warning: Failed to allocate Device Memory, Requested=9840.00Kb MemTypeIndex=1
+[2025.07.02-19.29.53:195][884]LogVulkanRHI: Warning: Failed to allocate Device Memory, Requested=8192.00Kb MemTypeIndex=1
+[2025.07.02-19.29.53:195][884]LogVulkanRHI: Warning: Failed to allocate Device Memory, Requested=8192.00Kb MemTypeIndex=1
+[2025.07.02-19.29.53:195][884]LogVulkanRHI: Warning: Failed to allocate Device Memory, Requested=8192.00Kb MemTypeIndex=1
+[2025.07.02-19.29.58:622][962]LogVulkanRHI: Warning: Failed to allocate Device Memory, Requested=9840.00Kb MemTypeIndex=1
+[2025.07.02-19.31.09:862][307]LogVulkanRHI: Warning: Failed to allocate Device Memory, Requested=9840.00Kb MemTypeIndex=1
+[2025.07.02-19.31.10:718][347]LogVulkanRHI: Warning: Failed to allocate Device Memory, Requested=8192.00Kb MemTypeIndex=1
+[2025.07.02-19.31.10:719][347]LogVulkanRHI: Warning: Failed to allocate Device Memory, Requested=8192.00Kb MemTypeIndex=1
+[2025.07.02-19.31.10:722][347]LogVulkanRHI: Warning: Failed to allocate Device Memory, Requested=9840.00Kb MemTypeIndex=1
+[2025.07.02-19.31.10:731][347]LogVulkanRHI: Warning: Failed to allocate Device Memory, Requested=8192.00Kb MemTypeIndex=1
+[2025.07.02-19.31.10:732][347]LogVulkanRHI: Warning: Failed to allocate Device Memory, Requested=8192.00Kb MemTypeIndex=1
+[2025.07.02-19.31.10:732][347]LogVulkanRHI: Warning: Failed to allocate Device Memory, Requested=8192.00Kb MemTypeIndex=1
+[2025.07.02-19.31.11:311][381]LogVulkanRHI: Warning: Failed to allocate Device Memory, Requested=9840.00Kb MemTypeIndex=1
+[2025.07.02-19.31.19:612][750]LogVulkanRHI: Warning: Failed to allocate Device Memory, Requested=9840.00Kb MemTypeIndex=1
+[2025.07.02-19.33.45:056][431]Candidate modules for hot reload:
+[2025.07.02-19.33.45:056][431]  Sky_Engineer
+[2025.07.02-19.33.45:076][431]Launching UnrealBuildTool... [/home/boop/Packages/Linux_Unreal_Engine_5.5.4/Engine/Build/BatchFiles/Linux/Build.sh  -ModuleWithSuffix=Sky_Engineer,9649 Sky_EngineerEditor Linux Development -Project="/home/boop/Documents/Unreal Projects/Sky_Engineer/Sky_Engineer.uproject" "/home/boop/Documents/Unreal Projects/Sky_Engineer/Sky_Engineer.uproject"  -IgnoreJunk -progress]
+[2025.07.02-19.33.45:077][431]Warning: Starting HotReload took  0.2s.
+[2025.07.02-19.33.57:276][133]CompilerResultsLog: Setting up bundled DotNet SDK
+[2025.07.02-19.33.57:276][133]CompilerResultsLog: Running command : dotnet Engine/Binaries/DotNET/UnrealBuildTool/UnrealBuildTool.dll -ModuleWithSuffix=Sky_Engineer,9649 Sky_EngineerEditor Linux Development -Project=/home/boop/Documents/Unreal Projects/Sky_Engineer/Sky_Engineer.uproject /home/boop/Documents/Unreal Projects/Sky_Engineer/Sky_Engineer.uproject -IgnoreJunk -progress
+[2025.07.02-19.33.57:277][133]CompilerResultsLog: Log file: /home/boop/.config/Epic/UnrealBuildTool/Log.txt
+[2025.07.02-19.33.57:277][133]CompilerResultsLog: Using 'git status' to determine working set for adaptive non-unity build (/home/boop/Documents/Unreal Projects/Sky_Engineer).
+[2025.07.02-19.33.57:277][133]CompilerResultsLog: Invalidating makefile for Sky_EngineerEditor (SharedPCH.Core.Cpp20.h.gch.rsp modified)
+[2025.07.02-19.33.57:277][133]CompilerResultsLog: @progress push 5%
+[2025.07.02-19.33.57:277][133]CompilerResultsLog: @progress 'Generating code...' 0%
+[2025.07.02-19.33.57:277][133]CompilerResultsLog: @progress 'Generating code...' 33%
+[2025.07.02-19.33.57:277][133]CompilerResultsLog: Parsing headers for Sky_EngineerEditor
+[2025.07.02-19.33.57:277][133]CompilerResultsLog:   Running Internal UnrealHeaderTool "/home/boop/Documents/Unreal Projects/Sky_Engineer/Sky_Engineer.uproject" "/home/boop/Documents/Unreal Projects/Sky_Engineer/Intermediate/Build/Linux/Sky_EngineerEditor/Development/Sky_EngineerEditor.uhtmanifest" -WarningsAsErrors -installed
+[2025.07.02-19.33.57:277][133]CompilerResultsLog: Total of 3 written
+[2025.07.02-19.33.57:277][133]CompilerResultsLog: Reflection code generated for Sky_EngineerEditor in 3.610566 seconds
+[2025.07.02-19.33.57:277][133]CompilerResultsLog: @progress 'Generating code...' 67%
+[2025.07.02-19.33.57:277][133]CompilerResultsLog: @progress 'Generating code...' 100%
+[2025.07.02-19.33.57:277][133]CompilerResultsLog: @progress pop
+[2025.07.02-19.33.57:277][133]CompilerResultsLog: ------- Build details --------
+[2025.07.02-19.33.57:277][133]CompilerResultsLog: Using toolchain located at '/home/boop/Packages/Linux_Unreal_Engine_5.5.4/Engine/Extras/ThirdPartyNotUE/SDKs/HostLinux/Linux_x64/v23_clang-18.1.0-rockylinux8/x86_64-unknown-linux-gnu'.
+[2025.07.02-19.33.57:277][133]CompilerResultsLog: Using clang (/home/boop/Packages/Linux_Unreal_Engine_5.5.4/Engine/Extras/ThirdPartyNotUE/SDKs/HostLinux/Linux_x64/v23_clang-18.1.0-rockylinux8/x86_64-unknown-linux-gnu/bin/clang++) version 'clang version 18.1.0rc (github.com/llvm/llvm-project 461274b81d8641eab64d494accddc81d7db8a09e)
+[2025.07.02-19.33.57:277][133]CompilerResultsLog: Target: x86_64-unknown-linux-gnu
+[2025.07.02-19.33.57:277][133]CompilerResultsLog: Thread model: posix
+[2025.07.02-19.33.57:277][133]CompilerResultsLog: InstalledDir: /home/boop/Packages/Linux_Unreal_Engine_5.5.4/Engine/Extras/ThirdPartyNotUE/SDKs/HostLinux/Linux_x64/v23_clang-18.1.0-rockylinux8/x86_64-unknown-linux-gnu/bin' (string), 18 (major), 1 (minor), 0 (patch)
+[2025.07.02-19.33.57:277][133]CompilerResultsLog: Using bundled libc++ standard C++ library.
+[2025.07.02-19.33.57:277][133]CompilerResultsLog: Using lld linker
+[2025.07.02-19.33.57:277][133]CompilerResultsLog: Using llvm-ar (/home/boop/Packages/Linux_Unreal_Engine_5.5.4/Engine/Extras/ThirdPartyNotUE/SDKs/HostLinux/Linux_x64/v23_clang-18.1.0-rockylinux8/x86_64-unknown-linux-gnu/bin/llvm-ar) version 'LLVM (http://llvm.org/):
+[2025.07.02-19.33.57:277][133]CompilerResultsLog:   LLVM version 18.1.0rc
+[2025.07.02-19.33.57:277][133]CompilerResultsLog:   Optimized build. (string)'
+[2025.07.02-19.33.57:277][133]CompilerResultsLog: Using fast way to relink  circularly dependent libraries (no FixDeps).
+[2025.07.02-19.33.57:277][133]CompilerResultsLog: Compressing debug files
+[2025.07.02-19.33.57:277][133]CompilerResultsLog: Targeted minimum CPU architecture: None
+[2025.07.02-19.33.57:277][133]CompilerResultsLog: ------------------------------
+[2025.07.02-19.33.57:277][133]CompilerResultsLog: Building Sky_EngineerEditor...
+[2025.07.02-19.33.57:277][133]CompilerResultsLog: [Adaptive Build] Excluded from Sky_Engineer unity file: MainGameMode.cpp
+[2025.07.02-19.33.57:277][133]CompilerResultsLog: Determining max actions to execute in parallel (20 physical cores, 28 logical cores)
+[2025.07.02-19.33.57:277][133]CompilerResultsLog:   Executing up to 20 processes, one per physical core
+[2025.07.02-19.33.57:277][133]CompilerResultsLog:   Requested 1.5 GB memory per action, 3.12 GB available: limiting max parallel actions to 2
+[2025.07.02-19.33.57:277][133]CompilerResultsLog: Using Unreal Build Accelerator local executor to run 5 action(s)
+[2025.07.02-19.33.57:277][133]CompilerResultsLog:   Storage capacity 40Gb
+[2025.07.02-19.33.57:277][133]CompilerResultsLog: ---- Starting trace ----
+[2025.07.02-19.33.57:277][133]CompilerResultsLog: UbaSessionServer - Disable remote execution (remote sessions will finish current processes)
+[2025.07.02-19.33.57:277][133]CompilerResultsLog: @progress 'Compiling C++ source code...' 0%
+[2025.07.02-19.33.57:277][133]CompilerResultsLog: ------ Building 5 action(s) started ------
+[2025.07.02-19.33.57:277][133]CompilerResultsLog: @progress 'Compiling C++ source code...' 20%
+[2025.07.02-19.33.57:277][133]CompilerResultsLog: @progress 'Compiling C++ source code...' 40%
+[2025.07.02-19.33.57:277][133]CompilerResultsLog: [1/5] Compile MainGameMode.cpp
+[2025.07.02-19.33.57:277][133]CompilerResultsLog: @progress 'Compiling C++ source code...' 60%
+[2025.07.02-19.33.57:277][133]CompilerResultsLog: [2/5] Compile MainGameMode.gen.cpp
+[2025.07.02-19.33.57:277][133]CompilerResultsLog: @progress 'Compiling C++ source code...' 80%
+[2025.07.02-19.33.57:277][133]CompilerResultsLog: [3/5] Compile Sky_Engineer.init.gen.cpp
+[2025.07.02-19.33.57:278][133]CompilerResultsLog: [4/5] Link (lld) libUnrealEditor-Sky_Engineer-9649.so (UBA disabled)
+[2025.07.02-19.33.57:278][133]CompilerResultsLog: @progress 'Compiling C++ source code...' 100%
+[2025.07.02-19.33.57:278][133]CompilerResultsLog: [5/5] WriteMetadata Sky_EngineerEditor.target (UBA disabled)
+[2025.07.02-19.33.57:278][133]CompilerResultsLog: Trace file written to /home/boop/.config/Epic/UnrealBuildTool/Log.uba with size 2.3kb
+[2025.07.02-19.33.57:278][133]CompilerResultsLog: Total time in Unreal Build Accelerator local executor: 3.23 seconds
+[2025.07.02-19.33.57:278][133]CompilerResultsLog: Total execution time: 11.95 seconds
+[2025.07.02-19.33.57:278][133]LogMainFrame: MainFrame: Module compiling took 12.356 seconds
+[2025.07.02-19.33.57:313][133]LogUObjectHash: Compacting FUObjectHashTables data took   1.31ms
+[2025.07.02-19.33.57:428][133]LogClass: UPackage /Script/Sky_Engineer Reload.
+[2025.07.02-19.33.57:437][133]LogStreaming: Display: FlushAsyncLoading(504): 1 QueuedPackages, 0 AsyncPackages
+[2025.07.02-19.33.57:438][133]LogStreaming: Warning: LoadPackage: SkipPackage: /Game/Player/Blueprints/BP_PlayerCharacter (0xCE30FE8DE7721DF7) - The package to load does not exist on disk or in the loader
+[2025.07.02-19.33.57:439][133]LogUObjectGlobals: Warning: Failed to find object 'Class /Game/Player/Blueprints/BP_PlayerCharacter.BP_PlayerCharacter_C'
+[2025.07.02-19.33.57:440][133]LogUObjectGlobals: Error: CDO Constructor (MainGameMode): Failed to find /Game/Player/Blueprints/BP_PlayerCharacter.BP_PlayerCharacter_C
+
+[2025.07.02-19.33.57:550][133]LogUObjectHash: Compacting FUObjectHashTables data took   0.79ms
+[2025.07.02-19.33.57:593][133]Display: HotReload took 12.7s.
+[2025.07.02-19.33.57:593][133]Display: Reload/Re-instancing Complete: 1 package changed, 1 class unchanged
+[2025.07.02-19.34.05:991][277]LogVulkanRHI: Warning: Failed to allocate Device Memory, Requested=9840.00Kb MemTypeIndex=1
+[2025.07.02-19.34.06:029][277]LogVulkanRHI: Warning: Failed to allocate Device Memory, Requested=8192.00Kb MemTypeIndex=1
+[2025.07.02-19.34.07:068][335]LogVulkanRHI: Warning: Failed to allocate Device Memory, Requested=14080.00Kb MemTypeIndex=1
+[2025.07.02-19.34.07:121][336]LogRenderer: Display: Invalidated clipmap due to WPO threshold change. This can occur due to resolution or FOV changes.
+[2025.07.02-19.34.07:373][338]LogVulkanRHI: Warning: Failed to allocate Device Memory, Requested=7336.00Kb MemTypeIndex=1
+[2025.07.02-19.34.07:379][338]LogVulkanRHI: Warning: Failed to allocate Device Memory, Requested=7336.00Kb MemTypeIndex=1
+[2025.07.02-19.34.07:387][338]LogRenderer: Display: Invalidated clipmap due to WPO threshold change. This can occur due to resolution or FOV changes.
+[2025.07.02-19.34.07:498][338]LogAudioMixer: Display: Audio Buffer Underrun (starvation) detected. InstanceID=1
+[2025.07.02-19.34.07:505][338]LogVulkanRHI: Warning: Failed to allocate Device Memory, Requested=14080.00Kb MemTypeIndex=1
+[2025.07.02-19.34.11:205][448]LogContentBrowser: Deferred new asset folder creation: NewFolder
+[2025.07.02-19.34.11:222][448]LogVulkanRHI: Warning: Failed to allocate Device Memory, Requested=9840.00Kb MemTypeIndex=1
+[2025.07.02-19.34.11:224][448]LogContentBrowser: Creating deferred item: NewFolder
+[2025.07.02-19.34.11:248][449]LogContentBrowser: Renaming the item being created (Deferred Item: NewFolder).
+[2025.07.02-19.34.13:407][630]LogContentBrowser: Attempting asset rename: NewFolder -> Global
+[2025.07.02-19.34.13:408][630]LogContentBrowser: End creating deferred item NewFolder
+[2025.07.02-19.34.14:392][693]LogVulkanRHI: Warning: Failed to allocate Device Memory, Requested=9840.00Kb MemTypeIndex=1
+[2025.07.02-19.34.37:285][428]LogSlate: Window 'Pick Parent Class' being destroyed
+[2025.07.02-19.34.37:344][428]LogContentBrowser: Deferred new asset file creation: NewBlueprint
+[2025.07.02-19.34.37:362][428]LogContentBrowser: Creating deferred item: NewBlueprint
+[2025.07.02-19.34.37:377][428]LogAutomationController: Ignoring very large delta of 10.90 seconds in calls to FAutomationControllerManager::Tick() and not penalizing unresponsive tests
+[2025.07.02-19.34.37:406][430]LogContentBrowser: Renaming the item being created (Deferred Item: NewBlueprint).
+[2025.07.02-19.34.44:067][ 17]LogContentBrowser: Attempting asset rename: NewBlueprint -> BP_MainGameMode
+[2025.07.02-19.34.44:857][ 17]LogContentBrowser: End creating deferred item NewBlueprint
+[2025.07.02-19.34.46:100][117]LogVulkanRHI: Warning: Failed to allocate Device Memory, Requested=9840.00Kb MemTypeIndex=1
+[2025.07.02-19.34.46:149][119]LogAssetEditorSubsystem: Opening Asset editor for Blueprint /Game/Global/BP_MainGameMode.BP_MainGameMode
+[2025.07.02-19.34.46:152][119]LogChaosDD: Not creating Chaos Debug Draw Scene for world World_2
+[2025.07.02-19.34.46:162][119]LogVulkanRHI: Warning: Failed to allocate Device Memory, Requested=8192.00Kb MemTypeIndex=1
+[2025.07.02-19.34.46:168][119]LogVulkanRHI: Warning: Failed to allocate Device Memory, Requested=16384.00Kb MemTypeIndex=1
+[2025.07.02-19.34.46:179][119]LogVulkanRHI: Warning: Failed to allocate Device Memory, Requested=8192.00Kb MemTypeIndex=1
+[2025.07.02-19.34.46:184][119]LogVulkanRHI: Warning: Failed to allocate Device Memory, Requested=4096.00Kb MemTypeIndex=1
+[2025.07.02-19.34.46:187][119]LogVulkanRHI: Warning: Failed to allocate Device Memory, Requested=4096.00Kb MemTypeIndex=1
+[2025.07.02-19.34.46:191][119]LogVulkanRHI: Warning: Failed to allocate Device Memory, Requested=10240.00Kb MemTypeIndex=1
+[2025.07.02-19.34.46:331][119]LogVulkanRHI: Warning: Failed to allocate Device Memory, Requested=6720.00Kb MemTypeIndex=1
+[2025.07.02-19.34.46:630][119]LogStreaming: Display: FlushAsyncLoading(506): 1 QueuedPackages, 0 AsyncPackages
+[2025.07.02-19.34.48:764][119]LogStaticMesh: Display: Building static mesh PhAT_FloorBox (Required Memory Estimate: 0.024887 MB)...
+[2025.07.02-19.34.48:768][119]LogStaticMesh: Built static mesh [0.01s] /Engine/EditorMeshes/PhAT_FloorBox.PhAT_FloorBox
+[2025.07.02-19.34.49:205][119]LogSlate: Took 0.000451 seconds to synchronously load lazily loaded font '../../../Engine/Content/Editor/Slate/Fonts/FontAwesome.ttf' (139K)
+[2025.07.02-19.34.49:220][119]LogVulkanRHI: Warning: Failed to allocate Device Memory, Requested=2880.00Kb MemTypeIndex=1
+[2025.07.02-19.34.49:222][119]LogVulkanRHI: Warning: Failed to allocate Device Memory, Requested=2880.00Kb MemTypeIndex=1
+[2025.07.02-19.34.49:224][119]LogVulkanRHI: Warning: Failed to allocate Device Memory, Requested=524288.00Kb MemTypeIndex=1
+[2025.07.02-19.34.49:236][119]LogAutomationController: Ignoring very large delta of 3.11 seconds in calls to FAutomationControllerManager::Tick() and not penalizing unresponsive tests
+[2025.07.02-19.34.49:381][120]LogVulkanRHI: Warning: Failed to allocate Device Memory, Requested=87385.50Kb MemTypeIndex=1
+[2025.07.02-19.37.15:402][815]LogAudioMixer: Display: Audio Buffer Underrun (starvation) detected. InstanceID=1
+[2025.07.02-19.38.30:408][300]LogUObjectHash: Compacting FUObjectHashTables data took   1.69ms
+[2025.07.02-19.38.30:411][300]LogFileHelpers: Editor autosave (incl. external actors) for '/Game/Map' took 0.109
+[2025.07.02-19.38.30:413][300]OBJ SavePackage: Generating thumbnails for [0] asset(s) in package [/Game/Global/BP_MainGameMode] ([2] browsable assets)...
+[2025.07.02-19.38.30:413][300]OBJ SavePackage: Finished generating thumbnails for package [/Game/Global/BP_MainGameMode]
+[2025.07.02-19.38.30:421][300]LogWorldPartition: Can't find class descriptor '/Game/Global/BP_MainGameMode.BP_MainGameMode_C' for saving '/Game/Global/BP_MainGameMode.BP_MainGameMode_C'
+[2025.07.02-19.38.30:422][300]LogWorldPartition: Can't find class descriptor '/Game/Global/BP_MainGameMode.BP_MainGameMode_C' for saving '/Game/Global/BP_MainGameMode.BP_MainGameMode_C'
+[2025.07.02-19.38.30:423][300]LogSavePackage: Moving output files for package: /Temp/Autosaves/Game/Global/BP_MainGameMode_Auto1
+[2025.07.02-19.38.30:423][300]LogSavePackage: Moving '../../../../../Documents/Unreal Projects/Sky_Engineer/Saved/BP_MainGameMode_Auto1ADE214493EFD45A5A632EDB6EDFCD042.tmp' to '../../../../../Documents/Unreal Projects/Sky_Engineer/Saved/Autosaves/Game/Global/BP_MainGameMode_Auto1.uasset'
+[2025.07.02-19.38.30:424][300]LogFileHelpers: Auto-saving content packages took 0.013
