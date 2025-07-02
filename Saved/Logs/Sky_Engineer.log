@@ -1932,3 +1932,962 @@ LogConfig: Set CVar [[r.Shadow.DetectVertexShaderLayerAtRuntime:1]]
 [2025.07.02-19.05.16:517][540]LogShaderCompilers: Display: ================================================
 [2025.07.02-19.05.16:583][540]LogAutomationController: Ignoring very large delta of 4.25 seconds in calls to FAutomationControllerManager::Tick() and not penalizing unresponsive tests
 [2025.07.02-19.05.50:248][ 60]LogSlate: Window 'Revision Control Login' being destroyed
+[2025.07.02-19.08.50:632][497]Cmd: CAMERA ALIGN ACTIVEVIEWPORTONLY
+[2025.07.02-19.08.50:632][497]Can't find target element.
+[2025.07.02-19.08.53:216][652]Cmd: CAMERA ALIGN ACTIVEVIEWPORTONLY
+[2025.07.02-19.08.53:216][652]Can't find target element.
+[2025.07.02-19.08.54:354][708]Cmd: CAMERA ALIGN ACTIVEVIEWPORTONLY
+[2025.07.02-19.09.01:014][ 79]LogChaosDD: Not creating Chaos Debug Draw Scene for world World_0
+[2025.07.02-19.09.01:931][125]Cmd: SELECT NONE
+[2025.07.02-19.09.02:111][134]Cmd: SELECT NONE
+[2025.07.02-19.10.06:714][280]Cmd: TRANSACTION UNDO
+[2025.07.02-19.10.06:714][280]LogEditorTransaction: Undo Select None
+[2025.07.02-19.10.07:036][281]LogChaosDD: Not creating Chaos Debug Draw Scene for world World_1
+[2025.07.02-19.10.08:068][328]Cmd: CAMERA ALIGN ACTIVEVIEWPORTONLY
+[2025.07.02-19.10.14:128][662]Cmd: CAMERA ALIGN ACTIVEVIEWPORTONLY
+[2025.07.02-19.10.17:090][812]Cmd: CAMERA ALIGN ACTIVEVIEWPORTONLY
+[2025.07.02-19.10.20:301][982]Cmd: CAMERA ALIGN ACTIVEVIEWPORTONLY
+[2025.07.02-19.10.42:976][271]SourceControl: Error: fatal: Invalid path '/Temp': No such file or directory
+[2025.07.02-19.11.16:749][897]LogShaderCompilers: Display: ================================================
+[2025.07.02-19.11.16:749][897]LogShaderCompilers: Display: === FShaderJobCache stats ===
+[2025.07.02-19.11.16:749][897]LogShaderCompilers: Display: Total job queries 11,825, among them cache hits 5 (0.04%), DDC hits 95 (0.80%), Duplicates 2,697 (22.81%)
+[2025.07.02-19.11.16:749][897]LogShaderCompilers: Display: Tracking 9,123 distinct input hashes that result in 8,639 distinct outputs (94.69%)
+[2025.07.02-19.11.16:749][897]LogShaderCompilers: Display: RAM used: 7.63 MiB of 1.60 GiB budget. Usage: 0.47%
+[2025.07.02-19.11.16:749][897]LogShaderCompilers: Display: === Shader Compilation stats ===
+[2025.07.02-19.11.16:749][897]LogShaderCompilers: Display: Shaders Compiled: 9,028
+[2025.07.02-19.11.16:749][897]LogShaderCompilers: Display: Jobs assigned 9,028, completed 9,028 (100%)
+[2025.07.02-19.11.16:749][897]LogShaderCompilers: Display: Average time worker was idle: 5.18 s
+[2025.07.02-19.11.16:749][897]LogShaderCompilers: Display: Time job spent in pending queue: average 100.06 s, longest 294.56 s
+[2025.07.02-19.11.16:749][897]LogShaderCompilers: Display: Job execution time: average 5.36 s, max 177.25 s
+[2025.07.02-19.11.16:749][897]LogShaderCompilers: Display: Job life time (pending + execution): average 105.43 s, max 363.57
+[2025.07.02-19.11.16:749][897]LogShaderCompilers: Display: Shader code size: average 36.145 KiB, min 359 B, max 0.991 MiB
+[2025.07.02-19.11.16:749][897]LogShaderCompilers: Display: Time at least one job was in flight (either pending or executed): 420.04 s
+[2025.07.02-19.11.16:749][897]LogShaderCompilers: Display: Mutex wait stall in FShaderJobCache::SubmitJobs:  3.89%
+[2025.07.02-19.11.16:749][897]LogShaderCompilers: Display: Jobs were issued in 1,010 batches (only local compilation was used), average 8.94 jobs/batch
+[2025.07.02-19.11.16:749][897]LogShaderCompilers: Display: Average processing rate: 21.49 jobs/sec
+[2025.07.02-19.11.16:749][897]LogShaderCompilers: Display: Total thread time: 4,891.867 s
+[2025.07.02-19.11.16:749][897]LogShaderCompilers: Display: Total thread preprocess time: 105.251 s
+[2025.07.02-19.11.16:749][897]LogShaderCompilers: Display: Percentage time preprocessing: 2.15%
+[2025.07.02-19.11.16:749][897]LogShaderCompilers: Display: Effective parallelization: 11.65 (times faster than compiling all shaders on one thread). Compare with number of workers: 14
+[2025.07.02-19.11.16:750][897]LogShaderCompilers: Display: Top 5 most expensive shader types by average time:
+[2025.07.02-19.11.16:750][897]LogShaderCompilers: Display:                                          FTSRRejectShadingCS (compiled   24 times, average 48.69 sec, max 140.39 sec, min 1.58 sec)
+[2025.07.02-19.11.16:750][897]LogShaderCompilers: Display:                                   FSSDTemporalAccumulationCS (compiled   10 times, average 25.50 sec, max 39.62 sec, min 4.90 sec)
+[2025.07.02-19.11.16:750][897]LogShaderCompilers: Display:                                               FPathTracingRG (compiled    1 times, average 12.96 sec, max 12.96 sec, min 12.96 sec)
+[2025.07.02-19.11.16:750][897]LogShaderCompilers: Display:                                          FClusteredShadingPS (compiled   32 times, average 5.40 sec, max 14.60 sec, min 0.60 sec)
+[2025.07.02-19.11.16:750][897]LogShaderCompilers: Display:                                      FHairDebugPrintMemoryCS (compiled    1 times, average 4.47 sec, max 4.47 sec, min 4.47 sec)
+[2025.07.02-19.11.16:751][897]LogShaderCompilers: Display: Top 5 shader types by total compile time:
+[2025.07.02-19.11.16:751][897]LogShaderCompilers: Display:                                          FTSRRejectShadingCS - 23.89% of total time (compiled   24 times, average 48.69 sec, max 140.39 sec, min 1.58 sec)
+[2025.07.02-19.11.16:751][897]LogShaderCompilers: Display:                                             FDeferredLightPS - 7.93% of total time (compiled  454 times, average 0.85 sec, max 1.68 sec, min 0.48 sec)
+[2025.07.02-19.11.16:751][897]LogShaderCompilers: Display:                                        FMicropolyRasterizeCS - 7.66% of total time (compiled  260 times, average 1.44 sec, max 3.25 sec, min 0.00 sec)
+[2025.07.02-19.11.16:751][897]LogShaderCompilers: Display:                                   FSSDTemporalAccumulationCS - 5.21% of total time (compiled   10 times, average 25.50 sec, max 39.62 sec, min 4.90 sec)
+[2025.07.02-19.11.16:751][897]LogShaderCompilers: Display:                              FVolumetricFogLightScatteringCS - 4.63% of total time (compiled  480 times, average 0.47 sec, max 2.03 sec, min 0.20 sec)
+[2025.07.02-19.11.16:751][897]LogShaderCompilers: Display: === Material stats ===
+[2025.07.02-19.11.16:751][897]LogShaderCompilers: Display: Materials Cooked:        0
+[2025.07.02-19.11.16:751][897]LogShaderCompilers: Display: Materials Translated:    129
+[2025.07.02-19.11.16:751][897]LogShaderCompilers: Display: Material Total Translate Time: 0.07 s
+[2025.07.02-19.11.16:751][897]LogShaderCompilers: Display: Material Translation Only: 0.04 s (51%)
+[2025.07.02-19.11.16:751][897]LogShaderCompilers: Display: Material DDC Serialization Only: 0.00 s (0%)
+[2025.07.02-19.11.16:751][897]LogShaderCompilers: Display: Material Cache Hits: 0 (0%)
+[2025.07.02-19.11.16:751][897]LogShaderCompilers: Display: ================================================
+[2025.07.02-19.11.31:491][560]SourceControl: Error: fatal: Invalid path '/Temp': No such file or directory
+[2025.07.02-19.11.31:491][560]SourceControl: Error: fatal: Invalid path '/Temp': No such file or directory
+[2025.07.02-19.11.31:491][560]SourceControl: Error: fatal: Invalid path '/Temp': No such file or directory
+[2025.07.02-19.11.31:491][560]SourceControl: Error: fatal: Invalid path '/Temp': No such file or directory
+[2025.07.02-19.11.31:491][560]SourceControl: Error: fatal: Invalid path '/Temp': No such file or directory
+[2025.07.02-19.11.31:491][560]SourceControl: Error: fatal: Invalid path '/Temp': No such file or directory
+[2025.07.02-19.11.31:491][560]SourceControl: Error: fatal: Invalid path '/Temp': No such file or directory
+[2025.07.02-19.11.31:491][560]SourceControl: Error: fatal: Invalid path '/Temp': No such file or directory
+[2025.07.02-19.11.31:491][560]SourceControl: Error: fatal: Invalid path '/Temp': No such file or directory
+[2025.07.02-19.11.31:491][560]SourceControl: Error: fatal: Invalid path '/Temp': No such file or directory
+[2025.07.02-19.11.31:491][560]SourceControl: Error: fatal: Invalid path '/Temp': No such file or directory
+[2025.07.02-19.11.31:491][560]SourceControl: Error: fatal: Invalid path '/Temp': No such file or directory
+[2025.07.02-19.11.31:491][560]SourceControl: Error: fatal: Invalid path '/Temp': No such file or directory
+[2025.07.02-19.11.31:491][560]SourceControl: Error: fatal: Invalid path '/Temp': No such file or directory
+[2025.07.02-19.11.31:491][560]SourceControl: Error: fatal: Invalid path '/Temp': No such file or directory
+[2025.07.02-19.11.31:491][560]SourceControl: Error: fatal: Invalid path '/Temp': No such file or directory
+[2025.07.02-19.11.31:492][560]SourceControl: Error: fatal: Invalid path '/Temp': No such file or directory
+[2025.07.02-19.11.31:492][560]SourceControl: Error: fatal: Invalid path '/Temp': No such file or directory
+[2025.07.02-19.11.31:492][560]SourceControl: Error: fatal: Invalid path '/Temp': No such file or directory
+[2025.07.02-19.11.31:492][560]SourceControl: Error: fatal: Invalid path '/Temp': No such file or directory
+[2025.07.02-19.11.31:492][560]SourceControl: Error: fatal: Invalid path '/Temp': No such file or directory
+[2025.07.02-19.11.31:492][560]SourceControl: Error: fatal: Invalid path '/Temp': No such file or directory
+[2025.07.02-19.11.31:492][560]SourceControl: Error: fatal: Invalid path '/Temp': No such file or directory
+[2025.07.02-19.11.31:492][560]SourceControl: Error: fatal: Invalid path '/Temp': No such file or directory
+[2025.07.02-19.11.31:492][560]SourceControl: Error: fatal: Invalid path '/Temp': No such file or directory
+[2025.07.02-19.11.31:492][560]SourceControl: Error: fatal: Invalid path '/Temp': No such file or directory
+[2025.07.02-19.11.31:492][560]SourceControl: Error: fatal: Invalid path '/Temp': No such file or directory
+[2025.07.02-19.11.31:492][560]SourceControl: Error: fatal: Invalid path '/Temp': No such file or directory
+[2025.07.02-19.11.31:492][560]SourceControl: Error: fatal: Invalid path '/Temp': No such file or directory
+[2025.07.02-19.11.31:492][560]SourceControl: Error: fatal: Invalid path '/Temp': No such file or directory
+[2025.07.02-19.11.31:492][560]SourceControl: Error: fatal: Invalid path '/Temp': No such file or directory
+[2025.07.02-19.11.31:492][560]SourceControl: Error: fatal: Invalid path '/Temp': No such file or directory
+[2025.07.02-19.11.31:492][560]SourceControl: Error: fatal: Invalid path '/Temp': No such file or directory
+[2025.07.02-19.11.31:492][560]SourceControl: Error: fatal: Invalid path '/Temp': No such file or directory
+[2025.07.02-19.11.31:492][560]SourceControl: Error: fatal: Invalid path '/Temp': No such file or directory
+[2025.07.02-19.11.31:492][560]SourceControl: Error: fatal: Invalid path '/Temp': No such file or directory
+[2025.07.02-19.11.31:492][560]SourceControl: Error: fatal: Invalid path '/Temp': No such file or directory
+[2025.07.02-19.11.31:492][560]SourceControl: Error: fatal: Invalid path '/Temp': No such file or directory
+[2025.07.02-19.11.31:492][560]SourceControl: Error: fatal: Invalid path '/Temp': No such file or directory
+[2025.07.02-19.11.31:492][560]SourceControl: Error: fatal: Invalid path '/Temp': No such file or directory
+[2025.07.02-19.11.31:492][560]SourceControl: Error: fatal: Invalid path '/Temp': No such file or directory
+[2025.07.02-19.11.31:493][560]SourceControl: Error: fatal: Invalid path '/Temp': No such file or directory
+[2025.07.02-19.11.31:493][560]SourceControl: Error: fatal: Invalid path '/Temp': No such file or directory
+[2025.07.02-19.11.31:493][560]SourceControl: Error: fatal: Invalid path '/Temp': No such file or directory
+[2025.07.02-19.11.31:493][560]SourceControl: Error: fatal: Invalid path '/Temp': No such file or directory
+[2025.07.02-19.11.31:493][560]SourceControl: Error: fatal: Invalid path '/Temp': No such file or directory
+[2025.07.02-19.11.31:493][560]SourceControl: Error: fatal: Invalid path '/Temp': No such file or directory
+[2025.07.02-19.11.31:493][560]SourceControl: Error: fatal: Invalid path '/Temp': No such file or directory
+[2025.07.02-19.11.31:493][560]SourceControl: Error: fatal: Invalid path '/Temp': No such file or directory
+[2025.07.02-19.11.31:493][560]SourceControl: Error: fatal: Invalid path '/Temp': No such file or directory
+[2025.07.02-19.11.31:493][560]SourceControl: Error: fatal: Invalid path '/Temp': No such file or directory
+[2025.07.02-19.11.31:493][560]SourceControl: Error: fatal: Invalid path '/Temp': No such file or directory
+[2025.07.02-19.11.31:493][560]SourceControl: Error: fatal: Invalid path '/Temp': No such file or directory
+[2025.07.02-19.11.31:493][560]SourceControl: Error: fatal: Invalid path '/Temp': No such file or directory
+[2025.07.02-19.11.31:493][560]SourceControl: Error: fatal: Invalid path '/Temp': No such file or directory
+[2025.07.02-19.11.31:493][560]SourceControl: Error: fatal: Invalid path '/Temp': No such file or directory
+[2025.07.02-19.11.31:493][560]SourceControl: Error: fatal: Invalid path '/Temp': No such file or directory
+[2025.07.02-19.11.31:493][560]SourceControl: Error: fatal: Invalid path '/Temp': No such file or directory
+[2025.07.02-19.11.31:493][560]SourceControl: Error: fatal: Invalid path '/Temp': No such file or directory
+[2025.07.02-19.11.31:493][560]SourceControl: Error: fatal: Invalid path '/Temp': No such file or directory
+[2025.07.02-19.11.31:493][560]SourceControl: Error: fatal: Invalid path '/Temp': No such file or directory
+[2025.07.02-19.11.31:493][560]SourceControl: Error: fatal: Invalid path '/Temp': No such file or directory
+[2025.07.02-19.11.31:493][560]SourceControl: Error: fatal: Invalid path '/Temp': No such file or directory
+[2025.07.02-19.11.40:006][956]Cmd: DELETE
+[2025.07.02-19.11.40:007][956]Cmd: ACTOR DELETE
+[2025.07.02-19.11.40:021][956]LogEditorActor: Deleted Actor: LandscapeStreamingProxy
+[2025.07.02-19.11.40:145][956]LogUObjectHash: Compacting FUObjectHashTables data took   0.31ms
+[2025.07.02-19.11.40:146][956]LogEditorActor: Deleted 1 Actors (0.139 secs)
+[2025.07.02-19.11.40:671][988]SourceControl: Error: fatal: Invalid path '/Temp': No such file or directory
+[2025.07.02-19.11.40:682][989]SourceControl: fatal: /Temp: '/Temp' is outside repository at '/home/boop/Documents/Unreal Projects/Sky_Engineer'
+[2025.07.02-19.11.41:798][ 52]SourceControl: fatal: /Temp: '/Temp' is outside repository at '/home/boop/Documents/Unreal Projects/Sky_Engineer'
+[2025.07.02-19.11.55:505][774]SourceControl: Error: fatal: Invalid path '/Temp': No such file or directory
+[2025.07.02-19.12.00:261][906]SourceControl: Error: fatal: Invalid path '/Temp': No such file or directory
+[2025.07.02-19.12.01:935][968]Cmd: DELETE
+[2025.07.02-19.12.01:935][968]Cmd: ACTOR DELETE
+[2025.07.02-19.12.01:940][968]LogEditorActor: Deleted Actor: LandscapeStreamingProxy
+[2025.07.02-19.12.02:003][968]LogUObjectHash: Compacting FUObjectHashTables data took   0.77ms
+[2025.07.02-19.12.02:007][968]LogEditorActor: Deleted 1 Actors (0.072 secs)
+[2025.07.02-19.12.02:530][976]SourceControl: Error: fatal: Invalid path '/Temp': No such file or directory
+[2025.07.02-19.12.05:986][125]Cmd: DELETE
+[2025.07.02-19.12.05:987][125]Cmd: ACTOR DELETE
+[2025.07.02-19.12.05:993][125]LogEditorActor: Deleted Actor: LandscapeStreamingProxy
+[2025.07.02-19.12.06:029][125]LogEditorActor: Deleted Actor: LandscapeStreamingProxy
+[2025.07.02-19.12.06:048][125]LogEditorActor: Deleted Actor: LandscapeStreamingProxy
+[2025.07.02-19.12.06:059][125]LogEditorActor: Deleted Actor: LandscapeStreamingProxy
+[2025.07.02-19.12.06:067][125]LogEditorActor: Deleted Actor: LandscapeStreamingProxy
+[2025.07.02-19.12.06:075][125]LogEditorActor: Deleted Actor: LandscapeStreamingProxy
+[2025.07.02-19.12.06:082][125]LogEditorActor: Deleted Actor: LandscapeStreamingProxy
+[2025.07.02-19.12.06:089][125]LogEditorActor: Deleted Actor: LandscapeStreamingProxy
+[2025.07.02-19.12.06:096][125]LogEditorActor: Deleted Actor: LandscapeStreamingProxy
+[2025.07.02-19.12.06:103][125]LogEditorActor: Deleted Actor: LandscapeStreamingProxy
+[2025.07.02-19.12.06:110][125]LogEditorActor: Deleted Actor: LandscapeStreamingProxy
+[2025.07.02-19.12.06:116][125]LogEditorActor: Deleted Actor: LandscapeStreamingProxy
+[2025.07.02-19.12.06:123][125]LogEditorActor: Deleted Actor: LandscapeStreamingProxy
+[2025.07.02-19.12.06:129][125]LogEditorActor: Deleted Actor: LandscapeStreamingProxy
+[2025.07.02-19.12.06:135][125]LogEditorActor: Deleted Actor: LandscapeStreamingProxy
+[2025.07.02-19.12.06:141][125]LogEditorActor: Deleted Actor: LandscapeStreamingProxy
+[2025.07.02-19.12.06:147][125]LogEditorActor: Deleted Actor: LandscapeStreamingProxy
+[2025.07.02-19.12.06:153][125]LogEditorActor: Deleted Actor: LandscapeStreamingProxy
+[2025.07.02-19.12.06:159][125]LogEditorActor: Deleted Actor: LandscapeStreamingProxy
+[2025.07.02-19.12.06:164][125]LogEditorActor: Deleted Actor: LandscapeStreamingProxy
+[2025.07.02-19.12.06:169][125]LogEditorActor: Deleted Actor: LandscapeStreamingProxy
+[2025.07.02-19.12.06:175][125]LogEditorActor: Deleted Actor: LandscapeStreamingProxy
+[2025.07.02-19.12.06:180][125]LogEditorActor: Deleted Actor: LandscapeStreamingProxy
+[2025.07.02-19.12.06:185][125]LogEditorActor: Deleted Actor: LandscapeStreamingProxy
+[2025.07.02-19.12.06:190][125]LogEditorActor: Deleted Actor: LandscapeStreamingProxy
+[2025.07.02-19.12.06:194][125]LogEditorActor: Deleted Actor: LandscapeStreamingProxy
+[2025.07.02-19.12.06:199][125]LogEditorActor: Deleted Actor: LandscapeStreamingProxy
+[2025.07.02-19.12.06:203][125]LogEditorActor: Deleted Actor: LandscapeStreamingProxy
+[2025.07.02-19.12.06:208][125]LogEditorActor: Deleted Actor: LandscapeStreamingProxy
+[2025.07.02-19.12.06:212][125]LogEditorActor: Deleted Actor: LandscapeStreamingProxy
+[2025.07.02-19.12.06:216][125]LogEditorActor: Deleted Actor: LandscapeStreamingProxy
+[2025.07.02-19.12.06:220][125]LogEditorActor: Deleted Actor: LandscapeStreamingProxy
+[2025.07.02-19.12.06:224][125]LogEditorActor: Deleted Actor: LandscapeStreamingProxy
+[2025.07.02-19.12.06:228][125]LogEditorActor: Deleted Actor: LandscapeStreamingProxy
+[2025.07.02-19.12.06:232][125]LogEditorActor: Deleted Actor: LandscapeStreamingProxy
+[2025.07.02-19.12.06:235][125]LogEditorActor: Deleted Actor: LandscapeStreamingProxy
+[2025.07.02-19.12.06:239][125]LogEditorActor: Deleted Actor: LandscapeStreamingProxy
+[2025.07.02-19.12.06:242][125]LogEditorActor: Deleted Actor: LandscapeStreamingProxy
+[2025.07.02-19.12.06:246][125]LogEditorActor: Deleted Actor: LandscapeStreamingProxy
+[2025.07.02-19.12.06:249][125]LogEditorActor: Deleted Actor: LandscapeStreamingProxy
+[2025.07.02-19.12.06:252][125]LogEditorActor: Deleted Actor: LandscapeStreamingProxy
+[2025.07.02-19.12.06:255][125]LogEditorActor: Deleted Actor: LandscapeStreamingProxy
+[2025.07.02-19.12.06:258][125]LogEditorActor: Deleted Actor: LandscapeStreamingProxy
+[2025.07.02-19.12.06:261][125]LogEditorActor: Deleted Actor: LandscapeStreamingProxy
+[2025.07.02-19.12.06:264][125]LogEditorActor: Deleted Actor: LandscapeStreamingProxy
+[2025.07.02-19.12.06:267][125]LogEditorActor: Deleted Actor: LandscapeStreamingProxy
+[2025.07.02-19.12.06:270][125]LogEditorActor: Deleted Actor: LandscapeStreamingProxy
+[2025.07.02-19.12.06:272][125]LogEditorActor: Deleted Actor: LandscapeStreamingProxy
+[2025.07.02-19.12.06:275][125]LogEditorActor: Deleted Actor: LandscapeStreamingProxy
+[2025.07.02-19.12.06:277][125]LogEditorActor: Deleted Actor: LandscapeStreamingProxy
+[2025.07.02-19.12.06:280][125]LogEditorActor: Deleted Actor: LandscapeStreamingProxy
+[2025.07.02-19.12.06:282][125]LogEditorActor: Deleted Actor: LandscapeStreamingProxy
+[2025.07.02-19.12.06:284][125]LogEditorActor: Deleted Actor: LandscapeStreamingProxy
+[2025.07.02-19.12.06:286][125]LogEditorActor: Deleted Actor: LandscapeStreamingProxy
+[2025.07.02-19.12.06:289][125]LogEditorActor: Deleted Actor: LandscapeStreamingProxy
+[2025.07.02-19.12.06:291][125]LogEditorActor: Deleted Actor: LandscapeStreamingProxy
+[2025.07.02-19.12.06:293][125]LogEditorActor: Deleted Actor: LandscapeStreamingProxy
+[2025.07.02-19.12.06:294][125]LogEditorActor: Deleted Actor: LandscapeStreamingProxy
+[2025.07.02-19.12.06:296][125]LogEditorActor: Deleted Actor: LandscapeStreamingProxy
+[2025.07.02-19.12.06:298][125]LogEditorActor: Deleted Actor: LandscapeStreamingProxy
+[2025.07.02-19.12.06:300][125]LogEditorActor: Deleted Actor: LandscapeStreamingProxy
+[2025.07.02-19.12.06:301][125]LogEditorActor: Deleted Actor: LandscapeStreamingProxy
+[2025.07.02-19.12.06:308][125]LogUObjectHash: Compacting FUObjectHashTables data took   0.14ms
+[2025.07.02-19.12.06:310][125]LogEditorActor: Deleted 62 Actors (0.323 secs)
+[2025.07.02-19.12.09:417][274]Cmd: DELETE
+[2025.07.02-19.12.09:417][274]Cmd: ACTOR DELETE
+[2025.07.02-19.12.09:421][274]LogEditorActor: Deleted Actor: Landscape
+[2025.07.02-19.12.09:442][274]LogUObjectHash: Compacting FUObjectHashTables data took   0.46ms
+[2025.07.02-19.12.09:448][274]LogEditorActor: Deleted 1 Actors (0.031 secs)
+[2025.07.02-19.12.09:968][307]SourceControl: Error: fatal: Invalid path '/Temp': No such file or directory
+[2025.07.02-19.12.16:918][647]LogSlate: Took 0.000381 seconds to synchronously load lazily loaded font '../../../Engine/Content/Slate/Fonts/Roboto-BoldCondensed.ttf' (158K)
+[2025.07.02-19.12.16:920][647]Cmd: MAP REBUILD ALLVISIBLE
+[2025.07.02-19.12.16:981][647]LogEditorServer: Rebuildmap Clear paths rebuilt
+[2025.07.02-19.12.16:994][647]LogWorld: UWorld::CleanupWorld for Untitled_1, bSessionEnded=true, bCleanupResources=true
+[2025.07.02-19.12.16:995][647]LogSlate: InvalidateAllWidgets triggered.  All widgets were invalidated
+[2025.07.02-19.12.16:996][647]LogWorldPartition: UWorldPartition::Uninitialize : World = /Temp/Untitled_1.Untitled_1
+[2025.07.02-19.12.16:999][647]LogChaosDD: Creating Chaos Debug Draw Scene for world Untitled_1
+[2025.07.02-19.12.17:002][647]LogWorldPartition: ULevel::OnLevelLoaded(Untitled_1)(bIsOwningWorldGameWorld=0, bIsOwningWorldPartitioned=1, InitializeForMainWorld=1, InitializeForEditor=1, InitializeForGame=0)
+[2025.07.02-19.12.17:002][647]LogWorldPartition: Display: WorldPartition initialize started...
+[2025.07.02-19.12.17:002][647]LogWorldPartition: UWorldPartition::Initialize : World = /Temp/Untitled_1.Untitled_1, World Type = Editor, IsMainWorldPartition = 1, Location = V(0), Rotation = R(0), IsEditor = 1, IsGame = 0, IsPIEWorldTravel = 0, IsCooking = 0
+[2025.07.02-19.12.17:012][647]LogWorldPartition: Display: WorldPartition initialize took 10.093 ms (total: 238.624 ms)
+[2025.07.02-19.12.56:327][647]LogSlate: Window 'Build HLODs' being destroyed
+[2025.07.02-19.12.56:434][647]LogUObjectHash: Compacting FUObjectHashTables data took   0.82ms
+[2025.07.02-19.12.58:815][647]LogSlate: Window 'Save Content' being destroyed
+[2025.07.02-19.12.59:243][647]SourceControl: Error: fatal: Invalid path '/Temp': No such file or directory
+[2025.07.02-19.12.59:243][647]SourceControl: Error: fatal: Invalid path '/Temp': No such file or directory
+[2025.07.02-19.12.59:243][647]SourceControl: Error: fatal: Invalid path '/Temp': No such file or directory
+[2025.07.02-19.12.59:243][647]SourceControl: Error: fatal: Invalid path '/Temp': No such file or directory
+[2025.07.02-19.12.59:243][647]SourceControl: Error: fatal: Invalid path '/Temp': No such file or directory
+[2025.07.02-19.12.59:243][647]SourceControl: Error: fatal: Invalid path '/Temp': No such file or directory
+[2025.07.02-19.12.59:243][647]SourceControl: Error: fatal: Invalid path '/Temp': No such file or directory
+[2025.07.02-19.12.59:243][647]SourceControl: Error: fatal: Invalid path '/Temp': No such file or directory
+[2025.07.02-19.12.59:243][647]SourceControl: Error: fatal: Invalid path '/Temp': No such file or directory
+[2025.07.02-19.12.59:243][647]SourceControl: Error: fatal: Invalid path '/Temp': No such file or directory
+[2025.07.02-19.12.59:243][647]SourceControl: Error: fatal: Invalid path '/Temp': No such file or directory
+[2025.07.02-19.12.59:243][647]SourceControl: Error: fatal: Invalid path '/Temp': No such file or directory
+[2025.07.02-19.12.59:243][647]SourceControl: Error: fatal: Invalid path '/Temp': No such file or directory
+[2025.07.02-19.12.59:243][647]SourceControl: Error: fatal: Invalid path '/Temp': No such file or directory
+[2025.07.02-19.12.59:243][647]SourceControl: Error: fatal: Invalid path '/Temp': No such file or directory
+[2025.07.02-19.12.59:243][647]SourceControl: Error: fatal: Invalid path '/Temp': No such file or directory
+[2025.07.02-19.12.59:243][647]SourceControl: Error: fatal: Invalid path '/Temp': No such file or directory
+[2025.07.02-19.12.59:243][647]SourceControl: Error: fatal: Invalid path '/Temp': No such file or directory
+[2025.07.02-19.12.59:243][647]SourceControl: Error: fatal: Invalid path '/Temp': No such file or directory
+[2025.07.02-19.12.59:243][647]SourceControl: Error: fatal: Invalid path '/Temp': No such file or directory
+[2025.07.02-19.12.59:243][647]SourceControl: Error: fatal: Invalid path '/Temp': No such file or directory
+[2025.07.02-19.12.59:243][647]SourceControl: Error: fatal: Invalid path '/Temp': No such file or directory
+[2025.07.02-19.12.59:243][647]SourceControl: Error: fatal: Invalid path '/Temp': No such file or directory
+[2025.07.02-19.12.59:243][647]SourceControl: Error: fatal: Invalid path '/Temp': No such file or directory
+[2025.07.02-19.12.59:243][647]SourceControl: Error: fatal: Invalid path '/Temp': No such file or directory
+[2025.07.02-19.12.59:243][647]SourceControl: Error: fatal: Invalid path '/Temp': No such file or directory
+[2025.07.02-19.12.59:243][647]SourceControl: Error: fatal: Invalid path '/Temp': No such file or directory
+[2025.07.02-19.12.59:243][647]SourceControl: Error: fatal: Invalid path '/Temp': No such file or directory
+[2025.07.02-19.12.59:243][647]SourceControl: Error: fatal: Invalid path '/Temp': No such file or directory
+[2025.07.02-19.12.59:243][647]SourceControl: Error: fatal: Invalid path '/Temp': No such file or directory
+[2025.07.02-19.12.59:243][647]SourceControl: Error: fatal: Invalid path '/Temp': No such file or directory
+[2025.07.02-19.12.59:243][647]SourceControl: Error: fatal: Invalid path '/Temp': No such file or directory
+[2025.07.02-19.12.59:243][647]SourceControl: Error: fatal: Invalid path '/Temp': No such file or directory
+[2025.07.02-19.12.59:243][647]SourceControl: Error: fatal: Invalid path '/Temp': No such file or directory
+[2025.07.02-19.12.59:243][647]SourceControl: Error: fatal: Invalid path '/Temp': No such file or directory
+[2025.07.02-19.12.59:243][647]SourceControl: Error: fatal: Invalid path '/Temp': No such file or directory
+[2025.07.02-19.12.59:243][647]SourceControl: Error: fatal: Invalid path '/Temp': No such file or directory
+[2025.07.02-19.12.59:243][647]SourceControl: Error: fatal: Invalid path '/Temp': No such file or directory
+[2025.07.02-19.12.59:243][647]SourceControl: Error: fatal: Invalid path '/Temp': No such file or directory
+[2025.07.02-19.12.59:243][647]SourceControl: Error: fatal: Invalid path '/Temp': No such file or directory
+[2025.07.02-19.12.59:243][647]SourceControl: Error: fatal: Invalid path '/Temp': No such file or directory
+[2025.07.02-19.12.59:243][647]SourceControl: Error: fatal: Invalid path '/Temp': No such file or directory
+[2025.07.02-19.12.59:243][647]SourceControl: Error: fatal: Invalid path '/Temp': No such file or directory
+[2025.07.02-19.12.59:243][647]SourceControl: Error: fatal: Invalid path '/Temp': No such file or directory
+[2025.07.02-19.12.59:243][647]SourceControl: Error: fatal: Invalid path '/Temp': No such file or directory
+[2025.07.02-19.12.59:243][647]SourceControl: Error: fatal: Invalid path '/Temp': No such file or directory
+[2025.07.02-19.12.59:244][647]SourceControl: Error: fatal: Invalid path '/Temp': No such file or directory
+[2025.07.02-19.12.59:244][647]SourceControl: Error: fatal: Invalid path '/Temp': No such file or directory
+[2025.07.02-19.12.59:244][647]SourceControl: Error: fatal: Invalid path '/Temp': No such file or directory
+[2025.07.02-19.12.59:244][647]SourceControl: Error: fatal: Invalid path '/Temp': No such file or directory
+[2025.07.02-19.12.59:244][647]SourceControl: Error: fatal: Invalid path '/Temp': No such file or directory
+[2025.07.02-19.12.59:244][647]SourceControl: Error: fatal: Invalid path '/Temp': No such file or directory
+[2025.07.02-19.12.59:244][647]SourceControl: Error: fatal: Invalid path '/Temp': No such file or directory
+[2025.07.02-19.12.59:244][647]SourceControl: Error: fatal: Invalid path '/Temp': No such file or directory
+[2025.07.02-19.12.59:244][647]SourceControl: Error: fatal: Invalid path '/Temp': No such file or directory
+[2025.07.02-19.12.59:244][647]SourceControl: Error: fatal: Invalid path '/Temp': No such file or directory
+[2025.07.02-19.12.59:244][647]SourceControl: Error: fatal: Invalid path '/Temp': No such file or directory
+[2025.07.02-19.12.59:244][647]SourceControl: Error: fatal: Invalid path '/Temp': No such file or directory
+[2025.07.02-19.12.59:244][647]SourceControl: Error: fatal: Invalid path '/Temp': No such file or directory
+[2025.07.02-19.12.59:244][647]SourceControl: Error: fatal: Invalid path '/Temp': No such file or directory
+[2025.07.02-19.12.59:244][647]SourceControl: Error: fatal: Invalid path '/Temp': No such file or directory
+[2025.07.02-19.12.59:244][647]SourceControl: Error: fatal: Invalid path '/Temp': No such file or directory
+[2025.07.02-19.12.59:754][647]SourceControl: fatal: /Temp: '/Temp' is outside repository at '/home/boop/Documents/Unreal Projects/Sky_Engineer'
+[2025.07.02-19.12.59:852][647]LogFileHelpers: InternalPromptForCheckoutAndSave started...
+[2025.07.02-19.13.08:665][647]LogSlate: Window 'Save Level As' being destroyed
+[2025.07.02-19.13.08:890][647]Cmd: OBJ SAVEPACKAGE PACKAGE="/Game/Map" FILE="../../../../../Documents/Unreal Projects/Sky_Engineer/Content/Map.umap" SILENT=true AUTOSAVING=false KEEPDIRTY=false
+[2025.07.02-19.13.08:921][647]LogUObjectHash: Compacting FUObjectHashTables data took   0.81ms
+[2025.07.02-19.13.08:929][647]LogSavePackage: Moving output files for package: /Game/Map
+[2025.07.02-19.13.08:929][647]LogSavePackage: Moving '../../../../../Documents/Unreal Projects/Sky_Engineer/Saved/Map81980EA4D9664969920CF7A8E9F32CEF.tmp' to '../../../../../Documents/Unreal Projects/Sky_Engineer/Content/Map.umap'
+[2025.07.02-19.14.26:362][647]SourceControl: Error: warning: could not open directory 'Content/__ExternalActors__/Map/5/': No such file or directory
+[2025.07.02-19.14.26:362][647]SourceControl: Error: warning: could not open directory 'Content/__ExternalObjects__/Map/5/': No such file or directory
+[2025.07.02-19.14.26:362][647]SourceControl: Error: warning: could not open directory 'Content/__ExternalObjects__/Map/E/': No such file or directory
+[2025.07.02-19.14.26:362][647]SourceControl: Error: warning: could not open directory 'Content/__ExternalObjects__/Map/A/': No such file or directory
+[2025.07.02-19.14.26:362][647]SourceControl: Error: warning: could not open directory 'Content/__ExternalObjects__/Map/D/': No such file or directory
+[2025.07.02-19.14.26:362][647]SourceControl: Error: warning: could not open directory 'Content/__ExternalObjects__/Map/D/': No such file or directory
+[2025.07.02-19.14.26:362][647]SourceControl: Error: warning: could not open directory 'Content/__ExternalObjects__/Map/6/': No such file or directory
+[2025.07.02-19.14.26:362][647]SourceControl: Error: warning: could not open directory 'Content/__ExternalActors__/Map/9/': No such file or directory
+[2025.07.02-19.14.26:362][647]SourceControl: Error: warning: could not open directory 'Content/__ExternalActors__/Map/4/': No such file or directory
+[2025.07.02-19.14.26:362][647]SourceControl: Error: warning: could not open directory 'Content/__ExternalActors__/Map/2/': No such file or directory
+[2025.07.02-19.14.26:362][647]SourceControl: Error: warning: could not open directory 'Content/__ExternalActors__/Map/0/': No such file or directory
+[2025.07.02-19.14.26:362][647]SourceControl: Error: warning: could not open directory 'Content/__ExternalActors__/Map/4/': No such file or directory
+[2025.07.02-19.14.26:362][647]SourceControl: Error: warning: could not open directory 'Content/__ExternalActors__/Map/5/': No such file or directory
+[2025.07.02-19.14.26:362][647]SourceControl: Error: warning: could not open directory 'Content/__ExternalActors__/Map/C/': No such file or directory
+[2025.07.02-19.14.26:362][647]SourceControl: Error: warning: could not open directory 'Content/__ExternalActors__/Map/8/': No such file or directory
+[2025.07.02-19.14.26:362][647]SourceControl: Error: warning: could not open directory 'Content/__ExternalActors__/Map/E/': No such file or directory
+[2025.07.02-19.14.26:362][647]SourceControl: Error: warning: could not open directory 'Content/__ExternalActors__/Map/3/': No such file or directory
+[2025.07.02-19.14.26:362][647]SourceControl: Error: warning: could not open directory 'Content/__ExternalActors__/Map/D/': No such file or directory
+[2025.07.02-19.14.26:362][647]SourceControl: Error: warning: could not open directory 'Content/__ExternalActors__/Map/1/': No such file or directory
+[2025.07.02-19.14.26:362][647]SourceControl: Error: warning: could not open directory 'Content/__ExternalActors__/Map/A/': No such file or directory
+[2025.07.02-19.14.26:362][647]SourceControl: Error: warning: could not open directory 'Content/__ExternalActors__/Map/D/': No such file or directory
+[2025.07.02-19.14.26:362][647]SourceControl: Error: warning: could not open directory 'Content/__ExternalActors__/Map/2/': No such file or directory
+[2025.07.02-19.14.26:362][647]SourceControl: Error: warning: could not open directory 'Content/__ExternalActors__/Map/6/': No such file or directory
+[2025.07.02-19.14.26:362][647]SourceControl: Error: warning: could not open directory 'Content/__ExternalActors__/Map/2/': No such file or directory
+[2025.07.02-19.14.26:362][647]SourceControl: Error: warning: could not open directory 'Content/__ExternalActors__/Map/1/': No such file or directory
+[2025.07.02-19.14.26:362][647]SourceControl: Error: warning: could not open directory 'Content/__ExternalActors__/Map/B/': No such file or directory
+[2025.07.02-19.14.26:362][647]SourceControl: Error: warning: could not open directory 'Content/__ExternalActors__/Map/5/': No such file or directory
+[2025.07.02-19.14.26:362][647]SourceControl: Error: warning: could not open directory 'Content/__ExternalActors__/Map/D/': No such file or directory
+[2025.07.02-19.14.26:362][647]SourceControl: Error: warning: could not open directory 'Content/__ExternalActors__/Map/6/': No such file or directory
+[2025.07.02-19.14.26:362][647]SourceControl: Error: warning: could not open directory 'Content/__ExternalActors__/Map/0/': No such file or directory
+[2025.07.02-19.14.26:362][647]SourceControl: Error: warning: could not open directory 'Content/__ExternalActors__/Map/5/': No such file or directory
+[2025.07.02-19.14.26:362][647]SourceControl: Error: warning: could not open directory 'Content/__ExternalActors__/Map/A/': No such file or directory
+[2025.07.02-19.14.26:362][647]SourceControl: Error: warning: could not open directory 'Content/__ExternalActors__/Map/1/': No such file or directory
+[2025.07.02-19.14.26:362][647]SourceControl: Error: warning: could not open directory 'Content/__ExternalActors__/Map/9/': No such file or directory
+[2025.07.02-19.14.26:362][647]SourceControl: Error: warning: could not open directory 'Content/__ExternalActors__/Map/B/': No such file or directory
+[2025.07.02-19.14.26:362][647]SourceControl: Error: warning: could not open directory 'Content/__ExternalActors__/Map/8/': No such file or directory
+[2025.07.02-19.14.26:362][647]SourceControl: Error: warning: could not open directory 'Content/__ExternalActors__/Map/C/': No such file or directory
+[2025.07.02-19.14.26:362][647]SourceControl: Error: warning: could not open directory 'Content/__ExternalActors__/Map/7/': No such file or directory
+[2025.07.02-19.14.26:362][647]SourceControl: Error: warning: could not open directory 'Content/__ExternalActors__/Map/4/': No such file or directory
+[2025.07.02-19.14.26:362][647]SourceControl: Error: warning: could not open directory 'Content/__ExternalActors__/Map/B/': No such file or directory
+[2025.07.02-19.14.26:362][647]SourceControl: Error: warning: could not open directory 'Content/__ExternalActors__/Map/1/': No such file or directory
+[2025.07.02-19.14.26:362][647]SourceControl: Error: warning: could not open directory 'Content/__ExternalActors__/Map/2/': No such file or directory
+[2025.07.02-19.14.26:362][647]SourceControl: Error: warning: could not open directory 'Content/__ExternalActors__/Map/1/': No such file or directory
+[2025.07.02-19.14.26:363][647]SourceControl: Error: warning: could not open directory 'Content/__ExternalActors__/Map/2/': No such file or directory
+[2025.07.02-19.14.26:363][647]SourceControl: Error: warning: could not open directory 'Content/__ExternalActors__/Map/D/': No such file or directory
+[2025.07.02-19.14.26:363][647]SourceControl: Error: warning: could not open directory 'Content/__ExternalActors__/Map/A/': No such file or directory
+[2025.07.02-19.14.26:363][647]SourceControl: Error: warning: could not open directory 'Content/__ExternalActors__/Map/8/': No such file or directory
+[2025.07.02-19.14.26:363][647]SourceControl: Error: warning: could not open directory 'Content/__ExternalActors__/Map/2/': No such file or directory
+[2025.07.02-19.14.26:363][647]SourceControl: Error: warning: could not open directory 'Content/__ExternalActors__/Map/0/': No such file or directory
+[2025.07.02-19.14.26:363][647]SourceControl: Error: warning: could not open directory 'Content/__ExternalActors__/Map/3/': No such file or directory
+[2025.07.02-19.14.26:363][647]SourceControl: Error: warning: could not open directory 'Content/__ExternalActors__/Map/C/': No such file or directory
+[2025.07.02-19.14.26:363][647]SourceControl: Error: warning: could not open directory 'Content/__ExternalActors__/Map/2/': No such file or directory
+[2025.07.02-19.14.26:363][647]SourceControl: Error: warning: could not open directory 'Content/__ExternalActors__/Map/C/': No such file or directory
+[2025.07.02-19.14.26:363][647]SourceControl: Error: warning: could not open directory 'Content/__ExternalActors__/Map/B/': No such file or directory
+[2025.07.02-19.14.26:363][647]SourceControl: Error: warning: could not open directory 'Content/__ExternalActors__/Map/D/': No such file or directory
+[2025.07.02-19.14.26:363][647]SourceControl: Error: warning: could not open directory 'Content/__ExternalActors__/Map/E/': No such file or directory
+[2025.07.02-19.14.26:363][647]SourceControl: Error: warning: could not open directory 'Content/__ExternalActors__/Map/2/': No such file or directory
+[2025.07.02-19.14.26:363][647]SourceControl: Error: warning: could not open directory 'Content/__ExternalActors__/Map/B/': No such file or directory
+[2025.07.02-19.14.26:363][647]SourceControl: Error: warning: could not open directory 'Content/__ExternalActors__/Map/A/': No such file or directory
+[2025.07.02-19.14.26:363][647]SourceControl: Error: warning: could not open directory 'Content/__ExternalActors__/Map/6/': No such file or directory
+[2025.07.02-19.14.26:363][647]SourceControl: Error: warning: could not open directory 'Content/__ExternalActors__/Map/9/': No such file or directory
+[2025.07.02-19.14.26:363][647]SourceControl: Error: warning: could not open directory 'Content/__ExternalActors__/Map/0/': No such file or directory
+[2025.07.02-19.14.26:363][647]SourceControl: Error: warning: could not open directory 'Content/__ExternalActors__/Map/3/': No such file or directory
+[2025.07.02-19.14.26:363][647]SourceControl: Error: warning: could not open directory 'Content/__ExternalActors__/Map/4/': No such file or directory
+[2025.07.02-19.14.26:363][647]SourceControl: Error: warning: could not open directory 'Content/__ExternalActors__/Map/3/': No such file or directory
+[2025.07.02-19.14.26:363][647]SourceControl: Error: warning: could not open directory 'Content/__ExternalActors__/Map/0/': No such file or directory
+[2025.07.02-19.14.26:363][647]SourceControl: Error: warning: could not open directory 'Content/__ExternalActors__/Map/9/': No such file or directory
+[2025.07.02-19.14.26:363][647]SourceControl: Error: warning: could not open directory 'Content/__ExternalActors__/Map/6/': No such file or directory
+[2025.07.02-19.14.26:363][647]SourceControl: Error: warning: could not open directory 'Content/__ExternalActors__/Map/0/': No such file or directory
+[2025.07.02-19.14.26:363][647]SourceControl: Error: warning: could not open directory 'Content/__ExternalActors__/Map/9/': No such file or directory
+[2025.07.02-19.14.26:363][647]SourceControl: Error: warning: could not open directory 'Content/__ExternalActors__/Map/7/': No such file or directory
+[2025.07.02-19.14.26:363][647]SourceControl: Error: warning: could not open directory 'Content/__ExternalActors__/Map/6/': No such file or directory
+[2025.07.02-19.14.26:363][647]SourceControl: Error: warning: could not open directory 'Content/__ExternalActors__/Map/2/': No such file or directory
+[2025.07.02-19.14.26:363][647]SourceControl: Error: warning: could not open directory 'Content/__ExternalActors__/Map/B/': No such file or directory
+[2025.07.02-19.14.26:363][647]SourceControl: Error: warning: could not open directory 'Content/__ExternalActors__/Map/2/': No such file or directory
+[2025.07.02-19.14.26:363][647]SourceControl: Error: warning: could not open directory 'Content/__ExternalActors__/Map/8/': No such file or directory
+[2025.07.02-19.14.26:363][647]SourceControl: Error: warning: could not open directory 'Content/__ExternalActors__/Map/D/': No such file or directory
+[2025.07.02-19.14.26:363][647]SourceControl: Error: warning: could not open directory 'Content/__ExternalActors__/Map/C/': No such file or directory
+[2025.07.02-19.14.26:363][647]SourceControl: Error: warning: could not open directory 'Content/__ExternalActors__/Map/E/': No such file or directory
+[2025.07.02-19.14.26:363][647]SourceControl: Error: warning: could not open directory 'Content/__ExternalObjects__/Map/3/': No such file or directory
+[2025.07.02-19.14.26:363][647]SourceControl: Error: warning: could not open directory 'Content/__ExternalObjects__/Map/A/': No such file or directory
+[2025.07.02-19.14.26:363][647]SourceControl: Error: warning: could not open directory 'Content/__ExternalObjects__/Map/1/': No such file or directory
+[2025.07.02-19.14.26:363][647]SourceControl: Error: warning: could not open directory 'Content/__ExternalObjects__/Map/A/': No such file or directory
+[2025.07.02-19.14.26:363][647]SourceControl: Error: warning: could not open directory 'Content/__ExternalObjects__/Map/E/': No such file or directory
+[2025.07.02-19.14.26:363][647]SourceControl: Error: warning: could not open directory 'Content/__ExternalObjects__/Map/D/': No such file or directory
+[2025.07.02-19.14.26:363][647]SourceControl: Error: warning: could not open directory 'Content/__ExternalObjects__/Map/C/': No such file or directory
+[2025.07.02-19.14.26:363][647]SourceControl: Error: warning: could not open directory 'Content/__ExternalObjects__/Map/0/': No such file or directory
+[2025.07.02-19.14.26:363][647]SourceControl: Error: warning: could not open directory 'Content/__ExternalObjects__/Map/5/': No such file or directory
+[2025.07.02-19.14.26:363][647]SourceControl: Error: warning: could not open directory 'Content/__ExternalObjects__/Map/9/': No such file or directory
+[2025.07.02-19.14.26:363][647]SourceControl: Error: warning: could not open directory 'Content/__ExternalObjects__/Map/7/': No such file or directory
+[2025.07.02-19.14.26:364][647]SourceControl: Error: warning: could not open directory 'Content/__ExternalObjects__/Map/8/': No such file or directory
+[2025.07.02-19.14.26:364][647]SourceControl: Error: warning: could not open directory 'Content/__ExternalObjects__/Map/2/': No such file or directory
+[2025.07.02-19.14.26:364][647]SourceControl: Error: warning: could not open directory 'Content/__ExternalObjects__/Map/C/': No such file or directory
+[2025.07.02-19.14.26:364][647]SourceControl: Error: warning: could not open directory 'Content/__ExternalObjects__/Map/C/': No such file or directory
+[2025.07.02-19.14.26:364][647]SourceControl: Error: warning: could not open directory 'Content/__ExternalObjects__/Map/A/': No such file or directory
+[2025.07.02-19.14.26:364][647]SourceControl: Error: warning: could not open directory 'Content/__ExternalObjects__/Map/0/': No such file or directory
+[2025.07.02-19.14.26:364][647]SourceControl: Error: warning: could not open directory 'Content/__ExternalObjects__/Map/C/': No such file or directory
+[2025.07.02-19.14.26:364][647]SourceControl: Error: warning: could not open directory 'Content/__ExternalObjects__/Map/E/': No such file or directory
+[2025.07.02-19.14.26:364][647]SourceControl: Error: warning: could not open directory 'Content/__ExternalObjects__/Map/2/': No such file or directory
+[2025.07.02-19.14.26:364][647]SourceControl: Error: warning: could not open directory 'Content/__ExternalObjects__/Map/B/': No such file or directory
+[2025.07.02-19.14.26:364][647]SourceControl: Error: warning: could not open directory 'Content/__ExternalObjects__/Map/0/': No such file or directory
+[2025.07.02-19.14.26:364][647]SourceControl: Error: warning: could not open directory 'Content/__ExternalObjects__/Map/5/': No such file or directory
+[2025.07.02-19.14.26:364][647]SourceControl: Error: warning: could not open directory 'Content/__ExternalObjects__/Map/6/': No such file or directory
+[2025.07.02-19.14.26:364][647]SourceControl: Error: warning: could not open directory 'Content/__ExternalObjects__/Map/D/': No such file or directory
+[2025.07.02-19.14.26:364][647]SourceControl: Error: warning: could not open directory 'Content/__ExternalObjects__/Map/B/': No such file or directory
+[2025.07.02-19.14.26:364][647]SourceControl: Error: warning: could not open directory 'Content/__ExternalObjects__/Map/1/': No such file or directory
+[2025.07.02-19.14.26:364][647]SourceControl: Error: warning: could not open directory 'Content/__ExternalObjects__/Map/7/': No such file or directory
+[2025.07.02-19.14.26:364][647]SourceControl: Error: warning: could not open directory 'Content/__ExternalObjects__/Map/A/': No such file or directory
+[2025.07.02-19.14.26:364][647]SourceControl: Error: warning: could not open directory 'Content/__ExternalObjects__/Map/C/': No such file or directory
+[2025.07.02-19.14.26:364][647]SourceControl: Error: warning: could not open directory 'Content/__ExternalObjects__/Map/2/': No such file or directory
+[2025.07.02-19.14.26:364][647]SourceControl: Error: warning: could not open directory 'Content/__ExternalObjects__/Map/0/': No such file or directory
+[2025.07.02-19.14.26:364][647]SourceControl: Error: warning: could not open directory 'Content/__ExternalObjects__/Map/1/': No such file or directory
+[2025.07.02-19.14.26:364][647]SourceControl: Error: warning: could not open directory 'Content/__ExternalObjects__/Map/A/': No such file or directory
+[2025.07.02-19.14.26:364][647]SourceControl: Error: warning: could not open directory 'Content/__ExternalObjects__/Map/0/': No such file or directory
+[2025.07.02-19.14.26:364][647]SourceControl: Error: warning: could not open directory 'Content/__ExternalObjects__/Map/5/': No such file or directory
+[2025.07.02-19.14.26:364][647]SourceControl: Error: warning: could not open directory 'Content/__ExternalObjects__/Map/0/': No such file or directory
+[2025.07.02-19.14.26:364][647]SourceControl: Error: warning: could not open directory 'Content/__ExternalObjects__/Map/B/': No such file or directory
+[2025.07.02-19.14.26:364][647]SourceControl: Error: warning: could not open directory 'Content/__ExternalObjects__/Map/1/': No such file or directory
+[2025.07.02-19.14.26:364][647]SourceControl: Error: warning: could not open directory 'Content/__ExternalObjects__/Map/0/': No such file or directory
+[2025.07.02-19.14.26:364][647]SourceControl: Error: warning: could not open directory 'Content/__ExternalObjects__/Map/6/': No such file or directory
+[2025.07.02-19.14.26:364][647]SourceControl: Error: warning: could not open directory 'Content/__ExternalObjects__/Map/A/': No such file or directory
+[2025.07.02-19.14.26:364][647]SourceControl: Error: warning: could not open directory 'Content/__ExternalObjects__/Map/D/': No such file or directory
+[2025.07.02-19.14.26:364][647]SourceControl: Error: warning: could not open directory 'Content/__ExternalObjects__/Map/8/': No such file or directory
+[2025.07.02-19.14.26:364][647]SourceControl: Error: warning: could not open directory 'Content/__ExternalObjects__/Map/E/': No such file or directory
+[2025.07.02-19.14.26:364][647]SourceControl: Error: warning: could not open directory 'Content/__ExternalObjects__/Map/1/': No such file or directory
+[2025.07.02-19.14.26:364][647]SourceControl: Error: warning: could not open directory 'Content/__ExternalObjects__/Map/B/': No such file or directory
+[2025.07.02-19.14.26:364][647]SourceControl: Error: warning: could not open directory 'Content/__ExternalObjects__/Map/7/': No such file or directory
+[2025.07.02-19.14.26:364][647]SourceControl: Error: warning: could not open directory 'Content/__ExternalObjects__/Map/E/': No such file or directory
+[2025.07.02-19.14.26:364][647]SourceControl: Error: warning: could not open directory 'Content/__ExternalObjects__/Map/E/': No such file or directory
+[2025.07.02-19.14.26:364][647]SourceControl: Error: warning: could not open directory 'Content/__ExternalObjects__/Map/9/': No such file or directory
+[2025.07.02-19.14.26:364][647]SourceControl: Error: warning: could not open directory 'Content/__ExternalObjects__/Map/B/': No such file or directory
+[2025.07.02-19.14.26:364][647]SourceControl: Error: warning: could not open directory 'Content/__ExternalObjects__/Map/3/': No such file or directory
+[2025.07.02-19.14.26:364][647]SourceControl: Error: warning: could not open directory 'Content/__ExternalObjects__/Map/1/': No such file or directory
+[2025.07.02-19.14.26:364][647]SourceControl: Error: warning: could not open directory 'Content/__ExternalObjects__/Map/C/': No such file or directory
+[2025.07.02-19.14.26:364][647]SourceControl: Error: warning: could not open directory 'Content/__ExternalObjects__/Map/5/': No such file or directory
+[2025.07.02-19.14.26:364][647]SourceControl: Error: warning: could not open directory 'Content/__ExternalObjects__/Map/1/': No such file or directory
+[2025.07.02-19.14.26:364][647]SourceControl: Error: warning: could not open directory 'Content/__ExternalObjects__/Map/8/': No such file or directory
+[2025.07.02-19.14.26:365][647]SourceControl: Error: warning: could not open directory 'Content/__ExternalObjects__/Map/1/': No such file or directory
+[2025.07.02-19.14.26:365][647]SourceControl: Error: warning: could not open directory 'Content/__ExternalObjects__/Map/A/': No such file or directory
+[2025.07.02-19.14.26:365][647]SourceControl: Error: warning: could not open directory 'Content/__ExternalObjects__/Map/6/': No such file or directory
+[2025.07.02-19.14.26:365][647]SourceControl: Error: warning: could not open directory 'Content/__ExternalObjects__/Map/A/': No such file or directory
+[2025.07.02-19.14.26:365][647]SourceControl: Error: warning: could not open directory 'Content/__ExternalObjects__/Map/8/': No such file or directory
+[2025.07.02-19.14.26:365][647]SourceControl: Error: warning: could not open directory 'Content/__ExternalObjects__/Map/D/': No such file or directory
+[2025.07.02-19.14.26:365][647]SourceControl: Error: warning: could not open directory 'Content/__ExternalObjects__/Map/B/': No such file or directory
+[2025.07.02-19.14.26:365][647]SourceControl: Error: warning: could not open directory 'Content/__ExternalObjects__/Map/7/': No such file or directory
+[2025.07.02-19.14.26:365][647]SourceControl: Error: warning: could not open directory 'Content/__ExternalObjects__/Map/1/': No such file or directory
+[2025.07.02-19.14.26:365][647]SourceControl: Error: warning: could not open directory 'Content/__ExternalObjects__/Map/7/': No such file or directory
+[2025.07.02-19.14.26:365][647]SourceControl: Error: warning: could not open directory 'Content/__ExternalObjects__/Map/1/': No such file or directory
+[2025.07.02-19.14.26:365][647]SourceControl: Error: warning: could not open directory 'Content/__ExternalObjects__/Map/D/': No such file or directory
+[2025.07.02-19.14.26:365][647]SourceControl: Error: warning: could not open directory 'Content/__ExternalObjects__/Map/9/': No such file or directory
+[2025.07.02-19.14.26:365][647]SourceControl: Error: warning: could not open directory 'Content/__ExternalObjects__/Map/0/': No such file or directory
+[2025.07.02-19.14.26:365][647]SourceControl: Error: warning: could not open directory 'Content/__ExternalObjects__/Map/0/': No such file or directory
+[2025.07.02-19.14.26:438][647]LogFileHelpers: InternalPromptForCheckoutAndSave started...
+[2025.07.02-19.14.26:495][647]LogUObjectHash: Compacting FUObjectHashTables data took   0.97ms
+[2025.07.02-19.14.26:518][647]LogUObjectHash: Compacting FUObjectHashTables data took   0.71ms
+[2025.07.02-19.14.26:545][647]LogUObjectHash: Compacting FUObjectHashTables data took   0.27ms
+[2025.07.02-19.14.26:545][647]OBJ SavePackage: Generating thumbnails for [0] asset(s) in package [/Game/Map_HLOD0_Instancing] ([1] browsable assets)...
+[2025.07.02-19.14.26:545][647]OBJ SavePackage: Finished generating thumbnails for package [/Game/Map_HLOD0_Instancing]
+[2025.07.02-19.14.26:545][647]Cmd: OBJ SAVEPACKAGE PACKAGE="/Game/Map_HLOD0_Instancing" FILE="../../../../../Documents/Unreal Projects/Sky_Engineer/Content/Map_HLOD0_Instancing.uasset" SILENT=true
+[2025.07.02-19.14.26:546][647]LogSavePackage: Moving output files for package: /Game/Map_HLOD0_Instancing
+[2025.07.02-19.14.26:546][647]LogSavePackage: Moving '../../../../../Documents/Unreal Projects/Sky_Engineer/Saved/Map_HLOD0_InstancingF902170B3AFB454C843B4D468D08DC53.tmp' to '../../../../../Documents/Unreal Projects/Sky_Engineer/Content/Map_HLOD0_Instancing.uasset'
+[2025.07.02-19.14.26:547][647]LogSavePackage: Moving output files for package: /Game/__ExternalActors__/Map/5/PN/679A47FIAS5NIV6T6OABSZ
+[2025.07.02-19.14.26:547][647]LogSavePackage: Moving '../../../../../Documents/Unreal Projects/Sky_Engineer/Saved/679A47FIAS5NIV6T6OABSZ4C0697A92CA44D68B251429552C5C65A.tmp' to '../../../../../Documents/Unreal Projects/Sky_Engineer/Content/__ExternalActors__/Map/5/PN/679A47FIAS5NIV6T6OABSZ.uasset'
+[2025.07.02-19.14.26:548][647]OBJ SavePackage: Generating thumbnails for [0] asset(s) in package [/Game/__ExternalObjects__/Map/5/UQ/MAL0YGWBLY7JBKHB4O7CZ1] ([1] browsable assets)...
+[2025.07.02-19.14.26:548][647]OBJ SavePackage: Finished generating thumbnails for package [/Game/__ExternalObjects__/Map/5/UQ/MAL0YGWBLY7JBKHB4O7CZ1]
+[2025.07.02-19.14.26:555][647]LogSavePackage: Moving output files for package: /Game/__ExternalObjects__/Map/5/UQ/MAL0YGWBLY7JBKHB4O7CZ1
+[2025.07.02-19.14.26:555][647]LogSavePackage: Moving '../../../../../Documents/Unreal Projects/Sky_Engineer/Saved/MAL0YGWBLY7JBKHB4O7CZ1F7B88DBF5C57434A9D2B03F2F8F9D1DE.tmp' to '../../../../../Documents/Unreal Projects/Sky_Engineer/Content/__ExternalObjects__/Map/5/UQ/MAL0YGWBLY7JBKHB4O7CZ1.uasset'
+[2025.07.02-19.14.26:556][647]OBJ SavePackage: Generating thumbnails for [0] asset(s) in package [/Game/__ExternalObjects__/Map/E/NB/0H0KZIHPYOZRDWO7ZL7D2B] ([1] browsable assets)...
+[2025.07.02-19.14.26:556][647]OBJ SavePackage: Finished generating thumbnails for package [/Game/__ExternalObjects__/Map/E/NB/0H0KZIHPYOZRDWO7ZL7D2B]
+[2025.07.02-19.14.26:557][647]LogSavePackage: Moving output files for package: /Game/__ExternalObjects__/Map/E/NB/0H0KZIHPYOZRDWO7ZL7D2B
+[2025.07.02-19.14.26:557][647]LogSavePackage: Moving '../../../../../Documents/Unreal Projects/Sky_Engineer/Saved/0H0KZIHPYOZRDWO7ZL7D2B23CF5BB213B44683801F24AC4192D7FD.tmp' to '../../../../../Documents/Unreal Projects/Sky_Engineer/Content/__ExternalObjects__/Map/E/NB/0H0KZIHPYOZRDWO7ZL7D2B.uasset'
+[2025.07.02-19.14.26:558][647]OBJ SavePackage: Generating thumbnails for [0] asset(s) in package [/Game/__ExternalObjects__/Map/A/YG/RZRJ611Z0F41HZ76FDNJZG] ([1] browsable assets)...
+[2025.07.02-19.14.26:558][647]OBJ SavePackage: Finished generating thumbnails for package [/Game/__ExternalObjects__/Map/A/YG/RZRJ611Z0F41HZ76FDNJZG]
+[2025.07.02-19.14.26:559][647]LogSavePackage: Moving output files for package: /Game/__ExternalObjects__/Map/A/YG/RZRJ611Z0F41HZ76FDNJZG
+[2025.07.02-19.14.26:559][647]LogSavePackage: Moving '../../../../../Documents/Unreal Projects/Sky_Engineer/Saved/RZRJ611Z0F41HZ76FDNJZGDB658EBC64B34522832F4263F1455A6B.tmp' to '../../../../../Documents/Unreal Projects/Sky_Engineer/Content/__ExternalObjects__/Map/A/YG/RZRJ611Z0F41HZ76FDNJZG.uasset'
+[2025.07.02-19.14.26:559][647]OBJ SavePackage: Generating thumbnails for [0] asset(s) in package [/Game/__ExternalObjects__/Map/D/2S/8JKDXCMJVM57O86XKM82G6] ([1] browsable assets)...
+[2025.07.02-19.14.26:559][647]OBJ SavePackage: Finished generating thumbnails for package [/Game/__ExternalObjects__/Map/D/2S/8JKDXCMJVM57O86XKM82G6]
+[2025.07.02-19.14.26:561][647]LogSavePackage: Moving output files for package: /Game/__ExternalObjects__/Map/D/2S/8JKDXCMJVM57O86XKM82G6
+[2025.07.02-19.14.26:561][647]LogSavePackage: Moving '../../../../../Documents/Unreal Projects/Sky_Engineer/Saved/8JKDXCMJVM57O86XKM82G659B01A49CCA5448CA3A8F09FB6D888D9.tmp' to '../../../../../Documents/Unreal Projects/Sky_Engineer/Content/__ExternalObjects__/Map/D/2S/8JKDXCMJVM57O86XKM82G6.uasset'
+[2025.07.02-19.14.26:561][647]OBJ SavePackage: Generating thumbnails for [0] asset(s) in package [/Game/__ExternalObjects__/Map/D/53/7N9Q80CF4G806X6J7YAIQ4] ([1] browsable assets)...
+[2025.07.02-19.14.26:561][647]OBJ SavePackage: Finished generating thumbnails for package [/Game/__ExternalObjects__/Map/D/53/7N9Q80CF4G806X6J7YAIQ4]
+[2025.07.02-19.14.26:563][647]LogSavePackage: Moving output files for package: /Game/__ExternalObjects__/Map/D/53/7N9Q80CF4G806X6J7YAIQ4
+[2025.07.02-19.14.26:563][647]LogSavePackage: Moving '../../../../../Documents/Unreal Projects/Sky_Engineer/Saved/7N9Q80CF4G806X6J7YAIQ47AA1AE33649244839887027170ABA597.tmp' to '../../../../../Documents/Unreal Projects/Sky_Engineer/Content/__ExternalObjects__/Map/D/53/7N9Q80CF4G806X6J7YAIQ4.uasset'
+[2025.07.02-19.14.26:564][647]OBJ SavePackage: Generating thumbnails for [0] asset(s) in package [/Game/__ExternalObjects__/Map/6/CN/JA4395GYL2S29V4HOLB2OS] ([1] browsable assets)...
+[2025.07.02-19.14.26:564][647]OBJ SavePackage: Finished generating thumbnails for package [/Game/__ExternalObjects__/Map/6/CN/JA4395GYL2S29V4HOLB2OS]
+[2025.07.02-19.14.26:565][647]LogSavePackage: Moving output files for package: /Game/__ExternalObjects__/Map/6/CN/JA4395GYL2S29V4HOLB2OS
+[2025.07.02-19.14.26:565][647]LogSavePackage: Moving '../../../../../Documents/Unreal Projects/Sky_Engineer/Saved/JA4395GYL2S29V4HOLB2OS6225677228784655AE636008AEB353B2.tmp' to '../../../../../Documents/Unreal Projects/Sky_Engineer/Content/__ExternalObjects__/Map/6/CN/JA4395GYL2S29V4HOLB2OS.uasset'
+[2025.07.02-19.14.26:671][647]LogBulkDataRegistry: Warning: /Game/Map.Map:PersistentLevel.WorldPartitionMiniMap_UAID_3497F631D5890DD300_1296925927.MinimapTexture failed to register BulkData B27C70D3C6CDB1C615E176A345CDDAE5 from UpdatePayloadImpl in the BulkDataRegistry: it already exists with owner /Temp/Untitled_1_InstanceOf_/Engine/__ExternalActors__/Maps/Templates/OpenWorld/0/IT/MHSUN7EJKDAAL8CVT31B9U.
+            Payload: 5ce3bd66a85dab0c0421659f850d06c68dcbd8a3
+    ExistingPayload: a31481a3a9d15f0b43adc3741749b66c5f0509c6
+[2025.07.02-19.14.26:686][647]LogBulkDataRegistry: Warning: /Game/Map.Map:PersistentLevel.WorldPartitionMiniMap_UAID_3497F631D5890DD300_1296925927.MinimapTexture failed to register BulkData B27C70D3C6CDB1C615E176A345CDDAE5 from UpdatePayloadImpl in the BulkDataRegistry: it already exists with owner /Temp/Untitled_1_InstanceOf_/Engine/__ExternalActors__/Maps/Templates/OpenWorld/0/IT/MHSUN7EJKDAAL8CVT31B9U.
+            Payload: 191e5e5467b57a000c306f375e16c2cfc6a0fb9d
+    ExistingPayload: a31481a3a9d15f0b43adc3741749b66c5f0509c6
+[2025.07.02-19.14.26:725][647]LogSavePackage: Moving output files for package: /Game/__ExternalActors__/Map/9/WS/QX4C0DOFI76YCSAYNO5JQE
+[2025.07.02-19.14.26:726][647]LogSavePackage: Moving '../../../../../Documents/Unreal Projects/Sky_Engineer/Saved/QX4C0DOFI76YCSAYNO5JQE7ED809C5BF634A7B991934B4D42D1D30.tmp' to '../../../../../Documents/Unreal Projects/Sky_Engineer/Content/__ExternalActors__/Map/9/WS/QX4C0DOFI76YCSAYNO5JQE.uasset'
+[2025.07.02-19.14.26:726][647]LogBulkDataRegistry: Warning: /Game/Map.Map:PersistentLevel.WorldPartitionMiniMap_UAID_3497F631D5890DD300_1296925927.MinimapTexture failed to register BulkData B27C70D3C6CDB1C615E176A345CDDAE5 from SerializeToPackageTrailer in the BulkDataRegistry: it already exists with owner /Temp/Untitled_1_InstanceOf_/Engine/__ExternalActors__/Maps/Templates/OpenWorld/0/IT/MHSUN7EJKDAAL8CVT31B9U.
+            Payload: 191e5e5467b57a000c306f375e16c2cfc6a0fb9d
+    ExistingPayload: a31481a3a9d15f0b43adc3741749b66c5f0509c6
+[2025.07.02-19.14.26:729][647]LogSavePackage: Moving output files for package: /Game/__ExternalActors__/Map/4/IQ/KU2P0B5S35RKRJFG045BGU
+[2025.07.02-19.14.26:729][647]LogSavePackage: Moving '../../../../../Documents/Unreal Projects/Sky_Engineer/Saved/KU2P0B5S35RKRJFG045BGUD18BB4E83EE9412EB5387DFB0E0F0451.tmp' to '../../../../../Documents/Unreal Projects/Sky_Engineer/Content/__ExternalActors__/Map/4/IQ/KU2P0B5S35RKRJFG045BGU.uasset'
+[2025.07.02-19.14.26:733][647]LogSavePackage: Moving output files for package: /Game/__ExternalActors__/Map/2/4R/RQ87O5DWV1GS3RM83S87ER
+[2025.07.02-19.14.26:733][647]LogSavePackage: Moving '../../../../../Documents/Unreal Projects/Sky_Engineer/Saved/RQ87O5DWV1GS3RM83S87ER57C88BAD05CC44C7B243ADCB2769A4AE.tmp' to '../../../../../Documents/Unreal Projects/Sky_Engineer/Content/__ExternalActors__/Map/2/4R/RQ87O5DWV1GS3RM83S87ER.uasset'
+[2025.07.02-19.14.26:736][647]LogSavePackage: Moving output files for package: /Game/__ExternalActors__/Map/0/04/GXGCZBGQIT6XOIC2YMCA7Y
+[2025.07.02-19.14.26:736][647]LogSavePackage: Moving '../../../../../Documents/Unreal Projects/Sky_Engineer/Saved/GXGCZBGQIT6XOIC2YMCA7Y64543667F4EF44BF81461BF159318BB2.tmp' to '../../../../../Documents/Unreal Projects/Sky_Engineer/Content/__ExternalActors__/Map/0/04/GXGCZBGQIT6XOIC2YMCA7Y.uasset'
+[2025.07.02-19.14.26:739][647]LogSavePackage: Moving output files for package: /Game/__ExternalActors__/Map/4/DK/E33MPSK7Y43XTDGO8QS1RE
+[2025.07.02-19.14.26:739][647]LogSavePackage: Moving '../../../../../Documents/Unreal Projects/Sky_Engineer/Saved/E33MPSK7Y43XTDGO8QS1RE3BA070F08D6C46A2BC42C80C4AFB6C9F.tmp' to '../../../../../Documents/Unreal Projects/Sky_Engineer/Content/__ExternalActors__/Map/4/DK/E33MPSK7Y43XTDGO8QS1RE.uasset'
+[2025.07.02-19.14.26:742][647]LogSavePackage: Moving output files for package: /Game/__ExternalActors__/Map/5/XN/7HQAL0TRFJP5JVHT0P65QE
+[2025.07.02-19.14.26:742][647]LogSavePackage: Moving '../../../../../Documents/Unreal Projects/Sky_Engineer/Saved/7HQAL0TRFJP5JVHT0P65QEE1AC0450772744879277E09CFDBF4064.tmp' to '../../../../../Documents/Unreal Projects/Sky_Engineer/Content/__ExternalActors__/Map/5/XN/7HQAL0TRFJP5JVHT0P65QE.uasset'
+[2025.07.02-19.14.26:745][647]LogSavePackage: Moving output files for package: /Game/__ExternalActors__/Map/C/A6/4GAGL02KME4WKDV2QV6BZY
+[2025.07.02-19.14.26:745][647]LogSavePackage: Moving '../../../../../Documents/Unreal Projects/Sky_Engineer/Saved/4GAGL02KME4WKDV2QV6BZY2C83E08422F644B3BDF3EB73B9BB7031.tmp' to '../../../../../Documents/Unreal Projects/Sky_Engineer/Content/__ExternalActors__/Map/C/A6/4GAGL02KME4WKDV2QV6BZY.uasset'
+[2025.07.02-19.14.26:748][647]LogSavePackage: Moving output files for package: /Game/__ExternalActors__/Map/8/9T/EMNDYTIV2ER8WSS8BD6EBZ
+[2025.07.02-19.14.26:748][647]LogSavePackage: Moving '../../../../../Documents/Unreal Projects/Sky_Engineer/Saved/EMNDYTIV2ER8WSS8BD6EBZ978A7087FB00462188E0734606D67012.tmp' to '../../../../../Documents/Unreal Projects/Sky_Engineer/Content/__ExternalActors__/Map/8/9T/EMNDYTIV2ER8WSS8BD6EBZ.uasset'
+[2025.07.02-19.14.26:757][647]LogSavePackage: Moving output files for package: /Game/__ExternalActors__/Map/E/FF/MA8GS3VLNXK9J8F8U9PBKC
+[2025.07.02-19.14.26:758][647]LogSavePackage: Moving '../../../../../Documents/Unreal Projects/Sky_Engineer/Saved/MA8GS3VLNXK9J8F8U9PBKC74E6E83EB23A401E92F89EC1F6FEBAB4.tmp' to '../../../../../Documents/Unreal Projects/Sky_Engineer/Content/__ExternalActors__/Map/E/FF/MA8GS3VLNXK9J8F8U9PBKC.uasset'
+[2025.07.02-19.14.26:758][647]LogBulkDataRegistry: Warning: /Game/__ExternalActors__/Map/E/FF/MA8GS3VLNXK9J8F8U9PBKC.StaticMesh_HLOD0_Instancing_5 failed to register BulkData 1ED851FBE2798F055C261EBDA646143E from SerializeToPackageTrailer in the BulkDataRegistry: it already exists with owner /Temp/Untitled_1_InstanceOf_/Engine/__ExternalActors__/Maps/Templates/OpenWorld/0/5K/CE7OWOIDJIL69HHH3KR4JJ.
+            Payload: 497d64c38440c3eba371466b004519f99d9ee339
+    ExistingPayload: 497d64c38440c3eba371466b004519f99d9ee339
+[2025.07.02-19.14.26:767][647]LogSavePackage: Moving output files for package: /Game/__ExternalActors__/Map/3/XR/2BWLHU4O3CLBGO8ZXRIRNG
+[2025.07.02-19.14.26:767][647]LogSavePackage: Moving '../../../../../Documents/Unreal Projects/Sky_Engineer/Saved/2BWLHU4O3CLBGO8ZXRIRNG96278F5A76EA448984736154B889EB28.tmp' to '../../../../../Documents/Unreal Projects/Sky_Engineer/Content/__ExternalActors__/Map/3/XR/2BWLHU4O3CLBGO8ZXRIRNG.uasset'
+[2025.07.02-19.14.26:767][647]LogBulkDataRegistry: Warning: /Game/__ExternalActors__/Map/3/XR/2BWLHU4O3CLBGO8ZXRIRNG.StaticMesh_HLOD0_Instancing_3 failed to register BulkData AA339FED075931CF24B6B41D6E5F641D from SerializeToPackageTrailer in the BulkDataRegistry: it already exists with owner /Temp/Untitled_1_InstanceOf_/Engine/__ExternalActors__/Maps/Templates/OpenWorld/0/5S/7KG1M6Z4DAY7L4W6MCJF27.
+            Payload: 4adc788fb7d503f8b2cabf2de9ea86b3b3796eb5
+    ExistingPayload: 4adc788fb7d503f8b2cabf2de9ea86b3b3796eb5
+[2025.07.02-19.14.26:775][647]LogSavePackage: Moving output files for package: /Game/__ExternalActors__/Map/D/UX/3X46MGBYLKX0HGFGQ36Z69
+[2025.07.02-19.14.26:775][647]LogSavePackage: Moving '../../../../../Documents/Unreal Projects/Sky_Engineer/Saved/3X46MGBYLKX0HGFGQ36Z6941595F1358DB46F5868D0B6941527CF2.tmp' to '../../../../../Documents/Unreal Projects/Sky_Engineer/Content/__ExternalActors__/Map/D/UX/3X46MGBYLKX0HGFGQ36Z69.uasset'
+[2025.07.02-19.14.26:776][647]LogBulkDataRegistry: Warning: /Game/__ExternalActors__/Map/D/UX/3X46MGBYLKX0HGFGQ36Z69.StaticMesh_HLOD0_Instancing_3 failed to register BulkData 90DE279A27FF61C9DE90A8BE1D02A7B1 from SerializeToPackageTrailer in the BulkDataRegistry: it already exists with owner /Temp/Untitled_1_InstanceOf_/Engine/__ExternalActors__/Maps/Templates/OpenWorld/0/BY/3VWWK6AVEYXW9NSZV4QD8O.
+            Payload: 041487f3c614069d14bddde9bb3ad5b43a21f750
+    ExistingPayload: 041487f3c614069d14bddde9bb3ad5b43a21f750
+[2025.07.02-19.14.26:782][647]LogSavePackage: Moving output files for package: /Game/__ExternalActors__/Map/1/T6/A9ITE0LTNEHY9CDTMMG0VT
+[2025.07.02-19.14.26:782][647]LogSavePackage: Moving '../../../../../Documents/Unreal Projects/Sky_Engineer/Saved/A9ITE0LTNEHY9CDTMMG0VTC56D23DB1C9E4942B99FCC64AFEEC371.tmp' to '../../../../../Documents/Unreal Projects/Sky_Engineer/Content/__ExternalActors__/Map/1/T6/A9ITE0LTNEHY9CDTMMG0VT.uasset'
+[2025.07.02-19.14.26:783][647]LogBulkDataRegistry: Warning: /Game/__ExternalActors__/Map/1/T6/A9ITE0LTNEHY9CDTMMG0VT.StaticMesh_HLOD0_Instancing_3 failed to register BulkData 803C8399DC88A3D4C6F034C96039C6EE from SerializeToPackageTrailer in the BulkDataRegistry: it already exists with owner /Temp/Untitled_1_InstanceOf_/Engine/__ExternalActors__/Maps/Templates/OpenWorld/0/KN/UD3G3TJ9US3TGIJTNAMJMZ.
+            Payload: c2c72858f81fef0adc20bc02c74c03c8e32da733
+    ExistingPayload: c2c72858f81fef0adc20bc02c74c03c8e32da733
+[2025.07.02-19.14.26:788][647]LogSavePackage: Moving output files for package: /Game/__ExternalActors__/Map/A/0F/DKLO7C1FBD4SCOQ1AMG4ET
+[2025.07.02-19.14.26:788][647]LogSavePackage: Moving '../../../../../Documents/Unreal Projects/Sky_Engineer/Saved/DKLO7C1FBD4SCOQ1AMG4ET78526B0C7A44453FBAAC74B7F475CC6C.tmp' to '../../../../../Documents/Unreal Projects/Sky_Engineer/Content/__ExternalActors__/Map/A/0F/DKLO7C1FBD4SCOQ1AMG4ET.uasset'
+[2025.07.02-19.14.26:788][647]LogBulkDataRegistry: Warning: /Game/__ExternalActors__/Map/A/0F/DKLO7C1FBD4SCOQ1AMG4ET.StaticMesh_HLOD0_Instancing_3 failed to register BulkData B02D79A760FBACF7A9F4574D42B7FC22 from SerializeToPackageTrailer in the BulkDataRegistry: it already exists with owner /Temp/Untitled_1_InstanceOf_/Engine/__ExternalActors__/Maps/Templates/OpenWorld/0/O3/WPW7CIF61XJVNXEFKBLWZN.
+            Payload: 1766b957d6611c02f8b6f3c4580882d3032a5415
+    ExistingPayload: 1766b957d6611c02f8b6f3c4580882d3032a5415
+[2025.07.02-19.14.26:793][647]LogSavePackage: Moving output files for package: /Game/__ExternalActors__/Map/D/DF/H5YX22U0AMCPUB45KCF2CJ
+[2025.07.02-19.14.26:793][647]LogSavePackage: Moving '../../../../../Documents/Unreal Projects/Sky_Engineer/Saved/H5YX22U0AMCPUB45KCF2CJ7AEC3BBD9881496D9DDC00385C61C525.tmp' to '../../../../../Documents/Unreal Projects/Sky_Engineer/Content/__ExternalActors__/Map/D/DF/H5YX22U0AMCPUB45KCF2CJ.uasset'
+[2025.07.02-19.14.26:793][647]LogBulkDataRegistry: Warning: /Game/__ExternalActors__/Map/D/DF/H5YX22U0AMCPUB45KCF2CJ.StaticMesh_HLOD0_Instancing_3 failed to register BulkData 7D617C4A69D5F85B67CA4F7281F7797E from SerializeToPackageTrailer in the BulkDataRegistry: it already exists with owner /Temp/Untitled_1_InstanceOf_/Engine/__ExternalActors__/Maps/Templates/OpenWorld/0/VP/TFSQO5ISVRSGN8PURAZRAC.
+            Payload: 9ba13bca9f8a0caf0903c91b58a3e77ac82283ba
+    ExistingPayload: 9ba13bca9f8a0caf0903c91b58a3e77ac82283ba
+[2025.07.02-19.14.26:798][647]LogSavePackage: Moving output files for package: /Game/__ExternalActors__/Map/2/3R/JONEVLHYPF92B7LFF5SWJH
+[2025.07.02-19.14.26:798][647]LogSavePackage: Moving '../../../../../Documents/Unreal Projects/Sky_Engineer/Saved/JONEVLHYPF92B7LFF5SWJHF7B62701426A42F0A121C7D063D63360.tmp' to '../../../../../Documents/Unreal Projects/Sky_Engineer/Content/__ExternalActors__/Map/2/3R/JONEVLHYPF92B7LFF5SWJH.uasset'
+[2025.07.02-19.14.26:798][647]LogBulkDataRegistry: Warning: /Game/__ExternalActors__/Map/2/3R/JONEVLHYPF92B7LFF5SWJH.StaticMesh_HLOD0_Instancing_3 failed to register BulkData BA5118FAA42E0709561B7AB87B65D822 from SerializeToPackageTrailer in the BulkDataRegistry: it already exists with owner /Temp/Untitled_1_InstanceOf_/Engine/__ExternalActors__/Maps/Templates/OpenWorld/1/27/Y7IFHWJO5J7WX6YC6J5N8M.
+            Payload: e3937ba7dc7e0ab4bf729c2ddaaf7c1a0a0f7b0a
+    ExistingPayload: e3937ba7dc7e0ab4bf729c2ddaaf7c1a0a0f7b0a
+[2025.07.02-19.14.26:801][647]LogSavePackage: Moving output files for package: /Game/__ExternalActors__/Map/6/PB/7XAQTKWNILFOESGEWMOK7S
+[2025.07.02-19.14.26:801][647]LogSavePackage: Moving '../../../../../Documents/Unreal Projects/Sky_Engineer/Saved/7XAQTKWNILFOESGEWMOK7S307A470D457D4415964EC5B31AFA432C.tmp' to '../../../../../Documents/Unreal Projects/Sky_Engineer/Content/__ExternalActors__/Map/6/PB/7XAQTKWNILFOESGEWMOK7S.uasset'
+[2025.07.02-19.14.26:801][647]LogBulkDataRegistry: Warning: /Game/__ExternalActors__/Map/6/PB/7XAQTKWNILFOESGEWMOK7S.StaticMesh_HLOD0_Instancing_3 failed to register BulkData 309153214ED1BAEC604E8EC4641E0429 from SerializeToPackageTrailer in the BulkDataRegistry: it already exists with owner /Temp/Untitled_1_InstanceOf_/Engine/__ExternalActors__/Maps/Templates/OpenWorld/1/4G/XQMADMPIF27EYUX6I1GTO8.
+            Payload: 825782bf793e32c86e92e3812ad618f3c9dff462
+    ExistingPayload: 825782bf793e32c86e92e3812ad618f3c9dff462
+[2025.07.02-19.14.26:805][647]LogSavePackage: Moving output files for package: /Game/__ExternalActors__/Map/2/AT/Q3KO5SL5FB1ZMUZU0O5ODS
+[2025.07.02-19.14.26:805][647]LogSavePackage: Moving '../../../../../Documents/Unreal Projects/Sky_Engineer/Saved/Q3KO5SL5FB1ZMUZU0O5ODSC1CA0E20E6444DB28A6CC601876D240A.tmp' to '../../../../../Documents/Unreal Projects/Sky_Engineer/Content/__ExternalActors__/Map/2/AT/Q3KO5SL5FB1ZMUZU0O5ODS.uasset'
+[2025.07.02-19.14.26:805][647]LogBulkDataRegistry: Warning: /Game/__ExternalActors__/Map/2/AT/Q3KO5SL5FB1ZMUZU0O5ODS.StaticMesh_HLOD0_Instancing_3 failed to register BulkData B91AC2D394611D518D50B19A360CF9B7 from SerializeToPackageTrailer in the BulkDataRegistry: it already exists with owner /Temp/Untitled_1_InstanceOf_/Engine/__ExternalActors__/Maps/Templates/OpenWorld/1/KH/TF80JEHHCZ7LCUGGAY96O6.
+            Payload: aa618f5d3d3fa2014a9b6119ea56e5c6e8c7b33d
+    ExistingPayload: aa618f5d3d3fa2014a9b6119ea56e5c6e8c7b33d
+[2025.07.02-19.14.26:808][647]LogSavePackage: Moving output files for package: /Game/__ExternalActors__/Map/1/DC/Q6QL1BJ8H86YMUDYXE769V
+[2025.07.02-19.14.26:808][647]LogSavePackage: Moving '../../../../../Documents/Unreal Projects/Sky_Engineer/Saved/Q6QL1BJ8H86YMUDYXE769VB04D049A52904578A5002026CA2F7656.tmp' to '../../../../../Documents/Unreal Projects/Sky_Engineer/Content/__ExternalActors__/Map/1/DC/Q6QL1BJ8H86YMUDYXE769V.uasset'
+[2025.07.02-19.14.26:808][647]LogBulkDataRegistry: Warning: /Game/__ExternalActors__/Map/1/DC/Q6QL1BJ8H86YMUDYXE769V.StaticMesh_HLOD0_Instancing_3 failed to register BulkData 9441ECBB789481F949F9A6BCEB086333 from SerializeToPackageTrailer in the BulkDataRegistry: it already exists with owner /Temp/Untitled_1_InstanceOf_/Engine/__ExternalActors__/Maps/Templates/OpenWorld/1/L7/D6T95MI6OZRA70MGB00GTO.
+            Payload: a50fd40e3d35385fff6c03e199ad98d5d10d82a9
+    ExistingPayload: a50fd40e3d35385fff6c03e199ad98d5d10d82a9
+[2025.07.02-19.14.26:811][647]LogSavePackage: Moving output files for package: /Game/__ExternalActors__/Map/B/ST/34MRUQVURK1YJ5233DYGK6
+[2025.07.02-19.14.26:811][647]LogSavePackage: Moving '../../../../../Documents/Unreal Projects/Sky_Engineer/Saved/34MRUQVURK1YJ5233DYGK6218F2B8B4F0A42A3ABBF8FC2E6698A20.tmp' to '../../../../../Documents/Unreal Projects/Sky_Engineer/Content/__ExternalActors__/Map/B/ST/34MRUQVURK1YJ5233DYGK6.uasset'
+[2025.07.02-19.14.26:811][647]LogBulkDataRegistry: Warning: /Game/__ExternalActors__/Map/B/ST/34MRUQVURK1YJ5233DYGK6.StaticMesh_HLOD0_Instancing_3 failed to register BulkData 681BB6055CAECE94A952E058AE9FB348 from SerializeToPackageTrailer in the BulkDataRegistry: it already exists with owner /Temp/Untitled_1_InstanceOf_/Engine/__ExternalActors__/Maps/Templates/OpenWorld/1/ZE/CG8IV7D3WBMHLQ6603TTIN.
+            Payload: 202232721a5b0cdfe2778682c3db6ef669559b63
+    ExistingPayload: 202232721a5b0cdfe2778682c3db6ef669559b63
+[2025.07.02-19.14.26:813][647]LogSavePackage: Moving output files for package: /Game/__ExternalActors__/Map/5/C5/2KHBJQGFH76AG87YY3HABQ
+[2025.07.02-19.14.26:813][647]LogSavePackage: Moving '../../../../../Documents/Unreal Projects/Sky_Engineer/Saved/2KHBJQGFH76AG87YY3HABQA7FFD27DD73E4BB3A6155AFE89A8EC86.tmp' to '../../../../../Documents/Unreal Projects/Sky_Engineer/Content/__ExternalActors__/Map/5/C5/2KHBJQGFH76AG87YY3HABQ.uasset'
+[2025.07.02-19.14.26:813][647]LogBulkDataRegistry: Warning: /Game/__ExternalActors__/Map/5/C5/2KHBJQGFH76AG87YY3HABQ.StaticMesh_HLOD0_Instancing_3 failed to register BulkData 10D9EF2CF86B3C4BA1AC79A43B48647E from SerializeToPackageTrailer in the BulkDataRegistry: it already exists with owner /Temp/Untitled_1_InstanceOf_/Engine/__ExternalActors__/Maps/Templates/OpenWorld/2/CH/NXO39JTGOM7IJ8IAANES8J.
+            Payload: 8d8b265dd81705a46eb98e5969ff545b54eb154d
+    ExistingPayload: 8d8b265dd81705a46eb98e5969ff545b54eb154d
+[2025.07.02-19.14.26:817][647]LogSavePackage: Moving output files for package: /Game/__ExternalActors__/Map/D/YN/K47T0F67A34AN06DMPUVLL
+[2025.07.02-19.14.26:817][647]LogSavePackage: Moving '../../../../../Documents/Unreal Projects/Sky_Engineer/Saved/K47T0F67A34AN06DMPUVLL13236F2F3C8A4D7AA06B6CB212B4FFF7.tmp' to '../../../../../Documents/Unreal Projects/Sky_Engineer/Content/__ExternalActors__/Map/D/YN/K47T0F67A34AN06DMPUVLL.uasset'
+[2025.07.02-19.14.26:817][647]LogBulkDataRegistry: Warning: /Game/__ExternalActors__/Map/D/YN/K47T0F67A34AN06DMPUVLL.StaticMesh_HLOD0_Instancing_3 failed to register BulkData 86BACD8F476263A89B8E812AC973963B from SerializeToPackageTrailer in the BulkDataRegistry: it already exists with owner /Temp/Untitled_1_InstanceOf_/Engine/__ExternalActors__/Maps/Templates/OpenWorld/2/EN/UXSY68YATHVWIP3MCFBSRN.
+            Payload: 4af214233236a2008039a7062333a8318e7f3e86
+    ExistingPayload: 4af214233236a2008039a7062333a8318e7f3e86
+[2025.07.02-19.14.26:822][647]LogSavePackage: Moving output files for package: /Game/__ExternalActors__/Map/6/3K/MSQC9BQN6KYNLML01U076H
+[2025.07.02-19.14.26:822][647]LogSavePackage: Moving '../../../../../Documents/Unreal Projects/Sky_Engineer/Saved/MSQC9BQN6KYNLML01U076HA5A269D19A0C45FEBB76951A9826B78B.tmp' to '../../../../../Documents/Unreal Projects/Sky_Engineer/Content/__ExternalActors__/Map/6/3K/MSQC9BQN6KYNLML01U076H.uasset'
+[2025.07.02-19.14.26:822][647]LogBulkDataRegistry: Warning: /Game/__ExternalActors__/Map/6/3K/MSQC9BQN6KYNLML01U076H.StaticMesh_HLOD0_Instancing_3 failed to register BulkData 37D80D08DA3CDE9A8103FDCCB3D1AE89 from SerializeToPackageTrailer in the BulkDataRegistry: it already exists with owner /Temp/Untitled_1_InstanceOf_/Engine/__ExternalActors__/Maps/Templates/OpenWorld/2/GH/HNSUWP8J18J3DNWN1LPW2V.
+            Payload: 765d244ee84e9295815ddeea345cab8e43c9b7d1
+    ExistingPayload: 765d244ee84e9295815ddeea345cab8e43c9b7d1
+[2025.07.02-19.14.26:832][647]LogSavePackage: Moving output files for package: /Game/__ExternalActors__/Map/0/6Z/N9FM9MOY57FKAK2VU5GDU4
+[2025.07.02-19.14.26:832][647]LogSavePackage: Moving '../../../../../Documents/Unreal Projects/Sky_Engineer/Saved/N9FM9MOY57FKAK2VU5GDU428123AC69F214DF5A4C737E5C4CBB1A9.tmp' to '../../../../../Documents/Unreal Projects/Sky_Engineer/Content/__ExternalActors__/Map/0/6Z/N9FM9MOY57FKAK2VU5GDU4.uasset'
+[2025.07.02-19.14.26:833][647]LogBulkDataRegistry: Warning: /Game/__ExternalActors__/Map/0/6Z/N9FM9MOY57FKAK2VU5GDU4.StaticMesh_HLOD0_Instancing_3 failed to register BulkData 575F556AF93598FDFD3FB0436D6BD0D4 from SerializeToPackageTrailer in the BulkDataRegistry: it already exists with owner /Temp/Untitled_1_InstanceOf_/Engine/__ExternalActors__/Maps/Templates/OpenWorld/2/TQ/ZTXE1THS1FHPKQYJWEVTF1.
+            Payload: 3eb206529e3b9eba8d1548abcb62ee0fea937f4f
+    ExistingPayload: 3eb206529e3b9eba8d1548abcb62ee0fea937f4f
+[2025.07.02-19.14.26:842][647]LogSavePackage: Moving output files for package: /Game/__ExternalActors__/Map/5/23/TLKH2MJMDEL6WVID1MVL1J
+[2025.07.02-19.14.26:842][647]LogSavePackage: Moving '../../../../../Documents/Unreal Projects/Sky_Engineer/Saved/TLKH2MJMDEL6WVID1MVL1J84D3E627AE594C3D926AFC74E091A5E2.tmp' to '../../../../../Documents/Unreal Projects/Sky_Engineer/Content/__ExternalActors__/Map/5/23/TLKH2MJMDEL6WVID1MVL1J.uasset'
+[2025.07.02-19.14.26:842][647]LogBulkDataRegistry: Warning: /Game/__ExternalActors__/Map/5/23/TLKH2MJMDEL6WVID1MVL1J.StaticMesh_HLOD0_Instancing_3 failed to register BulkData C93070502AD420C2FD5A9C63C0EAA037 from SerializeToPackageTrailer in the BulkDataRegistry: it already exists with owner /Temp/Untitled_1_InstanceOf_/Engine/__ExternalActors__/Maps/Templates/OpenWorld/2/US/YUBYQ1LC69AYEHAQJXQ9LS.
+            Payload: 84dbadfdd283b2e78679d136d892b299edd3a963
+    ExistingPayload: 84dbadfdd283b2e78679d136d892b299edd3a963
+[2025.07.02-19.14.26:852][647]LogSavePackage: Moving output files for package: /Game/__ExternalActors__/Map/A/2X/O8Y5RH1ARBZJDGJKSWTO7E
+[2025.07.02-19.14.26:852][647]LogSavePackage: Moving '../../../../../Documents/Unreal Projects/Sky_Engineer/Saved/O8Y5RH1ARBZJDGJKSWTO7EF97CE38BA7844490824D9646279C6AF3.tmp' to '../../../../../Documents/Unreal Projects/Sky_Engineer/Content/__ExternalActors__/Map/A/2X/O8Y5RH1ARBZJDGJKSWTO7E.uasset'
+[2025.07.02-19.14.26:853][647]LogBulkDataRegistry: Warning: /Game/__ExternalActors__/Map/A/2X/O8Y5RH1ARBZJDGJKSWTO7E.StaticMesh_HLOD0_Instancing_3 failed to register BulkData 4446851A32BE69EFD1425C1571090F2D from SerializeToPackageTrailer in the BulkDataRegistry: it already exists with owner /Temp/Untitled_1_InstanceOf_/Engine/__ExternalActors__/Maps/Templates/OpenWorld/2/XD/80DOKOIVDWN29O7YL417GZ.
+            Payload: 61605bce7b42644d5668ef75b0b8a6bd80b9c824
+    ExistingPayload: 61605bce7b42644d5668ef75b0b8a6bd80b9c824
+[2025.07.02-19.14.26:863][647]LogSavePackage: Moving output files for package: /Game/__ExternalActors__/Map/1/ZE/R3G1M08KZBUPS6QC2DI7SC
+[2025.07.02-19.14.26:863][647]LogSavePackage: Moving '../../../../../Documents/Unreal Projects/Sky_Engineer/Saved/R3G1M08KZBUPS6QC2DI7SC54687E8381DD4EFBA8902454D31C2517.tmp' to '../../../../../Documents/Unreal Projects/Sky_Engineer/Content/__ExternalActors__/Map/1/ZE/R3G1M08KZBUPS6QC2DI7SC.uasset'
+[2025.07.02-19.14.26:863][647]LogBulkDataRegistry: Warning: /Game/__ExternalActors__/Map/1/ZE/R3G1M08KZBUPS6QC2DI7SC.StaticMesh_HLOD0_Instancing_3 failed to register BulkData D470178D79737C65762838F887D3E246 from SerializeToPackageTrailer in the BulkDataRegistry: it already exists with owner /Temp/Untitled_1_InstanceOf_/Engine/__ExternalActors__/Maps/Templates/OpenWorld/3/6L/SFJTJ7A2NHMW798CZKNG9F.
+            Payload: d2a455d73207e75b57b53454c107292182f21922
+    ExistingPayload: d2a455d73207e75b57b53454c107292182f21922
+[2025.07.02-19.14.26:873][647]LogSavePackage: Moving output files for package: /Game/__ExternalActors__/Map/9/HM/WPRUG6LH79UMCZOXPVMMI3
+[2025.07.02-19.14.26:873][647]LogSavePackage: Moving '../../../../../Documents/Unreal Projects/Sky_Engineer/Saved/WPRUG6LH79UMCZOXPVMMI3C47E621EA52C4937A67B8CBF934A0A61.tmp' to '../../../../../Documents/Unreal Projects/Sky_Engineer/Content/__ExternalActors__/Map/9/HM/WPRUG6LH79UMCZOXPVMMI3.uasset'
+[2025.07.02-19.14.26:874][647]LogBulkDataRegistry: Warning: /Game/__ExternalActors__/Map/9/HM/WPRUG6LH79UMCZOXPVMMI3.StaticMesh_HLOD0_Instancing_3 failed to register BulkData AAB892CC9DBBBCD6ECF688D0AD5DCCBE from SerializeToPackageTrailer in the BulkDataRegistry: it already exists with owner /Temp/Untitled_1_InstanceOf_/Engine/__ExternalActors__/Maps/Templates/OpenWorld/3/BX/4SG4FMH15YA0SVXI9O6643.
+            Payload: a071f0e1a985240c8d176adcbe6e8cdd420edcc3
+    ExistingPayload: a071f0e1a985240c8d176adcbe6e8cdd420edcc3
+[2025.07.02-19.14.26:884][647]LogSavePackage: Moving output files for package: /Game/__ExternalActors__/Map/B/DJ/D0KB8DKG79S1LU72XH1M1F
+[2025.07.02-19.14.26:884][647]LogSavePackage: Moving '../../../../../Documents/Unreal Projects/Sky_Engineer/Saved/D0KB8DKG79S1LU72XH1M1F6AEA0CB89F6B4277B3F065F2F07E3770.tmp' to '../../../../../Documents/Unreal Projects/Sky_Engineer/Content/__ExternalActors__/Map/B/DJ/D0KB8DKG79S1LU72XH1M1F.uasset'
+[2025.07.02-19.14.26:884][647]LogBulkDataRegistry: Warning: /Game/__ExternalActors__/Map/B/DJ/D0KB8DKG79S1LU72XH1M1F.StaticMesh_HLOD0_Instancing_3 failed to register BulkData 51F073437440D0884E9B0532A8B1EEF1 from SerializeToPackageTrailer in the BulkDataRegistry: it already exists with owner /Temp/Untitled_1_InstanceOf_/Engine/__ExternalActors__/Maps/Templates/OpenWorld/3/GD/I9ZBXPRHNR38HFE4CGO97F.
+            Payload: d5f4cdf7f38ddc2f0f8bee6dfa0bf458bf4d8a72
+    ExistingPayload: d5f4cdf7f38ddc2f0f8bee6dfa0bf458bf4d8a72
+[2025.07.02-19.14.26:895][647]LogSavePackage: Moving output files for package: /Game/__ExternalActors__/Map/8/U1/1WK0OZQ3A2T3JL3ISQQOAB
+[2025.07.02-19.14.26:895][647]LogSavePackage: Moving '../../../../../Documents/Unreal Projects/Sky_Engineer/Saved/1WK0OZQ3A2T3JL3ISQQOAB4BABD9125AC149A8B9556720D72190F0.tmp' to '../../../../../Documents/Unreal Projects/Sky_Engineer/Content/__ExternalActors__/Map/8/U1/1WK0OZQ3A2T3JL3ISQQOAB.uasset'
+[2025.07.02-19.14.26:895][647]LogBulkDataRegistry: Warning: /Game/__ExternalActors__/Map/8/U1/1WK0OZQ3A2T3JL3ISQQOAB.StaticMesh_HLOD0_Instancing_3 failed to register BulkData ACD20E729856E2190AFA3CA41D99E763 from SerializeToPackageTrailer in the BulkDataRegistry: it already exists with owner /Temp/Untitled_1_InstanceOf_/Engine/__ExternalActors__/Maps/Templates/OpenWorld/3/NN/XOZPH9N4V9E7YMF75PLFY5.
+            Payload: 3667ad0d481d6e5238d567a8c3ca62d2c1970d38
+    ExistingPayload: 3667ad0d481d6e5238d567a8c3ca62d2c1970d38
+[2025.07.02-19.14.26:905][647]LogSavePackage: Moving output files for package: /Game/__ExternalActors__/Map/C/N1/P5KXCBQODTZQRVHPIAPC7A
+[2025.07.02-19.14.26:905][647]LogSavePackage: Moving '../../../../../Documents/Unreal Projects/Sky_Engineer/Saved/P5KXCBQODTZQRVHPIAPC7A0BAC2469FB734A278820FBA95E67A6FC.tmp' to '../../../../../Documents/Unreal Projects/Sky_Engineer/Content/__ExternalActors__/Map/C/N1/P5KXCBQODTZQRVHPIAPC7A.uasset'
+[2025.07.02-19.14.26:906][647]LogBulkDataRegistry: Warning: /Game/__ExternalActors__/Map/C/N1/P5KXCBQODTZQRVHPIAPC7A.StaticMesh_HLOD0_Instancing_3 failed to register BulkData 9730BDF4FD8E81AD646727A46888BBA1 from SerializeToPackageTrailer in the BulkDataRegistry: it already exists with owner /Temp/Untitled_1_InstanceOf_/Engine/__ExternalActors__/Maps/Templates/OpenWorld/3/Z1/B4WSZCAN5NCW6K68K1C1JN.
+            Payload: 497f4cbfa56651aa03b306ed048f0b7b3b7f4c9c
+    ExistingPayload: 497f4cbfa56651aa03b306ed048f0b7b3b7f4c9c
+[2025.07.02-19.14.26:914][647]LogSavePackage: Moving output files for package: /Game/__ExternalActors__/Map/7/8S/STMSF8VHTVJIYH10P5CS2U
+[2025.07.02-19.14.26:915][647]LogSavePackage: Moving '../../../../../Documents/Unreal Projects/Sky_Engineer/Saved/STMSF8VHTVJIYH10P5CS2U9A206BD7C5A64D72944099760FD73781.tmp' to '../../../../../Documents/Unreal Projects/Sky_Engineer/Content/__ExternalActors__/Map/7/8S/STMSF8VHTVJIYH10P5CS2U.uasset'
+[2025.07.02-19.14.26:915][647]LogBulkDataRegistry: Warning: /Game/__ExternalActors__/Map/7/8S/STMSF8VHTVJIYH10P5CS2U.StaticMesh_HLOD0_Instancing_3 failed to register BulkData 6A5D41956743CDC742F71632786CD18B from SerializeToPackageTrailer in the BulkDataRegistry: it already exists with owner /Temp/Untitled_1_InstanceOf_/Engine/__ExternalActors__/Maps/Templates/OpenWorld/4/1U/XR77NRVSKIGOSP4YVKP3NF.
+            Payload: b8f7e44b35a16bbd2598b9783bb1fd1368997773
+    ExistingPayload: b8f7e44b35a16bbd2598b9783bb1fd1368997773
+[2025.07.02-19.14.26:922][647]LogSavePackage: Moving output files for package: /Game/__ExternalActors__/Map/4/L2/3KQUQ2GZS9QWGRAHO2Y5OT
+[2025.07.02-19.14.26:922][647]LogSavePackage: Moving '../../../../../Documents/Unreal Projects/Sky_Engineer/Saved/3KQUQ2GZS9QWGRAHO2Y5OT66781F5B575647BE8E2B60D29EA2747B.tmp' to '../../../../../Documents/Unreal Projects/Sky_Engineer/Content/__ExternalActors__/Map/4/L2/3KQUQ2GZS9QWGRAHO2Y5OT.uasset'
+[2025.07.02-19.14.26:923][647]LogBulkDataRegistry: Warning: /Game/__ExternalActors__/Map/4/L2/3KQUQ2GZS9QWGRAHO2Y5OT.StaticMesh_HLOD0_Instancing_3 failed to register BulkData 4DD583CD6213BEB4844CF84B187CCCB0 from SerializeToPackageTrailer in the BulkDataRegistry: it already exists with owner /Temp/Untitled_1_InstanceOf_/Engine/__ExternalActors__/Maps/Templates/OpenWorld/4/CI/GUD4QJTP4O4BIRXI49O2Z3.
+            Payload: 97629e798ab4dcf16ddf6c7b8b3c8311cdb8d70e
+    ExistingPayload: 97629e798ab4dcf16ddf6c7b8b3c8311cdb8d70e
+[2025.07.02-19.14.26:929][647]LogSavePackage: Moving output files for package: /Game/__ExternalActors__/Map/B/O5/ZLD257B2OLB6OJG60FJRW1
+[2025.07.02-19.14.26:929][647]LogSavePackage: Moving '../../../../../Documents/Unreal Projects/Sky_Engineer/Saved/ZLD257B2OLB6OJG60FJRW19A1D4BAC69E2422E8512B28C454549B9.tmp' to '../../../../../Documents/Unreal Projects/Sky_Engineer/Content/__ExternalActors__/Map/B/O5/ZLD257B2OLB6OJG60FJRW1.uasset'
+[2025.07.02-19.14.26:929][647]LogBulkDataRegistry: Warning: /Game/__ExternalActors__/Map/B/O5/ZLD257B2OLB6OJG60FJRW1.StaticMesh_HLOD0_Instancing_3 failed to register BulkData BBF2C46A8B44B3ED4839F66266513944 from SerializeToPackageTrailer in the BulkDataRegistry: it already exists with owner /Temp/Untitled_1_InstanceOf_/Engine/__ExternalActors__/Maps/Templates/OpenWorld/4/GQ/1BZWR5HPTCP13J5TGSIKZF.
+            Payload: 132097def28a9a205657f7b3a19b0e1ba97b1c53
+    ExistingPayload: 132097def28a9a205657f7b3a19b0e1ba97b1c53
+[2025.07.02-19.14.26:934][647]LogSavePackage: Moving output files for package: /Game/__ExternalActors__/Map/1/IV/SV876PM04Z51ZVMXP17Y9N
+[2025.07.02-19.14.26:934][647]LogSavePackage: Moving '../../../../../Documents/Unreal Projects/Sky_Engineer/Saved/SV876PM04Z51ZVMXP17Y9N9311B606D28246EEBE9CFD59C8C6912C.tmp' to '../../../../../Documents/Unreal Projects/Sky_Engineer/Content/__ExternalActors__/Map/1/IV/SV876PM04Z51ZVMXP17Y9N.uasset'
+[2025.07.02-19.14.26:935][647]LogBulkDataRegistry: Warning: /Game/__ExternalActors__/Map/1/IV/SV876PM04Z51ZVMXP17Y9N.StaticMesh_HLOD0_Instancing_3 failed to register BulkData B7A665A7CBCCEE735DEC89C6122AE240 from SerializeToPackageTrailer in the BulkDataRegistry: it already exists with owner /Temp/Untitled_1_InstanceOf_/Engine/__ExternalActors__/Maps/Templates/OpenWorld/4/L4/7CG5YH1S7YPZD02MVZK1JJ.
+            Payload: 15a16eabe7b247f2e3e462e0970a3db674276022
+    ExistingPayload: 15a16eabe7b247f2e3e462e0970a3db674276022
+[2025.07.02-19.14.26:939][647]LogSavePackage: Moving output files for package: /Game/__ExternalActors__/Map/2/N6/NJRH2L7AX8PTQ8WN21GMP2
+[2025.07.02-19.14.26:939][647]LogSavePackage: Moving '../../../../../Documents/Unreal Projects/Sky_Engineer/Saved/NJRH2L7AX8PTQ8WN21GMP253C4183D6DD144C6856D6BDE4713F455.tmp' to '../../../../../Documents/Unreal Projects/Sky_Engineer/Content/__ExternalActors__/Map/2/N6/NJRH2L7AX8PTQ8WN21GMP2.uasset'
+[2025.07.02-19.14.26:939][647]LogBulkDataRegistry: Warning: /Game/__ExternalActors__/Map/2/N6/NJRH2L7AX8PTQ8WN21GMP2.StaticMesh_HLOD0_Instancing_3 failed to register BulkData B16B9B5B4E9BDDD62E55ED8B584274EB from SerializeToPackageTrailer in the BulkDataRegistry: it already exists with owner /Temp/Untitled_1_InstanceOf_/Engine/__ExternalActors__/Maps/Templates/OpenWorld/4/RX/WYTIO89IYQQD4U5E09826I.
+            Payload: 79bceb07a41e5370935fb1ebbd19e6918c14a105
+    ExistingPayload: 79bceb07a41e5370935fb1ebbd19e6918c14a105
+[2025.07.02-19.14.26:943][647]LogSavePackage: Moving output files for package: /Game/__ExternalActors__/Map/1/1Y/JMM7FF8TDEJWLW8UDL6AWQ
+[2025.07.02-19.14.26:943][647]LogSavePackage: Moving '../../../../../Documents/Unreal Projects/Sky_Engineer/Saved/JMM7FF8TDEJWLW8UDL6AWQDD1133CAA7B149AD86B2F08B6AE62899.tmp' to '../../../../../Documents/Unreal Projects/Sky_Engineer/Content/__ExternalActors__/Map/1/1Y/JMM7FF8TDEJWLW8UDL6AWQ.uasset'
+[2025.07.02-19.14.26:943][647]LogBulkDataRegistry: Warning: /Game/__ExternalActors__/Map/1/1Y/JMM7FF8TDEJWLW8UDL6AWQ.StaticMesh_HLOD0_Instancing_3 failed to register BulkData 181324828E4FFECA7CB871DCDD611793 from SerializeToPackageTrailer in the BulkDataRegistry: it already exists with owner /Temp/Untitled_1_InstanceOf_/Engine/__ExternalActors__/Maps/Templates/OpenWorld/4/XH/IO72E5L6ZIXCPCY5ZV1LFB.
+            Payload: 08e677c6d7477224f66e49990fdcffbf4f96c250
+    ExistingPayload: 08e677c6d7477224f66e49990fdcffbf4f96c250
+[2025.07.02-19.14.26:946][647]LogSavePackage: Moving output files for package: /Game/__ExternalActors__/Map/2/YJ/GF3X350U2DL7E2C02HQPC3
+[2025.07.02-19.14.26:946][647]LogSavePackage: Moving '../../../../../Documents/Unreal Projects/Sky_Engineer/Saved/GF3X350U2DL7E2C02HQPC39C88C07FEB4A4DAD90B22D11C2A9FBF4.tmp' to '../../../../../Documents/Unreal Projects/Sky_Engineer/Content/__ExternalActors__/Map/2/YJ/GF3X350U2DL7E2C02HQPC3.uasset'
+[2025.07.02-19.14.26:946][647]LogBulkDataRegistry: Warning: /Game/__ExternalActors__/Map/2/YJ/GF3X350U2DL7E2C02HQPC3.StaticMesh_HLOD0_Instancing_3 failed to register BulkData 8C01CB2FB4E0C00ECA76DB720C878109 from SerializeToPackageTrailer in the BulkDataRegistry: it already exists with owner /Temp/Untitled_1_InstanceOf_/Engine/__ExternalActors__/Maps/Templates/OpenWorld/5/23/2FOTWI9AYF007OAQ81AIHY.
+            Payload: 6d2e12b8407269ea83e985f74db537577e631f1d
+    ExistingPayload: 6d2e12b8407269ea83e985f74db537577e631f1d
+[2025.07.02-19.14.26:949][647]LogSavePackage: Moving output files for package: /Game/__ExternalActors__/Map/D/B5/CAJR4N32IXRCBNOW3UTM5G
+[2025.07.02-19.14.26:949][647]LogSavePackage: Moving '../../../../../Documents/Unreal Projects/Sky_Engineer/Saved/CAJR4N32IXRCBNOW3UTM5GD9F2EF350CE140E7A6C8AE28708388D1.tmp' to '../../../../../Documents/Unreal Projects/Sky_Engineer/Content/__ExternalActors__/Map/D/B5/CAJR4N32IXRCBNOW3UTM5G.uasset'
+[2025.07.02-19.14.26:950][647]LogBulkDataRegistry: Warning: /Game/__ExternalActors__/Map/D/B5/CAJR4N32IXRCBNOW3UTM5G.StaticMesh_HLOD0_Instancing_3 failed to register BulkData BCE9919CEE56F1287FD2CDCA0C733D10 from SerializeToPackageTrailer in the BulkDataRegistry: it already exists with owner /Temp/Untitled_1_InstanceOf_/Engine/__ExternalActors__/Maps/Templates/OpenWorld/5/HV/8VPJR9FG4DY9IWHOO36TXC.
+            Payload: bad5641ceba41f9cfddfb1befeacc9c4fec85e51
+    ExistingPayload: bad5641ceba41f9cfddfb1befeacc9c4fec85e51
+[2025.07.02-19.14.26:952][647]LogSavePackage: Moving output files for package: /Game/__ExternalActors__/Map/A/7H/IO1AZGH8ZVBDF2JUUM5WA3
+[2025.07.02-19.14.26:952][647]LogSavePackage: Moving '../../../../../Documents/Unreal Projects/Sky_Engineer/Saved/IO1AZGH8ZVBDF2JUUM5WA350E843490AD24458A9FA7017A0478456.tmp' to '../../../../../Documents/Unreal Projects/Sky_Engineer/Content/__ExternalActors__/Map/A/7H/IO1AZGH8ZVBDF2JUUM5WA3.uasset'
+[2025.07.02-19.14.26:952][647]LogBulkDataRegistry: Warning: /Game/__ExternalActors__/Map/A/7H/IO1AZGH8ZVBDF2JUUM5WA3.StaticMesh_HLOD0_Instancing_3 failed to register BulkData 3862EA5057B18B219CD3DA40F2E9EB27 from SerializeToPackageTrailer in the BulkDataRegistry: it already exists with owner /Temp/Untitled_1_InstanceOf_/Engine/__ExternalActors__/Maps/Templates/OpenWorld/5/S1/MGYFJ10ERA3LBZ2NVR21ZS.
+            Payload: 5aee7833f0eb6f00fb8d192aaed2bcf3383e52f0
+    ExistingPayload: 5aee7833f0eb6f00fb8d192aaed2bcf3383e52f0
+[2025.07.02-19.14.26:955][647]LogSavePackage: Moving output files for package: /Game/__ExternalActors__/Map/8/KM/MRYAD0XG0RHAMHPD8WWJH3
+[2025.07.02-19.14.26:955][647]LogSavePackage: Moving '../../../../../Documents/Unreal Projects/Sky_Engineer/Saved/MRYAD0XG0RHAMHPD8WWJH384F499145BAF42F9BC9D29811EE8CD72.tmp' to '../../../../../Documents/Unreal Projects/Sky_Engineer/Content/__ExternalActors__/Map/8/KM/MRYAD0XG0RHAMHPD8WWJH3.uasset'
+[2025.07.02-19.14.26:955][647]LogBulkDataRegistry: Warning: /Game/__ExternalActors__/Map/8/KM/MRYAD0XG0RHAMHPD8WWJH3.StaticMesh_HLOD0_Instancing_3 failed to register BulkData 68383CCCC0B00BA0E7685726DB93851E from SerializeToPackageTrailer in the BulkDataRegistry: it already exists with owner /Temp/Untitled_1_InstanceOf_/Engine/__ExternalActors__/Maps/Templates/OpenWorld/6/EI/M2ZU794Z9KQ8NTXCDK9OW9.
+            Payload: 0332247129b08d9afd8fb1bb3d3103bbd4b42c7d
+    ExistingPayload: 0332247129b08d9afd8fb1bb3d3103bbd4b42c7d
+[2025.07.02-19.14.26:957][647]LogSavePackage: Moving output files for package: /Game/__ExternalActors__/Map/2/9N/JSF0WJW6CXIOWNXN1Y6P44
+[2025.07.02-19.14.26:957][647]LogSavePackage: Moving '../../../../../Documents/Unreal Projects/Sky_Engineer/Saved/JSF0WJW6CXIOWNXN1Y6P441CDF2CB6025B49398CC3B8A24DAA2A0D.tmp' to '../../../../../Documents/Unreal Projects/Sky_Engineer/Content/__ExternalActors__/Map/2/9N/JSF0WJW6CXIOWNXN1Y6P44.uasset'
+[2025.07.02-19.14.26:957][647]LogBulkDataRegistry: Warning: /Game/__ExternalActors__/Map/2/9N/JSF0WJW6CXIOWNXN1Y6P44.StaticMesh_HLOD0_Instancing_3 failed to register BulkData 284CEEABD4BA1409CFE468E0B980D4FD from SerializeToPackageTrailer in the BulkDataRegistry: it already exists with owner /Temp/Untitled_1_InstanceOf_/Engine/__ExternalActors__/Maps/Templates/OpenWorld/6/I5/8LF7F9DUELVHUUAUULV8S7.
+            Payload: fa975750fb12f8692c64d690c7aad7fb67b2dec2
+    ExistingPayload: fa975750fb12f8692c64d690c7aad7fb67b2dec2
+[2025.07.02-19.14.26:959][647]LogSavePackage: Moving output files for package: /Game/__ExternalActors__/Map/0/WP/LN60SUHBCXMEHLIOS4P9WM
+[2025.07.02-19.14.26:959][647]LogSavePackage: Moving '../../../../../Documents/Unreal Projects/Sky_Engineer/Saved/LN60SUHBCXMEHLIOS4P9WM4F24BC046CA0431498ED85BC59BA7142.tmp' to '../../../../../Documents/Unreal Projects/Sky_Engineer/Content/__ExternalActors__/Map/0/WP/LN60SUHBCXMEHLIOS4P9WM.uasset'
+[2025.07.02-19.14.26:959][647]LogBulkDataRegistry: Warning: /Game/__ExternalActors__/Map/0/WP/LN60SUHBCXMEHLIOS4P9WM.StaticMesh_HLOD0_Instancing_3 failed to register BulkData 6FF5B3730536A696CA0F76BEB2270C3C from SerializeToPackageTrailer in the BulkDataRegistry: it already exists with owner /Temp/Untitled_1_InstanceOf_/Engine/__ExternalActors__/Maps/Templates/OpenWorld/6/SL/5E8AUJWD53HZZ1JZDPXMN5.
+            Payload: fc2df23c38153feaab23959cb8605b38f7f44b76
+    ExistingPayload: fc2df23c38153feaab23959cb8605b38f7f44b76
+[2025.07.02-19.14.26:961][647]LogSavePackage: Moving output files for package: /Game/__ExternalActors__/Map/3/MB/4WA589Y037UZZDRDBQCXK2
+[2025.07.02-19.14.26:961][647]LogSavePackage: Moving '../../../../../Documents/Unreal Projects/Sky_Engineer/Saved/4WA589Y037UZZDRDBQCXK22BD6AA98255C491C9D241D1649105602.tmp' to '../../../../../Documents/Unreal Projects/Sky_Engineer/Content/__ExternalActors__/Map/3/MB/4WA589Y037UZZDRDBQCXK2.uasset'
+[2025.07.02-19.14.26:961][647]LogBulkDataRegistry: Warning: /Game/__ExternalActors__/Map/3/MB/4WA589Y037UZZDRDBQCXK2.StaticMesh_HLOD0_Instancing_3 failed to register BulkData E274EB056A5A257E243CD515FA5CD575 from SerializeToPackageTrailer in the BulkDataRegistry: it already exists with owner /Temp/Untitled_1_InstanceOf_/Engine/__ExternalActors__/Maps/Templates/OpenWorld/7/24/4YD3X92ICGPSMS70GKHT4Y.
+            Payload: 2e9a143056893cdbe9af75a58270c1185941be67
+    ExistingPayload: 2e9a143056893cdbe9af75a58270c1185941be67
+[2025.07.02-19.14.26:963][647]LogSavePackage: Moving output files for package: /Game/__ExternalActors__/Map/C/M4/JID9HWLRVRPL7K2PQ9OEQW
+[2025.07.02-19.14.26:963][647]LogSavePackage: Moving '../../../../../Documents/Unreal Projects/Sky_Engineer/Saved/JID9HWLRVRPL7K2PQ9OEQWB1276109CC954364AEF0A2DA6DD356A1.tmp' to '../../../../../Documents/Unreal Projects/Sky_Engineer/Content/__ExternalActors__/Map/C/M4/JID9HWLRVRPL7K2PQ9OEQW.uasset'
+[2025.07.02-19.14.26:963][647]LogBulkDataRegistry: Warning: /Game/__ExternalActors__/Map/C/M4/JID9HWLRVRPL7K2PQ9OEQW.StaticMesh_HLOD0_Instancing_3 failed to register BulkData 426A39C3FC6ED043624747CD2CAD960D from SerializeToPackageTrailer in the BulkDataRegistry: it already exists with owner /Temp/Untitled_1_InstanceOf_/Engine/__ExternalActors__/Maps/Templates/OpenWorld/7/ED/2PX2Y3KHHIEMEGAZ5FDODJ.
+            Payload: 57f05c20511488e7b3d6b6ae71c5d323fa24ce7a
+    ExistingPayload: 57f05c20511488e7b3d6b6ae71c5d323fa24ce7a
+[2025.07.02-19.14.26:965][647]LogSavePackage: Moving output files for package: /Game/__ExternalActors__/Map/2/I7/M7Z0U0PLPG1D7CO2FIKW6O
+[2025.07.02-19.14.26:965][647]LogSavePackage: Moving '../../../../../Documents/Unreal Projects/Sky_Engineer/Saved/M7Z0U0PLPG1D7CO2FIKW6O89EA9643B36743BAA411A26DEAB2F144.tmp' to '../../../../../Documents/Unreal Projects/Sky_Engineer/Content/__ExternalActors__/Map/2/I7/M7Z0U0PLPG1D7CO2FIKW6O.uasset'
+[2025.07.02-19.14.26:965][647]LogBulkDataRegistry: Warning: /Game/__ExternalActors__/Map/2/I7/M7Z0U0PLPG1D7CO2FIKW6O.StaticMesh_HLOD0_Instancing_3 failed to register BulkData F4F82F31A518B30142F17071878F4B11 from SerializeToPackageTrailer in the BulkDataRegistry: it already exists with owner /Temp/Untitled_1_InstanceOf_/Engine/__ExternalActors__/Maps/Templates/OpenWorld/7/ED/OQA1ZBDPHZ8CO1PTJ6DYR7.
+            Payload: 769409565c2a5af7eab5dc22b8205d4e5d759b2e
+    ExistingPayload: 769409565c2a5af7eab5dc22b8205d4e5d759b2e
+[2025.07.02-19.14.26:967][647]LogSavePackage: Moving output files for package: /Game/__ExternalActors__/Map/C/A2/UPIFTCOKAHGQ70AGV1HHHX
+[2025.07.02-19.14.26:967][647]LogSavePackage: Moving '../../../../../Documents/Unreal Projects/Sky_Engineer/Saved/UPIFTCOKAHGQ70AGV1HHHX8A01BB5FF0194742BF5D496046139CC1.tmp' to '../../../../../Documents/Unreal Projects/Sky_Engineer/Content/__ExternalActors__/Map/C/A2/UPIFTCOKAHGQ70AGV1HHHX.uasset'
+[2025.07.02-19.14.26:967][647]LogBulkDataRegistry: Warning: /Game/__ExternalActors__/Map/C/A2/UPIFTCOKAHGQ70AGV1HHHX.StaticMesh_HLOD0_Instancing_3 failed to register BulkData 2BFDB9C092768DC325F201DD5ADC8888 from SerializeToPackageTrailer in the BulkDataRegistry: it already exists with owner /Temp/Untitled_1_InstanceOf_/Engine/__ExternalActors__/Maps/Templates/OpenWorld/7/P9/RHBSJUA9AR5R6PSGE6GSKS.
+            Payload: 040a83983d9e211eee236b66c0764d2a53c08837
+    ExistingPayload: 040a83983d9e211eee236b66c0764d2a53c08837
+[2025.07.02-19.14.26:969][647]LogSavePackage: Moving output files for package: /Game/__ExternalActors__/Map/B/YB/5ZUVYXNC7I4DXAOQA6I9RX
+[2025.07.02-19.14.26:969][647]LogSavePackage: Moving '../../../../../Documents/Unreal Projects/Sky_Engineer/Saved/5ZUVYXNC7I4DXAOQA6I9RXEF679949443F41639257FAEDC07EF13E.tmp' to '../../../../../Documents/Unreal Projects/Sky_Engineer/Content/__ExternalActors__/Map/B/YB/5ZUVYXNC7I4DXAOQA6I9RX.uasset'
+[2025.07.02-19.14.26:969][647]LogBulkDataRegistry: Warning: /Game/__ExternalActors__/Map/B/YB/5ZUVYXNC7I4DXAOQA6I9RX.StaticMesh_HLOD0_Instancing_3 failed to register BulkData E4FACECBEEF5C1EE8D573415D7A68294 from SerializeToPackageTrailer in the BulkDataRegistry: it already exists with owner /Temp/Untitled_1_InstanceOf_/Engine/__ExternalActors__/Maps/Templates/OpenWorld/7/YB/Z3BCR01JF9KCFXCU4JNRPX.
+            Payload: 0dd8f958ad24c515ecb9962dcf2a60cf1498c4a8
+    ExistingPayload: 0dd8f958ad24c515ecb9962dcf2a60cf1498c4a8
+[2025.07.02-19.14.26:971][647]LogSavePackage: Moving output files for package: /Game/__ExternalActors__/Map/D/V7/BHTSHPY259KDLCYM175KMI
+[2025.07.02-19.14.26:971][647]LogSavePackage: Moving '../../../../../Documents/Unreal Projects/Sky_Engineer/Saved/BHTSHPY259KDLCYM175KMI2FEEF4A7EFD440A592CEB5F7DE69A7EC.tmp' to '../../../../../Documents/Unreal Projects/Sky_Engineer/Content/__ExternalActors__/Map/D/V7/BHTSHPY259KDLCYM175KMI.uasset'
+[2025.07.02-19.14.26:971][647]LogBulkDataRegistry: Warning: /Game/__ExternalActors__/Map/D/V7/BHTSHPY259KDLCYM175KMI.StaticMesh_HLOD0_Instancing_3 failed to register BulkData 246A2F6C314D9F175A5A26CD507C06B6 from SerializeToPackageTrailer in the BulkDataRegistry: it already exists with owner /Temp/Untitled_1_InstanceOf_/Engine/__ExternalActors__/Maps/Templates/OpenWorld/7/YX/2HMYI4TTW5FS9ZJCVXXLUJ.
+            Payload: 29c7c2731c2f96ce0a83fd6479695a9b8991883f
+    ExistingPayload: 29c7c2731c2f96ce0a83fd6479695a9b8991883f
+[2025.07.02-19.14.26:973][647]LogSavePackage: Moving output files for package: /Game/__ExternalActors__/Map/E/N1/BN1SYHOTEGTWTE15Q49HC2
+[2025.07.02-19.14.26:973][647]LogSavePackage: Moving '../../../../../Documents/Unreal Projects/Sky_Engineer/Saved/BN1SYHOTEGTWTE15Q49HC2DC187257D662451584386BD88FA9B222.tmp' to '../../../../../Documents/Unreal Projects/Sky_Engineer/Content/__ExternalActors__/Map/E/N1/BN1SYHOTEGTWTE15Q49HC2.uasset'
+[2025.07.02-19.14.26:973][647]LogBulkDataRegistry: Warning: /Game/__ExternalActors__/Map/E/N1/BN1SYHOTEGTWTE15Q49HC2.StaticMesh_HLOD0_Instancing_3 failed to register BulkData A2323DE509B1ACC125E68A85AD81A110 from SerializeToPackageTrailer in the BulkDataRegistry: it already exists with owner /Temp/Untitled_1_InstanceOf_/Engine/__ExternalActors__/Maps/Templates/OpenWorld/7/ZC/44F80QYMSROPN0PXL8W7DI.
+            Payload: 6bbff3861d71f24edb710f1768c9fc680ad48eaf
+    ExistingPayload: 6bbff3861d71f24edb710f1768c9fc680ad48eaf
+[2025.07.02-19.14.26:975][647]LogSavePackage: Moving output files for package: /Game/__ExternalActors__/Map/2/MA/PFRQ2UPJWUBWO2SQ4FMQOV
+[2025.07.02-19.14.26:975][647]LogSavePackage: Moving '../../../../../Documents/Unreal Projects/Sky_Engineer/Saved/PFRQ2UPJWUBWO2SQ4FMQOVE7D5B959251744189873107B317A2879.tmp' to '../../../../../Documents/Unreal Projects/Sky_Engineer/Content/__ExternalActors__/Map/2/MA/PFRQ2UPJWUBWO2SQ4FMQOV.uasset'
+[2025.07.02-19.14.26:975][647]LogBulkDataRegistry: Warning: /Game/__ExternalActors__/Map/2/MA/PFRQ2UPJWUBWO2SQ4FMQOV.StaticMesh_HLOD0_Instancing_3 failed to register BulkData 0C0A517145CC85EEAAB81329F0F71994 from SerializeToPackageTrailer in the BulkDataRegistry: it already exists with owner /Temp/Untitled_1_InstanceOf_/Engine/__ExternalActors__/Maps/Templates/OpenWorld/8/3M/N9P6ZW1I4HD8A397EUC3YK.
+            Payload: 47b80c35cbadc8d969ce8bf765e8bdc49e952d9c
+    ExistingPayload: 47b80c35cbadc8d969ce8bf765e8bdc49e952d9c
+[2025.07.02-19.14.26:977][647]LogSavePackage: Moving output files for package: /Game/__ExternalActors__/Map/B/3V/HQV296XZCHS6L4EW2E1BRC
+[2025.07.02-19.14.26:977][647]LogSavePackage: Moving '../../../../../Documents/Unreal Projects/Sky_Engineer/Saved/HQV296XZCHS6L4EW2E1BRC291B7795A597460BABAA27920E638996.tmp' to '../../../../../Documents/Unreal Projects/Sky_Engineer/Content/__ExternalActors__/Map/B/3V/HQV296XZCHS6L4EW2E1BRC.uasset'
+[2025.07.02-19.14.26:977][647]LogBulkDataRegistry: Warning: /Game/__ExternalActors__/Map/B/3V/HQV296XZCHS6L4EW2E1BRC.StaticMesh_HLOD0_Instancing_3 failed to register BulkData 29535FCE6BA7615B93329FBD70B45D14 from SerializeToPackageTrailer in the BulkDataRegistry: it already exists with owner /Temp/Untitled_1_InstanceOf_/Engine/__ExternalActors__/Maps/Templates/OpenWorld/8/ZC/1HI0WPWA2RUF32WFUFAFSA.
+            Payload: acb2e379ca919c8b6be9985db30fc02a3e50c5a5
+    ExistingPayload: acb2e379ca919c8b6be9985db30fc02a3e50c5a5
+[2025.07.02-19.14.26:979][647]LogSavePackage: Moving output files for package: /Game/__ExternalActors__/Map/A/B2/NII7STKIZJO5PPM79QVXT7
+[2025.07.02-19.14.26:979][647]LogSavePackage: Moving '../../../../../Documents/Unreal Projects/Sky_Engineer/Saved/NII7STKIZJO5PPM79QVXT79F7C6BCE5D374C1398990E938CB836B9.tmp' to '../../../../../Documents/Unreal Projects/Sky_Engineer/Content/__ExternalActors__/Map/A/B2/NII7STKIZJO5PPM79QVXT7.uasset'
+[2025.07.02-19.14.26:979][647]LogBulkDataRegistry: Warning: /Game/__ExternalActors__/Map/A/B2/NII7STKIZJO5PPM79QVXT7.StaticMesh_HLOD0_Instancing_3 failed to register BulkData E906CC1067063A58EFC0F2D970229387 from SerializeToPackageTrailer in the BulkDataRegistry: it already exists with owner /Temp/Untitled_1_InstanceOf_/Engine/__ExternalActors__/Maps/Templates/OpenWorld/9/LH/00MBAVOF59YWK5C1K0L6QD.
+            Payload: c10ed4017013f46f43c8bc8a12803751724f1f85
+    ExistingPayload: c10ed4017013f46f43c8bc8a12803751724f1f85
+[2025.07.02-19.14.26:981][647]LogSavePackage: Moving output files for package: /Game/__ExternalActors__/Map/6/CW/3IZNG9VIE1J85PMJ1H6HZO
+[2025.07.02-19.14.26:981][647]LogSavePackage: Moving '../../../../../Documents/Unreal Projects/Sky_Engineer/Saved/3IZNG9VIE1J85PMJ1H6HZOA72BD4D7EB314F6EAB5CEC3F89C9CC61.tmp' to '../../../../../Documents/Unreal Projects/Sky_Engineer/Content/__ExternalActors__/Map/6/CW/3IZNG9VIE1J85PMJ1H6HZO.uasset'
+[2025.07.02-19.14.26:981][647]LogBulkDataRegistry: Warning: /Game/__ExternalActors__/Map/6/CW/3IZNG9VIE1J85PMJ1H6HZO.StaticMesh_HLOD0_Instancing_3 failed to register BulkData 94D039DFEEFD734CA555C9DA21135263 from SerializeToPackageTrailer in the BulkDataRegistry: it already exists with owner /Temp/Untitled_1_InstanceOf_/Engine/__ExternalActors__/Maps/Templates/OpenWorld/B/1Y/9FNLWIO8XRBTLI1FIUODLB.
+            Payload: ee87808fee6843aa2322ae981005911531ac3b74
+    ExistingPayload: ee87808fee6843aa2322ae981005911531ac3b74
+[2025.07.02-19.14.26:983][647]LogSavePackage: Moving output files for package: /Game/__ExternalActors__/Map/9/PN/OECG0Z4FPKEAM3E5H964WE
+[2025.07.02-19.14.26:983][647]LogSavePackage: Moving '../../../../../Documents/Unreal Projects/Sky_Engineer/Saved/OECG0Z4FPKEAM3E5H964WE8C3E3CD727874904A7AB026F4E9EF47D.tmp' to '../../../../../Documents/Unreal Projects/Sky_Engineer/Content/__ExternalActors__/Map/9/PN/OECG0Z4FPKEAM3E5H964WE.uasset'
+[2025.07.02-19.14.26:983][647]LogBulkDataRegistry: Warning: /Game/__ExternalActors__/Map/9/PN/OECG0Z4FPKEAM3E5H964WE.StaticMesh_HLOD0_Instancing_3 failed to register BulkData 46A0651C28EC919CF1AB191049F8979F from SerializeToPackageTrailer in the BulkDataRegistry: it already exists with owner /Temp/Untitled_1_InstanceOf_/Engine/__ExternalActors__/Maps/Templates/OpenWorld/B/GZ/56B0AQM0TFG4O338HPSUV0.
+            Payload: 37b7847e4ea5d68606d556cb9caea4d6718d4a04
+    ExistingPayload: 37b7847e4ea5d68606d556cb9caea4d6718d4a04
+[2025.07.02-19.14.26:985][647]LogSavePackage: Moving output files for package: /Game/__ExternalActors__/Map/0/DM/188A2BQ1RIE7Z60Z9W4QOZ
+[2025.07.02-19.14.26:985][647]LogSavePackage: Moving '../../../../../Documents/Unreal Projects/Sky_Engineer/Saved/188A2BQ1RIE7Z60Z9W4QOZ85734F9C641C4AE5A0F494D6E63EF7EC.tmp' to '../../../../../Documents/Unreal Projects/Sky_Engineer/Content/__ExternalActors__/Map/0/DM/188A2BQ1RIE7Z60Z9W4QOZ.uasset'
+[2025.07.02-19.14.26:985][647]LogBulkDataRegistry: Warning: /Game/__ExternalActors__/Map/0/DM/188A2BQ1RIE7Z60Z9W4QOZ.StaticMesh_HLOD0_Instancing_3 failed to register BulkData F3A28E3CF0DAFDA4450C2E9697E9961C from SerializeToPackageTrailer in the BulkDataRegistry: it already exists with owner /Temp/Untitled_1_InstanceOf_/Engine/__ExternalActors__/Maps/Templates/OpenWorld/B/NS/S7UX3VHWK2FE7F1VTGY4Q4.
+            Payload: 1711abb23d0934435e4e0b5a89af1d382d7165dc
+    ExistingPayload: 1711abb23d0934435e4e0b5a89af1d382d7165dc
+[2025.07.02-19.14.26:987][647]LogSavePackage: Moving output files for package: /Game/__ExternalActors__/Map/3/IB/M1LIDM3AJW0D1OHK2LTGZO
+[2025.07.02-19.14.26:987][647]LogSavePackage: Moving '../../../../../Documents/Unreal Projects/Sky_Engineer/Saved/M1LIDM3AJW0D1OHK2LTGZOB0379E03E4A9471689A165D317064D58.tmp' to '../../../../../Documents/Unreal Projects/Sky_Engineer/Content/__ExternalActors__/Map/3/IB/M1LIDM3AJW0D1OHK2LTGZO.uasset'
+[2025.07.02-19.14.26:987][647]LogBulkDataRegistry: Warning: /Game/__ExternalActors__/Map/3/IB/M1LIDM3AJW0D1OHK2LTGZO.StaticMesh_HLOD0_Instancing_3 failed to register BulkData 8990320E72A3E68BEA813FFBBC5DA8D5 from SerializeToPackageTrailer in the BulkDataRegistry: it already exists with owner /Temp/Untitled_1_InstanceOf_/Engine/__ExternalActors__/Maps/Templates/OpenWorld/B/RA/OXSUFS9AD8OBAN9ORA0KHV.
+            Payload: ac818d8ae13fa41f99996bfee2c5ee81b8a1fcae
+    ExistingPayload: ac818d8ae13fa41f99996bfee2c5ee81b8a1fcae
+[2025.07.02-19.14.26:990][647]LogSavePackage: Moving output files for package: /Game/__ExternalActors__/Map/4/L6/UFSX52JZKLBS8GBECAPWA1
+[2025.07.02-19.14.26:990][647]LogSavePackage: Moving '../../../../../Documents/Unreal Projects/Sky_Engineer/Saved/UFSX52JZKLBS8GBECAPWA1AE9976C2B29746E09D40AC6845B34019.tmp' to '../../../../../Documents/Unreal Projects/Sky_Engineer/Content/__ExternalActors__/Map/4/L6/UFSX52JZKLBS8GBECAPWA1.uasset'
+[2025.07.02-19.14.26:990][647]LogBulkDataRegistry: Warning: /Game/__ExternalActors__/Map/4/L6/UFSX52JZKLBS8GBECAPWA1.StaticMesh_HLOD0_Instancing_3 failed to register BulkData CE1AF955881CF9960D3B0C435D72463C from SerializeToPackageTrailer in the BulkDataRegistry: it already exists with owner /Temp/Untitled_1_InstanceOf_/Engine/__ExternalActors__/Maps/Templates/OpenWorld/B/UU/FSLVQWEHZHSYDLFAI1UF1I.
+            Payload: 5df4e840ce91b0dbfcfe7c4104902ac499481a0f
+    ExistingPayload: 5df4e840ce91b0dbfcfe7c4104902ac499481a0f
+[2025.07.02-19.14.26:992][647]LogSavePackage: Moving output files for package: /Game/__ExternalActors__/Map/3/U0/XR04PZJ85DX61CHE80X17S
+[2025.07.02-19.14.26:992][647]LogSavePackage: Moving '../../../../../Documents/Unreal Projects/Sky_Engineer/Saved/XR04PZJ85DX61CHE80X17S6E52AC48AA1E45F3A324CE1437B294A8.tmp' to '../../../../../Documents/Unreal Projects/Sky_Engineer/Content/__ExternalActors__/Map/3/U0/XR04PZJ85DX61CHE80X17S.uasset'
+[2025.07.02-19.14.26:992][647]LogBulkDataRegistry: Warning: /Game/__ExternalActors__/Map/3/U0/XR04PZJ85DX61CHE80X17S.StaticMesh_HLOD0_Instancing_3 failed to register BulkData E5AA1A11969EAA26E940605120F92B68 from SerializeToPackageTrailer in the BulkDataRegistry: it already exists with owner /Temp/Untitled_1_InstanceOf_/Engine/__ExternalActors__/Maps/Templates/OpenWorld/B/V4/HDYW8NQLCV8S1NG7EBC73D.
+            Payload: 1e53b5257dfa52595608b01fac209e1df727a189
+    ExistingPayload: 1e53b5257dfa52595608b01fac209e1df727a189
+[2025.07.02-19.14.26:994][647]LogSavePackage: Moving output files for package: /Game/__ExternalActors__/Map/0/18/OP2NSNORVY8O8RU2LW15GE
+[2025.07.02-19.14.26:994][647]LogSavePackage: Moving '../../../../../Documents/Unreal Projects/Sky_Engineer/Saved/OP2NSNORVY8O8RU2LW15GE6A3B0955804746A2AD03323971E02E8F.tmp' to '../../../../../Documents/Unreal Projects/Sky_Engineer/Content/__ExternalActors__/Map/0/18/OP2NSNORVY8O8RU2LW15GE.uasset'
+[2025.07.02-19.14.26:994][647]LogBulkDataRegistry: Warning: /Game/__ExternalActors__/Map/0/18/OP2NSNORVY8O8RU2LW15GE.StaticMesh_HLOD0_Instancing_3 failed to register BulkData 0E1702A1083F2149469168619C10A368 from SerializeToPackageTrailer in the BulkDataRegistry: it already exists with owner /Temp/Untitled_1_InstanceOf_/Engine/__ExternalActors__/Maps/Templates/OpenWorld/B/YN/HZS8TMI8YA3C3PGKQSDH5W.
+            Payload: 6259fef12b632bfc290e038d893ae0c5d3d1dee1
+    ExistingPayload: 6259fef12b632bfc290e038d893ae0c5d3d1dee1
+[2025.07.02-19.14.26:996][647]LogSavePackage: Moving output files for package: /Game/__ExternalActors__/Map/9/EQ/OWXOD7NCBXFF3SOUI26SYE
+[2025.07.02-19.14.26:996][647]LogSavePackage: Moving '../../../../../Documents/Unreal Projects/Sky_Engineer/Saved/OWXOD7NCBXFF3SOUI26SYE4ECCBA007F8F437F9B4222158F0B1955.tmp' to '../../../../../Documents/Unreal Projects/Sky_Engineer/Content/__ExternalActors__/Map/9/EQ/OWXOD7NCBXFF3SOUI26SYE.uasset'
+[2025.07.02-19.14.26:996][647]LogBulkDataRegistry: Warning: /Game/__ExternalActors__/Map/9/EQ/OWXOD7NCBXFF3SOUI26SYE.StaticMesh_HLOD0_Instancing_3 failed to register BulkData 85E5F4BC31644CD91BD4D7652023F0A1 from SerializeToPackageTrailer in the BulkDataRegistry: it already exists with owner /Temp/Untitled_1_InstanceOf_/Engine/__ExternalActors__/Maps/Templates/OpenWorld/C/CZ/OANN28HN8QI6DGM822TLEF.
+            Payload: 4a7abe2d6819c4d3cab17dce8a1ce148ce2e6336
+    ExistingPayload: 4a7abe2d6819c4d3cab17dce8a1ce148ce2e6336
+[2025.07.02-19.14.26:998][647]LogSavePackage: Moving output files for package: /Game/__ExternalActors__/Map/6/HK/9AIGMHR38U2AU774AUCSUL
+[2025.07.02-19.14.26:998][647]LogSavePackage: Moving '../../../../../Documents/Unreal Projects/Sky_Engineer/Saved/9AIGMHR38U2AU774AUCSUL755744C851054A73BC2D1CA5CCE8FCC8.tmp' to '../../../../../Documents/Unreal Projects/Sky_Engineer/Content/__ExternalActors__/Map/6/HK/9AIGMHR38U2AU774AUCSUL.uasset'
+[2025.07.02-19.14.26:998][647]LogBulkDataRegistry: Warning: /Game/__ExternalActors__/Map/6/HK/9AIGMHR38U2AU774AUCSUL.StaticMesh_HLOD0_Instancing_3 failed to register BulkData 0679A0DA2707E3BB71E21686A20C3603 from SerializeToPackageTrailer in the BulkDataRegistry: it already exists with owner /Temp/Untitled_1_InstanceOf_/Engine/__ExternalActors__/Maps/Templates/OpenWorld/C/K6/OQ1ND4KJYR3CXOLQ04FQD3.
+            Payload: 7bd9d783897a0496e8144a5d1a97116a14daf70c
+    ExistingPayload: 7bd9d783897a0496e8144a5d1a97116a14daf70c
+[2025.07.02-19.14.27:000][647]LogSavePackage: Moving output files for package: /Game/__ExternalActors__/Map/0/4O/42606ZKWDO1B5ISBZV3TI3
+[2025.07.02-19.14.27:000][647]LogSavePackage: Moving '../../../../../Documents/Unreal Projects/Sky_Engineer/Saved/42606ZKWDO1B5ISBZV3TI3FD73B89B698A49E1992B82FC7839021A.tmp' to '../../../../../Documents/Unreal Projects/Sky_Engineer/Content/__ExternalActors__/Map/0/4O/42606ZKWDO1B5ISBZV3TI3.uasset'
+[2025.07.02-19.14.27:000][647]LogBulkDataRegistry: Warning: /Game/__ExternalActors__/Map/0/4O/42606ZKWDO1B5ISBZV3TI3.StaticMesh_HLOD0_Instancing_3 failed to register BulkData 4449A583C6C060A8C4F88D227BDE03A1 from SerializeToPackageTrailer in the BulkDataRegistry: it already exists with owner /Temp/Untitled_1_InstanceOf_/Engine/__ExternalActors__/Maps/Templates/OpenWorld/C/OT/59JQU6VL27FICKT2N8ROJS.
+            Payload: ebfa42e34efaff0d108afe02a79fd95e3e9da3ac
+    ExistingPayload: ebfa42e34efaff0d108afe02a79fd95e3e9da3ac
+[2025.07.02-19.14.27:002][647]LogSavePackage: Moving output files for package: /Game/__ExternalActors__/Map/9/AV/I7CTNBNK6GPOJT8ENHYVS0
+[2025.07.02-19.14.27:002][647]LogSavePackage: Moving '../../../../../Documents/Unreal Projects/Sky_Engineer/Saved/I7CTNBNK6GPOJT8ENHYVS018171773B0584E168C1C16901A75FA4C.tmp' to '../../../../../Documents/Unreal Projects/Sky_Engineer/Content/__ExternalActors__/Map/9/AV/I7CTNBNK6GPOJT8ENHYVS0.uasset'
+[2025.07.02-19.14.27:002][647]LogBulkDataRegistry: Warning: /Game/__ExternalActors__/Map/9/AV/I7CTNBNK6GPOJT8ENHYVS0.StaticMesh_HLOD0_Instancing_3 failed to register BulkData 3997771F7D7B69D945EE93458C3D9342 from SerializeToPackageTrailer in the BulkDataRegistry: it already exists with owner /Temp/Untitled_1_InstanceOf_/Engine/__ExternalActors__/Maps/Templates/OpenWorld/C/OY/YZHBAUXS47ZBW0KQJ7IQ60.
+            Payload: 71e91ccc95d543586b2dd60ac2b10176232add10
+    ExistingPayload: 71e91ccc95d543586b2dd60ac2b10176232add10
+[2025.07.02-19.14.27:004][647]LogSavePackage: Moving output files for package: /Game/__ExternalActors__/Map/7/4P/8Y7CB8GPCCCEG8B2DTA9T7
+[2025.07.02-19.14.27:004][647]LogSavePackage: Moving '../../../../../Documents/Unreal Projects/Sky_Engineer/Saved/8Y7CB8GPCCCEG8B2DTA9T7D6F737DCCEA241409898D70FE656AE68.tmp' to '../../../../../Documents/Unreal Projects/Sky_Engineer/Content/__ExternalActors__/Map/7/4P/8Y7CB8GPCCCEG8B2DTA9T7.uasset'
+[2025.07.02-19.14.27:004][647]LogBulkDataRegistry: Warning: /Game/__ExternalActors__/Map/7/4P/8Y7CB8GPCCCEG8B2DTA9T7.StaticMesh_HLOD0_Instancing_3 failed to register BulkData 724AA1DA32E4C66A90343FE4443751CF from SerializeToPackageTrailer in the BulkDataRegistry: it already exists with owner /Temp/Untitled_1_InstanceOf_/Engine/__ExternalActors__/Maps/Templates/OpenWorld/C/RA/B67YQHSPFIOZSRSA5UPH7F.
+            Payload: 77d717048fa1b3220b8747fb5eb710900c9b1280
+    ExistingPayload: 77d717048fa1b3220b8747fb5eb710900c9b1280
+[2025.07.02-19.14.27:006][647]LogSavePackage: Moving output files for package: /Game/__ExternalActors__/Map/6/6Y/ZB9YYBLVXU2NREKEGR6QY2
+[2025.07.02-19.14.27:006][647]LogSavePackage: Moving '../../../../../Documents/Unreal Projects/Sky_Engineer/Saved/ZB9YYBLVXU2NREKEGR6QY2D270825896ED49DB8DDA1727B39A0CB8.tmp' to '../../../../../Documents/Unreal Projects/Sky_Engineer/Content/__ExternalActors__/Map/6/6Y/ZB9YYBLVXU2NREKEGR6QY2.uasset'
+[2025.07.02-19.14.27:006][647]LogBulkDataRegistry: Warning: /Game/__ExternalActors__/Map/6/6Y/ZB9YYBLVXU2NREKEGR6QY2.StaticMesh_HLOD0_Instancing_3 failed to register BulkData 28C610B68029DF142C65EE49AD7B4D35 from SerializeToPackageTrailer in the BulkDataRegistry: it already exists with owner /Temp/Untitled_1_InstanceOf_/Engine/__ExternalActors__/Maps/Templates/OpenWorld/D/EE/3Z1KFDTN295GSTNSTMWV8B.
+            Payload: d8df5cf1a0e46741306c77b0ef716740bab3e763
+    ExistingPayload: d8df5cf1a0e46741306c77b0ef716740bab3e763
+[2025.07.02-19.14.27:008][647]LogSavePackage: Moving output files for package: /Game/__ExternalActors__/Map/2/43/YCYK8EOQZOIAMBM25IMBBV
+[2025.07.02-19.14.27:008][647]LogSavePackage: Moving '../../../../../Documents/Unreal Projects/Sky_Engineer/Saved/YCYK8EOQZOIAMBM25IMBBV0D7B67746B1F40E19719E0ABAD56BCC6.tmp' to '../../../../../Documents/Unreal Projects/Sky_Engineer/Content/__ExternalActors__/Map/2/43/YCYK8EOQZOIAMBM25IMBBV.uasset'
+[2025.07.02-19.14.27:008][647]LogBulkDataRegistry: Warning: /Game/__ExternalActors__/Map/2/43/YCYK8EOQZOIAMBM25IMBBV.StaticMesh_HLOD0_Instancing_3 failed to register BulkData F6F144020AC486BAC7732194EFF117E1 from SerializeToPackageTrailer in the BulkDataRegistry: it already exists with owner /Temp/Untitled_1_InstanceOf_/Engine/__ExternalActors__/Maps/Templates/OpenWorld/D/NU/FDDZ9WSY9MW9WII6FVJKI9.
+            Payload: 1ddd7802505fdf133f4efd407c525171883a80fc
+    ExistingPayload: 1ddd7802505fdf133f4efd407c525171883a80fc
+[2025.07.02-19.14.27:010][647]LogSavePackage: Moving output files for package: /Game/__ExternalActors__/Map/B/9R/1AT9HBE0NGZW87RHLNINVA
+[2025.07.02-19.14.27:010][647]LogSavePackage: Moving '../../../../../Documents/Unreal Projects/Sky_Engineer/Saved/1AT9HBE0NGZW87RHLNINVA264C10DDB0874C6E9FC365D916F8E7F8.tmp' to '../../../../../Documents/Unreal Projects/Sky_Engineer/Content/__ExternalActors__/Map/B/9R/1AT9HBE0NGZW87RHLNINVA.uasset'
+[2025.07.02-19.14.27:010][647]LogBulkDataRegistry: Warning: /Game/__ExternalActors__/Map/B/9R/1AT9HBE0NGZW87RHLNINVA.StaticMesh_HLOD0_Instancing_3 failed to register BulkData 5EF9A9C5336B019AA23E5F09C3225E36 from SerializeToPackageTrailer in the BulkDataRegistry: it already exists with owner /Temp/Untitled_1_InstanceOf_/Engine/__ExternalActors__/Maps/Templates/OpenWorld/D/WE/9DAOSERJEIV3XKZ25XY8S4.
+            Payload: c57ee52a5076c96261a11362850a721a406968b4
+    ExistingPayload: c57ee52a5076c96261a11362850a721a406968b4
+[2025.07.02-19.14.27:012][647]LogSavePackage: Moving output files for package: /Game/__ExternalActors__/Map/2/TO/3355T0FAP6MPTO7LJJZK35
+[2025.07.02-19.14.27:012][647]LogSavePackage: Moving '../../../../../Documents/Unreal Projects/Sky_Engineer/Saved/3355T0FAP6MPTO7LJJZK3599C62B5528134A7AB3E7155DCA598F19.tmp' to '../../../../../Documents/Unreal Projects/Sky_Engineer/Content/__ExternalActors__/Map/2/TO/3355T0FAP6MPTO7LJJZK35.uasset'
+[2025.07.02-19.14.27:012][647]LogBulkDataRegistry: Warning: /Game/__ExternalActors__/Map/2/TO/3355T0FAP6MPTO7LJJZK35.StaticMesh_HLOD0_Instancing_3 failed to register BulkData B0D7F7D0C8E7B8E8A5A7AF4553F3F4F9 from SerializeToPackageTrailer in the BulkDataRegistry: it already exists with owner /Temp/Untitled_1_InstanceOf_/Engine/__ExternalActors__/Maps/Templates/OpenWorld/D/YA/84Y48Q6J7MAEPYO91F2W3X.
+            Payload: 71db736a2e01ec696a76eb2ac263dc004f7d7836
+    ExistingPayload: 71db736a2e01ec696a76eb2ac263dc004f7d7836
+[2025.07.02-19.14.27:014][647]LogSavePackage: Moving output files for package: /Game/__ExternalActors__/Map/8/TF/CVVVGMNQ8YTPWNIVERH6U7
+[2025.07.02-19.14.27:014][647]LogSavePackage: Moving '../../../../../Documents/Unreal Projects/Sky_Engineer/Saved/CVVVGMNQ8YTPWNIVERH6U743ECF113E78245C8AD36E4B74DAABBB3.tmp' to '../../../../../Documents/Unreal Projects/Sky_Engineer/Content/__ExternalActors__/Map/8/TF/CVVVGMNQ8YTPWNIVERH6U7.uasset'
+[2025.07.02-19.14.27:014][647]LogBulkDataRegistry: Warning: /Game/__ExternalActors__/Map/8/TF/CVVVGMNQ8YTPWNIVERH6U7.StaticMesh_HLOD0_Instancing_3 failed to register BulkData BE9AB62D6C64CB670C9000D1687BA6DB from SerializeToPackageTrailer in the BulkDataRegistry: it already exists with owner /Temp/Untitled_1_InstanceOf_/Engine/__ExternalActors__/Maps/Templates/OpenWorld/E/ZI/FCZX8TQ0MTDRVT82RD635B.
+            Payload: e74562ba57fb898a5a303a44b40e02eba4178a99
+    ExistingPayload: e74562ba57fb898a5a303a44b40e02eba4178a99
+[2025.07.02-19.14.27:016][647]LogSavePackage: Moving output files for package: /Game/__ExternalActors__/Map/D/NS/BE73VODIKSF2A7LF3NUJAB
+[2025.07.02-19.14.27:016][647]LogSavePackage: Moving '../../../../../Documents/Unreal Projects/Sky_Engineer/Saved/BE73VODIKSF2A7LF3NUJABDE73FADC609A40EE92D7BA960E91365B.tmp' to '../../../../../Documents/Unreal Projects/Sky_Engineer/Content/__ExternalActors__/Map/D/NS/BE73VODIKSF2A7LF3NUJAB.uasset'
+[2025.07.02-19.14.27:017][647]LogBulkDataRegistry: Warning: /Game/__ExternalActors__/Map/D/NS/BE73VODIKSF2A7LF3NUJAB.StaticMesh_HLOD0_Instancing_3 failed to register BulkData FB33026DAE8EA60EA8AEEFF5CDFBAE4E from SerializeToPackageTrailer in the BulkDataRegistry: it already exists with owner /Temp/Untitled_1_InstanceOf_/Engine/__ExternalActors__/Maps/Templates/OpenWorld/F/0E/C0GHL79EJZYDUEAPIYALYW.
+            Payload: 9e53b3ac5660b94271b72b6383e04f33f3020c5d
+    ExistingPayload: 9e53b3ac5660b94271b72b6383e04f33f3020c5d
+[2025.07.02-19.14.27:018][647]LogSavePackage: Moving output files for package: /Game/__ExternalActors__/Map/C/18/845BPB85178O88Q19GTVMR
+[2025.07.02-19.14.27:018][647]LogSavePackage: Moving '../../../../../Documents/Unreal Projects/Sky_Engineer/Saved/845BPB85178O88Q19GTVMR9E4A4C8733074F258B86C2FD5648AB4C.tmp' to '../../../../../Documents/Unreal Projects/Sky_Engineer/Content/__ExternalActors__/Map/C/18/845BPB85178O88Q19GTVMR.uasset'
+[2025.07.02-19.14.27:019][647]LogBulkDataRegistry: Warning: /Game/__ExternalActors__/Map/C/18/845BPB85178O88Q19GTVMR.StaticMesh_HLOD0_Instancing_3 failed to register BulkData EB7FBDE603D2689EEA54FD5B15DF1C1F from SerializeToPackageTrailer in the BulkDataRegistry: it already exists with owner /Temp/Untitled_1_InstanceOf_/Engine/__ExternalActors__/Maps/Templates/OpenWorld/F/47/LLGNVOXM8XJU38OS1ZC4E7.
+            Payload: e44c8e371b7eaca92158a405414e93476cc1ca9e
+    ExistingPayload: e44c8e371b7eaca92158a405414e93476cc1ca9e
+[2025.07.02-19.14.27:021][647]LogSavePackage: Moving output files for package: /Game/__ExternalActors__/Map/E/L7/L414OZY3ZTO7JYLF1LFUPW
+[2025.07.02-19.14.27:021][647]LogSavePackage: Moving '../../../../../Documents/Unreal Projects/Sky_Engineer/Saved/L414OZY3ZTO7JYLF1LFUPWDCEB46BC0E1D4A2EB4E3A79CDB4E23ED.tmp' to '../../../../../Documents/Unreal Projects/Sky_Engineer/Content/__ExternalActors__/Map/E/L7/L414OZY3ZTO7JYLF1LFUPW.uasset'
+[2025.07.02-19.14.27:021][647]LogBulkDataRegistry: Warning: /Game/__ExternalActors__/Map/E/L7/L414OZY3ZTO7JYLF1LFUPW.StaticMesh_HLOD0_Instancing_3 failed to register BulkData C5C75722CDA15888338203BA1A4AFADE from SerializeToPackageTrailer in the BulkDataRegistry: it already exists with owner /Temp/Untitled_1_InstanceOf_/Engine/__ExternalActors__/Maps/Templates/OpenWorld/F/58/HVLDTOB47BH89LD9IMV2MQ.
+            Payload: 6274faba372887530f6339f1dcf6ca0dac3f9da0
+    ExistingPayload: 6274faba372887530f6339f1dcf6ca0dac3f9da0
+[2025.07.02-19.15.08:897][647]LogFileHelpers: InternalPromptForCheckoutAndSave took 42.4 sec
+[2025.07.02-19.15.49:542][647]LogFileHelpers: Saving map 'Map' took 160.785
+[2025.07.02-19.15.49:547][647]LogFileHelpers: InternalPromptForCheckoutAndSave took 2:49 min (total: 3:32 min)
+[2025.07.02-19.15.49:562][647]LogWorld: UWorld::CleanupWorld for Map, bSessionEnded=true, bCleanupResources=true
+[2025.07.02-19.15.49:563][647]LogSlate: InvalidateAllWidgets triggered.  All widgets were invalidated
+[2025.07.02-19.15.49:563][647]LogWorldPartition: UWorldPartition::Uninitialize : World = /Game/Map.Map
+[2025.07.02-19.15.49:589][647]LogAudio: Display: Audio Device unregistered from world 'None'.
+[2025.07.02-19.15.49:597][647]LogUObjectHash: Compacting FUObjectHashTables data took   0.82ms
+[2025.07.02-19.15.49:600][647]LogChaosDD: Creating Chaos Debug Draw Scene for world Untitled
+[2025.07.02-19.15.49:603][647]LogAudio: Display: Audio Device (ID: 1) registered with world 'Untitled'.
+[2025.07.02-19.15.49:649][647]LogWorldPartitionEditor: Display: Running commandlet: /home/boop/Packages/Linux_Unreal_Engine_5.5.4/Engine/Binaries/Linux/UnrealEditor  "../../../../../Documents/Unreal Projects/Sky_Engineer/Sky_Engineer.uproject" -BaseDir="/home/boop/Packages/Linux_Unreal_Engine_5.5.4/Engine/Binaries/Linux/" -Unattended -RunningFromUnrealEd -AbsLog="/home/boop/Documents/Unreal Projects/Sky_Engineer/Saved/Logs/WorldPartition/WorldPartitionHLODsBuilder-0000679b-2025-07-03T07.15.49.648Z.log" /Game/Map -run=WorldPartitionBuilderCommandlet -Builder=WorldPartitionHLODsBuilder -SetupHLODs -BuildHLODs -AllowCommandletRendering
+[2025.07.02-19.17.47:118][647]LogWorldPartitionEditor: Display: Commandlet executed successfully.
+[2025.07.02-19.17.47:118][647]LogWorldPartitionEditor: Display: Detailed output can be found in /home/boop/Documents/Unreal Projects/Sky_Engineer/Saved/Logs/WorldPartition/WorldPartitionHLODsBuilder-0000679b-2025-07-03T07.15.49.648Z.log
+[2025.07.02-19.17.47:125][647]Cmd: MAP LOAD FILE="../../../../../Documents/Unreal Projects/Sky_Engineer/Content/Map.umap" TEMPLATE=0 SHOWPROGRESS=1 FEATURELEVEL=4
+[2025.07.02-19.17.47:138][647]LogWorld: UWorld::CleanupWorld for Untitled, bSessionEnded=true, bCleanupResources=true
+[2025.07.02-19.17.47:138][647]LogSlate: InvalidateAllWidgets triggered.  All widgets were invalidated
+[2025.07.02-19.17.47:148][647]LogAudio: Display: Audio Device unregistered from world 'None'.
+[2025.07.02-19.17.47:148][647]LogUObjectHash: Compacting FUObjectHashTables data took   0.24ms
+[2025.07.02-19.17.47:149][647]LogStreaming: Display: FlushAsyncLoading(487): 1 QueuedPackages, 0 AsyncPackages
+[2025.07.02-19.17.47:150][647]LogAudio: Display: Audio Device (ID: 1) registered with world 'Map'.
+[2025.07.02-19.17.47:150][647]LogChaosDD: Creating Chaos Debug Draw Scene for world Map
+[2025.07.02-19.17.47:151][647]LogWorldPartition: ULevel::OnLevelLoaded(Map)(bIsOwningWorldGameWorld=0, bIsOwningWorldPartitioned=1, InitializeForMainWorld=1, InitializeForEditor=1, InitializeForGame=0)
+[2025.07.02-19.17.47:151][647]LogWorldPartition: Display: WorldPartition initialize started...
+[2025.07.02-19.17.47:151][647]LogWorldPartition: UWorldPartition::Initialize : World = /Game/Map.Map, World Type = Editor, IsMainWorldPartition = 1, Location = V(0), Rotation = R(0), IsEditor = 1, IsGame = 0, IsPIEWorldTravel = 0, IsCooking = 0
+[2025.07.02-19.17.47:153][647]LogWorldPartition: Display: WorldPartition initialize took 2.128 ms (total: 240.753 ms)
+[2025.07.02-19.17.47:177][647]LogEditorServer: Finished looking for orphan Actors (0.000 secs)
+[2025.07.02-19.17.47:212][647]LogUObjectHash: Compacting FUObjectHashTables data took   0.70ms
+[2025.07.02-19.17.47:218][647]Cmd: MAP CHECKDEP NOCLEARLOG
+[2025.07.02-19.17.47:218][647]MapCheck: Map check complete: 0 Error(s), 0 Warning(s), took 0.783ms to complete.
+[2025.07.02-19.17.47:220][647]LogNavigationDataBuild: Display: UNavigationSystemV1::Build started...
+[2025.07.02-19.17.47:259][647]LogUObjectHash: Compacting FUObjectHashTables data took   0.46ms
+[2025.07.02-19.17.48:768][647]LogLevel: Display: Export Material TexCoord Scales took 0.002 seconds.
+[2025.07.02-19.17.48:770][647]TextureStreamingBuild: Display: Build Texture Streaming took 0.003 seconds.
+[2025.07.02-19.17.48:796][647]LogUObjectHash: Compacting FUObjectHashTables data took   0.53ms
+[2025.07.02-19.17.48:948][647]LogStaticLightingSystem: Warning: WorldSettings.bForceNoPrecomputedLighting is true, Skipping Lighting Build!
+[2025.07.02-19.17.49:028][647]Cmd: MAP CHECK DONTDISPLAYDIALOG
+[2025.07.02-19.17.49:033][647]MapCheck: Map check complete: 0 Error(s), 0 Warning(s), took 4.606ms to complete.
+[2025.07.02-19.17.49:033][647]LogEditorBuildUtils: Build time 5:32
+[2025.07.02-19.17.49:321][647]LogContentValidation: Display: Starting to validate 17 assets
+[2025.07.02-19.17.49:321][647]LogContentValidation: Enabled validators:
+[2025.07.02-19.17.49:321][647]LogContentValidation: 	/Script/DataValidation.EditorValidator_Material
+[2025.07.02-19.17.49:321][647]LogContentValidation: 	/Script/DataValidation.DirtyFilesChangelistValidator
+[2025.07.02-19.17.49:321][647]LogContentValidation: 	/Script/DataValidation.EditorValidator_Localization
+[2025.07.02-19.17.49:321][647]LogContentValidation: 	/Script/DataValidation.PackageFileValidator
+[2025.07.02-19.17.49:321][647]LogContentValidation: 	/Script/DataValidation.WorldPartitionChangelistValidator
+[2025.07.02-19.17.49:321][647]LogContentValidation: 	/Script/InputBlueprintNodes.EnhancedInputUserWidgetValidator
+[2025.07.02-19.17.49:322][647]AssetCheck: /Game/Map Validating asset
+[2025.07.02-19.17.49:322][647]AssetCheck: /Game/Map_HLOD0_Instancing Validating asset
+[2025.07.02-19.17.49:417][647]LogShaderCompilers: Display: ================================================
+[2025.07.02-19.17.49:417][647]LogShaderCompilers: Display: === FShaderJobCache stats ===
+[2025.07.02-19.17.49:417][647]LogShaderCompilers: Display: Total job queries 11,829, among them cache hits 5 (0.04%), DDC hits 95 (0.80%), Duplicates 2,697 (22.80%)
+[2025.07.02-19.17.49:417][647]LogShaderCompilers: Display: Tracking 9,127 distinct input hashes that result in 8,641 distinct outputs (94.68%)
+[2025.07.02-19.17.49:417][647]LogShaderCompilers: Display: RAM used: 7.63 MiB of 1.60 GiB budget. Usage: 0.47%
+[2025.07.02-19.17.49:417][647]LogShaderCompilers: Display: === Shader Compilation stats ===
+[2025.07.02-19.17.49:417][647]LogShaderCompilers: Display: Shaders Compiled: 9,032
+[2025.07.02-19.17.49:417][647]LogShaderCompilers: Display: Jobs assigned 9,032, completed 9,032 (100%)
+[2025.07.02-19.17.49:417][647]LogShaderCompilers: Display: Average time worker was idle: 7.26 s
+[2025.07.02-19.17.49:417][647]LogShaderCompilers: Display: Time job spent in pending queue: average 100.02 s, longest 294.56 s
+[2025.07.02-19.17.49:417][647]LogShaderCompilers: Display: Job execution time: average 5.36 s, max 177.25 s
+[2025.07.02-19.17.49:417][647]LogShaderCompilers: Display: Job life time (pending + execution): average 105.38 s, max 363.57
+[2025.07.02-19.17.49:417][647]LogShaderCompilers: Display: Shader code size: average 36.139 KiB, min 359 B, max 0.991 MiB
+[2025.07.02-19.17.49:417][647]LogShaderCompilers: Display: Time at least one job was in flight (either pending or executed): 421.42 s
+[2025.07.02-19.17.49:417][647]LogShaderCompilers: Display: Mutex wait stall in FShaderJobCache::SubmitJobs:  3.88%
+[2025.07.02-19.17.49:417][647]LogShaderCompilers: Display: Jobs were issued in 1,014 batches (only local compilation was used), average 8.91 jobs/batch
+[2025.07.02-19.17.49:417][647]LogShaderCompilers: Display: Average processing rate: 21.43 jobs/sec
+[2025.07.02-19.17.49:417][647]LogShaderCompilers: Display: Total thread time: 4,894.19 s
+[2025.07.02-19.17.49:417][647]LogShaderCompilers: Display: Total thread preprocess time: 105.384 s
+[2025.07.02-19.17.49:417][647]LogShaderCompilers: Display: Percentage time preprocessing: 2.15%
+[2025.07.02-19.17.49:417][647]LogShaderCompilers: Display: Effective parallelization: 11.61 (times faster than compiling all shaders on one thread). Compare with number of workers: 14
+[2025.07.02-19.17.49:418][647]LogShaderCompilers: Display: Top 5 most expensive shader types by average time:
+[2025.07.02-19.17.49:418][647]LogShaderCompilers: Display:                                          FTSRRejectShadingCS (compiled   24 times, average 48.69 sec, max 140.39 sec, min 1.58 sec)
+[2025.07.02-19.17.49:418][647]LogShaderCompilers: Display:                                   FSSDTemporalAccumulationCS (compiled   10 times, average 25.50 sec, max 39.62 sec, min 4.90 sec)
+[2025.07.02-19.17.49:418][647]LogShaderCompilers: Display:                                               FPathTracingRG (compiled    1 times, average 12.96 sec, max 12.96 sec, min 12.96 sec)
+[2025.07.02-19.17.49:418][647]LogShaderCompilers: Display:                                          FClusteredShadingPS (compiled   32 times, average 5.40 sec, max 14.60 sec, min 0.60 sec)
+[2025.07.02-19.17.49:418][647]LogShaderCompilers: Display:                                      FHairDebugPrintMemoryCS (compiled    1 times, average 4.47 sec, max 4.47 sec, min 4.47 sec)
+[2025.07.02-19.17.49:419][647]LogShaderCompilers: Display: Top 5 shader types by total compile time:
+[2025.07.02-19.17.49:419][647]LogShaderCompilers: Display:                                          FTSRRejectShadingCS - 23.88% of total time (compiled   24 times, average 48.69 sec, max 140.39 sec, min 1.58 sec)
+[2025.07.02-19.17.49:419][647]LogShaderCompilers: Display:                                             FDeferredLightPS - 7.93% of total time (compiled  454 times, average 0.85 sec, max 1.68 sec, min 0.48 sec)
+[2025.07.02-19.17.49:419][647]LogShaderCompilers: Display:                                        FMicropolyRasterizeCS - 7.65% of total time (compiled  260 times, average 1.44 sec, max 3.25 sec, min 0.00 sec)
+[2025.07.02-19.17.49:419][647]LogShaderCompilers: Display:                                   FSSDTemporalAccumulationCS - 5.21% of total time (compiled   10 times, average 25.50 sec, max 39.62 sec, min 4.90 sec)
+[2025.07.02-19.17.49:419][647]LogShaderCompilers: Display:                              FVolumetricFogLightScatteringCS - 4.63% of total time (compiled  480 times, average 0.47 sec, max 2.03 sec, min 0.20 sec)
+[2025.07.02-19.17.49:419][647]LogShaderCompilers: Display: === Material stats ===
+[2025.07.02-19.17.49:419][647]LogShaderCompilers: Display: Materials Cooked:        0
+[2025.07.02-19.17.49:419][647]LogShaderCompilers: Display: Materials Translated:    129
+[2025.07.02-19.17.49:419][647]LogShaderCompilers: Display: Material Total Translate Time: 0.07 s
+[2025.07.02-19.17.49:419][647]LogShaderCompilers: Display: Material Translation Only: 0.04 s (51%)
+[2025.07.02-19.17.49:419][647]LogShaderCompilers: Display: Material DDC Serialization Only: 0.00 s (0%)
+[2025.07.02-19.17.49:419][647]LogShaderCompilers: Display: Material Cache Hits: 0 (0%)
+[2025.07.02-19.17.49:419][647]LogShaderCompilers: Display: ================================================
+[2025.07.02-19.17.49:719][647]LogAutomationController: Ignoring very large delta of 332.92 seconds in calls to FAutomationControllerManager::Tick() and not penalizing unresponsive tests
+[2025.07.02-19.17.49:995][649]LogSlate: Took 0.008099 seconds to synchronously load lazily loaded font '../../../Engine/Content/Slate/Fonts/Roboto-Light.ttf' (167K)
+[2025.07.02-19.17.50:010][651]LogRHI: Error: GpuProfiler's scratch buffer is out of space for this frame (current size : 32 kB). Dropping this frame. The size can be increased dynamically with the console variable r.GpuProfilerMaxEventBufferSizeKB
+[2025.07.02-19.17.50:055][656]SourceControl: fatal: /Temp: '/Temp' is outside repository at '/home/boop/Documents/Unreal Projects/Sky_Engineer'
+[2025.07.02-19.17.57:052][ 44]Cmd: DELETE
+[2025.07.02-19.17.57:052][ 44]Cmd: ACTOR DELETE
+[2025.07.02-19.17.58:518][132]Cmd: DELETE
+[2025.07.02-19.17.58:518][132]Cmd: ACTOR DELETE
+[2025.07.02-19.17.59:752][206]Cmd: DELETE
+[2025.07.02-19.17.59:752][206]Cmd: ACTOR DELETE
+[2025.07.02-19.18.17:497][162]Cmd: CAMERA ALIGN ACTIVEVIEWPORTONLY
+[2025.07.02-19.18.20:009][311]Cmd: SELECT NONE
+[2025.07.02-19.18.28:661][613]LogFileHelpers: InternalPromptForCheckoutAndSave started...
+[2025.07.02-19.18.31:704][613]LogUObjectHash: Compacting FUObjectHashTables data took   0.76ms
+[2025.07.02-19.18.31:727][613]LogUObjectHash: Compacting FUObjectHashTables data took   0.52ms
+[2025.07.02-19.18.31:745][613]LogUObjectHash: Compacting FUObjectHashTables data took   0.45ms
+[2025.07.02-19.18.35:130][613]SourceControl: Error: warning: could not open directory 'Content/__ExternalObjects__/Map/E/': No such file or directory
+[2025.07.02-19.18.35:130][613]SourceControl: Error: warning: could not open directory 'Content/__ExternalObjects__/Map/D/': No such file or directory
+[2025.07.02-19.18.35:130][613]SourceControl: Error: warning: could not open directory 'Content/__ExternalObjects__/Map/D/': No such file or directory
+[2025.07.02-19.18.35:130][613]SourceControl: Error: warning: could not open directory 'Content/__ExternalObjects__/Map/A/': No such file or directory
+[2025.07.02-19.18.35:130][613]SourceControl: Error: warning: could not open directory 'Content/__ExternalObjects__/Map/6/': No such file or directory
+[2025.07.02-19.18.35:130][613]SourceControl: rm 'Content/__ExternalObjects__/Map/6/CN/JA4395GYL2S29V4HOLB2OS.uasset'
+[2025.07.02-19.18.35:130][613]SourceControl: rm 'Content/__ExternalObjects__/Map/A/YG/RZRJ611Z0F41HZ76FDNJZG.uasset'
+[2025.07.02-19.18.35:130][613]SourceControl: rm 'Content/__ExternalObjects__/Map/D/2S/8JKDXCMJVM57O86XKM82G6.uasset'
+[2025.07.02-19.18.35:130][613]SourceControl: rm 'Content/__ExternalObjects__/Map/D/53/7N9Q80CF4G806X6J7YAIQ4.uasset'
+[2025.07.02-19.18.35:130][613]SourceControl: rm 'Content/__ExternalObjects__/Map/E/NB/0H0KZIHPYOZRDWO7ZL7D2B.uasset'
+[2025.07.02-19.18.35:188][613]Cmd: OBJ SAVEPACKAGE PACKAGE="/Game/Map" FILE="../../../../../Documents/Unreal Projects/Sky_Engineer/Content/Map.umap" SILENT=true AUTOSAVING=false KEEPDIRTY=false
+[2025.07.02-19.18.35:234][613]LogUObjectHash: Compacting FUObjectHashTables data took   0.46ms
+[2025.07.02-19.18.35:241][613]LogSavePackage: Moving output files for package: /Game/Map
+[2025.07.02-19.18.35:242][613]LogSavePackage: Moving '../../../../../Documents/Unreal Projects/Sky_Engineer/Saved/Map5002863B78D4494AA45C37245AE7C075.tmp' to '../../../../../Documents/Unreal Projects/Sky_Engineer/Content/Map.umap'
+[2025.07.02-19.18.35:247][613]LogFileHelpers: Saving map 'Map' took 0.060
+[2025.07.02-19.18.35:309][613]LogFileHelpers: InternalPromptForCheckoutAndSave took 6.64 sec (total: 3:38 min)
+[2025.07.02-19.18.35:741][613]LogContentValidation: Display: Starting to validate 1 assets
+[2025.07.02-19.18.35:741][613]LogContentValidation: Enabled validators:
+[2025.07.02-19.18.35:741][613]LogContentValidation: 	/Script/DataValidation.EditorValidator_Material
+[2025.07.02-19.18.35:741][613]LogContentValidation: 	/Script/DataValidation.DirtyFilesChangelistValidator
+[2025.07.02-19.18.35:741][613]LogContentValidation: 	/Script/DataValidation.EditorValidator_Localization
+[2025.07.02-19.18.35:741][613]LogContentValidation: 	/Script/DataValidation.PackageFileValidator
+[2025.07.02-19.18.35:741][613]LogContentValidation: 	/Script/DataValidation.WorldPartitionChangelistValidator
+[2025.07.02-19.18.35:741][613]LogContentValidation: 	/Script/InputBlueprintNodes.EnhancedInputUserWidgetValidator
+[2025.07.02-19.18.35:741][613]AssetCheck: /Game/Map Validating asset
+[2025.07.02-19.18.35:855][613]LogAutomationController: Ignoring very large delta of 10.81 seconds in calls to FAutomationControllerManager::Tick() and not penalizing unresponsive tests
+[2025.07.02-19.18.39:192][624]SourceControl: Error: warning: could not open directory 'Content/__ExternalObjects__/Map/6/': No such file or directory
+[2025.07.02-19.18.39:192][624]SourceControl: Error: warning: could not open directory 'Content/__ExternalObjects__/Map/A/': No such file or directory
+[2025.07.02-19.18.39:192][624]SourceControl: Error: warning: could not open directory 'Content/__ExternalObjects__/Map/D/': No such file or directory
+[2025.07.02-19.18.39:192][624]SourceControl: Error: warning: could not open directory 'Content/__ExternalObjects__/Map/D/': No such file or directory
+[2025.07.02-19.18.39:192][624]SourceControl: Error: warning: could not open directory 'Content/__ExternalObjects__/Map/E/': No such file or directory
