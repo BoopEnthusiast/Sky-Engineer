@@ -59,7 +59,7 @@ offset_right = 40.0
 offset_bottom = 23.0
 
 [node name="Sun" type="DirectionalLight3D" parent="."]
-transform = Transform3D(0.819792, -0.450579, 0.353439, 0, 0.617187, 0.786817, -0.572661, -0.645026, 0.505965, 0, 3.90252, 0)
+transform = Transform3D(0.707107, -0.5, 0.5, 0, 0.707107, 0.707107, -0.707107, -0.5, 0.5, 0, 3.90252, 0)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_46j3l")
