@@ -10,9 +10,9 @@ const VERTEX_POINT = preload("res://vfx/vertex_point.tscn")
 
 var points: PackedVector3Array = [
 	Vector3(1, 0, 1),
-	Vector3(-1, 0, 1),
+	Vector3(-1, 0.1, 1),
 	Vector3(1, 0, -1),
-	Vector3(-1, 0, -1),
+	Vector3(-1, -0.1, -1),
 ]
 var colors: PackedColorArray = [
 	Color.from_ok_hsl(0.0, 1.0, 0.8),
@@ -56,6 +56,12 @@ func _process(_delta: float) -> void:
 		_process_points(true)
 		has_processed_points = true
 	
+	if Input.is_action_just_pressed("destroy") and PlayerState.is_playing_game:
+		points.remove_at(Building.closest_point_to_manipulator)
+		colors.remove_at(Building.closest_point_to_manipulator)
+		
+		_process_points(true)
+	
 	# Move points
 	if Input.is_action_pressed("select") and Building.closest_point_to_manipulator >= 0 and PlayerState.is_playing_game:
 		points[Building.closest_point_to_manipulator] = Nodes.player.point_manipulator.global_position
@@ -63,9 +69,7 @@ func _process(_delta: float) -> void:
 			Nodes.player.mouse_captured = false
 			coloring = Building.closest_point_to_manipulator
 		
-		if not has_processed_points:
-			_process_points(true)
-			has_processed_points = true
+		_process_points(true)
 	
 	if Input.is_action_just_released("color"):
 		Nodes.player.mouse_captured = true

@@ -17,7 +17,7 @@ class Building : public Object {
     const float MIN_DISTANCE_BETWEEN_POINTS = 0.5;
     const float MAX_SELECTING_DISTANCE = 1;
     const float MAX_VERTICY_CONNECTIONS_TEST = 20;
-    const float MAX_VERTICY_CONNECTIONS = 2;
+    const float MAX_VERTICY_CONNECTIONS = 4;
 
     // Things to set before processing points
     PackedVector3Array points;
