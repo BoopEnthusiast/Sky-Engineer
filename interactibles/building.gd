@@ -13,20 +13,12 @@ var points: PackedVector3Array = [
 	Vector3(-1, 0, 1),
 	Vector3(1, 0, -1),
 	Vector3(-1, 0, -1),
-	Vector3(-1.1, 0, -1.1),
-	Vector3(-0.9, 0, -0.9),
-	Vector3(-0.9, 0, -1.1),
-	Vector3(-1.1, 0, -0.9),
 ]
 var colors: PackedColorArray = [
-	Color.RED,
-	Color.GREEN,
-	Color.BLUE,
-	Color.MAGENTA,
-	Color.LIME,
-	Color.TEAL,
-	Color.ORANGE,
-	Color.SADDLE_BROWN,
+	Color.from_ok_hsl(0.0, 1.0, 0.8),
+	Color.from_ok_hsl(0.25, 1.0, 0.8),
+	Color.from_ok_hsl(0.5, 1.0, 0.8),
+	Color.from_ok_hsl(0.75, 1.0, 0.8),
 ]
 
 var coloring: int = -1
