@@ -23,9 +23,12 @@ class Building : public Object {
     PackedVector3Array points;
     PackedColorArray colors;
     Vector3 manipulator_global_position;
+    int building;
 
     // Set after processing points
     int closest_point_to_manipulator;
+    int closest_building_to_manipulator;
+    Vector3 lowest_point_in_world;
     PackedVector3Array vertices;
     PackedColorArray vertex_colors;
     Ref<ArrayMesh> generate_mesh();
@@ -43,10 +46,16 @@ public:
     void set_manipulator_global_position(const Vector3 the_manipulator_global_position);
     Vector3 get_manipulator_global_position() const;
 
+    void set_building(const int the_building);
+    int get_building() const;
+
     void process_points(bool calculate_points);
 
     void set_closest_point_to_manipulator(const int the_closest_point_to_manipulator); 
     int get_closest_point_to_manipulator() const;
+
+    void set_closest_building_to_manipulator(const int the_closest_building_to_manipulator);
+    int get_closest_building_to_manipulator() const;
 
     void set_vertices(const PackedVector3Array the_vertices);
     PackedVector3Array get_vertices() const;

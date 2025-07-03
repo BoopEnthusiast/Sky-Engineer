@@ -8,13 +8,15 @@ const MAX_SELECTING_DISTANCE = 1
 
 const VERTEX_POINT = preload("res://vfx/vertex_point.tscn")
 
-var points: PackedVector3Array = [
+@export var building_index: int = 0
+
+@export var points: PackedVector3Array = [
 	Vector3(1, 0, 1),
 	Vector3(-1, 0.1, 1),
 	Vector3(1, 0, -1),
 	Vector3(-1, -0.1, -1),
 ]
-var colors: PackedColorArray = [
+@export var colors: PackedColorArray = [
 	Color.from_ok_hsl(0.0, 1.0, 0.8),
 	Color.from_ok_hsl(0.25, 1.0, 0.8),
 	Color.from_ok_hsl(0.5, 1.0, 0.8),
@@ -25,7 +27,7 @@ var coloring: int = -1
 
 @onready var mesh: MeshInstance3D = $Mesh
 @onready var collider: CollisionShape3D = $Collider
-@onready var selector_mesh: MeshInstance3D = $SelectorMesh
+@onready var selector_mesh: MeshInstance3D = $"../SelectorMesh"
 @onready var vertex_points: Node3D = $VertexPoints
 @onready var debug_label: Label = $CanvasLayer/DebugLabel
 
@@ -39,9 +41,10 @@ func _ready() -> void:
 
 
 func _unhandled_input(event: InputEvent) -> void:
+	# Color the selected point
 	if event is InputEventMouseMotion and coloring >= 0:
 		var col: Color = colors[coloring]
-		colors[coloring] = Color.from_ok_hsl(col.ok_hsl_h + event.relative.x / 1000.0, col.ok_hsl_s, col.ok_hsl_l + event.relative.y / 1000.0)
+		colors[coloring] = Color.from_ok_hsl(col.ok_hsl_h + event.relative.x / 1000.0, 1.0, col.ok_hsl_l + event.relative.y / 1000.0)
 		get_viewport().set_input_as_handled()
 
 
@@ -56,6 +59,7 @@ func _process(_delta: float) -> void:
 		_process_points(true)
 		has_processed_points = true
 	
+	# Destroy points
 	if Input.is_action_just_pressed("destroy") and PlayerState.is_playing_game:
 		points.remove_at(Building.closest_point_to_manipulator)
 		colors.remove_at(Building.closest_point_to_manipulator)
@@ -63,23 +67,38 @@ func _process(_delta: float) -> void:
 		_process_points(true)
 	
 	# Move points
-	if Input.is_action_pressed("select") and Building.closest_point_to_manipulator >= 0 and PlayerState.is_playing_game:
+	if (
+			Input.is_action_pressed("select") 
+			and Building.closest_building_to_manipulator == building_index 
+			and Building.closest_point_to_manipulator >= 0 
+			and PlayerState.is_playing_game
+	):
 		points[Building.closest_point_to_manipulator] = Nodes.player.point_manipulator.global_position
+		# Color selected point (actual coloring logic is in _unhandled_input)
 		if Input.is_action_pressed("color"):
 			Nodes.player.mouse_captured = false
 			coloring = Building.closest_point_to_manipulator
 		
 		_process_points(true)
+		has_processed_points = true
+	elif Input.is_action_just_pressed("select"):
+		print("BUILDING:")
+		print(Building.closest_building_to_manipulator)
+		print(building_index)
+		print(Building.closest_point_to_manipulator)
 	
+	# Stop coloring points
 	if Input.is_action_just_released("color"):
 		Nodes.player.mouse_captured = true
 		coloring = -1
 	
+	# Process the points (only to find the closest point to the manipulator) if not already processed points
 	if not has_processed_points:
 		_process_points(false)
 	
 	# Move the selector to the manipulated point
-	_move_selector_mesh(Building.closest_point_to_manipulator)
+	if Building.closest_building_to_manipulator == building_index:
+		_move_selector_mesh(Building.closest_point_to_manipulator)
 	
 	debug_label.text = str(points.size()) + "\n" + str(Engine.get_frames_per_second())
 
@@ -96,6 +115,7 @@ func _process_points(calculate_points: bool) -> void:
 	Building.points = points
 	Building.colors = colors
 	Building.manipulator_global_position = Nodes.player.point_manipulator.global_position
+	Building.building = building_index
 	
 	# Process the points
 	_profile_process_points(calculate_points)

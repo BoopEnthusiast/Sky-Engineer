@@ -21,9 +21,17 @@ void Building::_bind_methods() {
     ClassDB::bind_method(D_METHOD("set_manipulator_global_position", "the_manipulator_global_position"), &Building::set_manipulator_global_position);
     ADD_PROPERTY(PropertyInfo(Variant::VECTOR3, "manipulator_global_position"), "set_manipulator_global_position", "get_manipulator_global_position");
 
+    ClassDB::bind_method(D_METHOD("get_building"), &Building::get_building);
+    ClassDB::bind_method(D_METHOD("set_building", "the_building"), &Building::set_building);
+    ADD_PROPERTY(PropertyInfo(Variant::INT, "building"), "set_building", "get_building");
+
     ClassDB::bind_method(D_METHOD("get_closest_point_to_manipulator"), &Building::get_closest_point_to_manipulator);
     ClassDB::bind_method(D_METHOD("set_closest_point_to_manipulator", "the_closest_point_to_manipulator"), &Building::set_closest_point_to_manipulator);
     ADD_PROPERTY(PropertyInfo(Variant::INT, "closest_point_to_manipulator"), "set_closest_point_to_manipulator", "get_closest_point_to_manipulator");
+
+    ClassDB::bind_method(D_METHOD("get_closest_building_to_manipulator"), &Building::get_closest_building_to_manipulator);
+    ClassDB::bind_method(D_METHOD("set_closest_building_to_manipulator", "the_closest_building_to_manipulator"), &Building::set_closest_building_to_manipulator);
+    ADD_PROPERTY(PropertyInfo(Variant::INT, "closest_building_to_manipulator"), "set_closest_building_to_manipulator", "get_closest_building_to_manipulator");
 
     ClassDB::bind_method(D_METHOD("get_vertices"), &Building::get_vertices);
     ClassDB::bind_method(D_METHOD("set_vertices", "the_vertices"), &Building::set_vertices);
@@ -41,7 +49,7 @@ Building::~Building() {
 
 void Building::process_points(bool calculate_points) {
     float min_manipulator_distance = MAX_SELECTING_DISTANCE;
-    closest_point_to_manipulator = -1;
+    lowest_point_in_world.zero();
     vertices.clear();
     vertex_colors.clear();
 
@@ -81,6 +89,7 @@ void Building::process_points(bool calculate_points) {
         if (distance_to_manipulator < min_manipulator_distance) {
             min_manipulator_distance = distance_to_manipulator;
             closest_point_to_manipulator = index;
+            closest_building_to_manipulator = building;
         }
 
         if (!calculate_points) {
@@ -200,6 +209,10 @@ void Building::process_points(bool calculate_points) {
         }
     }
 
+    if (min_manipulator_distance >= MAX_SELECTING_DISTANCE && building == closest_building_to_manipulator) {
+        closest_point_to_manipulator = -1;
+    }
+
     // Trim arrays to actual size (AI)
     if (calculate_points) {
         vertices.resize(vertex_write_index);
@@ -244,12 +257,27 @@ Vector3 Building::get_manipulator_global_position() const {
     return manipulator_global_position;
 }
 
+void Building::set_building(const int the_building) {
+    building = the_building;
+}
+
+int Building::get_building() const {
+    return building;
+}
+
 void Building::set_closest_point_to_manipulator(const int the_closest_point_to_manipulator) {
     closest_point_to_manipulator = the_closest_point_to_manipulator;
 }
 
 int Building::get_closest_point_to_manipulator() const {
     return closest_point_to_manipulator;
+}
+
+void Building::set_closest_building_to_manipulator(const int the_closest_building_to_manipulator) {
+    closest_building_to_manipulator = the_closest_building_to_manipulator;
+}
+int Building::get_closest_building_to_manipulator() const {
+    return closest_building_to_manipulator;
 }
 
 void Building::set_vertices(const PackedVector3Array the_vertices) {
