@@ -25,6 +25,9 @@ class Building : public Object {
     Vector3 manipulator_global_position;
     int building;
 
+    // Internal things
+    Vector3 true_closest_point_to_manipulator;
+
     // Set after processing points
     int closest_point_to_manipulator;
     int closest_building_to_manipulator;
@@ -56,6 +59,9 @@ public:
 
     void set_closest_building_to_manipulator(const int the_closest_building_to_manipulator);
     int get_closest_building_to_manipulator() const;
+
+    void set_lowest_point_in_world(const Vector3 the_lowest_point_in_world);
+    Vector3 get_lowest_point_in_world() const;
 
     void set_vertices(const PackedVector3Array the_vertices);
     PackedVector3Array get_vertices() const;

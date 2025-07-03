@@ -14,8 +14,6 @@ emission = Color(1, 1, 1, 1)
 material = SubResource("StandardMaterial3D_jysyn")
 radius = 0.05
 height = 0.1
-radial_segments = 16
-rings = 8
 
 [node name="Player" type="CharacterBody3D"]
 script = ExtResource("1_jysyn")

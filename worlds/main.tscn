@@ -80,9 +80,9 @@ shape = SubResource("ConcavePolygonShape3D_m313i")
 [node name="CanvasLayer" type="CanvasLayer" parent="Building2"]
 
 [node name="DebugLabel" type="Label" parent="Building2/CanvasLayer"]
-offset_top = 34.0
+offset_top = 55.0
 offset_right = 40.0
-offset_bottom = 57.0
+offset_bottom = 78.0
 
 [node name="Sun" type="DirectionalLight3D" parent="."]
 transform = Transform3D(0.707107, -0.5, 0.5, 0, 0.707107, 0.707107, -0.707107, -0.5, 0.5, 0, 3.90252, 0)

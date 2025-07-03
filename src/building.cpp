@@ -33,6 +33,10 @@ void Building::_bind_methods() {
     ClassDB::bind_method(D_METHOD("set_closest_building_to_manipulator", "the_closest_building_to_manipulator"), &Building::set_closest_building_to_manipulator);
     ADD_PROPERTY(PropertyInfo(Variant::INT, "closest_building_to_manipulator"), "set_closest_building_to_manipulator", "get_closest_building_to_manipulator");
 
+    ClassDB::bind_method(D_METHOD("get_lowest_point_in_world"), &Building::get_lowest_point_in_world);
+    ClassDB::bind_method(D_METHOD("set_lowest_point_in_world", "the_lowest_point_in_world"), &Building::set_lowest_point_in_world);
+    ADD_PROPERTY(PropertyInfo(Variant::VECTOR3, "lowest_point_in_world"), "set_lowest_point_in_world", "get_lowest_point_in_world");
+
     ClassDB::bind_method(D_METHOD("get_vertices"), &Building::get_vertices);
     ClassDB::bind_method(D_METHOD("set_vertices", "the_vertices"), &Building::set_vertices);
     ADD_PROPERTY(PropertyInfo(Variant::PACKED_VECTOR3_ARRAY, "vertices"), "set_vertices", "get_vertices");
@@ -85,15 +89,22 @@ void Building::process_points(bool calculate_points) {
 
         // Find the closest point to the point manipulator 
         float distance_to_manipulator = point.distance_squared_to(manipulator_global_position);
+        float true_closest_distance_to_manipulator = manipulator_global_position.distance_squared_to(true_closest_point_to_manipulator);
 
-        if (distance_to_manipulator < min_manipulator_distance) {
+        if (distance_to_manipulator < min_manipulator_distance && distance_to_manipulator <= true_closest_distance_to_manipulator) {
             min_manipulator_distance = distance_to_manipulator;
             closest_point_to_manipulator = index;
             closest_building_to_manipulator = building;
+            true_closest_point_to_manipulator = point;
         }
 
         if (!calculate_points) {
             continue;
+        }
+
+        // Find the lowest point in the world
+        if (point.y < lowest_point_in_world.y) {
+            lowest_point_in_world = point;
         }
 
         // Use spacial grid to find nearby points (AI)
@@ -276,8 +287,17 @@ int Building::get_closest_point_to_manipulator() const {
 void Building::set_closest_building_to_manipulator(const int the_closest_building_to_manipulator) {
     closest_building_to_manipulator = the_closest_building_to_manipulator;
 }
+
 int Building::get_closest_building_to_manipulator() const {
     return closest_building_to_manipulator;
+}
+
+void Building::set_lowest_point_in_world(const Vector3 the_lowest_point_in_world) {
+    lowest_point_in_world = the_lowest_point_in_world;
+}
+
+Vector3 Building::get_lowest_point_in_world() const {
+    return lowest_point_in_world;
 }
 
 void Building::set_vertices(const PackedVector3Array the_vertices) {

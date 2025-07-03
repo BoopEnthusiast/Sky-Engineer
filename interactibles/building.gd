@@ -52,10 +52,13 @@ func _process(_delta: float) -> void:
 	var has_processed_points := false
 	
 	# Add new points
-	if Input.is_action_just_pressed("build") and PlayerState.is_playing_game:
+	if (
+			Input.is_action_just_pressed("build")
+			and PlayerState.is_playing_game
+			and Building.closest_building_to_manipulator == building_index
+	):
 		points.append(Nodes.player.point_manipulator.global_position)
 		colors.append(Color.from_ok_hsl(randf(), 1.0, 0.8))
-		
 		_process_points(true)
 		has_processed_points = true
 	
@@ -63,7 +66,6 @@ func _process(_delta: float) -> void:
 	if Input.is_action_just_pressed("destroy") and PlayerState.is_playing_game:
 		points.remove_at(Building.closest_point_to_manipulator)
 		colors.remove_at(Building.closest_point_to_manipulator)
-		
 		_process_points(true)
 	
 	# Move points
@@ -81,11 +83,6 @@ func _process(_delta: float) -> void:
 		
 		_process_points(true)
 		has_processed_points = true
-	elif Input.is_action_just_pressed("select"):
-		print("BUILDING:")
-		print(Building.closest_building_to_manipulator)
-		print(building_index)
-		print(Building.closest_point_to_manipulator)
 	
 	# Stop coloring points
 	if Input.is_action_just_released("color"):
