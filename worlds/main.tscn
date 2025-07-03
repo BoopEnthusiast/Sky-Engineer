@@ -1,6 +1,11 @@
-[gd_scene load_steps=13 format=3 uid="uid://cxus3ioklaaki"]
+[gd_scene load_steps=15 format=3 uid="uid://cxus3ioklaaki"]
 
 [ext_resource type="Script" uid="uid://csloofv1l6ahd" path="res://interactibles/building.gd" id="1_felrd"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_felrd"]
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_felrd"]
+points = PackedVector3Array(1, 0, 1, -1, 0, 1, 1, 0, -1, -1, 0, -1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_m313i"]
 cull_mode = 2
@@ -41,6 +46,14 @@ radial_segments = 16
 rings = 8
 
 [node name="Main" type="Node3D"]
+
+[node name="StartingPlatform" type="StaticBody3D" parent="."]
+
+[node name="Mesh" type="MeshInstance3D" parent="StartingPlatform"]
+mesh = SubResource("PlaneMesh_felrd")
+
+[node name="Collider" type="CollisionShape3D" parent="StartingPlatform"]
+shape = SubResource("ConvexPolygonShape3D_felrd")
 
 [node name="Building" type="StaticBody3D" parent="."]
 script = ExtResource("1_felrd")

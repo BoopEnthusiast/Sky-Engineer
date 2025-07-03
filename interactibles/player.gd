@@ -39,6 +39,7 @@ func _unhandled_input(event: InputEvent) -> void:
 
 
 func _physics_process(delta: float) -> void:
+	if global_position.y < Building.lowest_point_in_world - 15.0: global_position = Vector3(0.0, 5.0, 0.0)
 	if Input.is_action_just_pressed(&"jump") and PlayerState.is_playing_game: jumping = true
 	if mouse_captured: _handle_joypad_camera_rotation(delta)
 	velocity = _walk(delta) + _gravity(delta) + _jump(delta)

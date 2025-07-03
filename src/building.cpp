@@ -35,7 +35,7 @@ void Building::_bind_methods() {
 
     ClassDB::bind_method(D_METHOD("get_lowest_point_in_world"), &Building::get_lowest_point_in_world);
     ClassDB::bind_method(D_METHOD("set_lowest_point_in_world", "the_lowest_point_in_world"), &Building::set_lowest_point_in_world);
-    ADD_PROPERTY(PropertyInfo(Variant::VECTOR3, "lowest_point_in_world"), "set_lowest_point_in_world", "get_lowest_point_in_world");
+    ADD_PROPERTY(PropertyInfo(Variant::FLOAT, "lowest_point_in_world"), "set_lowest_point_in_world", "get_lowest_point_in_world");
 
     ClassDB::bind_method(D_METHOD("get_vertices"), &Building::get_vertices);
     ClassDB::bind_method(D_METHOD("set_vertices", "the_vertices"), &Building::set_vertices);
@@ -53,7 +53,7 @@ Building::~Building() {
 
 void Building::process_points(bool calculate_points) {
     float min_manipulator_distance = MAX_SELECTING_DISTANCE;
-    lowest_point_in_world.zero();
+    lowest_point_in_world = 0.0;
     vertices.clear();
     vertex_colors.clear();
 
@@ -103,8 +103,8 @@ void Building::process_points(bool calculate_points) {
         }
 
         // Find the lowest point in the world
-        if (point.y < lowest_point_in_world.y) {
-            lowest_point_in_world = point;
+        if (point.y < lowest_point_in_world) {
+            lowest_point_in_world = point.y;
         }
 
         // Use spacial grid to find nearby points (AI)
@@ -292,11 +292,11 @@ int Building::get_closest_building_to_manipulator() const {
     return closest_building_to_manipulator;
 }
 
-void Building::set_lowest_point_in_world(const Vector3 the_lowest_point_in_world) {
+void Building::set_lowest_point_in_world(const float the_lowest_point_in_world) {
     lowest_point_in_world = the_lowest_point_in_world;
 }
 
-Vector3 Building::get_lowest_point_in_world() const {
+float Building::get_lowest_point_in_world() const {
     return lowest_point_in_world;
 }
 
