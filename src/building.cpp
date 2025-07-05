@@ -68,6 +68,12 @@ void Building::process_points(bool calculate_points) {
     HashMap<Vector2i, PackedInt32Array> spatial_grid;
     const float GRID_SIZE = MAX_CONNECTING_DISTANCE;
 
+    // Handle the closest things to manipulator if there's no points
+    if (points.size() <= 0) {
+        closest_building_to_manipulator = -1;
+        closest_point_to_manipulator = -1;
+    }
+
     // Build spacial grid (AI)
     for (int i = 0; i < points.size(); i++) {
         Vector3 point = points[i];

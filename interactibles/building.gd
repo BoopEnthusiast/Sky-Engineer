@@ -92,7 +92,7 @@ func _process(_delta: float) -> void:
 		_process_points(false)
 	
 	# Move the selector to the manipulated point
-	if is_current_building:
+	if is_current_building or Building.closest_building_to_manipulator == -1: # There might be a bug somewhere in who's calculating the selector mesh after a building is destroyed
 		_move_selector_mesh(Building.closest_point_to_manipulator)
 
 
