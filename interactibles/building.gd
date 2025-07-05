@@ -32,9 +32,9 @@ var coloring: int = -1
 
 
 func _ready() -> void:
-	_process_points.call_deferred(true)
 	mesh.mesh = mesh.mesh.duplicate()
 	collider.shape = collider.shape.duplicate()
+	_process_points.call_deferred(true)
 
 
 func _unhandled_input(event: InputEvent) -> void:
@@ -53,19 +53,18 @@ func _process(_delta: float) -> void:
 		var has_selected_point := Building.closest_point_to_manipulator >= 0
 		
 		# Add new points
-		if Input.is_action_just_pressed("build"):
+		if Input.is_action_just_pressed(&"build"):
 			if has_selected_point:
 				points.append(Nodes.player.point_manipulator.global_position)
 				colors.append(Color.from_ok_hsl(randf(), 1.0, 0.8))
 				_process_points(true)
 				has_processed_points = true
 			else:
-				print("Creating new building")
 				Nodes.world.create_new_building(Nodes.player.point_manipulator.global_position)
 		
 		if has_selected_point:
 			# Destroy points
-			if Input.is_action_just_pressed("destroy"):
+			if Input.is_action_just_pressed(&"destroy"):
 				points.remove_at(Building.closest_point_to_manipulator)
 				colors.remove_at(Building.closest_point_to_manipulator)
 				if points.size() <= 0:
@@ -74,10 +73,10 @@ func _process(_delta: float) -> void:
 				_process_points(true)
 			
 			# Move points
-			if Input.is_action_pressed("select"):
+			if Input.is_action_pressed(&"select"):
 				points[Building.closest_point_to_manipulator] = Nodes.player.point_manipulator.global_position
 				# Color selected point (actual coloring logic is in _unhandled_input)
-				if Input.is_action_pressed("color"):
+				if Input.is_action_pressed(&"color"):
 					Nodes.player.mouse_captured = false
 					coloring = Building.closest_point_to_manipulator
 				
@@ -85,7 +84,7 @@ func _process(_delta: float) -> void:
 				has_processed_points = true
 	
 	# Stop coloring points
-	if Input.is_action_just_released("color"):
+	if Input.is_action_just_released(&"color"):
 		Nodes.player.mouse_captured = true
 		coloring = -1
 	

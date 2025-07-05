@@ -35,12 +35,18 @@ func _unhandled_input(event: InputEvent) -> void:
 	if event is InputEventMouseMotion:
 		look_dir = event.relative * 0.001
 		if mouse_captured: _rotate_camera()
-	if Input.is_action_just_pressed(&"exit"): get_tree().quit()
+	if Input.is_action_just_pressed(&"exit"):
+		if mouse_captured:
+			release_mouse() 
+		else:
+			capture_mouse()
 
 
 func _physics_process(delta: float) -> void:
-	if global_position.y < Building.lowest_point_in_world - 15.0: global_position = Vector3(0.0, 5.0, 0.0)
-	if Input.is_action_just_pressed(&"jump") and PlayerState.is_playing_game: jumping = true
+	if global_position.y < Building.lowest_point_in_world - 15.0: 
+		global_position = Vector3(0.0, 5.0, 0.0)
+	if Input.is_action_just_pressed(&"jump") and PlayerState.is_playing_game: 
+		jumping = true
 	if mouse_captured: _handle_joypad_camera_rotation(delta)
 	velocity = _walk(delta) + _gravity(delta) + _jump(delta)
 	move_and_slide()
