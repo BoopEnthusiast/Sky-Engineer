@@ -132,14 +132,13 @@ func _add_verticy_points() -> void:
 	var points_size = points.size()
 	for i in range(max(vertex_points_child_count, points_size)):
 		var vertex_point: MeshInstance3D
-		if i >= points_size:
-			vertex_point = vertex_points.get_child(i)
-			vertex_point.queue_free()
-			continue
-		elif i >= vertex_points_child_count:
+		if i >= vertex_points_child_count:
 			vertex_point = VERTEX_POINT.instantiate()
 			vertex_points.add_child(vertex_point)
 		else:
 			vertex_point = vertex_points.get_child(i)
+			if i >= points_size:
+				vertex_point.queue_free()
+				continue
 		
 		vertex_point.global_position = points[i]
