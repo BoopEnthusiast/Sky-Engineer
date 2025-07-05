@@ -6,6 +6,7 @@ const BUILDING = preload("res://interactibles/building.tscn")
 
 var building_count: int = 1
 
+
 func _enter_tree() -> void:
 	Nodes.world = self
 

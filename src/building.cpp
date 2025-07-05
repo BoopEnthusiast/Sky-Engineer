@@ -195,37 +195,40 @@ void Building::process_points(bool calculate_points) {
         }
 
         // Generate triangles
-        for (int i = 0; i < connections_to_use - 1 && i < MAX_VERTICY_CONNECTIONS; i++) {
-            for (int o = i + 1; o < connections_to_use && o < MAX_VERTICY_CONNECTIONS; o++) {
-                // Make sure to not go over preallocated size (AI)
-                if (vertex_write_index + 2 > vertices.size()) {
-                    vertices.resize(vertices.size() * 2);
-                    vertex_colors.resize(vertex_colors.size() * 2);
+        if (nearby_points.size() > 1) {
+            for (int i = 0; i < connections_to_use - 1 && i < MAX_VERTICY_CONNECTIONS; i++) {
+                for (int o = i + 1; o < connections_to_use && o < MAX_VERTICY_CONNECTIONS; o++) {
+                    // Make sure to not go over preallocated size (AI)
+                    if (vertex_write_index + 2 > vertices.size()) {
+                        vertices.resize(vertices.size() * 2);
+                        vertex_colors.resize(vertex_colors.size() * 2);
+                    }
+
+                    NearbyPoint near_point_1 = nearby_points[i];
+                    NearbyPoint near_point_2 = nearby_points[o];
+
+                    if (near_point_1.position.distance_squared_to(near_point_2.position) > MAX_CONNECTING_DISTANCE) {
+                        continue;
+                    }
+
+                    // Generate vertices
+                    vertices[vertex_write_index] = near_point_1.position;
+                    vertex_colors[vertex_write_index] = near_point_1.color;
+                    vertex_write_index++;
+
+                    vertices[vertex_write_index] = near_point_2.position;
+                    vertex_colors[vertex_write_index] = near_point_2.color;
+                    vertex_write_index++;
+
+                    vertices[vertex_write_index] = point;
+                    vertex_colors[vertex_write_index] = colors[index];
+                    vertex_write_index++;
                 }
-
-                NearbyPoint near_point_1 = nearby_points[i];
-                NearbyPoint near_point_2 = nearby_points[o];
-
-                if (near_point_1.position.distance_squared_to(near_point_2.position) > MAX_CONNECTING_DISTANCE) {
-                    continue;
-                }
-
-                // Generate vertices
-                vertices[vertex_write_index] = near_point_1.position;
-                vertex_colors[vertex_write_index] = near_point_1.color;
-                vertex_write_index++;
-
-                vertices[vertex_write_index] = near_point_2.position;
-                vertex_colors[vertex_write_index] = near_point_2.color;
-                vertex_write_index++;
-
-                vertices[vertex_write_index] = point;
-                vertex_colors[vertex_write_index] = colors[index];
-                vertex_write_index++;
             }
         }
     }
 
+    // Clear the closest point to the manipulator if out of range
     if (min_manipulator_distance >= MAX_SELECTING_DISTANCE && building == closest_building_to_manipulator) {
         closest_point_to_manipulator = -1;
     }

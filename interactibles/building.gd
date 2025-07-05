@@ -33,6 +33,8 @@ var coloring: int = -1
 
 func _ready() -> void:
 	_process_points.call_deferred(true)
+	mesh.mesh = mesh.mesh.duplicate()
+	collider.shape = collider.shape.duplicate()
 
 
 func _unhandled_input(event: InputEvent) -> void:
