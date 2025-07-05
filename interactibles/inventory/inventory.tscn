@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://chmysfru4gt6y"]
+
+[ext_resource type="Script" uid="uid://cxnb002sxkxne" path="res://interactibles/inventory/inventory.gd" id="1_ajsaa"]
+
+[sub_resource type="TextMesh" id="TextMesh_jvrbi"]
+text = "5"
+
+[node name="Inventory" type="Node3D"]
+script = ExtResource("1_ajsaa")
+
+[node name="Counters" type="Node3D" parent="."]
+
+[node name="Vertices" type="MeshInstance3D" parent="Counters"]
+mesh = SubResource("TextMesh_jvrbi")
+skeleton = NodePath("../..")

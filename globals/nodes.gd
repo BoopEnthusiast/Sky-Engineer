@@ -1,5 +1,6 @@
 extends Node
 
 
-var building: BuildingNode
 var player: Player
+var inventory: Inventory
+var world: World

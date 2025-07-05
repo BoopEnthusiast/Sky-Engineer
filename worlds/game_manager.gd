@@ -2,9 +2,8 @@ class_name GameManager
 extends Node
 
 
-const MAIN = preload("res://worlds/main.tscn")
+const WORLD = preload("res://worlds/world.tscn")
 const PLAYER = preload("res://interactibles/player.tscn")
-const SPINNY_CAMERA = preload("res://interactibles/spinny_camera.tscn")
 
 @onready var main_menu: MainMenu = $Menu/MainMenu
 
@@ -12,8 +11,8 @@ const SPINNY_CAMERA = preload("res://interactibles/spinny_camera.tscn")
 func _on_main_menu_play_game() -> void:
 	main_menu.visible = false
 	
-	var main = MAIN.instantiate()
-	add_child(main)
+	var world = WORLD.instantiate()
+	add_child(world)
 	
 	var player = PLAYER.instantiate()
 	add_child(player)

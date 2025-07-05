@@ -1,0 +1,60 @@
+[gd_scene load_steps=12 format=3 uid="uid://cxus3ioklaaki"]
+
+[ext_resource type="Script" uid="uid://dobv4rbfvosds" path="res://worlds/world.gd" id="1_m138w"]
+[ext_resource type="PackedScene" uid="uid://bjxbdvhb0xhsj" path="res://interactibles/building.tscn" id="2_c7htk"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_felrd"]
+
+[sub_resource type="Sky" id="Sky_m313i"]
+sky_material = SubResource("ProceduralSkyMaterial_felrd")
+
+[sub_resource type="Environment" id="Environment_46j3l"]
+background_mode = 2
+sky = SubResource("Sky_m313i")
+
+[sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_bnm7t"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_46j3l"]
+cull_mode = 2
+shading_mode = 0
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_felrd"]
+material = SubResource("StandardMaterial3D_46j3l")
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_felrd"]
+points = PackedVector3Array(1, 0, 1, -1, 0, 1, 1, 0, -1, -1, 0, -1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_felrd"]
+albedo_color = Color(0.755517, 0.753153, 0.977644, 1)
+emission_enabled = true
+emission = Color(1, 1, 0.576471, 1)
+
+[sub_resource type="SphereMesh" id="SphereMesh_felrd"]
+material = SubResource("StandardMaterial3D_felrd")
+radius = 0.1
+height = 0.2
+radial_segments = 16
+rings = 8
+
+[node name="World" type="Node3D"]
+script = ExtResource("1_m138w")
+
+[node name="Sun" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.707107, -0.5, 0.5, 0, 0.707107, 0.707107, -0.707107, -0.5, 0.5, 0, 3.90252, 0)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_46j3l")
+camera_attributes = SubResource("CameraAttributesPractical_bnm7t")
+
+[node name="StartingPlatform" type="StaticBody3D" parent="."]
+
+[node name="Mesh" type="MeshInstance3D" parent="StartingPlatform"]
+mesh = SubResource("PlaneMesh_felrd")
+
+[node name="Collider" type="CollisionShape3D" parent="StartingPlatform"]
+shape = SubResource("ConvexPolygonShape3D_felrd")
+
+[node name="Building" parent="." instance=ExtResource("2_c7htk")]
+
+[node name="SelectorMesh" type="MeshInstance3D" parent="."]
+mesh = SubResource("SphereMesh_felrd")

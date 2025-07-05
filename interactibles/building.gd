@@ -11,10 +11,10 @@ const VERTEX_POINT = preload("res://vfx/vertex_point.tscn")
 @export var building_index: int = 0
 
 @export var points: PackedVector3Array = [
-	Vector3(1, 0, 1),
-	Vector3(-1, 0.1, 1),
-	Vector3(1, 0, -1),
-	Vector3(-1, -0.1, -1),
+	Vector3(1, 0.03, 1),
+	Vector3(-1, 0.01, 1),
+	Vector3(1, 0.005, -1),
+	Vector3(-1, 0.06, -1),
 ]
 @export var colors: PackedColorArray = [
 	Color.from_ok_hsl(0.0, 1.0, 0.8),
@@ -29,11 +29,6 @@ var coloring: int = -1
 @onready var collider: CollisionShape3D = $Collider
 @onready var selector_mesh: MeshInstance3D = $"../SelectorMesh"
 @onready var vertex_points: Node3D = $VertexPoints
-@onready var debug_label: Label = $CanvasLayer/DebugLabel
-
-
-func _enter_tree() -> void:
-	Nodes.building = self
 
 
 func _ready() -> void:
@@ -50,39 +45,42 @@ func _unhandled_input(event: InputEvent) -> void:
 
 func _process(_delta: float) -> void:
 	var has_processed_points := false
+	var is_current_building := Building.closest_building_to_manipulator == building_index
 	
-	# Add new points
-	if (
-			Input.is_action_just_pressed("build")
-			and PlayerState.is_playing_game
-			and Building.closest_building_to_manipulator == building_index
-	):
-		points.append(Nodes.player.point_manipulator.global_position)
-		colors.append(Color.from_ok_hsl(randf(), 1.0, 0.8))
-		_process_points(true)
-		has_processed_points = true
-	
-	# Destroy points
-	if Input.is_action_just_pressed("destroy") and PlayerState.is_playing_game:
-		points.remove_at(Building.closest_point_to_manipulator)
-		colors.remove_at(Building.closest_point_to_manipulator)
-		_process_points(true)
-	
-	# Move points
-	if (
-			Input.is_action_pressed("select") 
-			and Building.closest_building_to_manipulator == building_index 
-			and Building.closest_point_to_manipulator >= 0 
-			and PlayerState.is_playing_game
-	):
-		points[Building.closest_point_to_manipulator] = Nodes.player.point_manipulator.global_position
-		# Color selected point (actual coloring logic is in _unhandled_input)
-		if Input.is_action_pressed("color"):
-			Nodes.player.mouse_captured = false
-			coloring = Building.closest_point_to_manipulator
+	if PlayerState.is_playing_game and is_current_building:
+		var has_selected_point := Building.closest_point_to_manipulator >= 0
 		
-		_process_points(true)
-		has_processed_points = true
+		# Add new points
+		if Input.is_action_just_pressed("build"):
+			if has_selected_point:
+				points.append(Nodes.player.point_manipulator.global_position)
+				colors.append(Color.from_ok_hsl(randf(), 1.0, 0.8))
+				_process_points(true)
+				has_processed_points = true
+			else:
+				print("Creating new building")
+				Nodes.world.create_new_building(Nodes.player.point_manipulator.global_position)
+		
+		if has_selected_point:
+			# Destroy points
+			if Input.is_action_just_pressed("destroy"):
+				points.remove_at(Building.closest_point_to_manipulator)
+				colors.remove_at(Building.closest_point_to_manipulator)
+				if points.size() <= 0:
+					Nodes.world.remove_building()
+					queue_free()
+				_process_points(true)
+			
+			# Move points
+			if Input.is_action_pressed("select"):
+				points[Building.closest_point_to_manipulator] = Nodes.player.point_manipulator.global_position
+				# Color selected point (actual coloring logic is in _unhandled_input)
+				if Input.is_action_pressed("color"):
+					Nodes.player.mouse_captured = false
+					coloring = Building.closest_point_to_manipulator
+				
+				_process_points(true)
+				has_processed_points = true
 	
 	# Stop coloring points
 	if Input.is_action_just_released("color"):
@@ -94,10 +92,8 @@ func _process(_delta: float) -> void:
 		_process_points(false)
 	
 	# Move the selector to the manipulated point
-	if Building.closest_building_to_manipulator == building_index:
+	if is_current_building:
 		_move_selector_mesh(Building.closest_point_to_manipulator)
-	
-	debug_label.text = str(points.size()) + "\n" + str(Engine.get_frames_per_second())
 
 
 func _move_selector_mesh(closest_point_to_manipulator: int) -> void:
@@ -115,28 +111,16 @@ func _process_points(calculate_points: bool) -> void:
 	Building.building = building_index
 	
 	# Process the points
-	_profile_process_points(calculate_points)
+	Building.process_points(calculate_points)
 	
 	if calculate_points:
 		# Generate the mesh and collider
-		_profile_generate_mesh()
-		_profile_generate_collision()
+		mesh.mesh = Building.generate_mesh()
+		var shape: ConcavePolygonShape3D = collider.shape as ConcavePolygonShape3D
+		shape.set_faces(Building.vertices)
 		
 		# Add points for vertices
 		_add_verticy_points()
-
-
-func _profile_process_points(calculate_points: bool) -> void:
-	Building.process_points(calculate_points)
-
-
-func _profile_generate_mesh() -> void:
-	mesh.mesh = Building.generate_mesh()
-
-
-func _profile_generate_collision() -> void:
-	var shape: ConcavePolygonShape3D = collider.shape as ConcavePolygonShape3D
-	shape.set_faces(Building.vertices)
 
 
 func _add_verticy_points() -> void:
