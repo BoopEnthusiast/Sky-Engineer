@@ -53,7 +53,8 @@ func _process(_delta: float) -> void:
 		var has_selected_point := Building.closest_point_to_manipulator >= 0
 		
 		# Add new points
-		if Input.is_action_just_pressed(&"build"):
+		if Input.is_action_just_pressed(&"build") and Nodes.inventory.counters.vertices_left > 0:
+			Nodes.inventory.counters.vertices_left -= 1
 			if has_selected_point:
 				points.append(Nodes.player.point_manipulator.global_position)
 				colors.append(Color.from_ok_hsl(randf(), 1.0, 0.8))
@@ -65,12 +66,14 @@ func _process(_delta: float) -> void:
 		if has_selected_point:
 			# Destroy points
 			if Input.is_action_just_pressed(&"destroy"):
+				Nodes.inventory.counters.vertices_left += 1
 				points.remove_at(Building.closest_point_to_manipulator)
 				colors.remove_at(Building.closest_point_to_manipulator)
 				if points.size() <= 0:
 					Nodes.world.remove_building()
 					queue_free()
 				_process_points(true)
+				has_processed_points = true
 			
 			# Move points
 			if Input.is_action_pressed(&"select"):

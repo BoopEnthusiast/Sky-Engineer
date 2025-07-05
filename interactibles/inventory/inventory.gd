@@ -7,6 +7,7 @@ const LERP_SPEED = 8.0
 @onready var inventory_3d: Node3D = $Inventory3D
 @onready var inventory_2d: Control = $Inventory2D
 @onready var reference_camera: Camera3D = $ReferenceCamera
+@onready var counters: Counters = $Counters
 
 
 func _enter_tree() -> void:

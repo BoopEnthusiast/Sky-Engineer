@@ -37,8 +37,10 @@ func _unhandled_input(event: InputEvent) -> void:
 		if mouse_captured: _rotate_camera()
 	if Input.is_action_just_pressed(&"exit"):
 		if mouse_captured:
-			release_mouse() 
+			PlayerState.is_playing_game = false
+			release_mouse()
 		else:
+			PlayerState.is_playing_game = true
 			capture_mouse()
 
 

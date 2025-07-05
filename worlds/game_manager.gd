@@ -23,5 +23,6 @@ func _on_main_menu_play_game() -> void:
 	
 	var inventory = INVENTORY.instantiate()
 	add_child(inventory)
+	inventory.inventory_3d.global_position.y += 5
 	
 	PlayerState.is_playing_game = true

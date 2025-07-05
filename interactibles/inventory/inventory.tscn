@@ -34,4 +34,7 @@ grow_vertical = 2
 
 [node name="ReferenceCamera" type="Camera3D" parent="."]
 
-[node name="Counters" parent="." instance=ExtResource("2_yjj7i")]
+[node name="Counters" parent="." node_paths=PackedStringArray("counterpart_in_2d", "reference_camera", "remote_transform") instance=ExtResource("2_yjj7i")]
+counterpart_in_2d = NodePath("../Inventory2D/Counters")
+reference_camera = NodePath("../ReferenceCamera")
+remote_transform = NodePath("../Inventory3D/Counters")

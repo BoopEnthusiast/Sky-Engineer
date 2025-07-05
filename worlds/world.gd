@@ -6,9 +6,16 @@ const BUILDING = preload("res://interactibles/building.tscn")
 
 var building_count: int = 1
 
+@onready var selector_mesh: MeshInstance3D = $SelectorMesh
+
 
 func _enter_tree() -> void:
 	Nodes.world = self
+
+
+func _process(delta: float) -> void:
+	if building_count == 0:
+		selector_mesh.global_position = Nodes.player.point_manipulator.global_position
 
 
 func create_new_building(starting_point: Vector3) -> void:

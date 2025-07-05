@@ -23,7 +23,10 @@ extends Node3D
 func _process(delta: float) -> void:
 	var position_to_move_to = reference_camera.project_position(counterpart_in_2d.global_position, z_depth)
 	
-	if turn_to_camera:
+	if not turn_to_camera:
+		# Move to the screen position of the control node counterpoint
+		position = position_to_move_to
+	else:
 		# Move remote transform to the screen position of the control node counterpoint
 		remote_transform.position = position_to_move_to
 		
@@ -31,6 +34,3 @@ func _process(delta: float) -> void:
 		# https://docs.godotengine.org/en/stable/tutorials/math/interpolation.html#smoothing-motion
 		var main_camera = get_viewport().get_camera_3d()
 		global_basis = global_basis.slerp(Basis.looking_at(global_position - main_camera.global_position), weight / 2)
-	else:
-		# Move to the screen position of the control node counterpoint
-		position = position_to_move_to

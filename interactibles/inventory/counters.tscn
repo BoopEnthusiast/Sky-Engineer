@@ -8,13 +8,10 @@
 material = SubResource("StandardMaterial3D_yjj7i")
 text = "5"
 
-[node name="Counters" type="Node3D" node_paths=PackedStringArray("counterpart_in_2d", "reference_camera", "remote_transform")]
+[node name="Counters" type="Node3D"]
 script = ExtResource("1_1noua")
 z_depth = 2.5
-counterpart_in_2d = NodePath("")
-reference_camera = NodePath("")
 turn_to_camera = true
-remote_transform = NodePath("")
 
 [node name="Vertices" type="MeshInstance3D" parent="."]
 mesh = SubResource("TextMesh_jvrbi")
