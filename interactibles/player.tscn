@@ -1,10 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://cb7kbv03antsr"]
+[gd_scene load_steps=5 format=3 uid="uid://cb7kbv03antsr"]
 
 [ext_resource type="Script" uid="uid://dntpbkdr02v0n" path="res://interactibles/player.gd" id="1_jysyn"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_3d65y"]
-
-[sub_resource type="CapsuleMesh" id="CapsuleMesh_jysyn"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_c2juf"]
 emission_enabled = true
@@ -20,9 +18,6 @@ script = ExtResource("1_jysyn")
 
 [node name="Collider" type="CollisionShape3D" parent="."]
 shape = SubResource("CapsuleShape3D_3d65y")
-
-[node name="Mesh" type="MeshInstance3D" parent="."]
-mesh = SubResource("CapsuleMesh_jysyn")
 
 [node name="Camera" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)

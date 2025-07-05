@@ -34,7 +34,6 @@ class Building : public Object {
     float lowest_point_in_world;
     PackedVector3Array vertices;
     PackedColorArray vertex_colors;
-    Ref<ArrayMesh> generate_mesh();
 
 protected:
 	static void _bind_methods();
@@ -65,6 +64,8 @@ public:
 
     void set_vertices(const PackedVector3Array the_vertices);
     PackedVector3Array get_vertices() const;
+
+    Ref<ArrayMesh> generate_mesh();
 
 	Building();
 	~Building();

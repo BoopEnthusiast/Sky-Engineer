@@ -13,8 +13,8 @@ func _enter_tree() -> void:
 	Nodes.world = self
 
 
-func _process(delta: float) -> void:
-	if building_count == 0:
+func _process(_delta: float) -> void:
+	if building_count == 0 or Building.closest_building_to_manipulator == -1:
 		selector_mesh.global_position = Nodes.player.point_manipulator.global_position
 
 

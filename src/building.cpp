@@ -25,6 +25,8 @@ void Building::_bind_methods() {
     ClassDB::bind_method(D_METHOD("set_building", "the_building"), &Building::set_building);
     ADD_PROPERTY(PropertyInfo(Variant::INT, "building"), "set_building", "get_building");
 
+    ClassDB::bind_method(D_METHOD("process_points", "calculate_points"), &Building::process_points);
+
     ClassDB::bind_method(D_METHOD("get_closest_point_to_manipulator"), &Building::get_closest_point_to_manipulator);
     ClassDB::bind_method(D_METHOD("set_closest_point_to_manipulator", "the_closest_point_to_manipulator"), &Building::set_closest_point_to_manipulator);
     ADD_PROPERTY(PropertyInfo(Variant::INT, "closest_point_to_manipulator"), "set_closest_point_to_manipulator", "get_closest_point_to_manipulator");
@@ -41,7 +43,6 @@ void Building::_bind_methods() {
     ClassDB::bind_method(D_METHOD("set_vertices", "the_vertices"), &Building::set_vertices);
     ADD_PROPERTY(PropertyInfo(Variant::PACKED_VECTOR3_ARRAY, "vertices"), "set_vertices", "get_vertices");
 
-    ClassDB::bind_method(D_METHOD("process_points", "calculate_points"), &Building::process_points);
     ClassDB::bind_method(D_METHOD("generate_mesh"), &Building::generate_mesh);
 }
 

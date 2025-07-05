@@ -55,6 +55,8 @@ mesh = SubResource("PlaneMesh_felrd")
 shape = SubResource("ConvexPolygonShape3D_felrd")
 
 [node name="Building" parent="." instance=ExtResource("2_c7htk")]
+building_index = 0
+points = [Vector3(1, 0.03, 1), Vector3(-1, 0.01, 1), Vector3(1, 0.005, -1), Vector3(-1, 0.06, -1)]
 
 [node name="SelectorMesh" type="MeshInstance3D" parent="."]
 mesh = SubResource("SphereMesh_felrd")

@@ -96,7 +96,7 @@ func _process(_delta: float) -> void:
 		_process_points(false)
 	
 	# Move the selector to the manipulated point
-	if is_current_building or Building.closest_building_to_manipulator == -1: # There might be a bug somewhere in who's calculating the selector mesh after a building is destroyed
+	if is_current_building:
 		_move_selector_mesh(Building.closest_point_to_manipulator)
 
 
@@ -128,9 +128,18 @@ func _process_points(calculate_points: bool) -> void:
 
 
 func _add_verticy_points() -> void:
-	for child in vertex_points.get_children():
-		child.queue_free()
-	for point in points:
-		var new_vertex_point = VERTEX_POINT.instantiate()
-		vertex_points.add_child(new_vertex_point)
-		new_vertex_point.global_position = point
+	var vertex_points_child_count = vertex_points.get_child_count()
+	var points_size = points.size()
+	for i in range(max(vertex_points_child_count, points_size)):
+		var vertex_point: MeshInstance3D
+		if i >= points_size:
+			vertex_point = vertex_points.get_child(i)
+			vertex_point.queue_free()
+			continue
+		elif i >= vertex_points_child_count:
+			vertex_point = VERTEX_POINT.instantiate()
+			vertex_points.add_child(vertex_point)
+		else:
+			vertex_point = vertex_points.get_child(i)
+		
+		vertex_point.global_position = points[i]
