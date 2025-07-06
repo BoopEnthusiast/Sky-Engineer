@@ -2,5 +2,5 @@ extends Node
 
 
 var player: Player
-var inventory: Inventory
+var menu: Menu
 var world: World

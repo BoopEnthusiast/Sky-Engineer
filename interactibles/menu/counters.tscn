@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://guxbachm7ara"]
 
-[ext_resource type="Script" uid="uid://b2i64mmqjsk2l" path="res://interactibles/inventory/counters.gd" id="1_1noua"]
+[ext_resource type="Script" uid="uid://b2i64mmqjsk2l" path="res://interactibles/menu/counters.gd" id="1_1noua"]
 
 [sub_resource type="TextMesh" id="TextMesh_1noua"]
 text = "5"

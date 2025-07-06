@@ -53,8 +53,8 @@ func _process(_delta: float) -> void:
 		var has_selected_point := Building.closest_point_to_manipulator >= 0
 		
 		# Add new points
-		if Input.is_action_just_pressed(&"build") and Nodes.inventory.counters.vertices_left > 0:
-			Nodes.inventory.counters.vertices_left -= 1
+		if Input.is_action_just_pressed(&"build") and Nodes.menu.counters.vertices_left > 0:
+			Nodes.menu.counters.vertices_left -= 1
 			if has_selected_point:
 				points.append(Nodes.player.point_manipulator.global_position)
 				colors.append(Color.from_ok_hsl(randf(), 1.0, 0.8))
@@ -66,7 +66,7 @@ func _process(_delta: float) -> void:
 		if has_selected_point:
 			# Destroy points
 			if Input.is_action_just_pressed(&"destroy"):
-				Nodes.inventory.counters.vertices_left += 1
+				Nodes.menu.counters.vertices_left += 1
 				points.remove_at(Building.closest_point_to_manipulator)
 				colors.remove_at(Building.closest_point_to_manipulator)
 				if points.size() <= 0:
@@ -120,8 +120,7 @@ func _process_points(calculate_points: bool) -> void:
 	if calculate_points:
 		# Generate the mesh and collider
 		mesh.mesh = Building.generate_mesh()
-		var shape: ConcavePolygonShape3D = collider.shape as ConcavePolygonShape3D
-		shape.set_faces(Building.vertices)
+		collider.shape.set_faces(Building.vertices)
 		
 		# Add points for vertices
 		_add_verticy_points()

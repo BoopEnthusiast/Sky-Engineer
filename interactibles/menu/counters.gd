@@ -1,5 +1,5 @@
 class_name Counters
-extends ProjectedInventoryItem
+extends ProjectedMenuItem
 
 
 @export var vertices_left: int = 5:

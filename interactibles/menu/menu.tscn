@@ -1,0 +1,39 @@
+[gd_scene load_steps=3 format=3 uid="uid://chmysfru4gt6y"]
+
+[ext_resource type="Script" uid="uid://cxnb002sxkxne" path="res://interactibles/menu/menu.gd" id="1_abbww"]
+[ext_resource type="PackedScene" uid="uid://guxbachm7ara" path="res://interactibles/menu/counters.tscn" id="2_bx01g"]
+
+[node name="Menu" type="Node"]
+script = ExtResource("1_abbww")
+
+[node name="Menu3D" type="Node3D" parent="."]
+
+[node name="Counters" type="RemoteTransform3D" parent="Menu3D"]
+remote_path = NodePath("../../Counters")
+update_rotation = false
+
+[node name="Menu2D" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Counters" type="Control" parent="Menu2D"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 64.0
+offset_top = -2.0
+offset_right = 64.0
+offset_bottom = -2.0
+grow_vertical = 2
+
+[node name="ReferenceCamera" type="Camera3D" parent="."]
+
+[node name="Counters" parent="." node_paths=PackedStringArray("counterpart_in_2d", "reference_camera", "remote_transform") instance=ExtResource("2_bx01g")]
+counterpart_in_2d = NodePath("../Menu2D/Counters")
+reference_camera = NodePath("../ReferenceCamera")
+remote_transform = NodePath("../Menu3D/Counters")
