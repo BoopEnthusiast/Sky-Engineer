@@ -6,6 +6,7 @@ extends Node3D
 @export var counterpart_in_2d: Control
 ## The reference camera of the scene
 @export var reference_camera: Camera3D
+
 @export_group("Slow turn to camera")
 ## If this is enabled, it assumes it's not a child of Inventory3D and has a RemoteTransform3D in its place[br]
 ## [br]
@@ -16,8 +17,8 @@ extends Node3D
 ## What's supposed to happen is that you have a RemoteTransform3D with rotation turned off as a child of Inventory3D.
 ## Then, you enable turn_to_camera and this node will slowly turn toward the camera
 @export var remote_transform: RemoteTransform3D
-## The lerp speed it rotates to the camera. By default it's half of Inventory.LERP_SPEED
-@export_range(0.5, 10.0) var lerp_speed: float = Inventory.LERP_SPEED / 2
+## The lerp speed it rotates to the camera. By default it's a quarter of Inventory.LERP_SPEED
+@export_range(0.5, 10.0) var lerp_speed: float = Inventory.LERP_SPEED / 4
 
 
 func _process(delta: float) -> void:
@@ -48,4 +49,4 @@ func _process(delta: float) -> void:
 	# Get the weight for slerping it (love that word lmao)
 	var weight = 1 - exp(-lerp_speed * delta) # Makes it framerate-dependent like it says in:
 	# https://docs.godotengine.org/en/stable/tutorials/math/interpolation.html#smoothing-motion
-	global_basis = global_basis.slerp(new_basis, weight / 2)
+	global_basis = global_basis.slerp(new_basis, weight)
