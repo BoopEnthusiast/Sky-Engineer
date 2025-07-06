@@ -23,6 +23,5 @@ func _on_main_menu_play_game() -> void:
 	
 	var menu = MENU.instantiate()
 	add_child(menu)
-	menu.menu_3d.global_position.y += 5
 	
 	PlayerState.is_playing_game = true

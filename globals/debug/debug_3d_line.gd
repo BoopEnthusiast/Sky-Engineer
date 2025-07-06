@@ -16,6 +16,5 @@ func _init() -> void:
 	mesh = my_mesh
 	
 	my_material = StandardMaterial3D.new()
-	my_mesh.material = my_material
 	my_material.shading_mode = BaseMaterial3D.SHADING_MODE_UNSHADED
 	my_material.no_depth_test = true

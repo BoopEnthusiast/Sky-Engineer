@@ -48,10 +48,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -250.0
-offset_top = -150.0
-offset_right = 250.0
-offset_bottom = 150.0
+offset_left = -375.0
+offset_top = -225.0
+offset_right = 375.0
+offset_bottom = 225.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
@@ -71,8 +71,11 @@ counterpart_in_2d = NodePath("../Menu2D/Counters")
 remote_transform = NodePath("../Menu3D/Counters")
 
 [node name="Inventory" parent="." node_paths=PackedStringArray("counterpart_in_2d", "remote_transform", "collision_area") instance=ExtResource("2_tyti5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -3)
+z_depth = 3.0
 counterpart_in_2d = NodePath("../Menu2D/Inventory")
 remote_transform = NodePath("../Menu3D/Inventory")
 turn_to_camera = true
+turn_slerp_speed = 10.0
 follow_mouse = true
 collision_area = NodePath("../Menu2D/Inventory/InventoryArea")

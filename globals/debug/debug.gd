@@ -26,10 +26,11 @@ func _ready() -> void:
 func create_3d_line(points: PackedVector3Array, color: Color = Color.WHITE) -> Debug3DLine:
 	var debug_3d_line := Debug3DLine.new()
 	
-	debug_3d_line.my_mesh.surface_begin(Mesh.PRIMITIVE_LINES, debug_3d_line.my_material)
-	for point: Vector3 in points:
-		debug_3d_line.my_mesh.surface_add_vertex(point)
-	debug_3d_line.my_mesh.surface_end()
+	if points.size() > 0:
+		debug_3d_line.my_mesh.surface_begin(Mesh.PRIMITIVE_LINES, debug_3d_line.my_material)
+		for point: Vector3 in points:
+			debug_3d_line.my_mesh.surface_add_vertex(point)
+		debug_3d_line.my_mesh.surface_end()
 	
 	debug_3d_line.my_material.albedo_color = color
 	
@@ -43,10 +44,11 @@ func create_3d_line(points: PackedVector3Array, color: Color = Color.WHITE) -> D
 ## If the new color is [constant Color.TRANSPARENT] then the color will not be updated.
 func modify_3d_line(line: Debug3DLine, points: PackedVector3Array, color: Color = Color.TRANSPARENT) -> void:
 	line.my_mesh.clear_surfaces()
-	line.my_mesh.surface_begin(Mesh.PRIMITIVE_LINES, line.my_material)
-	for point: Vector3 in points:
-		line.my_mesh.surface_add_vertex(point)
-	line.my_mesh.surface_end()
+	if points.size() > 0:
+		line.my_mesh.surface_begin(Mesh.PRIMITIVE_LINES, line.my_material)
+		for point: Vector3 in points:
+			line.my_mesh.surface_add_vertex(point)
+		line.my_mesh.surface_end()
 	
 	if color != Color.TRANSPARENT:
 		line.my_material.albedo_color = color
@@ -154,8 +156,8 @@ func debug_print(key: StringName, value: Variant) -> void:
 	_label_variables[key] = str(value)
 	# Update the debug label each time it's written to
 	_debug_label.text = ""
-	for each_key: String in _label_variables:
-		_debug_label.text += _label_variables[each_key] + '\n'
+	for each_key: StringName in _label_variables:
+		_debug_label.text += each_key + ": " + _label_variables[each_key] + '\n'
 
 
 ## Removes the debug print when you're done with it
