@@ -19,6 +19,7 @@ config/icon="res://icon.svg"
 
 Nodes="*res://globals/nodes.gd"
 PlayerState="*res://globals/player_state.gd"
+Debug="*res://globals/debug.gd"
 
 [input]
 

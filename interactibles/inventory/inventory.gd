@@ -14,6 +14,10 @@ func _enter_tree() -> void:
 	Nodes.inventory = self
 
 
+func _ready() -> void:
+	inventory_2d.visible = false
+
+
 func _process(delta: float) -> void:
 	# Move inventory_3d to active camera
 	var weight = 1 - exp(-LERP_SPEED * delta) # Makes it framerate-dependent like it says in:
