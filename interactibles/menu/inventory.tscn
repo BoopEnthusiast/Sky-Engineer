@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://0384pw52tpxg"]
+
+[ext_resource type="Script" uid="uid://dl2rvqxiucdjj" path="res://interactibles/menu/inventory.gd" id="1_240r2"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_240r2"]
+
+[node name="Inventory" type="Node3D"]
+script = ExtResource("1_240r2")
+
+[node name="Background" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_240r2")

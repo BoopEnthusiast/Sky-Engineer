@@ -1,7 +1,10 @@
-[gd_scene load_steps=3 format=3 uid="uid://chmysfru4gt6y"]
+[gd_scene load_steps=5 format=3 uid="uid://chmysfru4gt6y"]
 
 [ext_resource type="Script" uid="uid://cxnb002sxkxne" path="res://interactibles/menu/menu.gd" id="1_abbww"]
 [ext_resource type="PackedScene" uid="uid://guxbachm7ara" path="res://interactibles/menu/counters.tscn" id="2_bx01g"]
+[ext_resource type="PackedScene" uid="uid://0384pw52tpxg" path="res://interactibles/menu/inventory.tscn" id="2_tyti5"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tyti5"]
 
 [node name="Menu" type="Node"]
 script = ExtResource("1_abbww")
@@ -12,6 +15,11 @@ script = ExtResource("1_abbww")
 remote_path = NodePath("../../Counters")
 update_rotation = false
 
+[node name="Inventory" type="RemoteTransform3D" parent="Menu3D"]
+remote_path = NodePath("../../Inventory")
+update_position = false
+update_rotation = false
+
 [node name="Menu2D" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 15
@@ -19,6 +27,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 
 [node name="Counters" type="Control" parent="Menu2D"]
 layout_mode = 1
@@ -30,10 +39,40 @@ offset_top = -2.0
 offset_right = 64.0
 offset_bottom = -2.0
 grow_vertical = 2
+mouse_filter = 2
+
+[node name="Inventory" type="Control" parent="Menu2D"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -250.0
+offset_top = -150.0
+offset_right = 250.0
+offset_bottom = 150.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="InventoryArea" type="Area2D" parent="Menu2D/Inventory"]
+
+[node name="Collider" type="CollisionShape2D" parent="Menu2D/Inventory/InventoryArea"]
+shape = SubResource("RectangleShape2D_tyti5")
+
+[node name="RayCast2D" type="RayCast2D" parent="Menu2D"]
+collide_with_areas = true
 
 [node name="ReferenceCamera" type="Camera3D" parent="."]
 
-[node name="Counters" parent="." node_paths=PackedStringArray("counterpart_in_2d", "reference_camera", "remote_transform") instance=ExtResource("2_bx01g")]
+[node name="Counters" parent="." node_paths=PackedStringArray("counterpart_in_2d", "remote_transform") instance=ExtResource("2_bx01g")]
 counterpart_in_2d = NodePath("../Menu2D/Counters")
-reference_camera = NodePath("../ReferenceCamera")
 remote_transform = NodePath("../Menu3D/Counters")
+
+[node name="Inventory" parent="." node_paths=PackedStringArray("counterpart_in_2d", "remote_transform", "collision_area") instance=ExtResource("2_tyti5")]
+counterpart_in_2d = NodePath("../Menu2D/Inventory")
+remote_transform = NodePath("../Menu3D/Inventory")
+turn_to_camera = true
+follow_mouse = true
+collision_area = NodePath("../Menu2D/Inventory/InventoryArea")
