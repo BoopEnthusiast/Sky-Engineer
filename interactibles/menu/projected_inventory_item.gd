@@ -58,31 +58,10 @@ extends Node3D
 ## The lerp speed it moves to the projected point from the main camera. By default it's the same as [constant Menu.LERP_SPEED].
 @export_range(0.5, 10.0) var lerp_speed: float = Menu.LERP_SPEED
 
-var debug_line_1: Debug3DLine
-var debug_line_2: Debug3DLine
-var debug_line_3: Debug3DLine
-var debug_line_4: Debug3DLine
-var debug_line_5: Debug3DLine
-var debug_line_6: Debug3DLine
-var debug_line_7: Debug3DLine
-var debug_line_8: Debug3DLine
-var debug_line_9: Debug3DLine
-
-
-func _ready() -> void:
-	debug_line_1 = Debug.create_3d_line([], Color.RED)
-	debug_line_2 = Debug.create_3d_line([], Color.GREEN)
-	debug_line_3 = Debug.create_3d_line([], Color.BLUE)
-	debug_line_4 = Debug.create_3d_line([], Color.CYAN)
-	debug_line_5 = Debug.create_3d_line([], Color.YELLOW)
-	debug_line_6 = Debug.create_3d_line([], Color.MAGENTA)
-	debug_line_7 = Debug.create_3d_line([], Color.TEAL)
-	debug_line_8 = Debug.create_3d_line([], Color.ORANGE)
-	debug_line_9 = Debug.create_3d_line([], Color.PURPLE)
-
 
 func _process(delta: float) -> void:
-	_handle_rotation(delta, _handle_position(delta))
+	_handle_position(delta)
+	_handle_rotation(delta)
 
 
 ## Moves the global position to the remote transform's global position.[br]
@@ -93,8 +72,7 @@ func move_to_remote_transform() -> void:
 	global_position = remote_transform.global_position
 
 
-# Returns true if follow_mouse is enabled and it is outside the area
-func _handle_position(delta: float) -> Vector3:
+func _handle_position(delta: float) -> void:
 	# Project the position it needs to move to from the reference camera.
 	# This means it'll be relative to Vector3.ZERO, which is what we need
 	# because it is moving the position of the node and not the global_position.
@@ -113,7 +91,7 @@ func _handle_position(delta: float) -> Vector3:
 	
 	# After this is all the stuff for follow_mouse
 	if not follow_mouse:
-		return Vector3.ZERO
+		return
 	
 	# Get the main camera since it'll be used multiple times
 	var main_camera = get_viewport().get_camera_3d()
@@ -128,12 +106,12 @@ func _handle_position(delta: float) -> Vector3:
 	# Skip if behind the camera like it says to do in the Camera3D project_position docs
 	if main_camera.is_position_behind(global_position):
 		_move_to_correct_z_depth(unprojected_position, weight)
-		return Vector3.ZERO
+		return
 	
 	# Skip if it's inside the area it shouldn't be moving in
 	if counterpart_in_2d_rect.has_point(unprojected_position):
 		_move_to_correct_z_depth(unprojected_position, weight)
-		return Vector3.ZERO
+		return
 	
 	# Update the collsion/collider shape in case the 2d counterpart control node has resized
 	# You don't need to check for positional movements because the collision_area should be a child of the 2d counterpart
@@ -152,7 +130,7 @@ func _handle_position(delta: float) -> Vector3:
 	# None of what's about to follow will work if the raycast isn't colliding. It should be, but good to check
 	if not raycast.is_colliding():
 		_move_to_correct_z_depth(unprojected_position, weight)
-		return Vector3.ZERO
+		return
 	
 	# Get the colliding point in 2D space and project it into 3D space from the main camera
 	var colliding_point := raycast.get_collision_point()
@@ -160,8 +138,6 @@ func _handle_position(delta: float) -> Vector3:
 	
 	# Lerp to the edge of the area
 	global_position = global_position.lerp(edge_of_area, weight)
-	# Return true because it's outside the area
-	return edge_of_area
 
 
 func _move_to_correct_z_depth(unprojected_position: Vector2, weight: float) -> void:
@@ -169,57 +145,20 @@ func _move_to_correct_z_depth(unprojected_position: Vector2, weight: float) -> v
 	global_position = global_position.lerp(projected_position, weight)
 
 
-func _handle_rotation(delta: float, edge_of_area: Vector3) -> void:
-	if not turn_to_camera:# or (not is_outside_area and follow_mouse):
+func _handle_rotation(delta: float) -> void:
+	if not turn_to_camera:
 		return
 	
-	if follow_mouse:
-		if not edge_of_area:
-			return
-		
-		# Get the basis it needs to slerp to
-		var viewport := get_viewport()
-		var main_camera := viewport.get_camera_3d()
-		var new_basis := Basis.looking_at(edge_of_area - main_camera.global_position)
-		# Turn the y basis to face upwards in accordance with the main camera's center and not where this node is
-		# You can comment out these three lines and see what happens when you look up and down if you're curious
-		var looking_at_position := main_camera.project_position(viewport.get_visible_rect().size / 2, z_depth)
-		var main_camera_basis := Basis.looking_at(looking_at_position - main_camera.global_position)
-		
-		Debug.modify_3d_line(debug_line_1, [looking_at_position, new_basis.x + looking_at_position], Color.RED)
-		Debug.modify_3d_line(debug_line_2, [looking_at_position, new_basis.y + looking_at_position], Color.GREEN)
-		Debug.modify_3d_line(debug_line_3, [looking_at_position, new_basis.z + looking_at_position], Color.BLUE)
-		Debug.modify_3d_line(debug_line_4, [looking_at_position, main_camera_basis.x + looking_at_position], Color.CYAN)
-		Debug.modify_3d_line(debug_line_5, [looking_at_position, main_camera_basis.y + looking_at_position], Color.YELLOW)
-		Debug.modify_3d_line(debug_line_6, [looking_at_position, main_camera_basis.z + looking_at_position], Color.MAGENTA)
-		
-		Debug.debug_print(name, new_basis.y.signed_angle_to(main_camera_basis.y, new_basis.z))
-		Debug.debug_print(name + "i", new_basis.y.signed_angle_to(main_camera_basis.y, new_basis.x))
-		
-		new_basis = new_basis.rotated(main_camera_basis.z, new_basis.y.signed_angle_to(main_camera_basis.y, main_camera_basis.z))
-		
-		Debug.modify_3d_line(debug_line_7, [looking_at_position, new_basis.x + looking_at_position], Color.TEAL)
-		Debug.modify_3d_line(debug_line_8, [looking_at_position, new_basis.y + looking_at_position], Color.ORANGE)
-		Debug.modify_3d_line(debug_line_9, [looking_at_position, new_basis.z + looking_at_position], Color.PURPLE)
-		
-		# Get the weight for slerping it (love that word lmao)
-		var weight: float = 1 - exp(-turn_slerp_speed * delta) # Makes it framerate-independent like it says in:
-		# https://docs.godotengine.org/en/stable/tutorials/math/interpolation.html#smoothing-motion
-		global_basis = global_basis.slerp(new_basis, weight)
-		
-	else:
-		# Get the basis it needs to slerp to
-		var viewport := get_viewport()
-		var main_camera := viewport.get_camera_3d()
-		var new_basis := Basis.looking_at(global_position - main_camera.global_position)
-		# Turn the y basis to face upwards in accordance with the main camera's center and not where this node is
-		# You can comment out these three lines and see what happens when you look up and down if you're curious
-		var looking_at_position := main_camera.project_position(viewport.get_visible_rect().size / 2, z_depth)
-		var main_camera_basis := Basis.looking_at(looking_at_position - main_camera.global_position)
-		
-		new_basis = new_basis.rotated(new_basis.z, new_basis.y.signed_angle_to(main_camera_basis.y, new_basis.z))
-		
-		# Get the weight for slerping it (love that word lmao)
-		var weight: float = 1 - exp(-turn_slerp_speed * delta) # Makes it framerate-independent like it says in:
-		# https://docs.godotengine.org/en/stable/tutorials/math/interpolation.html#smoothing-motion
-		global_basis = global_basis.slerp(new_basis, weight)
+	# Get the basis it needs to slerp to
+	var viewport := get_viewport()
+	var main_camera := get_viewport().get_camera_3d()
+	var new_basis := Basis.looking_at(global_position - main_camera.global_position)
+	# Turn the y basis to face upwards in accordance with the main camera's center and not where this node is
+	# You can comment out these three lines and see what happens when you look up and down if you're curious
+	var looking_at_position := main_camera.project_position(viewport.get_visible_rect().size / 2, z_depth)
+	var main_camera_basis := Basis.looking_at(looking_at_position - main_camera.global_position)
+	new_basis = new_basis.rotated(new_basis.z, new_basis.y.signed_angle_to(main_camera_basis.y, new_basis.z)).orthonormalized()
+	# Get the weight for slerping it (love that word lmao)
+	var weight: float = 1 - exp(-turn_slerp_speed * delta) # Makes it framerate-independent like it says in:
+	# https://docs.godotengine.org/en/stable/tutorials/math/interpolation.html#smoothing-motion
+	global_basis = global_basis.slerp(new_basis, weight)

@@ -18,7 +18,6 @@ update_rotation = false
 [node name="Inventory" type="RemoteTransform3D" parent="Menu3D"]
 remote_path = NodePath("../../Inventory")
 update_position = false
-update_rotation = false
 
 [node name="Menu2D" type="Control" parent="."]
 layout_mode = 3
@@ -75,7 +74,5 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -3)
 z_depth = 3.0
 counterpart_in_2d = NodePath("../Menu2D/Inventory")
 remote_transform = NodePath("../Menu3D/Inventory")
-turn_to_camera = true
-turn_slerp_speed = 10.0
 follow_mouse = true
 collision_area = NodePath("../Menu2D/Inventory/InventoryArea")
