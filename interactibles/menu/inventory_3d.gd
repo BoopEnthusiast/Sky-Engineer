@@ -1,0 +1,2 @@
+class_name Inventory3D
+extends ProjectedMenuItem

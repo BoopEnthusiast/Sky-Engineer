@@ -57,6 +57,11 @@ extends Node3D
 @export var collision_area: Area2D
 ## The lerp speed it moves to the projected point from the main camera. By default it's the same as [constant Menu.LERP_SPEED].
 @export_range(0.5, 10.0) var lerp_speed: float = Menu.LERP_SPEED
+## Only update the position while the node is visible in the tree using [method Node3D.is_visible_in_tree].[br]
+## [br]
+## This is useful in conjunction with [method move_to_remote_transform] so that this node isn't doing
+## unnecessary math for the position and will be reset anyway when it's made visible. 
+@export var update_position_while_invisible: bool = true
 
 
 func _process(delta: float) -> void:
@@ -73,6 +78,13 @@ func move_to_remote_transform() -> void:
 
 
 func _handle_position(delta: float) -> void:
+	# Check if we're checking if it's invisible
+	if not update_position_while_invisible:
+		# Check if we're invisible
+		if not is_visible_in_tree():
+			# If we are on both accounts, skip all that needless math
+			return
+	
 	# Project the position it needs to move to from the reference camera.
 	# This means it'll be relative to Vector3.ZERO, which is what we need
 	# because it is moving the position of the node and not the global_position.
