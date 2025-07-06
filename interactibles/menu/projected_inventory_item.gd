@@ -55,12 +55,6 @@ extends Node3D
 ## The lerp speed it moves to the projected point from the main camera. By default it's the same as [constant Menu.LERP_SPEED].
 @export_range(0.5, 10.0) var lerp_speed: float = Menu.LERP_SPEED
 
-var debug_2d_point: Debug2DPoint
-
-
-func _ready() -> void:
-	debug_2d_point = Debug.create_2d_point(Vector2.ZERO)
-
 
 func _process(delta: float) -> void:
 	_handle_position(delta)
@@ -128,6 +122,7 @@ func _handle_position(delta: float) -> void:
 	raycast.global_position = unprojected_position
 	raycast.target_position = collision_shape.global_position - unprojected_position
 	raycast.collision_mask = collision_area.collision_layer
+	raycast.force_raycast_update()
 	
 	# None of what's about to follow will work if the raycast isn't colliding. It should be, but good to check
 	if not raycast.is_colliding():
@@ -138,6 +133,7 @@ func _handle_position(delta: float) -> void:
 	var colliding_point := raycast.get_collision_point()
 	var edge_of_area := main_camera.project_position(colliding_point, z_depth)
 	
+	# Lerp to the edge of the area
 	global_position = global_position.lerp(edge_of_area, weight)
 
 

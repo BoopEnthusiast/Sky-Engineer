@@ -58,14 +58,14 @@ func modify_3d_line(line: Debug3DLine, points: PackedVector3Array, color: Color 
 func create_3d_point(position: Vector3, radius: float = 0.5, color: Color = Color.WHITE) -> Debug3DPoint:
 	var debug_3d_point := Debug3DPoint.new()
 	
+	add_child(debug_3d_point)
+	
 	debug_3d_point.global_position = position
 	
 	debug_3d_point.my_mesh.radius = radius
 	debug_3d_point.my_mesh.height = radius * 2
 	
 	debug_3d_point.my_material.albedo_color = color
-	
-	add_child(debug_3d_point)
 	
 	return debug_3d_point
 
