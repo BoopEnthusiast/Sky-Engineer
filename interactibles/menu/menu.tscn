@@ -2,9 +2,9 @@
 
 [ext_resource type="Script" uid="uid://cxnb002sxkxne" path="res://interactibles/menu/menu.gd" id="1_abbww"]
 [ext_resource type="PackedScene" uid="uid://guxbachm7ara" path="res://interactibles/menu/counters.tscn" id="2_bx01g"]
-[ext_resource type="Script" uid="uid://dgqx2444re8md" path="res://interactibles/menu/inventory.gd" id="3_15prt"]
-[ext_resource type="PackedScene" uid="uid://b6ym164ochl8a" path="res://interactibles/menu/inventory_3d.tscn" id="4_15prt"]
-[ext_resource type="Script" uid="uid://eqkogtwljged" path="res://interactibles/menu/inventory_3d.gd" id="5_qjxdy"]
+[ext_resource type="Script" uid="uid://dgqx2444re8md" path="res://interactibles/menu/inventory/inventory.gd" id="3_15prt"]
+[ext_resource type="PackedScene" uid="uid://b6ym164ochl8a" path="res://interactibles/menu/inventory/inventory_3d.tscn" id="4_15prt"]
+[ext_resource type="Script" uid="uid://eqkogtwljged" path="res://interactibles/menu/inventory/inventory_3d.gd" id="5_qjxdy"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tyti5"]
 
