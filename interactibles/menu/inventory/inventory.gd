@@ -1,5 +1,5 @@
 class_name Inventory
-extends Node
+extends Node3D
 
 
 @onready var inventory_3d: ProjectedMenuItem = $Inventory3D
@@ -16,4 +16,3 @@ func _process(_delta: float) -> void:
 		return
 	
 	Nodes.world.selector_mesh.global_position = selector_ray.get_collision_point()
-	Nodes.world.selector_mesh.temp_color = 

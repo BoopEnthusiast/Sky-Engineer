@@ -73,7 +73,7 @@ collide_with_bodies = false
 counterpart_in_2d = NodePath("../Menu2D/Counters")
 remote_transform = NodePath("../Menu3D/Counters")
 
-[node name="Inventory" type="Node" parent="."]
+[node name="Inventory" type="Node3D" parent="."]
 script = ExtResource("3_15prt")
 
 [node name="Inventory3D" parent="Inventory" node_paths=PackedStringArray("counterpart_in_2d", "remote_transform", "collision_area") instance=ExtResource("4_15prt")]

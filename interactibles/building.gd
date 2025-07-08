@@ -70,7 +70,7 @@ func _process(_delta: float) -> void:
 				points.remove_at(Building.closest_point_to_manipulator)
 				colors.remove_at(Building.closest_point_to_manipulator)
 				if points.size() <= 0:
-					Nodes.world.remove_building()
+					Nodes.world.remove_building(self)
 					queue_free()
 				_process_points(true)
 				has_processed_points = true
@@ -94,17 +94,6 @@ func _process(_delta: float) -> void:
 	# Process the points (only to find the closest point to the manipulator) if not already processed points
 	if not has_processed_points:
 		_process_points(false)
-	
-	# Move the selector to the manipulated point
-	if is_current_building:
-		_move_selector_mesh(Building.closest_point_to_manipulator)
-
-
-func _move_selector_mesh(closest_point_to_manipulator: int) -> void:
-	if closest_point_to_manipulator < 0:
-		selector_mesh.global_position = Nodes.player.point_manipulator.global_position
-	else:
-		selector_mesh.global_position = points[closest_point_to_manipulator]
 
 
 func _process_points(calculate_points: bool) -> void:
