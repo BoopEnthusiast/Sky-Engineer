@@ -4,9 +4,6 @@ extends Node3D
 
 const BUILDING = preload("res://interactibles/building.tscn")
 
-var currently_selected_building: int
-var currently_selected_point: int
-
 @onready var buildings: Array[BuildingNode] = [$Building]
 
 @onready var selector_mesh: SelectorMesh = $SelectorMesh

@@ -111,6 +111,10 @@ func _handle_position(delta: float) -> void:
 	# Get the unprojected position and weight, this is here because they'll be used no matter what happens
 	# If any of the conditions for lerping to the edge of the area are false, it'll still lerp to the correct z depth
 	# We don't want to lerp to the correct z depth *and* lerp to the edge of the area because then it would move too fast
+	
+	# This causes an error, even the Godot team doesn't know why this is happening:
+	# https://github.com/godotengine/godot/blob/4d1f26e1fd1fa46f2223fe0b6ac300744bf79b88/scene/3d/camera_3d.cpp#L469
+	# Read it, the fail is "p.d == 0" which has above it: "TODO: Investigate, this cas causing NaNs."
 	var unprojected_position = main_camera.unproject_position(global_position)
 	var weight: float = 1 - exp(-lerp_speed * delta) # Makes it framerate-independent like it says in:
 	# https://docs.godotengine.org/en/stable/tutorials/math/interpolation.html#smoothing-motion
