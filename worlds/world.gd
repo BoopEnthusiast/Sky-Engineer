@@ -6,7 +6,7 @@ const BUILDING = preload("res://interactibles/building.tscn")
 
 var building_count: int = 1
 
-@onready var selector_mesh: MeshInstance3D = $SelectorMesh
+@onready var selector_mesh: SelectorMesh = $SelectorMesh
 
 
 func _enter_tree() -> void:

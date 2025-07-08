@@ -4,7 +4,7 @@ extends Node
 
 const LERP_SPEED = 8.0
 
-var is_in_stationary_menu := false
+var is_in_inventory := false
 
 @onready var menu_3d: Node3D = $Menu3D
 
@@ -14,7 +14,7 @@ var is_in_stationary_menu := false
 @onready var reference_camera: Camera3D = $ReferenceCamera
 
 @onready var counters: Counters = $Counters
-@onready var inventory: Node = $Inventory
+@onready var inventory: Inventory = $Inventory
 
 
 func _enter_tree() -> void:
@@ -24,9 +24,9 @@ func _enter_tree() -> void:
 func _process(delta: float) -> void:
 	# Open and close the inventory
 	if Input.is_action_just_pressed(&"open_inventory"):
-		is_in_stationary_menu = not is_in_stationary_menu
-		inventory.visible = is_in_stationary_menu
-		inventory.move_to_remote_transform()
+		is_in_inventory = not is_in_inventory
+		inventory.visible = is_in_inventory
+		inventory.inventory_3d.move_to_remote_transform()
 	
 	# Interpolate position/rotation (basis) to the active camera
 	_update_menu_3d_position(delta)

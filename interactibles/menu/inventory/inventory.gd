@@ -1,9 +1,8 @@
 class_name Inventory
-extends Node3D
+extends Node
 
 
 @onready var inventory_3d: ProjectedMenuItem = $Inventory3D
-@onready var selection_decal: Decal = $SelectionDecal
 
 
 func _process(_delta: float) -> void:
@@ -13,5 +12,8 @@ func _process(_delta: float) -> void:
 	if not selector_ray.is_colliding():
 		return
 	
-	selection_decal.global_position = selector_ray.get_collision_point()
-	selection_decal.look_at(selector_ray.get_collision_normal())
+	if not selector_ray.get_collider() is InventorySlot:
+		return
+	
+	Nodes.world.selector_mesh.global_position = selector_ray.get_collision_point()
+	Nodes.world.selector_mesh.temp_color = 

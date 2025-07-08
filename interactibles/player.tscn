@@ -33,3 +33,5 @@ mesh = SubResource("SphereMesh_jysyn")
 enabled = false
 target_position = Vector3(0, 0, -5)
 collision_mask = 2
+collide_with_areas = true
+collide_with_bodies = false

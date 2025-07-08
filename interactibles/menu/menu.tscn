@@ -1,19 +1,11 @@
-[gd_scene load_steps=9 format=3 uid="uid://chmysfru4gt6y"]
+[gd_scene load_steps=6 format=3 uid="uid://chmysfru4gt6y"]
 
 [ext_resource type="Script" uid="uid://cxnb002sxkxne" path="res://interactibles/menu/menu.gd" id="1_abbww"]
 [ext_resource type="PackedScene" uid="uid://guxbachm7ara" path="res://interactibles/menu/counters.tscn" id="2_bx01g"]
 [ext_resource type="Script" uid="uid://dgqx2444re8md" path="res://interactibles/menu/inventory/inventory.gd" id="3_15prt"]
 [ext_resource type="PackedScene" uid="uid://b6ym164ochl8a" path="res://interactibles/menu/inventory/inventory_3d.tscn" id="4_15prt"]
-[ext_resource type="Script" uid="uid://eqkogtwljged" path="res://interactibles/menu/inventory/inventory_3d.gd" id="5_qjxdy"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tyti5"]
-
-[sub_resource type="Gradient" id="Gradient_wetof"]
-offsets = PackedFloat32Array(0.5)
-colors = PackedColorArray(0.417461, 0.848568, 0.948252, 1)
-
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_bkrfl"]
-gradient = SubResource("Gradient_wetof")
 
 [node name="Menu" type="Node"]
 script = ExtResource("1_abbww")
@@ -81,15 +73,12 @@ collide_with_bodies = false
 counterpart_in_2d = NodePath("../Menu2D/Counters")
 remote_transform = NodePath("../Menu3D/Counters")
 
-[node name="Inventory" type="Node3D" parent="."]
+[node name="Inventory" type="Node" parent="."]
 script = ExtResource("3_15prt")
 
 [node name="Inventory3D" parent="Inventory" node_paths=PackedStringArray("counterpart_in_2d", "remote_transform", "collision_area") instance=ExtResource("4_15prt")]
-script = ExtResource("5_qjxdy")
+z_depth = 3.0
 counterpart_in_2d = NodePath("../../Menu2D/Inventory")
 remote_transform = NodePath("../../Menu3D/Inventory")
+follow_mouse = true
 collision_area = NodePath("../../Menu2D/Inventory/InventoryArea")
-
-[node name="SelectionDecal" type="Decal" parent="Inventory"]
-size = Vector3(0.3, 0.3, 0.3)
-texture_albedo = SubResource("GradientTexture1D_bkrfl")

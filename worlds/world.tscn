@@ -1,7 +1,8 @@
-[gd_scene load_steps=12 format=3 uid="uid://cxus3ioklaaki"]
+[gd_scene load_steps=13 format=3 uid="uid://cxus3ioklaaki"]
 
 [ext_resource type="Script" uid="uid://dobv4rbfvosds" path="res://worlds/world.gd" id="1_m138w"]
 [ext_resource type="PackedScene" uid="uid://bjxbdvhb0xhsj" path="res://interactibles/building.tscn" id="2_c7htk"]
+[ext_resource type="Script" uid="uid://e1vhi10ilcdl" path="res://worlds/selector_mesh.gd" id="3_c7htk"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_felrd"]
 
@@ -58,3 +59,4 @@ shape = SubResource("ConvexPolygonShape3D_felrd")
 
 [node name="SelectorMesh" type="MeshInstance3D" parent="."]
 mesh = SubResource("SphereMesh_felrd")
+script = ExtResource("3_c7htk")
