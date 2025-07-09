@@ -21,7 +21,6 @@ var jump_vel: Vector3 # Jumping velocity
 
 @onready var camera: Camera3D = $Camera
 @onready var point_manipulator: Marker3D = $Camera/PointManipulator
-@onready var inventory_selector: RayCast3D = $Camera/InventorySelector
 
 
 func _enter_tree() -> void:
