@@ -3,6 +3,9 @@ extends RayCast3D
 
 
 func _process(_delta: float) -> void:
+	if not Nodes.menu.inventory.is_visible_in_tree():
+		return
+	
 	force_raycast_update()
 	
 	if not is_colliding():
