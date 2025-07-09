@@ -2,14 +2,6 @@ class_name InventorySlot
 extends Area3D
 
 
-@export var item: Item:
-	set(value):
-		item = value
-		item.updated_polygon.connect(_item_updated_polygon)
+@export var item: Item
 
-@onready var mesh: CSGPolygon3D = $Mesh
 @onready var selection_point: Marker3D = $SelectionPoint
-
-
-func _item_updated_polygon() -> void:
-	mesh.polygon = item.polygon
