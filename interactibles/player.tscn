@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://cb7kbv03antsr"]
+[gd_scene load_steps=6 format=3 uid="uid://cb7kbv03antsr"]
 
 [ext_resource type="Script" uid="uid://dntpbkdr02v0n" path="res://interactibles/player.gd" id="1_jysyn"]
+[ext_resource type="Script" uid="uid://bx4nbvjbds1uj" path="res://interactibles/menu/inventory/inventory_selector.gd" id="2_c2juf"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_3d65y"]
 
@@ -35,3 +36,4 @@ target_position = Vector3(0, 0, -5)
 collision_mask = 2
 collide_with_areas = true
 collide_with_bodies = false
+script = ExtResource("2_c2juf")

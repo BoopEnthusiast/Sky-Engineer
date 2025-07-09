@@ -13,6 +13,6 @@ func _ready() -> void:
 		for o: int in range(-1, 2):
 			var new_inventory_slot: Area3D = INVENTORY_SLOT.instantiate()
 			add_child(new_inventory_slot)
-			new_inventory_slot.position = Vector3(i, o, 0)
+			new_inventory_slot.position = Vector3(i, o, 0.1)
 			new_inventory_slots.append(new_inventory_slot)
 		inventory_slots.append(new_inventory_slots)

@@ -8,6 +8,7 @@ extends Area3D
 		item.updated_polygon.connect(_item_updated_polygon)
 
 @onready var mesh: CSGPolygon3D = $Mesh
+@onready var selection_point: Marker3D = $SelectionPoint
 
 
 func _item_updated_polygon() -> void:

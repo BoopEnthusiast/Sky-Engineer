@@ -4,9 +4,10 @@ extends Node3D
 
 const BUILDING = preload("res://interactibles/building.tscn")
 
-@onready var buildings: Array[BuildingNode] = [$Building]
+var selected_inventory_slot: InventorySlot
 
-@onready var selector_mesh: SelectorMesh = $SelectorMesh
+@onready var buildings: Array[BuildingNode] = [$Building1]
+@onready var selector_mesh: MeshInstance3D = $SelectorMesh
 
 
 func _enter_tree() -> void:
@@ -14,7 +15,9 @@ func _enter_tree() -> void:
 
 
 func _process(_delta: float) -> void:
-	if (
+	if is_instance_valid(selected_inventory_slot):
+		selector_mesh.global_position = selected_inventory_slot.selection_point.global_position
+	elif (
 			buildings.size() <= 0 
 			or Building.closest_building_to_manipulator == -1
 			or Building.closest_point_to_manipulator < 0
