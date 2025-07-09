@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="Item" load_steps=3 format=3 uid="uid://coucwomsqlld1"]
+
+[ext_resource type="Script" uid="uid://c5253n7isv2hk" path="res://items/item.gd" id="1_1he41"]
+
+[sub_resource type="TextMesh" id="TextMesh_j8uuf"]
+text = "Acorn"
+
+[resource]
+script = ExtResource("1_1he41")
+mesh = SubResource("TextMesh_j8uuf")
+scene_path = ""
+metadata/_custom_type_script = "uid://c5253n7isv2hk"

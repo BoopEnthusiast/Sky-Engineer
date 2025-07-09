@@ -1,0 +1,55 @@
+[gd_scene load_steps=7 format=3 uid="uid://51vq4jifog5g"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ut8ve"]
+size = Vector3(1, 0.05, 0.7)
+
+[sub_resource type="BoxMesh" id="BoxMesh_ut8ve"]
+size = Vector3(1, 0.05, 0.7)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_obgbs"]
+size = Vector3(1, 0.1, 0.1)
+
+[sub_resource type="Animation" id="Animation_obgbs"]
+resource_name = "open"
+length = 2.0
+
+[sub_resource type="Animation" id="Animation_ut8ve"]
+length = 0.001
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_kte5c"]
+_data = {
+&"RESET": SubResource("Animation_ut8ve"),
+&"open": SubResource("Animation_obgbs")
+}
+
+[node name="AchievementBook" type="AnimatableBody3D"]
+
+[node name="RightPage" type="AnimatableBody3D" parent="."]
+
+[node name="Collider" type="CollisionShape3D" parent="RightPage"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.025, -0.35)
+shape = SubResource("BoxShape3D_ut8ve")
+
+[node name="Mesh" type="MeshInstance3D" parent="RightPage"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.025, -0.35)
+mesh = SubResource("BoxMesh_ut8ve")
+
+[node name="LeftPage" type="AnimatableBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -1, -8.74228e-08, 0, 8.74228e-08, -1, 0, 0, 0)
+
+[node name="Collider" type="CollisionShape3D" parent="LeftPage"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.025, 0.35)
+shape = SubResource("BoxShape3D_ut8ve")
+
+[node name="Mesh" type="MeshInstance3D" parent="LeftPage"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.025, 0.35)
+mesh = SubResource("BoxMesh_ut8ve")
+skeleton = NodePath("../../RightPage")
+
+[node name="Collider" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_obgbs")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_kte5c")
+}
