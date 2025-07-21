@@ -9,12 +9,12 @@ size = Vector3(1, 0.05, 0.7)
 [sub_resource type="BoxShape3D" id="BoxShape3D_obgbs"]
 size = Vector3(1, 0.1, 0.1)
 
+[sub_resource type="Animation" id="Animation_ut8ve"]
+length = 0.001
+
 [sub_resource type="Animation" id="Animation_obgbs"]
 resource_name = "open"
 length = 2.0
-
-[sub_resource type="Animation" id="Animation_ut8ve"]
-length = 0.001
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_kte5c"]
 _data = {
