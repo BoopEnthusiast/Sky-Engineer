@@ -1,10 +1,17 @@
-[gd_scene load_steps=7 format=3 uid="uid://51vq4jifog5g"]
+[gd_scene load_steps=9 format=3 uid="uid://51vq4jifog5g"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ut8ve"]
 size = Vector3(1, 0.05, 0.7)
 
 [sub_resource type="BoxMesh" id="BoxMesh_ut8ve"]
 size = Vector3(1, 0.05, 0.7)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ut8ve"]
+cull_mode = 2
+
+[sub_resource type="QuadMesh" id="QuadMesh_obgbs"]
+material = SubResource("StandardMaterial3D_ut8ve")
+size = Vector2(1, 0.7)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_obgbs"]
 size = Vector3(1, 0.1, 0.1)
@@ -99,6 +106,13 @@ shape = SubResource("BoxShape3D_ut8ve")
 [node name="Mesh" type="MeshInstance3D" parent="RightPage"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.025, -0.35)
 mesh = SubResource("BoxMesh_ut8ve")
+
+[node name="Marker3D" type="Marker3D" parent="RightPage"]
+
+[node name="Page" type="MeshInstance3D" parent="RightPage/Marker3D"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0.008, -0.35)
+mesh = SubResource("QuadMesh_obgbs")
+skeleton = NodePath("../../..")
 
 [node name="LeftPage" type="AnimatableBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, -1, -1.50996e-07, 0, 1.50996e-07, -1, 0, 0, 0)
