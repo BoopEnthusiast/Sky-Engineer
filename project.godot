@@ -20,6 +20,7 @@ config/icon="res://icon.svg"
 Nodes="*res://globals/nodes.gd"
 PlayerState="*res://globals/player_state.gd"
 Debug="*res://globals/debug/debug.gd"
+Paths="*res://globals/paths.gd"
 
 [input]
 
@@ -114,3 +115,4 @@ open_inventory={
 
 3d_physics/layer_1="World, Player, Etc."
 3d_physics/layer_2="Inventory"
+3d_physics/layer_3="Items"

@@ -1,0 +1,2 @@
+class_name Sapling
+extends AnimatableBody3D
