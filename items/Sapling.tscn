@@ -12,8 +12,9 @@ size = Vector3(1, 2.41, 1)
 [node name="Sapling" type="AnimatableBody3D"]
 script = ExtResource("1_dt4sq")
 
-[node name="ItemShape" parent="." instance=ExtResource("1_66ym3")]
+[node name="ItemShape" parent="." node_paths=PackedStringArray("item_to_grab") instance=ExtResource("1_66ym3")]
 grab_range = 1.735
+item_to_grab = NodePath("..")
 
 [node name="Collider" type="CollisionShape3D" parent="."]
 shape = SubResource("BoxShape3D_rncus")
