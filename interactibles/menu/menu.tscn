@@ -58,6 +58,8 @@ mouse_filter = 2
 
 [node name="InventoryArea" type="Area2D" parent="Menu2D/Inventory"]
 collision_mask = 0
+monitoring = false
+monitorable = false
 
 [node name="Collider" type="CollisionShape2D" parent="Menu2D/Inventory/InventoryArea"]
 shape = SubResource("RectangleShape2D_tyti5")

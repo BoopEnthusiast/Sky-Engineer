@@ -24,6 +24,7 @@ const VERTEX_POINT = preload("res://vfx/vertex_point.tscn")
 ]
 
 var coloring: int = -1
+var had_selected_point: bool = false
 
 @onready var mesh: MeshInstance3D = $Mesh
 @onready var collider: CollisionShape3D = $Collider
@@ -76,7 +77,7 @@ func _process(_delta: float) -> void:
 				has_processed_points = true
 			
 			# Move points
-			if Input.is_action_pressed(&"select"):
+			if Nodes.player.currently_grabbing == self:
 				points[Building.closest_point_to_manipulator] = Nodes.player.point_manipulator.global_position
 				# Color selected point (actual coloring logic is in _unhandled_input)
 				if Input.is_action_pressed(&"color"):

@@ -14,19 +14,6 @@ func _enter_tree() -> void:
 	Nodes.world = self
 
 
-func _process(_delta: float) -> void:
-	if is_instance_valid(selected_inventory_slot):
-		selector_mesh.global_position = selected_inventory_slot.selection_point.global_position
-	elif (
-			buildings.size() <= 0 
-			or Building.closest_building_to_manipulator == -1
-			or Building.closest_point_to_manipulator < 0
-	):
-		selector_mesh.global_position = Nodes.player.point_manipulator.global_position
-	else:
-		selector_mesh.global_position = buildings[Building.closest_building_to_manipulator].points[Building.closest_point_to_manipulator]
-
-
 func create_new_building(starting_point: Vector3) -> void:
 	var new_building = BUILDING.instantiate()
 	new_building.points = [starting_point]
