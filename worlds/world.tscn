@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://dobv4rbfvosds" path="res://worlds/world.gd" id="1_m138w"]
 [ext_resource type="PackedScene" uid="uid://bjxbdvhb0xhsj" path="res://interactibles/building.tscn" id="2_c7htk"]
-[ext_resource type="PackedScene" uid="uid://j18nl5mh6ifn" path="res://items/sapling.tscn" id="3_c7htk"]
+[ext_resource type="PackedScene" uid="uid://j18nl5mh6ifn" path="res://items/Sapling.tscn" id="3_c7htk"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_felrd"]
 
