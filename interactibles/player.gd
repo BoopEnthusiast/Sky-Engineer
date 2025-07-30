@@ -1,5 +1,12 @@
-class_name Player 
+class_name Player
 extends CharacterBody3D
+
+enum Grabbable {
+	NOTHING,
+	ITEM,
+	VERTEX,
+	MENU_SLOT,
+}
 
 @export_range(1, 35, 1) var speed: float = 10 # m/s
 @export_range(10, 400, 1) var acceleration: float = 100 # m/s^2
@@ -19,8 +26,12 @@ var walk_vel: Vector3 # Walking velocity
 var grav_vel: Vector3 # Gravity velocity 
 var jump_vel: Vector3 # Jumping velocity
 
+var currently_grabbing: Node3D = null
+
 @onready var camera: Camera3D = $Camera
 @onready var point_manipulator: Marker3D = $Camera/PointManipulator
+@onready var item_selector: ItemSelector = $Camera/PointManipulator/ItemSelector
+@onready var inventory_selector = $Camera/InventorySelector
 
 
 func _enter_tree() -> void:

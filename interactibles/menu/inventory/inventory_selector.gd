@@ -2,6 +2,9 @@ class_name InventorySelector
 extends RayCast3D
 
 
+var selected_inventory_slot: InventorySlot
+
+
 func _process(_delta: float) -> void:
 	if not Nodes.menu.inventory.is_visible_in_tree():
 		return
@@ -9,8 +12,8 @@ func _process(_delta: float) -> void:
 	force_raycast_update()
 	
 	if not is_colliding():
-		Nodes.world.selected_inventory_slot = null
+		selected_inventory_slot = null
 	elif get_collider() is InventorySlot:
-		Nodes.world.selected_inventory_slot = get_collider()
+		selected_inventory_slot = get_collider()
 	else:
-		Nodes.world.selected_inventory_slot = null
+		selected_inventory_slot = null

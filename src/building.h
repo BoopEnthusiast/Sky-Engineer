@@ -29,9 +29,9 @@ class Building : public Object {
     Vector3 true_closest_point_to_manipulator;
 
     // Set after processing points
-    int closest_point_to_manipulator;
-    int closest_building_to_manipulator;
-    float lowest_point_in_world;
+    int closest_point_to_manipulator = -1;
+    int closest_building_to_manipulator = -1;
+    float lowest_point_in_world = 0;
     PackedVector3Array vertices;
     PackedColorArray vertex_colors;
 
