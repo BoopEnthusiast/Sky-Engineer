@@ -1,11 +1,24 @@
 [gd_scene format=3 uid="uid://cveawma36rf8i"]
 
 [node name="HBoxContainer" type="HBoxContainer"]
+anchors_preset = 13
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -121.5
+offset_right = 121.5
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
 
 [node name="CheckBox" type="CheckBox" parent="."]
+visible = false
 layout_mode = 2
+size_flags_horizontal = 6
 text = "Sappling"
 
 [node name="Label" type="Label" parent="."]
 layout_mode = 2
-size_flags_horizontal = 3
+size_flags_vertical = 1
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Achievement book"

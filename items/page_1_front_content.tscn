@@ -20,3 +20,5 @@ grow_vertical = 2
 
 [node name="HBoxContainer" parent="VBoxContainer" instance=ExtResource("1_7kiyu")]
 layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 8
