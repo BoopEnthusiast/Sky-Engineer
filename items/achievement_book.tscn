@@ -251,9 +251,10 @@ transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0.0
 mesh = SubResource("QuadMesh_obgbs")
 skeleton = NodePath("../../../..")
 
-[node name="Page1_FrontContent2" type="SubViewport" parent="RightPage/PageContainer/Marker3D/Page1"]
+[node name="Page1_FrontContent" type="SubViewport" parent="RightPage/PageContainer/Marker3D/Page1"]
+render_target_update_mode = 4
 
-[node name="Page1_FrontContent" parent="RightPage/PageContainer/Marker3D/Page1/Page1_FrontContent2" instance=ExtResource("2_2ecdp")]
+[node name="Page1_FrontContent" parent="RightPage/PageContainer/Marker3D/Page1/Page1_FrontContent" instance=ExtResource("2_2ecdp")]
 
 [node name="Page1_BackContent" type="SubViewport" parent="RightPage/PageContainer/Marker3D/Page1"]
 

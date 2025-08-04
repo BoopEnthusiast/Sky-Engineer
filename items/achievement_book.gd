@@ -5,7 +5,7 @@ extends AnimatableBody3D
 
 
 func _on_item_shape_being_put_into_inventory() -> void:
-	pass
+	animation_player.play("Close")
 
 
 func _on_item_shape_being_taken_from_inventory() -> void:
