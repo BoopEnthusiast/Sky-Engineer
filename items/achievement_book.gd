@@ -5,4 +5,8 @@ extends AnimatableBody3D
 
 
 func _on_item_shape_being_put_into_inventory() -> void:
+	pass
+
+
+func _on_item_shape_being_taken_from_inventory() -> void:
 	animation_player.play("Open")
