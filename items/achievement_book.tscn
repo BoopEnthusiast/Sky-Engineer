@@ -186,12 +186,67 @@ shape = SubResource("BoxShape3D_ut8ve")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.025, -0.35)
 mesh = SubResource("BoxMesh_ut8ve")
 
-[node name="Marker3D" type="Marker3D" parent="RightPage"]
+[node name="PageContainer" type="Node3D" parent="RightPage"]
 
-[node name="Page" type="MeshInstance3D" parent="RightPage/Marker3D"]
+[node name="Marker3D" type="Marker3D" parent="RightPage/PageContainer"]
+
+[node name="Page1" type="MeshInstance3D" parent="RightPage/PageContainer/Marker3D"]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0.008, -0.35)
 mesh = SubResource("QuadMesh_obgbs")
-skeleton = NodePath("../../..")
+skeleton = NodePath("../../../..")
+
+[node name="Page1_FrontContent" type="SubViewport" parent="RightPage/PageContainer/Marker3D/Page1"]
+
+[node name="UI_Page1" type="Control" parent="RightPage/PageContainer/Marker3D/Page1/Page1_FrontContent"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="RightPage/PageContainer/Marker3D/Page1/Page1_FrontContent/UI_Page1"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="CheckBox" type="CheckBox" parent="RightPage/PageContainer/Marker3D/Page1/Page1_FrontContent/UI_Page1/VBoxContainer"]
+layout_mode = 2
+
+[node name="Page1_BackContent" type="SubViewport" parent="RightPage/PageContainer/Marker3D/Page1"]
+
+[node name="Control" type="Control" parent="RightPage/PageContainer/Marker3D/Page1/Page1_BackContent"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Page2" type="MeshInstance3D" parent="RightPage/PageContainer/Marker3D"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0.008, -0.35)
+mesh = SubResource("QuadMesh_obgbs")
+skeleton = NodePath("../../../..")
+
+[node name="Page2_FrontContent" type="SubViewport" parent="RightPage/PageContainer/Marker3D/Page2"]
+
+[node name="UI_Page1" type="Control" parent="RightPage/PageContainer/Marker3D/Page2/Page2_FrontContent"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="RightPage/PageContainer/Marker3D/Page2/Page2_FrontContent/UI_Page1"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="CheckBox" type="CheckBox" parent="RightPage/PageContainer/Marker3D/Page2/Page2_FrontContent/UI_Page1/VBoxContainer"]
+layout_mode = 2
+
+[node name="Page2_BackContent" type="SubViewport" parent="RightPage/PageContainer/Marker3D/Page2"]
+
+[node name="Control" type="Control" parent="RightPage/PageContainer/Marker3D/Page2/Page2_BackContent"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
 
 [node name="Area3D" type="Area3D" parent="RightPage"]
 transform = Transform3D(1, 0, 0, 0, 0.953191, 0.30237, 0, -0.30237, 0.953191, 0.202444, -0.237684, -0.749275)
