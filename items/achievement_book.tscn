@@ -330,6 +330,7 @@ transform = Transform3D(-0.985916, 0, 0, 0, -0.636408, -3.63798e-12, 0, 2.32831e
 mesh = SubResource("BoxMesh_2ecdp")
 
 [node name="Page1_FrontContent" type="SubViewport" parent="Left Cover/PageContainer"]
+transparent_bg = true
 size = Vector2i(700, 1000)
 render_target_update_mode = 4
 
