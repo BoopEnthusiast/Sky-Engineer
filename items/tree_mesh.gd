@@ -35,8 +35,6 @@ func spawn_limb(parent_index:int,at:float, direction:Vector3, angle:float, width
 	
 	multimesh.set_instance_transform(new_limb_index,Transform3D(new_basis,limb_origin) )
 	
-	var child_origin = multimesh.get_instance_transform(new_limb_index).origin
-	
 	return new_limb_index
 
 func grow_limb(index:int,amount:float):
