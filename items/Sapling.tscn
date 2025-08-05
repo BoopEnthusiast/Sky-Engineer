@@ -2,12 +2,10 @@
 
 [ext_resource type="PackedScene" uid="uid://crc2qp4uvstkn" path="res://items/item_shape.tscn" id="1_66ym3"]
 [ext_resource type="Script" uid="uid://di8syfwwutj10" path="res://items/sapling.gd" id="1_dt4sq"]
+[ext_resource type="PackedScene" uid="uid://cfuu81dmjkuiq" path="res://items/tree_mesh.tscn" id="5_eynpg"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_rncus"]
 size = Vector3(1, 2.41821, 1)
-
-[sub_resource type="BoxMesh" id="BoxMesh_dt4sq"]
-size = Vector3(1, 2.41, 1)
 
 [node name="Sapling" type="AnimatableBody3D"]
 script = ExtResource("1_dt4sq")
@@ -19,5 +17,4 @@ item_to_grab = NodePath("..")
 [node name="Collider" type="CollisionShape3D" parent="."]
 shape = SubResource("BoxShape3D_rncus")
 
-[node name="Mesh" type="MeshInstance3D" parent="."]
-mesh = SubResource("BoxMesh_dt4sq")
+[node name="Mesh" parent="." instance=ExtResource("5_eynpg")]
