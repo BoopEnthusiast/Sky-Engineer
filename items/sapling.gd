@@ -5,7 +5,7 @@ extends AnimatableBody3D
 
 var progress:float = 0
 
-@export var max_progress:int = 4
+@export var max_progress:int = 15
 
 const GROWTH_PER_SEC:float = 1
 
@@ -13,14 +13,17 @@ var growing:bool = false
 
 var branch = true
 
-var number_of_limbs:int = 2
+var number_of_limbs:int = 10000
 
 var number_of_sublimbs:int = 0
 
 var limbs = [0]
 
 func _ready():
-	#plant()
+	#randomize()
+	$Mesh.multimesh.instance_count = 1 + number_of_limbs
+	$Mesh.spawn_trunk()
+	plant()
 	pass
 
 func _process(delta):
@@ -57,10 +60,24 @@ func grow_slow(time:float):
 		
 		var timegrowth = GROWTH_PER_SEC * time
 		
-		if(limbs.size() < number_of_limbs + 1 and progress > 2):
-			limbs.append($Mesh.spawn_limb(0,1,Vector3(0,0,1), 1,0.2))
-			limbs.append($Mesh.spawn_limb(0,1, Vector3(1,0,0), 0.5,0.2))
+		if(progress > 1 and limbs.size() < number_of_limbs + 1 and randf() > 0.9):
+			var partition_one:float = randf()
+			var partition_two:float = 1 - partition_one
+			var thiccness:float = randf_range(0.25,0.5)
+			var angle:float = randf_range(-1.5,1.5)
+			var index:int
+			
+			index = randi_range(0, limbs.size() - 1)
+			
+			limbs.append($Mesh.spawn_limb(index,1,Vector3(partition_one,0,partition_two).normalized(), angle,thiccness))
+			limbs.erase(index)
+			#partition_one = randf()
+			#partition_two = 1 - partition_one
+			#thiccness = randf()
+			#angle = randf()
+			#limbs.append($Mesh.spawn_limb(0,1, Vector3(partition_one,0,partition_two).normalized(), angle,thiccness))
 			#limbs.remove_at(0)
+			
 		
 		for index in limbs:
 			$Mesh.grow_limb(index,timegrowth)
