@@ -2,17 +2,21 @@
 
 [node name="UI_Page1_Back" type="Control"]
 layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
+anchors_preset = 13
+anchor_left = 0.5
+anchor_right = 0.5
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
+anchors_preset = 13
+anchor_left = 0.5
+anchor_right = 0.5
 anchor_bottom = 1.0
+offset_left = -184.0
+offset_right = 184.0
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -23,20 +27,32 @@ theme_override_font_sizes/font_size = 50
 text = "Getting Started"
 horizontal_alignment = 1
 
-[node name="Content\'" type="Label" parent="VBoxContainer"]
+[node name="CheckBox" type="CheckBox" parent="VBoxContainer"]
 layout_mode = 2
-size_flags_horizontal = 4
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-text = "
+text = "Plant A Tree"
 
+[node name="CheckBox2" type="CheckBox" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Craft A WorkBench"
 
+[node name="CheckBox3" type="CheckBox" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Craft A Wooden Cauldron"
 
+[node name="CheckBox4" type="CheckBox" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Combine Saplings In The Cauldron"
 
+[node name="CheckBox5" type="CheckBox" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Combine Stone In A Mortar And Pestle"
 
-
-Plant a tree
-Craft a workbench
-Craft a wooden cauldron
-Combine saplings in the cauldron
-Combine stone in a mortar and pestle
-Sieve gravel"
+[node name="CheckBox6" type="CheckBox" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Sieve Gravel"

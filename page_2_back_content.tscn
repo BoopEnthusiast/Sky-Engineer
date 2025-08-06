@@ -1,0 +1,32 @@
+[gd_scene format=3 uid="uid://brn37ucrk8kjq"]
+
+[node name="Page2_BackContent" type="Control"]
+layout_mode = 3
+anchors_preset = 13
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 13
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -48.0
+offset_right = 48.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 50
+text = "Silly"
+horizontal_alignment = 1
+
+[node name="Content" type="CheckBox" parent="VBoxContainer"]
+layout_mode = 2
+text = "Make Funny Face Out Of Vertices "
