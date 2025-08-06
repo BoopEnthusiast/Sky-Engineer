@@ -42,17 +42,18 @@ func _ready() -> void:
 	capture_mouse()
 
 
+func _input(event: InputEvent) -> void:
+	if Input.is_action_just_pressed(&"exit"):
+		if mouse_captured:
+			release_mouse()
+		else:
+			capture_mouse()
+
+
 func _unhandled_input(event: InputEvent) -> void:
 	if event is InputEventMouseMotion:
 		look_dir = event.relative * 0.001
 		if mouse_captured: _rotate_camera()
-	if Input.is_action_just_pressed(&"exit"):
-		if mouse_captured:
-			PlayerState.is_playing_game = false
-			release_mouse()
-		else:
-			PlayerState.is_playing_game = true
-			capture_mouse()
 
 
 func _physics_process(delta: float) -> void:
@@ -61,17 +62,20 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed(&"jump") and PlayerState.is_playing_game: 
 		jumping = true
 	if mouse_captured: _handle_joypad_camera_rotation(delta)
+	
 	velocity = _walk(delta) + _gravity(delta) + _jump(delta)
 	move_and_slide()
 
 
 func capture_mouse() -> void:
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+	PlayerState.is_playing_game = true
 	mouse_captured = true
 
 
 func release_mouse() -> void:
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+	PlayerState.is_playing_game = false
 	mouse_captured = false
 
 
