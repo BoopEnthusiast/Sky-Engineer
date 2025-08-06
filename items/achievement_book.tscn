@@ -1,8 +1,9 @@
-[gd_scene load_steps=16 format=3 uid="uid://51vq4jifog5g"]
+[gd_scene load_steps=18 format=3 uid="uid://51vq4jifog5g"]
 
 [ext_resource type="Script" uid="uid://bhgnv6yva4lmv" path="res://items/achievement_book.gd" id="1_kte5c"]
 [ext_resource type="PackedScene" uid="uid://cg2afeyy1kh8t" path="res://items/page_1_front_content.tscn" id="2_2ecdp"]
 [ext_resource type="PackedScene" uid="uid://crc2qp4uvstkn" path="res://items/item_shape.tscn" id="2_kte5c"]
+[ext_resource type="PackedScene" uid="uid://b8rqv12sglaq7" path="res://page_1_back_content.tscn" id="3_cdgaa"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ut8ve"]
 size = Vector3(1, 0.05, 0.7)
@@ -17,6 +18,9 @@ size = Vector3(0.1, 0.1, 0.1)
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_2ecdp"]
 viewport_path = NodePath("Left Cover/PageContainer/Page1_FrontContent")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_m7i7e"]
+viewport_path = NodePath("Left Cover/PageContainer/Page1_BackContent")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_obgbs"]
 size = Vector3(1, 0.1, 0.1)
@@ -323,11 +327,21 @@ transform = Transform3D(1, 0, 0, 0, 0.95424, -0.299041, 0, 0.299041, 0.95424, 0.
 shape = SubResource("BoxShape3D_2ecdp")
 
 [node name="PageContainer" type="Node3D" parent="Left Cover"]
-transform = Transform3D(1, 0, 0, 0, -0.580704, -0.814114, 0, 0.814114, -0.580704, 0, 0, 0)
+transform = Transform3D(1, 0, 0, 0, -0.580704, -0.814114, 0, 0.814114, -0.580704, 0, -1.13754e-07, -3.56483e-08)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Left Cover/PageContainer"]
 transform = Transform3D(-0.985916, 0, 0, 0, -0.636408, -3.63798e-12, 0, 2.32831e-09, -0.00407733, -0.000726104, -0.320164, -0.00286609)
 mesh = SubResource("BoxMesh_2ecdp")
+
+[node name="Sprite3D" type="Sprite3D" parent="Left Cover/PageContainer"]
+transform = Transform3D(3.90065e-09, -0.097762, -8.63155e-08, 0.0892345, 4.21593e-09, 0.00661878, -0.000598213, -8.57509e-09, 0.987313, 0, -0.324054, -0.00682781)
+flip_h = true
+texture = SubResource("ViewportTexture_2ecdp")
+
+[node name="Sprite3D2" type="Sprite3D" parent="Left Cover/PageContainer"]
+transform = Transform3D(3.90065e-09, -0.097762, -8.63155e-08, 0.0892345, 4.21593e-09, 0.00661878, -0.000598213, -8.57509e-09, 0.987313, 0, -0.324115, 0.00217281)
+double_sided = false
+texture = SubResource("ViewportTexture_m7i7e")
 
 [node name="Page1_FrontContent" type="SubViewport" parent="Left Cover/PageContainer"]
 transparent_bg = true
@@ -336,18 +350,11 @@ render_target_update_mode = 4
 
 [node name="Page1_FrontContent" parent="Left Cover/PageContainer/Page1_FrontContent" instance=ExtResource("2_2ecdp")]
 
-[node name="Sprite3D" type="Sprite3D" parent="Left Cover/PageContainer"]
-transform = Transform3D(-3.90065e-09, -0.097762, 0, 0.0892365, -4.27332e-09, 0, 0, 0, 0.987336, 0.00149822, -0.319446, -0.00641075)
-flip_h = true
-texture = SubResource("ViewportTexture_2ecdp")
-
 [node name="Page1_BackContent" type="SubViewport" parent="Left Cover/PageContainer"]
+transparent_bg = true
+size = Vector2i(700, 1000)
 
-[node name="Control" type="Control" parent="Left Cover/PageContainer/Page1_BackContent"]
-layout_mode = 3
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
+[node name="Page1_BackContent" parent="Left Cover/PageContainer/Page1_BackContent" instance=ExtResource("3_cdgaa")]
 
 [node name="Collider" type="CollisionShape3D" parent="."]
 shape = SubResource("BoxShape3D_obgbs")
