@@ -1,3 +1,4 @@
+class_name TreeMesh
 extends MultiMeshInstance3D
 
 var new_limb_index:int = 0
