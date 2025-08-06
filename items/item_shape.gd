@@ -17,6 +17,7 @@ signal being_taken_from_inventory()
 		if not is_node_ready():
 			await ready
 		_collider.shape.radius = value
+@export var grab_weight: float = 4.0
 @export var item_to_grab: Node3D
 
 @onready var _collider: CollisionShape3D = $Collider

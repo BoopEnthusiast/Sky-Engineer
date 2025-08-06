@@ -7,6 +7,7 @@ const MAX_CONNECTING_DISTANCE = 7
 const MAX_SELECTING_DISTANCE = 1
 
 const VERTEX_POINT = preload("res://vfx/vertex_point.tscn")
+const DRAG_SPEED = 25.0
 
 @export var building_index: int = 0
 
@@ -25,6 +26,7 @@ const VERTEX_POINT = preload("res://vfx/vertex_point.tscn")
 
 var coloring: int = -1
 var had_selected_point: bool = false
+var has_process_queued_up: bool = false
 
 @onready var mesh: MeshInstance3D = $Mesh
 @onready var collider: CollisionShape3D = $Collider
@@ -77,13 +79,10 @@ func _process(_delta: float) -> void:
 				has_processed_points = true
 			
 			# Move points
-			if Nodes.player.currently_grabbing == self:
-				points[Building.closest_point_to_manipulator] = Nodes.player.point_manipulator.global_position
+			if Nodes.player.currently_grabbing == self and Input.is_action_pressed(&"color"):
 				# Color selected point (actual coloring logic is in _unhandled_input)
-				if Input.is_action_pressed(&"color"):
-					Nodes.player.mouse_captured = false
-					coloring = Building.closest_point_to_manipulator
-				
+				Nodes.player.mouse_captured = false
+				coloring = Building.closest_point_to_manipulator
 				_process_points(true)
 				has_processed_points = true
 	
@@ -91,6 +90,11 @@ func _process(_delta: float) -> void:
 	if Input.is_action_just_released(&"color"):
 		Nodes.player.mouse_captured = true
 		coloring = -1
+	
+	if has_process_queued_up and not has_processed_points:
+		has_process_queued_up = false
+		_process_points(true)
+		has_processed_points = true
 	
 	# Process the points (only to find the closest point to the manipulator) if not already processed points
 	if not has_processed_points:

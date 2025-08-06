@@ -5,11 +5,11 @@ extends Area3D
 const GRAB_SPEED = 4.0
 
 var selectable_items: Array[ItemShape]
-var selected_item: Node3D
+var selected_item: ItemShape
 var selected_item_distance: float = INF
 
 
-func _on_area_shape_entered(area_rid: RID, area: Area3D, area_shape_index: int, local_shape_index: int) -> void:
+func _on_area_shape_entered(_area_rid: RID, area: Area3D, _area_shape_index: int, _local_shape_index: int) -> void:
 	if area is not ItemShape:
 		return
 	selectable_items.append(area)
@@ -31,7 +31,7 @@ func _on_area_shape_entered(area_rid: RID, area: Area3D, area_shape_index: int, 
 	selected_item_distance = closest_distance
 
 
-func _on_area_shape_exited(area_rid: RID, area: Area3D, area_shape_index: int, local_shape_index: int) -> void:
+func _on_area_shape_exited(_area_rid: RID, area: Area3D, _area_shape_index: int, _local_shape_index: int) -> void:
 	selectable_items.erase(area)
 	if selectable_items.size() <= 0:
 		selected_item = null
