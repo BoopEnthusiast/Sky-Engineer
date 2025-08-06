@@ -1,23 +1,55 @@
 [gd_scene format=3 uid="uid://cg2afeyy1kh8t"]
 
-[node name="UI_Page1" type="Control"]
+[node name="UI_Page1_Front" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+size_flags_vertical = 3
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
+anchors_preset = 13
+anchor_left = 0.5
+anchor_right = 0.5
 anchor_bottom = 1.0
+offset_left = -481.0
+offset_right = 481.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Label" type="Label" parent="VBoxContainer"]
+[node name="Tittle" type="Label" parent="VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 50
 text = "Achievement Book"
+
+[node name="Content" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "
+
+Welcome to Sky Engineer! 
+
+Use (insert keybind here) to move vertices and items.
+While moving vertices, hold (insert keybind here) to color vertices.
+Press (insert keybind here) to place vertices.
+Press (insert keybind here) to get selected vertices back.
+Press (insert keybind here) to open your inventory.
+
+Good luck with the categories below!
+⁠#getting-started
+⁠#abracadabra
+⁠#silly
+⁠#insane
+
+Emergency sapling:
+Gives 1 sapling when clicking an icon of a sapling with a message 
+underneath the sapling saying \"don't lose your last sapling this time or you'll have to make a new world!\" "
+horizontal_alignment = 1
+uppercase = true
