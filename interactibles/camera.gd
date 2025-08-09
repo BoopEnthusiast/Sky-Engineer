@@ -4,12 +4,34 @@ extends Camera3D
 
 @onready var player: Player = $".."
 @onready var item_selector: ItemSelector = $PointManipulator/ItemSelector
+@onready var inventory_selector: InventorySelector = $InventorySelector
 
 
 func _process(delta: float) -> void:
-	if is_instance_valid(player.inventory_selector.selected_inventory_slot):
-		pass # TODO: do something
+	_interact_with_inventory_slot()
 	
+	_move_grabbed_items(delta)
+
+
+func _interact_with_inventory_slot() -> void:
+	var selected_inventory_slot: InventorySlot = inventory_selector.selected_inventory_slot
+	
+	if not is_instance_valid(selected_inventory_slot):
+		return
+	
+	var is_currently_grabbing := is_instance_valid(player.currently_grabbing)
+	
+	var currently_selected_has_item := is_instance_valid(selected_inventory_slot.currently_held_item)
+	
+	if Input.is_action_just_pressed("select") and not is_currently_grabbing and currently_selected_has_item:
+		player.currently_grabbing = selected_inventory_slot.currently_held_item
+		selected_inventory_slot.currently_held_item.take_item_from_inventory(selected_inventory_slot)
+	elif Input.is_action_just_released("select") and is_currently_grabbing:
+		if player.currently_grabbing is ItemShape and not currently_selected_has_item:
+			player.currently_grabbing.put_item_into_inventory(selected_inventory_slot)
+
+
+func _move_grabbed_items(delta: float) -> void:
 	# Setup variables for easy use
 	var closest_building: BuildingNode = Nodes.world.buildings[Building.closest_building_to_manipulator]
 	var closest_building_points: PackedVector3Array
