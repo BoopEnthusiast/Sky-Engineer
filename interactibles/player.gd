@@ -31,7 +31,7 @@ var currently_grabbing: Node3D = null:
 		if currently_grabbing is ItemShape:
 			currently_grabbing.is_currently_grabbed = false
 		if value is ItemShape:
-			if value.can_be_grabbed:
+			if not value.can_be_grabbed:
 				return
 			value.is_currently_grabbed = true
 		currently_grabbing = value
