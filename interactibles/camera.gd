@@ -27,7 +27,7 @@ func _process(delta: float) -> void:
 	
 	var closest_found_thing: Player.Grabbable = Player.Grabbable.NOTHING
 	var closest_found_thing_distance: float = INF
-	var is_already_grabbing: bool = is_instance_valid(currently_grabbing)
+	var is_already_grabbing := is_instance_valid(currently_grabbing)
 	
 	# Only test for if something is closer to the player grabbing if the player isn't already grabbing
 	if not is_already_grabbing:
