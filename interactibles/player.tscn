@@ -1,9 +1,10 @@
-[gd_scene load_steps=9 format=3 uid="uid://cb7kbv03antsr"]
+[gd_scene load_steps=10 format=3 uid="uid://cb7kbv03antsr"]
 
 [ext_resource type="Script" uid="uid://dntpbkdr02v0n" path="res://interactibles/player.gd" id="1_jysyn"]
 [ext_resource type="Script" uid="uid://bx4nbvjbds1uj" path="res://interactibles/menu/inventory/inventory_selector.gd" id="2_c2juf"]
 [ext_resource type="Script" uid="uid://ckclxbp4tmi46" path="res://interactibles/item_selector.gd" id="2_k0a2a"]
 [ext_resource type="Script" uid="uid://j2cet4ijk5w7" path="res://interactibles/camera.gd" id="2_mihln"]
+[ext_resource type="Script" uid="uid://bc32dglo7s3e7" path="res://interactibles/point_manipulator.gd" id="3_m3a8n"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_3d65y"]
 
@@ -32,6 +33,7 @@ script = ExtResource("2_mihln")
 
 [node name="PointManipulator" type="Marker3D" parent="Camera"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2.5)
+script = ExtResource("3_m3a8n")
 
 [node name="Mesh" type="MeshInstance3D" parent="Camera/PointManipulator"]
 mesh = SubResource("SphereMesh_jysyn")

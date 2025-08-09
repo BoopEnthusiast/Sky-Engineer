@@ -11,7 +11,7 @@ func spawn_trunk():
 	trunk_basis = trunk_basis.scaled(Vector3(1,2,1))
 	multimesh.set_instance_transform(0,Transform3D(trunk_basis ,Vector3(0,0,0)))
 
-func spawn_limb(parent_index:int,at:float, direction:Vector3, angle:float, width:float) -> int:
+func spawn_limb(parent_index:int,at:float, direction:Vector3, angle:float, _width:float) -> int:
 	# Start rendering a limb instance branching from the limb represented by parent_index. Return the index of the new limb
 	
 	new_limb_index += 1
