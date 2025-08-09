@@ -47,6 +47,7 @@ monitorable = false
 
 [node name="Collider" type="CollisionShape2D" parent="Menu2D/Inventory/InventoryArea"]
 shape = SubResource("RectangleShape2D_tyti5")
+debug_color = Color(0, 0.601379, 0.701202, 0.0705882)
 
 [node name="Counters" type="Control" parent="Menu2D/Inventory"]
 layout_mode = 1
