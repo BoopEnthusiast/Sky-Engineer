@@ -26,7 +26,15 @@ var walk_vel: Vector3 # Walking velocity
 var grav_vel: Vector3 # Gravity velocity 
 var jump_vel: Vector3 # Jumping velocity
 
-var currently_grabbing: Node3D = null
+var currently_grabbing: Node3D = null:
+	set(value):
+		if currently_grabbing is ItemShape:
+			currently_grabbing.is_currently_grabbed = false
+		if value is ItemShape:
+			if value.can_be_grabbed:
+				return
+			value.is_currently_grabbed = true
+		currently_grabbing = value
 
 @onready var camera: Camera3D = $Camera
 @onready var point_manipulator: Marker3D = $Camera/PointManipulator

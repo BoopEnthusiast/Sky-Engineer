@@ -13,12 +13,14 @@ func _process(delta: float) -> void:
 	# Setup variables for easy use
 	var closest_building: BuildingNode = Nodes.world.buildings[Building.closest_building_to_manipulator]
 	var closest_building_points: PackedVector3Array
-	if Building.closest_building_to_manipulator >= 0:
+	var is_closest_building_valid := Building.closest_building_to_manipulator >= 0
+	if is_closest_building_valid:
 		closest_building_points = closest_building.points
 	
 	var selected_item: ItemShape = item_selector.selected_item
 	var selected_item_to_grab: Node3D
-	if is_instance_valid(selected_item):
+	var is_selected_item_valid := is_instance_valid(selected_item)
+	if is_selected_item_valid:
 		selected_item_to_grab = selected_item.item_to_grab
 	
 	var currently_grabbing = player.currently_grabbing
@@ -32,7 +34,7 @@ func _process(delta: float) -> void:
 		# Check if the building is the closest thing
 		if (
 				Nodes.world.buildings.size() >= 0 
-				and Building.closest_building_to_manipulator >= 0
+				and is_closest_building_valid
 				and Building.closest_point_to_manipulator >= 0
 		):
 			var position_of_vertex: Vector3 = closest_building_points[Building.closest_point_to_manipulator]
@@ -41,7 +43,7 @@ func _process(delta: float) -> void:
 			Nodes.world.selector_mesh.global_position = position_of_vertex
 		
 		# Check if the item selected is closer than the building
-		if is_instance_valid(selected_item):
+		if is_selected_item_valid:
 			var distance_to_item = selected_item_to_grab.global_position.distance_squared_to(player.point_manipulator.global_position)
 			if distance_to_item < closest_found_thing_distance:
 				closest_found_thing = Player.Grabbable.ITEM

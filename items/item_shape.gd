@@ -20,6 +20,8 @@ signal taken_from_inventory()
 @export var grab_weight: float = 4.0
 @export var item_to_grab: Node3D
 
+var is_currently_grabbed := false
+
 @onready var _collider: CollisionShape3D = $Collider
 
 
