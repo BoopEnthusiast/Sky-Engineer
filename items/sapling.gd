@@ -19,7 +19,13 @@ var number_of_sublimbs:int = 0
 
 var limbs = [0]
 
+var astar_test
+
 func _ready():
+	astar_test = AStar2D.new()
+	astar_test.add_point(0,Vector2i(0,0),1)
+	astar_test.add_point(1,Vector2i(0,0),1)
+	astar_test.add_point(2,Vector2i(0,0),1)
 	#randomize()
 	$Mesh.multimesh.instance_count = 1 + number_of_limbs
 	$Mesh.spawn_trunk()
@@ -54,7 +60,10 @@ func reset():
 
 func grow_slow(time:float):
 	# grows the tree by a certan amount each frame.
-	# TODO randomize branch placement, improve collision detection.
+	# TODO figure out how to controll the branch structure, 
+	#      improve collision detection.
+	#      I'm thinking AStar might help with the former,
+	#      not sure about performance, though.
 	if progress < max_progress and growing:
 		progress += time
 		
