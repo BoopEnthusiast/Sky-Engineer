@@ -1,8 +1,9 @@
-[gd_scene load_steps=13 format=3 uid="uid://cxus3ioklaaki"]
+[gd_scene load_steps=14 format=3 uid="uid://cxus3ioklaaki"]
 
 [ext_resource type="Script" uid="uid://dobv4rbfvosds" path="res://worlds/world.gd" id="1_m138w"]
 [ext_resource type="PackedScene" uid="uid://bjxbdvhb0xhsj" path="res://interactibles/building.tscn" id="2_c7htk"]
 [ext_resource type="PackedScene" uid="uid://j18nl5mh6ifn" path="res://items/Sapling.tscn" id="3_c7htk"]
+[ext_resource type="PackedScene" uid="uid://51vq4jifog5g" path="res://items/achievement_book.tscn" id="4_wp1yw"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_felrd"]
 
@@ -62,3 +63,5 @@ mesh = SubResource("SphereMesh_felrd")
 
 [node name="Sapling" parent="." instance=ExtResource("3_c7htk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -4.69181)
+
+[node name="AchievementBook" parent="." instance=ExtResource("4_wp1yw")]
