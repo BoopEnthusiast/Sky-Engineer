@@ -31,7 +31,7 @@ func _on_area_shape_entered(_area_rid: RID, area: Area3D, _area_shape_index: int
 			closest_item = selectable_item
 	
 	# Set the selected item to that closest one
-	selected_item = closest_item.item_to_grab
+	selected_item = closest_item
 	selected_item_distance = closest_distance
 
 
