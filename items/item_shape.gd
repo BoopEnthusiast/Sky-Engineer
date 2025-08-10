@@ -28,6 +28,19 @@ var is_currently_grabbed := false
 @onready var _collider: CollisionShape3D = $Collider
 
 
+func _ready() -> void:
+	# This is only code for in the game, not the editor
+	if Engine.is_editor_hint():
+		return
+	
+	# Make sure the item_to_grab is ready
+	if not item_to_grab.is_node_ready():
+		await item_to_grab.ready
+	
+	
+
+
+## Do most of the things required to put the item into the inventory, including moving the item_to_grab to the inventory_slot
 func put_item_into_inventory(inventory_slot: InventorySlot) -> void:
 	can_be_grabbed = false
 	put_into_inventory.emit()
@@ -37,6 +50,7 @@ func put_item_into_inventory(inventory_slot: InventorySlot) -> void:
 	item_to_grab.position = Vector3.ZERO
 
 
+## Do most of the things required to take the item from the inventory, including moving the item_to_grab from the inventory_slot to the world
 func take_item_from_inventory(inventory_slot: InventorySlot) -> void:
 	can_be_grabbed = true
 	taken_from_inventory.emit()

@@ -1,7 +1,7 @@
 [gd_scene load_steps=10 format=3 uid="uid://cb7kbv03antsr"]
 
 [ext_resource type="Script" uid="uid://dntpbkdr02v0n" path="res://interactibles/player.gd" id="1_jysyn"]
-[ext_resource type="Script" path="res://interactibles/menu/inventory/inventory_selector.gd" id="2_c2juf"]
+[ext_resource type="Script" uid="uid://bx4nbvjbds1uj" path="res://interactibles/menu/inventory/inventory_selector.gd" id="2_c2juf"]
 [ext_resource type="Script" uid="uid://ckclxbp4tmi46" path="res://interactibles/item_selector.gd" id="2_k0a2a"]
 [ext_resource type="Script" uid="uid://j2cet4ijk5w7" path="res://interactibles/camera.gd" id="2_mihln"]
 [ext_resource type="Script" uid="uid://bc32dglo7s3e7" path="res://interactibles/point_manipulator.gd" id="3_m3a8n"]
