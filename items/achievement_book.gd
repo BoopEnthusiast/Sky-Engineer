@@ -9,7 +9,6 @@ var is_in_inventory = true
 var is_open = true
 
 func _ready() -> void:
-	page_container.visible = false # Hide the pages when not being opened
 	set_book_state_from_inventory() 
 	
 # Flipping pages 
