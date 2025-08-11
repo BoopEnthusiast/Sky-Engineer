@@ -6,6 +6,11 @@ const BUILDING = preload("res://interactibles/building.tscn")
 
 var selected_inventory_slot: InventorySlot
 
+var discovered_materials: Array[String] = [ # List of classes (in string form) that have existed in this world before
+	"Sapling",
+	"AchievementBook",
+]
+
 @onready var buildings: Array[BuildingNode] = [$Building1]
 @onready var selector_mesh: MeshInstance3D = $SelectorMesh
 
