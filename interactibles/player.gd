@@ -35,6 +35,7 @@ var currently_grabbing: Node3D = null:
 				return
 			value.is_currently_grabbed = true
 		currently_grabbing = value
+var currently_grabbing_vertex: int = -1
 
 @onready var camera: Camera3D = $Camera
 @onready var point_manipulator: Marker3D = $Camera/PointManipulator

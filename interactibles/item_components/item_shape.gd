@@ -38,9 +38,21 @@ signal no_longer_closest_item_to_interact_with()
 ## Does not emit [signal closest_item_to_grab] and [signal no_longer_closest_item_to_grab] when this has at least one thing set.
 @export var outline_when_interactible: Array[MeshInstance3D]
 
-var is_currently_grabbed := false
-
 @onready var _collider: CollisionShape3D = $Collider
+
+
+## Virtual function that should be handled by the child classes, which you should be using.[br]
+## [br]
+## Does nothing if it's not overwritten.
+func start_interacting_with() -> void:
+	pass
+
+
+## Virtual function that should be handled by the child classes, which you should be using.[br]
+## [br]
+## Does nothing if it's not overwritten.
+func stop_interacting_with() -> void:
+	pass
 
 
 ## Handles the outlining of the [member outline_when_grabbed] or emits [signal closest_item_to_grab].

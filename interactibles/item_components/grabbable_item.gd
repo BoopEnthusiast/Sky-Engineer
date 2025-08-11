@@ -17,6 +17,9 @@ signal no_longer_grabbed_by_player()
 ## Sets how fast this item should follows the player's 3D cursor
 @export var grab_weight: float = 4.0
 
+## Whether this item is currently grabbed or not.
+var is_currently_grabbed := false
+
 
 func _ready() -> void:
 	# This is only code for in the game, not the editor
@@ -29,7 +32,13 @@ func _ready() -> void:
 	if not item_to_grab.is_node_ready():
 		await item_to_grab.ready
 	
-	# TODO: Something I forgot, maybe remove this and the if statement checking if it's ready?
+	# TODO: Something, I forgot, maybe remove this and the if statement checking if it's ready?
+
+
+func _process(delta):
+	if is_currently_grabbed:
+		var weight: float = 1 - exp(-grab_weight * delta)
+		global_position = global_position.lerp(Nodes.player.point_manipulator.global_position, weight)
 
 
 ## Do most of the things required to put the item into the [Inventory], including moving the [member item_to_grab] to the [param inventory_slot].
@@ -55,11 +64,13 @@ func take_item_from_inventory(inventory_slot: InventorySlot) -> void:
 	taken_from_inventory.emit()
 
 
-## Call when the player grabs this item
-func player_grabs_this() -> void:
+## Call when started being grabbed by the player
+func start_interacting_with() -> void:
 	grabbed_by_player.emit()
+	is_currently_grabbed = true
 
 
-## Call when the player stops grabbing this item
-func player_stops_grabbing_this() -> void:
+## Call when stopped being grabbed by the player
+func stop_interacting_with() -> void:
 	no_longer_grabbed_by_player.emit()
+	is_currently_grabbed = false
