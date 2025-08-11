@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://j18nl5mh6ifn"]
 
-[ext_resource type="PackedScene" uid="uid://crc2qp4uvstkn" path="res://items/item_shape.tscn" id="1_66ym3"]
+[ext_resource type="PackedScene" uid="uid://crc2qp4uvstkn" path="res://interactibles/item_components/item_shape.tscn" id="1_66ym3"]
 [ext_resource type="Script" uid="uid://di8syfwwutj10" path="res://items/sapling.gd" id="1_dt4sq"]
 [ext_resource type="PackedScene" uid="uid://cfuu81dmjkuiq" path="res://items/tree_mesh.tscn" id="5_eynpg"]
 

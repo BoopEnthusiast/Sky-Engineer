@@ -13,7 +13,7 @@ func _on_area_shape_entered(_area_rid: RID, area: Area3D, _area_shape_index: int
 	if area is not ItemShape:
 		return
 	
-	if not area.can_be_grabbed:
+	if not area.can_be_interacted_with:
 		return
 	
 	selectable_items.append(area)

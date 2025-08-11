@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://cm50iq55vf512"]
+
+[ext_resource type="Script" uid="uid://btsbynwa4vdd7" path="res://interactibles/item_components/interactible_button.gd" id="1_jd1jo"]
+[ext_resource type="PackedScene" uid="uid://crc2qp4uvstkn" path="res://interactibles/item_components/item_shape.tscn" id="1_mchx2"]
+
+[node name="InteractibleButton" instance=ExtResource("1_mchx2")]
+script = ExtResource("1_jd1jo")
+toggled_on = false
+can_be_interacted_with = true
+interact_range = 0.5
