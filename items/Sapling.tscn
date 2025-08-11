@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://j18nl5mh6ifn"]
 
-[ext_resource type="PackedScene" uid="uid://crc2qp4uvstkn" path="res://interactibles/item_components/item_shape.tscn" id="1_66ym3"]
 [ext_resource type="Script" uid="uid://di8syfwwutj10" path="res://items/sapling.gd" id="1_dt4sq"]
+[ext_resource type="PackedScene" uid="uid://cxg8kmc638awu" path="res://interactibles/item_components/grabbable_item.tscn" id="2_ogneg"]
 [ext_resource type="PackedScene" uid="uid://cfuu81dmjkuiq" path="res://items/tree_mesh.tscn" id="5_eynpg"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_rncus"]
@@ -10,9 +10,8 @@ size = Vector3(1, 2.41821, 1)
 [node name="Sapling" type="AnimatableBody3D"]
 script = ExtResource("1_dt4sq")
 
-[node name="ItemShape" parent="." node_paths=PackedStringArray("item_to_grab") instance=ExtResource("1_66ym3")]
+[node name="GrabbableItem" parent="." node_paths=PackedStringArray("item_to_grab") instance=ExtResource("2_ogneg")]
 item_to_grab = NodePath("..")
-grab_range = 1.735
 
 [node name="Collider" type="CollisionShape3D" parent="."]
 shape = SubResource("BoxShape3D_rncus")

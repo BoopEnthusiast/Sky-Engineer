@@ -38,7 +38,7 @@ func plant():
 	# TODO integrate with vertex snapping, so the tree
 	#      can be properly planted on surfaces.
 	
-	$ItemShape.can_be_grabbed = false
+	$GrabbableItem.can_be_interacted_with = false
 	growing = true
 
 # DEPRECATED
