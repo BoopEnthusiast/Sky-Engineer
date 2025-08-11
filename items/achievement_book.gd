@@ -20,19 +20,25 @@ func _ready() -> void:
 	
 func set_book_state_from_inventory():
 	if is_in_inventory:
-		_on_item_shape_being_put_into_inventory()
+		close_book()
 	else:
-		_on_item_shape_being_taken_from_inventory()
+		open_book()
+		
+func open_book():
+	animation_player.play("Open")
+	page_container.visible = true
 
-func _on_item_shape_being_put_into_inventory() -> void:
+func close_book():
 	animation_player.play("Close")
 	page_container.visible = false 
+
+func _on_item_shape_being_put_into_inventory() -> void:
+	close_book()
 	print("Book is in inventory")
 
 
 func _on_item_shape_being_taken_from_inventory() -> void:
-	animation_player.play("Open")
-	page_container.visible = true
+	open_book()
 	print("Book is out of inventory")
 
 
