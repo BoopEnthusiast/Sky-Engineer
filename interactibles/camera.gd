@@ -100,15 +100,28 @@ func _move_grabbed_items(delta: float) -> void:
 		match _closest_found_thing_type:
 			Player.Grabbable.VERTEX:
 				_closest_building.started_grabbing_this(Building.closest_point_to_manipulator)
+				_player.currently_grabbing = _closest_building
 			Player.Grabbable.ITEM:
 				_selected_item.start_interacting_with()
-	elif Input.is_action_just_released(&"select"):
+				_player.currently_grabbing = _selected_item
+	if Input.is_action_just_released(&"select"):
 		if _player.currently_grabbing is BuildingNode:
 			_player.currently_grabbing.stopped_grabbing_this()
 		elif _player.currently_grabbing is ItemShape:
 			_player.currently_grabbing.stop_interacting_with()
+		_player.currently_grabbing = null
 	
 	if _closest_found_thing_type == Player.Grabbable.ITEM and _selected_item != _previous_closest_item:
-		_previous_closest_item.no_longer_closest_item_to_selector()
+		if is_instance_valid(_previous_closest_item):
+			_previous_closest_item.no_longer_closest_item_to_selector()
 		_selected_item.closest_item_to_selector()
 		_previous_closest_item = _selected_item
+	
+	if not is_instance_valid(_player.currently_grabbing):
+		match _closest_found_thing_type:
+			Player.Grabbable.NOTHING:
+				Nodes.world.selector_mesh.global_position = _player.point_manipulator.global_position
+			Player.Grabbable.ITEM:
+				Nodes.world.selector_mesh.global_position = _selected_item.global_position
+			Player.Grabbable.VERTEX:
+				Nodes.world.selector_mesh.global_position = _closest_building_points[Building.closest_point_to_manipulator]

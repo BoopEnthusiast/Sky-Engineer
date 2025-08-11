@@ -3,7 +3,6 @@
 [ext_resource type="Script" uid="uid://dagftbgolfnk3" path="res://interactibles/item_components/item_shape.gd" id="1_g5n72"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_qr3m6"]
-radius = 1.12
 
 [node name="ItemShape" type="Area3D"]
 collision_layer = 4
@@ -11,8 +10,6 @@ collision_mask = 0
 input_ray_pickable = false
 monitoring = false
 script = ExtResource("1_g5n72")
-can_be_interacted_with = null
-interact_range = null
 
 [node name="Collider" type="CollisionShape3D" parent="."]
 shape = SubResource("SphereShape3D_qr3m6")

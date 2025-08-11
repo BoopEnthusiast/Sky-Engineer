@@ -38,7 +38,8 @@ func _ready() -> void:
 func _process(delta):
 	if is_currently_grabbed:
 		var weight: float = 1 - exp(-grab_weight * delta)
-		global_position = global_position.lerp(Nodes.player.point_manipulator.global_position, weight)
+		item_to_grab.global_position = item_to_grab.global_position.lerp(Nodes.player.point_manipulator.global_position, weight)
+		Nodes.world.selector_mesh.global_position = global_position
 
 
 ## Do most of the things required to put the item into the [Inventory], including moving the [member item_to_grab] to the [param inventory_slot].

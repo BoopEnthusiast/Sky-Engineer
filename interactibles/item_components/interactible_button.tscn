@@ -5,6 +5,6 @@
 
 [node name="InteractibleButton" instance=ExtResource("1_mchx2")]
 script = ExtResource("1_jd1jo")
-toggled_on = null
+toggled_on = false
 can_be_interacted_with = true
 interact_range = 0.5

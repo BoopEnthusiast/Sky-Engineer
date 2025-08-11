@@ -82,6 +82,7 @@ func _process(delta: float) -> void:
 			if points[_index_being_grabbed] != Nodes.player.point_manipulator.global_position:
 				var weight: float = 1 - exp(-DRAG_SPEED * delta)
 				points[_index_being_grabbed] = points[_index_being_grabbed].lerp(Nodes.player.point_manipulator.global_position, weight)
+				Nodes.world.selector_mesh.global_position = points[_index_being_grabbed]
 				has_process_queued_up = true
 			# Color point
 			if Input.is_action_pressed(&"color"):
