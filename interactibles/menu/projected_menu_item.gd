@@ -133,8 +133,9 @@ func _handle_position(delta: float) -> void:
 	# You don't need to check for positional movements because the collision_area should be a child of the 2d counterpart
 	var collision_shape: CollisionShape2D = collision_area.get_child(0)
 	collision_shape.position = counterpart_in_2d_rect.size / 2
-	var collider_shape: RectangleShape2D = collision_shape.shape
-	collider_shape.size = counterpart_in_2d_rect.size
+	var collider_shape: Shape2D = collision_shape.shape
+	if collider_shape is RectangleShape2D:
+		collider_shape.size = counterpart_in_2d_rect.size
 	
 	# Move the menu scene's 2d raycast (not create a new one because that's unnecessarily costly)
 	var raycast: RayCast2D = Nodes.menu.ray_cast_2d
