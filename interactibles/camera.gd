@@ -2,6 +2,8 @@ class_name PlayerCamera
 extends Camera3D
 
 
+var previous_closest_item: ItemShape
+
 @onready var player: Player = $".."
 @onready var item_selector: ItemSelector = $PointManipulator/ItemSelector
 @onready var inventory_selector: InventorySelector = $InventorySelector
@@ -47,7 +49,7 @@ func _move_grabbed_items(delta: float) -> void:
 	
 	var selector_mesh: MeshInstance3D = Nodes.world.selector_mesh
 	
-	var closest_found_thing: Player.Grabbable = Player.Grabbable.NOTHING
+	var closest_found_thing_type: Player.Grabbable = Player.Grabbable.NOTHING
 	var closest_found_thing_distance: float = INF
 	var is_already_grabbing := is_instance_valid(player.currently_grabbing)
 	
@@ -60,7 +62,7 @@ func _move_grabbed_items(delta: float) -> void:
 				and Building.closest_point_to_manipulator >= 0
 		):
 			var position_of_vertex: Vector3 = closest_building_points[Building.closest_point_to_manipulator]
-			closest_found_thing = Player.Grabbable.VERTEX
+			closest_found_thing_type = Player.Grabbable.VERTEX
 			closest_found_thing_distance = position_of_vertex.distance_squared_to(player.point_manipulator.global_position)
 			selector_mesh.global_position = position_of_vertex
 		
@@ -68,9 +70,11 @@ func _move_grabbed_items(delta: float) -> void:
 		if is_selected_item_valid:
 			var distance_to_item = selected_item_to_grab.global_position.distance_squared_to(player.point_manipulator.global_position)
 			if distance_to_item < closest_found_thing_distance:
-				closest_found_thing = Player.Grabbable.ITEM
+				closest_found_thing_type = Player.Grabbable.ITEM
 				closest_found_thing_distance = distance_to_item
 				selector_mesh.global_position = selected_item_to_grab.global_position
+	
+	
 	
 	# If one is close enough, select and try to grab it
 	if Input.is_action_pressed(&"select"):
@@ -90,7 +94,7 @@ func _move_grabbed_items(delta: float) -> void:
 						delta
 				)
 		# If not grabbing something and trying to grab a vertex, move the vertex and set you're already grabbing it
-		elif closest_found_thing == Player.Grabbable.VERTEX:
+		elif closest_found_thing_type == Player.Grabbable.VERTEX:
 			closest_building_points[Building.closest_point_to_manipulator] = _move_point_to_point_manipulator(
 					closest_building_points[Building.closest_point_to_manipulator],
 					BuildingNode.DRAG_SPEED,
@@ -99,21 +103,31 @@ func _move_grabbed_items(delta: float) -> void:
 			player.currently_grabbing = closest_building
 			player.currently_grabbing.has_process_queued_up = true
 		# If not grabbing something and trying to grab an item, move the item and set you're already grabbing it
-		elif closest_found_thing == Player.Grabbable.ITEM:
+		elif closest_found_thing_type == Player.Grabbable.ITEM:
 			selected_item_to_grab.global_position = _move_point_to_point_manipulator(
 					selected_item_to_grab.global_position, 
 					selected_item.grab_weight, 
 					delta
 			)
 			player.currently_grabbing = selected_item
+			selected_item_to_grab.no_longer_closest_item_to_selector()
+			previous_closest_item = selected_item_to_grab
 		else:
 			player.currently_grabbing = null
-			if closest_found_thing == Player.Grabbable.NOTHING:
+			if closest_found_thing_type == Player.Grabbable.NOTHING:
 				_reset_selector_mesh_position()
 	else:
 		player.currently_grabbing = null
-		if closest_found_thing == Player.Grabbable.NOTHING:
+		if closest_found_thing_type == Player.Grabbable.NOTHING:
 			_reset_selector_mesh_position()
+		elif closest_found_thing_type == Player.Grabbable.ITEM:
+			selected_item_to_grab.closest_item_to_selector()
+			previous_closest_item = selected_item_to_grab
+		
+		if closest_found_thing_type != Player.Grabbable.ITEM:
+			pass#_update_closest_item()
+		elif previous_closest_item != selected_item_to_grab:
+			pass#_update_closest_item(selected_item_to_grab)
 
 
 func _move_point_to_point_manipulator(point: Vector3, move_speed: float, delta: float) -> Vector3:
@@ -125,3 +139,11 @@ func _move_point_to_point_manipulator(point: Vector3, move_speed: float, delta: 
 
 func _reset_selector_mesh_position() -> void:
 	Nodes.world.selector_mesh.global_position = player.point_manipulator.global_position
+
+
+func _update_closest_item(is_closest_item: bool, new_item: ItemShape = null) -> void:
+	if new_item != previous_closest_item and is_instance_valid(new_item):
+		previous_closest_item.no_longer_closest_item_to_selector()
+		if new_item != previous_closest_item and is_instance_valid(new_item):
+			new_item.closest_item_to_selector()
+			previous_closest_item = new_item
