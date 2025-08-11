@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://bhgnv6yva4lmv" path="res://items/achievement_book.gd" id="1_kte5c"]
 [ext_resource type="PackedScene" uid="uid://cg2afeyy1kh8t" path="res://items/page_1_front_content.tscn" id="2_2ecdp"]
 [ext_resource type="Script" uid="uid://bhp216l3sqvnc" path="res://items/page_container.gd" id="2_fiu20"]
-[ext_resource type="PackedScene" uid="uid://crc2qp4uvstkn" path="res://items/item_shape.tscn" id="2_kte5c"]
+[ext_resource type="PackedScene" uid="uid://crc2qp4uvstkn" path="res://interactibles/item_components/item_shape.tscn" id="2_kte5c"]
 [ext_resource type="PackedScene" uid="uid://ixphkp33vpxg" path="res://page_2_front_content.tscn" id="2_m7i7e"]
 [ext_resource type="PackedScene" uid="uid://brn37ucrk8kjq" path="res://page_2_back_content.tscn" id="3_0dyby"]
 [ext_resource type="PackedScene" uid="uid://b8rqv12sglaq7" path="res://page_1_back_content.tscn" id="3_cdgaa"]

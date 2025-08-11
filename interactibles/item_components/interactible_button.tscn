@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://val7ixta0fbg"]
+
+[ext_resource type="Script" uid="uid://btsbynwa4vdd7" path="res://interactibles/item_components/interactible_button.gd" id="1_jd1jo"]
+
+[node name="InteractibleButton"]
+script = ExtResource("1_jd1jo")
+can_be_interacted_with = null
+grab_range = null
+grab_weight = null
