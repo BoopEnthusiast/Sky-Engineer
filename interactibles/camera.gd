@@ -5,6 +5,19 @@ extends Camera3D
 
 var _closest_found_thing_type: Player.Grabbable = Player.Grabbable.NOTHING
 var _closest_found_thing_distance: float = INF
+var closest_building: BuildingNode
+var closest_building_points: PackedVector3Array
+var is_closest_building_valid: bool
+
+var selected_item: ItemShape
+var selected_item_to_grab: Node3D
+var is_selected_item_valid: bool
+
+var selector_mesh: MeshInstance3D = Nodes.world.selector_mesh
+
+var closest_found_thing_type: Player.Grabbable
+var closest_found_thing_distance: float
+var is_already_grabbing: bool
 var _previous_closest_item: ItemShape
 
 @onready var _player: Player = $".."
@@ -14,6 +27,8 @@ var _previous_closest_item: ItemShape
 
 func _process(delta: float) -> void:
 	_interact_with_inventory_slot()
+	
+	_update_global_variables()
 	
 	_find_closest_items()
 	
@@ -38,30 +53,27 @@ func _interact_with_inventory_slot() -> void:
 			_player.currently_grabbing.put_item_into_inventory(selected_inventory_slot)
 
 
-func _find_closest_items() -> void:
-	pass
-
-
-func _move_grabbed_items(delta: float) -> void:
-	# Setup variables for easy use
-	var closest_building: BuildingNode = Nodes.world.buildings[Building.closest_building_to_manipulator]
-	var closest_building_points: PackedVector3Array
-	var is_closest_building_valid := Building.closest_building_to_manipulator >= 0
+func _update_global_variables() -> void:
+	_closest_found_thing_type = Player.Grabbable.NOTHING
+	_closest_found_thing_distance = INF
+	closest_building = Nodes.world.buildings[Building.closest_building_to_manipulator]
+	is_closest_building_valid = Building.closest_building_to_manipulator >= 0
 	if is_closest_building_valid:
 		closest_building_points = closest_building.points
 	
-	var selected_item: ItemShape = _item_selector.selected_item
-	var selected_item_to_grab: Node3D
-	var is_selected_item_valid := is_instance_valid(selected_item)
+	selected_item = _item_selector.selected_item
+	is_selected_item_valid = is_instance_valid(selected_item)
 	if is_selected_item_valid:
 		selected_item_to_grab = selected_item.item_to_grab
 	
-	var selector_mesh: MeshInstance3D = Nodes.world.selector_mesh
+	selector_mesh = Nodes.world.selector_mesh
 	
-	var closest_found_thing_type: Player.Grabbable = Player.Grabbable.NOTHING
-	var closest_found_thing_distance: float = INF
-	var is_already_grabbing := is_instance_valid(_player.currently_grabbing)
-	
+	closest_found_thing_type = Player.Grabbable.NOTHING
+	closest_found_thing_distance = INF
+	is_already_grabbing = is_instance_valid(_player.currently_grabbing)
+
+
+func _find_closest_items() -> void:
 	# Only test for if something is closer to the player grabbing if the player isn't already grabbing
 	if not is_already_grabbing:
 		# Check if the building is the closest thing
@@ -82,7 +94,9 @@ func _move_grabbed_items(delta: float) -> void:
 				closest_found_thing_type = Player.Grabbable.ITEM
 				closest_found_thing_distance = distance_to_item
 				selector_mesh.global_position = selected_item_to_grab.global_position
-	
+
+
+func _move_grabbed_items(delta: float) -> void:
 	# If one is close enough, select and try to grab it
 	if Input.is_action_pressed(&"select"):
 		# If already grabbing something, don't try to grab something else

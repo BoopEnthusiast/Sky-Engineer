@@ -16,8 +16,7 @@ signal closest_item_to_interact_with()
 ## This is not emitted when [member outline_when_grabbed] is set.
 signal no_longer_closest_item_to_interact_with()
 
-## This must be set for this node to work, there is an assert to make sure that this is set when the game is run
-@export var item_to_grab: Node3D
+
 ## Decides if the player can pick up this item by looking at it.[br]
 ## It's set to true or false automatically when it enters or exists the inventory, respectively.
 @export var can_be_interacted_with: bool = true:
@@ -42,18 +41,6 @@ signal no_longer_closest_item_to_interact_with()
 var is_currently_grabbed := false
 
 @onready var _collider: CollisionShape3D = $Collider
-
-
-func _ready() -> void:
-	# This is only code for in the game, not the editor
-	if Engine.is_editor_hint():
-		return
-	
-	assert(is_instance_valid(item_to_grab), "The item: " + get_parent().name + " does not have its item_to_grab set. Node at: " + get_path().get_concatenated_names())
-	
-	# Make sure the item_to_grab is ready
-	if not item_to_grab.is_node_ready():
-		await item_to_grab.ready
 
 
 ## Handles the outlining of the [member outline_when_grabbed] or emits [signal closest_item_to_grab].

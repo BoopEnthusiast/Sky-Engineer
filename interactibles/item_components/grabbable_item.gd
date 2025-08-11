@@ -1,3 +1,4 @@
+@tool
 class_name GrabbableItem
 extends ItemShape
 
@@ -11,8 +12,24 @@ signal grabbed_by_player()
 ## Emitted when the item is no longer being grabbed by the player.
 signal no_longer_grabbed_by_player()
 
+## This must be set for this node to work, there is an assert to make sure that this is set when the game is run
+@export var item_to_grab: Node3D
 ## Sets how fast this item should follows the player's 3D cursor
 @export var grab_weight: float = 4.0
+
+
+func _ready() -> void:
+	# This is only code for in the game, not the editor
+	if Engine.is_editor_hint():
+		return
+	
+	assert(is_instance_valid(item_to_grab), "The item: " + get_parent().name + " does not have its item_to_grab set. Node at: " + get_path().get_concatenated_names())
+	
+	# Make sure the item_to_grab is ready
+	if not item_to_grab.is_node_ready():
+		await item_to_grab.ready
+	
+	# TODO: Something I forgot, maybe remove this and the if statement checking if it's ready?
 
 
 ## Do most of the things required to put the item into the [Inventory], including moving the [member item_to_grab] to the [param inventory_slot].

@@ -11,7 +11,8 @@ collision_mask = 0
 input_ray_pickable = false
 monitoring = false
 script = ExtResource("1_g5n72")
-can_be_interacted_with = true
+can_be_interacted_with = null
+interact_range = null
 
 [node name="Collider" type="CollisionShape3D" parent="."]
 shape = SubResource("SphereShape3D_qr3m6")
