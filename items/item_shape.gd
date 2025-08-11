@@ -56,7 +56,7 @@ func _ready() -> void:
 	if Engine.is_editor_hint():
 		return
 	
-	assert(not is_instance_valid(item_to_grab), "An item does not have its item_to_grab set, update this assert to say which if you can't find it")
+	assert(is_instance_valid(item_to_grab), "The item: " + get_parent().name + " does not have its item_to_grab set. Node at: " + get_path().get_concatenated_names())
 	
 	# Make sure the item_to_grab is ready
 	if not item_to_grab.is_node_ready():

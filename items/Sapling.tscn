@@ -11,8 +11,8 @@ size = Vector3(1, 2.41821, 1)
 script = ExtResource("1_dt4sq")
 
 [node name="ItemShape" parent="." node_paths=PackedStringArray("item_to_grab") instance=ExtResource("1_66ym3")]
-grab_range = 1.735
 item_to_grab = NodePath("..")
+grab_range = 1.735
 
 [node name="Collider" type="CollisionShape3D" parent="."]
 shape = SubResource("BoxShape3D_rncus")

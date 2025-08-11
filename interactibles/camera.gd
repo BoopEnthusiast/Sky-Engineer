@@ -74,8 +74,6 @@ func _move_grabbed_items(delta: float) -> void:
 				closest_found_thing_distance = distance_to_item
 				selector_mesh.global_position = selected_item_to_grab.global_position
 	
-	
-	
 	# If one is close enough, select and try to grab it
 	if Input.is_action_pressed(&"select"):
 		# If already grabbing something, don't try to grab something else
@@ -110,8 +108,8 @@ func _move_grabbed_items(delta: float) -> void:
 					delta
 			)
 			player.currently_grabbing = selected_item
-			selected_item_to_grab.no_longer_closest_item_to_selector()
-			previous_closest_item = selected_item_to_grab
+			selected_item.no_longer_closest_item_to_selector()
+			previous_closest_item = selected_item
 		else:
 			player.currently_grabbing = null
 			if closest_found_thing_type == Player.Grabbable.NOTHING:
@@ -121,13 +119,13 @@ func _move_grabbed_items(delta: float) -> void:
 		if closest_found_thing_type == Player.Grabbable.NOTHING:
 			_reset_selector_mesh_position()
 		elif closest_found_thing_type == Player.Grabbable.ITEM:
-			selected_item_to_grab.closest_item_to_selector()
-			previous_closest_item = selected_item_to_grab
+			selected_item.closest_item_to_selector()
+			previous_closest_item = selected_item
 		
 		if closest_found_thing_type != Player.Grabbable.ITEM:
 			pass#_update_closest_item()
-		elif previous_closest_item != selected_item_to_grab:
-			pass#_update_closest_item(selected_item_to_grab)
+		elif previous_closest_item != selected_item:
+			pass#_update_closest_item(selected_item)
 
 
 func _move_point_to_point_manipulator(point: Vector3, move_speed: float, delta: float) -> Vector3:
