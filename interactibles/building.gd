@@ -24,9 +24,11 @@ const DRAG_SPEED = 25.0
 	Color.from_ok_hsl(0.75, 1.0, 0.8),
 ]
 
-var coloring: int = -1
 var had_selected_point: bool = false
 var has_process_queued_up: bool = false
+
+var _index_being_grabbed: int = -1
+var _coloring: int = -1
 
 @onready var mesh: MeshInstance3D = $Mesh
 @onready var collider: CollisionShape3D = $Collider
@@ -42,13 +44,13 @@ func _ready() -> void:
 
 func _unhandled_input(event: InputEvent) -> void:
 	# Color the selected point
-	if event is InputEventMouseMotion and coloring >= 0:
-		var col: Color = colors[coloring]
-		colors[coloring] = Color.from_ok_hsl(col.ok_hsl_h + event.relative.x / 1000.0, 1.0, col.ok_hsl_l + event.relative.y / 1000.0)
+	if event is InputEventMouseMotion and _coloring >= 0:
+		var col: Color = colors[_coloring]
+		colors[_coloring] = Color.from_ok_hsl(col.ok_hsl_h + event.relative.x / 1000.0, 1.0, col.ok_hsl_l + event.relative.y / 1000.0)
 		get_viewport().set_input_as_handled()
 
 
-func _process(_delta: float) -> void:
+func _process(delta: float) -> void:
 	var has_processed_points := false
 	var is_current_building := Building.closest_building_to_manipulator == building_index
 	
@@ -61,35 +63,37 @@ func _process(_delta: float) -> void:
 			if has_selected_point:
 				points.append(Nodes.player.point_manipulator.global_position)
 				colors.append(Color.from_ok_hsl(randf(), 1.0, 0.8))
-				_process_points(true)
-				has_processed_points = true
+				has_process_queued_up = true
 			else:
 				Nodes.world.create_new_building(Nodes.player.point_manipulator.global_position)
 		
-		if has_selected_point:
-			# Destroy points
-			if Input.is_action_just_pressed(&"destroy"):
-				Nodes.menu.counters.vertices_left += 1
-				points.remove_at(Building.closest_point_to_manipulator)
-				colors.remove_at(Building.closest_point_to_manipulator)
-				if points.size() <= 0:
-					Nodes.world.remove_building(self)
-					queue_free()
-				_process_points(true)
-				has_processed_points = true
-			
-			# Move points
-			if Nodes.player.currently_grabbing == self and Input.is_action_pressed(&"color"):
+		# Destroy points
+		if has_selected_point and Input.is_action_just_pressed(&"destroy"):
+			Nodes.menu.counters.vertices_left += 1
+			points.remove_at(Building.closest_point_to_manipulator)
+			colors.remove_at(Building.closest_point_to_manipulator)
+			if points.size() <= 0:
+				Nodes.world.remove_building(self)
+				queue_free()
+			has_process_queued_up = true
+		
+		# Move points
+		if _index_being_grabbed >= 0:
+			if points[_index_being_grabbed] != Nodes.player.point_manipulator.global_position:
+				var weight: float = 1 - exp(-DRAG_SPEED * delta)
+				points[_index_being_grabbed] = points[_index_being_grabbed].lerp(Nodes.player.point_manipulator.global_position, weight)
+				has_process_queued_up = true
+			# Color point
+			if Input.is_action_pressed(&"color"):
 				# Color selected point (actual coloring logic is in _unhandled_input)
 				Nodes.player.mouse_captured = false
-				coloring = Building.closest_point_to_manipulator
-				_process_points(true)
-				has_processed_points = true
+				_coloring = _index_being_grabbed
+				has_process_queued_up = true
 	
 	# Stop coloring points
 	if Input.is_action_just_released(&"color"):
 		Nodes.player.mouse_captured = true
-		coloring = -1
+		_coloring = -1
 	
 	if has_process_queued_up and not has_processed_points:
 		has_process_queued_up = false
@@ -99,6 +103,15 @@ func _process(_delta: float) -> void:
 	# Process the points (only to find the closest point to the manipulator) if not already processed points
 	if not has_processed_points:
 		_process_points(false)
+
+
+func started_grabbing_this(vertex_index: int) -> void:
+	_index_being_grabbed = vertex_index
+
+
+func stopped_grabbing_this() -> void:
+	_index_being_grabbed = -1
+	_coloring = -1
 
 
 func _process_points(calculate_points: bool) -> void:

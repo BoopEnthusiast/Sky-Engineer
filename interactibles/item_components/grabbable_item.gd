@@ -12,9 +12,9 @@ signal grabbed_by_player()
 ## Emitted when the item is no longer being grabbed by the player.
 signal no_longer_grabbed_by_player()
 
-## This must be set for this node to work, there is an assert to make sure that this is set when the game is run
+## This must be set for this node to work, there is an assert to make sure that this is set when the game is run.
 @export var item_to_grab: Node3D
-## Sets how fast this item should follows the player's 3D cursor
+## Sets how fast this item should follows the player's 3D cursor.
 @export var grab_weight: float = 4.0
 
 ## Whether this item is currently grabbed or not.

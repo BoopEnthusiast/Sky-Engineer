@@ -16,6 +16,7 @@ var _selector_mesh: MeshInstance3D = Nodes.world.selector_mesh
 var _closest_found_thing_type: Player.Grabbable
 var _closest_found_thing_distance: float
 var _is_already_grabbing: bool
+
 var _previous_closest_item: ItemShape
 
 @onready var _player: Player = $".."
@@ -95,72 +96,19 @@ func _find_closest_items() -> void:
 
 
 func _move_grabbed_items(delta: float) -> void:
-	# If one is close enough, select and try to grab it
-	if Input.is_action_pressed(&"select"):
-		# If already grabbing something, don't try to grab something else
-		if _is_already_grabbing:
-			if _player.currently_grabbing is BuildingNode:
-				_player.currently_grabbing.points[Building.closest_point_to_manipulator] = _move_point_to_point_manipulator(
-						_closest_building_points[Building.closest_point_to_manipulator],
-						BuildingNode.DRAG_SPEED,
-						delta
-				)
-				_player.currently_grabbing.has_process_queued_up = true
-			elif _player.currently_grabbing is GrabbableItem:
-				_player.currently_grabbing.item_to_grab.global_position = _move_point_to_point_manipulator(
-						_player.currently_grabbing.item_to_grab.global_position,
-						_player.currently_grabbing.grab_weight,
-						delta
-				)
-		# If not grabbing something and trying to grab a vertex, move the vertex and set you're already grabbing it
-		elif _closest_found_thing_type == Player.Grabbable.VERTEX:
-			_closest_building_points[Building.closest_point_to_manipulator] = _move_point_to_point_manipulator(
-					_closest_building_points[Building.closest_point_to_manipulator],
-					BuildingNode.DRAG_SPEED,
-					delta
-			)
-			_player.currently_grabbing = _closest_building
-			_player.currently_grabbing.has_process_queued_up = true
-		# If not grabbing something and trying to grab an item, move the item and set you're already grabbing it
-		elif _closest_found_thing_type == Player.Grabbable.ITEM:
-			_selected_item_to_grab.global_position = _move_point_to_point_manipulator(
-					_selected_item_to_grab.global_position, 
-					_selected_item.grab_weight, 
-					delta
-			)
-			_player.currently_grabbing = _selected_item
-			_selected_item.no_longer_closest_item_to_selector()
-			_previous_closest_item.no_longer_closest_item_to_selector()
-			_previous_closest_item = _selected_item
-		else:
-			_player.currently_grabbing = null
-			if _closest_found_thing_type == Player.Grabbable.NOTHING:
-				_reset_selector_mesh_position()
-	else:
-		_player.currently_grabbing = null
-		if _closest_found_thing_type == Player.Grabbable.NOTHING:
-			_reset_selector_mesh_position()
-		
-		if _closest_found_thing_type != Player.Grabbable.ITEM:
-			_previous_closest_item.no_longer_closest_item_to_selector()
-		elif _previous_closest_item != _selected_item:
-			_update_closest_item(_selected_item)
-
-
-func _move_point_to_point_manipulator(point: Vector3, move_speed: float, delta: float) -> Vector3:
-	var weight: float = 1 - exp(-move_speed * delta)
-	var lerped_point := point.lerp(_player.point_manipulator.global_position, weight)
-	Nodes.world.selector_mesh.global_position = lerped_point
-	return lerped_point
-
-
-func _reset_selector_mesh_position() -> void:
-	Nodes.world.selector_mesh.global_position = _player.point_manipulator.global_position
-
-
-func _update_closest_item(new_item: ItemShape) -> void:
-	if new_item != _previous_closest_item and is_instance_valid(new_item):
+	if Input.is_action_just_pressed(&"select"):
+		match _closest_found_thing_type:
+			Player.Grabbable.VERTEX:
+				_closest_building.started_grabbing_this(Building.closest_point_to_manipulator)
+			Player.Grabbable.ITEM:
+				_selected_item.start_interacting_with()
+	elif Input.is_action_just_released(&"select"):
+		if _player.currently_grabbing is BuildingNode:
+			_player.currently_grabbing.stopped_grabbing_this()
+		elif _player.currently_grabbing is ItemShape:
+			_player.currently_grabbing.stop_interacting_with()
+	
+	if _closest_found_thing_type == Player.Grabbable.ITEM and _selected_item != _previous_closest_item:
 		_previous_closest_item.no_longer_closest_item_to_selector()
-		if new_item != _previous_closest_item and is_instance_valid(new_item):
-			new_item.closest_item_to_selector()
-			_previous_closest_item = new_item
+		_selected_item.closest_item_to_selector()
+		_previous_closest_item = _selected_item
