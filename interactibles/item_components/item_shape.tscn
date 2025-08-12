@@ -1,9 +1,8 @@
 [gd_scene load_steps=3 format=3 uid="uid://crc2qp4uvstkn"]
 
-[ext_resource type="Script" uid="uid://dagftbgolfnk3" path="res://items/item_shape.gd" id="1_g5n72"]
+[ext_resource type="Script" uid="uid://dagftbgolfnk3" path="res://interactibles/item_components/item_shape.gd" id="1_g5n72"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_qr3m6"]
-radius = 1.12
 
 [node name="ItemShape" type="Area3D"]
 collision_layer = 4

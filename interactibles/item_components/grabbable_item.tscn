@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://cxg8kmc638awu"]
+
+[ext_resource type="PackedScene" uid="uid://crc2qp4uvstkn" path="res://interactibles/item_components/item_shape.tscn" id="1_r1c1f"]
+[ext_resource type="Script" uid="uid://b4hbm1vdbwiyg" path="res://interactibles/item_components/grabbable_item.gd" id="2_qprfe"]
+
+[node name="GrabbableItem" instance=ExtResource("1_r1c1f")]
+script = ExtResource("2_qprfe")
+grab_weight = 4.0

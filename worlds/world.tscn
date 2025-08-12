@@ -65,4 +65,3 @@ mesh = SubResource("SphereMesh_felrd")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -4.69181)
 
 [node name="AchievementBook" parent="." instance=ExtResource("4_wp1yw")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.51264, 1.08268, 0)
