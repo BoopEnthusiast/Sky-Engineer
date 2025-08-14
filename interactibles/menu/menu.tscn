@@ -66,8 +66,6 @@ enabled = false
 collide_with_areas = true
 collide_with_bodies = false
 
-[node name="ReferenceCamera" type="Camera3D" parent="."]
-
 [node name="Counters" parent="." node_paths=PackedStringArray("counterpart_in_2d", "remote_transform") instance=ExtResource("2_bx01g")]
 counterpart_in_2d = NodePath("../Menu2D/Inventory/Counters")
 remote_transform = NodePath("../Menu3D/Counters")
