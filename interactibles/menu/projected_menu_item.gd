@@ -14,8 +14,6 @@ extends Node3D
 ## You should set the [Control] node to have a size of [constant Vector2.ZERO] and [member Control.mouse_filter] should be [constant Control.MOUSE_FILTER_IGNORE].[br]
 ## Place the [Control] node where you want this node to appear relative to the main camera.
 @export var counterpart_in_2d: Control
-## The reference camera of the scene (probably should be a camera with no transforms)
-@export var reference_camera: Camera3D
 
 @export_group("Not A Child Of Menu3D")
 ## When [member turn_to_camera] or [member follow_mouse] is enabled, this must be set to a child of Menu3D and this node must be a child of Menu and not Menu3D.[br]
@@ -65,6 +63,15 @@ extends Node3D
 ## unnecessary math for the position and will be reset anyway when it's made visible. 
 @export var update_position_while_invisible: bool = true
 
+var _reference_camera: Camera3D
+
+
+func _ready() -> void:
+	var new_node = Node.new()
+	_reference_camera = Camera3D.new()
+	add_child(new_node)
+	new_node.add_child(_reference_camera)
+
 
 func _process(delta: float) -> void:
 	_handle_position(delta)
@@ -94,7 +101,7 @@ func _handle_position(delta: float) -> void:
 	# position work is already done for us.
 	var counterpart_in_2d_rect := counterpart_in_2d.get_rect()
 	var center_of_2d_counterpart: Vector2 = counterpart_in_2d_rect.position + counterpart_in_2d_rect.size / 2
-	var position_to_move_to := reference_camera.project_position(center_of_2d_counterpart, z_depth)
+	var position_to_move_to := _reference_camera.project_position(center_of_2d_counterpart, z_depth)
 	
 	if turn_to_camera or follow_mouse:
 		# Move remote transform to the screen position of the center of the control node counterpoint

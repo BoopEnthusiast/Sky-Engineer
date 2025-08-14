@@ -16,6 +16,7 @@ func _ready() -> void:
 			new_inventory_slot.position = Vector3(i, o, 0.1)
 			new_inventory_slots.append(new_inventory_slot)
 		inventory_slots.append(new_inventory_slots)
+	super()
 
 
 func _process(delta: float) -> void:
