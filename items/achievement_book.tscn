@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://51vq4jifog5g"]
+[gd_scene load_steps=23 format=3 uid="uid://51vq4jifog5g"]
 
 [ext_resource type="Script" uid="uid://bhgnv6yva4lmv" path="res://items/achievement_book.gd" id="1_kte5c"]
 [ext_resource type="PackedScene" uid="uid://cg2afeyy1kh8t" path="res://items/page_1_front_content.tscn" id="2_2ecdp"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://ixphkp33vpxg" path="res://items/page_2_front_content.tscn" id="2_m7i7e"]
 [ext_resource type="PackedScene" uid="uid://brn37ucrk8kjq" path="res://items/page_2_back_content.tscn" id="3_0dyby"]
 [ext_resource type="PackedScene" uid="uid://b8rqv12sglaq7" path="res://items/page_1_back_content.tscn" id="3_cdgaa"]
+[ext_resource type="Animation" uid="uid://dqsf1mg7onkss" path="res://Flip_forward.res" id="7_exru0"]
 [ext_resource type="PackedScene" uid="uid://cxg8kmc638awu" path="res://interactibles/item_components/grabbable_item.tscn" id="7_fiu20"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ut8ve"]
@@ -313,31 +314,6 @@ tracks/6/keys = {
 "values": [Vector3(1.57567, 0, 0), Vector3(1.88394, 0, 0)]
 }
 
-[sub_resource type="Animation" id="Animation_2ecdp"]
-resource_name = "Page1 flip"
-tracks/0/type = "rotation_3d"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("PageContainer/Page1")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = PackedFloat32Array()
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("PageContainer/Page1:rotation")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector3(1.87965, 0, 0), Vector3(4.35111, 0, 0)]
-}
-
-[sub_resource type="Animation" id="Animation_0dyby"]
-resource_name = "Page 2 flip"
-
 [sub_resource type="Animation" id="Animation_kte5c"]
 length = 1.2
 tracks/0/type = "bezier"
@@ -549,10 +525,9 @@ tracks/2/keys = {
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_kte5c"]
 _data = {
 &"Close": SubResource("Animation_cdgaa"),
+&"Flip_forward": ExtResource("7_exru0"),
 &"Floating ": SubResource("Animation_fiu20"),
 &"Open": SubResource("Animation_ut8ve"),
-&"Page_1_flip_forward": SubResource("Animation_2ecdp"),
-&"Page_2_flip_forward": SubResource("Animation_0dyby"),
 &"RESET": SubResource("Animation_kte5c"),
 &"open": SubResource("Animation_obgbs")
 }
@@ -622,7 +597,8 @@ size = Vector2i(700, 1000)
 [node name="Page1_BackContent" parent="PageContainer/Page1/Page1_BackContent" instance=ExtResource("3_cdgaa")]
 
 [node name="Page2" type="Node3D" parent="PageContainer"]
-transform = Transform3D(1, 0, 0, 0, -0.248081, -0.968738, 0, 0.968738, -0.248081, 0, -1.19209e-07, 0)
+transform = Transform3D(1, 0, 0, 0, -0.303966, -0.952681, 0, 0.952681, -0.303966, 0, -1.19209e-07, 0)
+visible = false
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="PageContainer/Page2"]
 transform = Transform3D(-0.985916, 0, 0, 0, -0.636408, -3.63798e-12, 0, 2.32831e-09, -0.00407733, -0.000726104, -0.320164, -0.00286609)
@@ -652,7 +628,7 @@ size = Vector2i(700, 1000)
 [node name="Page2_BackContent" parent="PageContainer/Page2/Page2_BackContent" instance=ExtResource("3_0dyby")]
 
 [node name="Page3" type="Node3D" parent="PageContainer"]
-transform = Transform3D(1, 0, 0, 0, -0.307356, -0.951593, 0, 0.951593, -0.307356, 0, -1.19209e-07, 0)
+transform = Transform3D(1, 0, 0, 0, -0.303966, -0.952681, 0, 0.952681, -0.303966, 0, -1.19209e-07, 0)
 visible = false
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="PageContainer/Page3"]
@@ -669,21 +645,21 @@ transform = Transform3D(3.90065e-09, -0.097762, -8.63155e-08, 0.0892345, 4.21593
 double_sided = false
 texture = SubResource("ViewportTexture_m7i7e")
 
-[node name="Page3_FrontContent" type="SubViewport" parent="PageContainer/Page3"]
+[node name="Page1_FrontContent" type="SubViewport" parent="PageContainer/Page3"]
 transparent_bg = true
 size = Vector2i(700, 1000)
 render_target_update_mode = 4
 
-[node name="Page1_FrontContent" parent="PageContainer/Page3/Page3_FrontContent" instance=ExtResource("2_2ecdp")]
+[node name="Page1_FrontContent" parent="PageContainer/Page3/Page1_FrontContent" instance=ExtResource("2_2ecdp")]
 
-[node name="Page3_BackContent" type="SubViewport" parent="PageContainer/Page3"]
+[node name="Page1_BackContent" type="SubViewport" parent="PageContainer/Page3"]
 transparent_bg = true
 size = Vector2i(700, 1000)
 
-[node name="Page1_BackContent" parent="PageContainer/Page3/Page3_BackContent" instance=ExtResource("3_cdgaa")]
+[node name="Page1_BackContent" parent="PageContainer/Page3/Page1_BackContent" instance=ExtResource("3_cdgaa")]
 
 [node name="Page4" type="Node3D" parent="PageContainer"]
-transform = Transform3D(1, 0, 0, 0, -0.248081, -0.968738, 0, 0.968738, -0.248081, 0, -1.19209e-07, 0)
+transform = Transform3D(1, 0, 0, 0, -0.303966, -0.952681, 0, 0.952681, -0.303966, 0, -1.19209e-07, 0)
 visible = false
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="PageContainer/Page4"]
@@ -700,21 +676,21 @@ transform = Transform3D(3.90065e-09, -0.097762, -8.63155e-08, 0.0892345, 4.21593
 double_sided = false
 texture = SubResource("ViewportTexture_exru0")
 
-[node name="Page4_FrontContent" type="SubViewport" parent="PageContainer/Page4"]
+[node name="Page2_FrontContent" type="SubViewport" parent="PageContainer/Page4"]
 transparent_bg = true
 size = Vector2i(700, 1000)
 render_target_update_mode = 4
 
-[node name="UI_Page2" parent="PageContainer/Page4/Page4_FrontContent" instance=ExtResource("2_m7i7e")]
+[node name="UI_Page2" parent="PageContainer/Page4/Page2_FrontContent" instance=ExtResource("2_m7i7e")]
 
-[node name="Page4_BackContent" type="SubViewport" parent="PageContainer/Page4"]
+[node name="Page2_BackContent" type="SubViewport" parent="PageContainer/Page4"]
 transparent_bg = true
 size = Vector2i(700, 1000)
 
-[node name="Page2_BackContent" parent="PageContainer/Page4/Page4_BackContent" instance=ExtResource("3_0dyby")]
+[node name="Page2_BackContent" parent="PageContainer/Page4/Page2_BackContent" instance=ExtResource("3_0dyby")]
 
 [node name="Page5" type="Node3D" parent="PageContainer"]
-transform = Transform3D(1, 0, 0, 0, -0.307356, -0.951593, 0, 0.951593, -0.307356, 0, -1.19209e-07, 0)
+transform = Transform3D(1, 0, 0, 0, -0.303966, -0.952681, 0, 0.952681, -0.303966, 0, -1.19209e-07, 0)
 visible = false
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="PageContainer/Page5"]
@@ -731,21 +707,21 @@ transform = Transform3D(3.90065e-09, -0.097762, -8.63155e-08, 0.0892345, 4.21593
 double_sided = false
 texture = SubResource("ViewportTexture_m7i7e")
 
-[node name="Page3_FrontContent" type="SubViewport" parent="PageContainer/Page5"]
+[node name="Page1_FrontContent" type="SubViewport" parent="PageContainer/Page5"]
 transparent_bg = true
 size = Vector2i(700, 1000)
 render_target_update_mode = 4
 
-[node name="Page1_FrontContent" parent="PageContainer/Page5/Page3_FrontContent" instance=ExtResource("2_2ecdp")]
+[node name="Page1_FrontContent" parent="PageContainer/Page5/Page1_FrontContent" instance=ExtResource("2_2ecdp")]
 
-[node name="Page3_BackContent" type="SubViewport" parent="PageContainer/Page5"]
+[node name="Page1_BackContent" type="SubViewport" parent="PageContainer/Page5"]
 transparent_bg = true
 size = Vector2i(700, 1000)
 
-[node name="Page1_BackContent" parent="PageContainer/Page5/Page3_BackContent" instance=ExtResource("3_cdgaa")]
+[node name="Page1_BackContent" parent="PageContainer/Page5/Page1_BackContent" instance=ExtResource("3_cdgaa")]
 
 [node name="Page6" type="Node3D" parent="PageContainer"]
-transform = Transform3D(1, 0, 0, 0, -0.248081, -0.968738, 0, 0.968738, -0.248081, 0, -1.19209e-07, 0)
+transform = Transform3D(1, 0, 0, 0, -0.303966, -0.952681, 0, 0.952681, -0.303966, 0, -1.19209e-07, 0)
 visible = false
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="PageContainer/Page6"]
@@ -762,18 +738,142 @@ transform = Transform3D(3.90065e-09, -0.097762, -8.63155e-08, 0.0892345, 4.21593
 double_sided = false
 texture = SubResource("ViewportTexture_exru0")
 
-[node name="Page4_FrontContent" type="SubViewport" parent="PageContainer/Page6"]
+[node name="Page2_FrontContent" type="SubViewport" parent="PageContainer/Page6"]
 transparent_bg = true
 size = Vector2i(700, 1000)
 render_target_update_mode = 4
 
-[node name="UI_Page2" parent="PageContainer/Page6/Page4_FrontContent" instance=ExtResource("2_m7i7e")]
+[node name="UI_Page2" parent="PageContainer/Page6/Page2_FrontContent" instance=ExtResource("2_m7i7e")]
 
-[node name="Page4_BackContent" type="SubViewport" parent="PageContainer/Page6"]
+[node name="Page2_BackContent" type="SubViewport" parent="PageContainer/Page6"]
 transparent_bg = true
 size = Vector2i(700, 1000)
 
-[node name="Page2_BackContent" parent="PageContainer/Page6/Page4_BackContent" instance=ExtResource("3_0dyby")]
+[node name="Page2_BackContent" parent="PageContainer/Page6/Page2_BackContent" instance=ExtResource("3_0dyby")]
+
+[node name="Page7" type="Node3D" parent="PageContainer"]
+transform = Transform3D(1, 0, 0, 0, -0.303966, -0.952681, 0, 0.952681, -0.303966, 0, -1.19209e-07, 0)
+visible = false
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="PageContainer/Page7"]
+transform = Transform3D(-0.985916, 0, 0, 0, -0.636408, -3.63798e-12, 0, 2.32831e-09, -0.00407733, -0.000726104, -0.320164, -0.00286609)
+mesh = SubResource("BoxMesh_2ecdp")
+
+[node name="Sprite3D" type="Sprite3D" parent="PageContainer/Page7"]
+transform = Transform3D(3.90065e-09, -0.097762, -8.63155e-08, 0.0892345, 4.21593e-09, 0.00661878, -0.000598213, -8.57509e-09, 0.987313, 0, -0.324054, -0.00682781)
+flip_h = true
+texture = SubResource("ViewportTexture_2ecdp")
+
+[node name="Sprite3D2" type="Sprite3D" parent="PageContainer/Page7"]
+transform = Transform3D(3.90065e-09, -0.097762, -8.63155e-08, 0.0892345, 4.21593e-09, 0.00661878, -0.000598213, -8.57509e-09, 0.987313, 0, -0.324115, 0.00217281)
+double_sided = false
+texture = SubResource("ViewportTexture_m7i7e")
+
+[node name="Page1_FrontContent" type="SubViewport" parent="PageContainer/Page7"]
+transparent_bg = true
+size = Vector2i(700, 1000)
+render_target_update_mode = 4
+
+[node name="Page1_FrontContent" parent="PageContainer/Page7/Page1_FrontContent" instance=ExtResource("2_2ecdp")]
+
+[node name="Page1_BackContent" type="SubViewport" parent="PageContainer/Page7"]
+transparent_bg = true
+size = Vector2i(700, 1000)
+
+[node name="Page1_BackContent" parent="PageContainer/Page7/Page1_BackContent" instance=ExtResource("3_cdgaa")]
+
+[node name="Page8" type="Node3D" parent="PageContainer"]
+transform = Transform3D(1, 0, 0, 0, -0.303966, -0.952681, 0, 0.952681, -0.303966, 0, -1.19209e-07, 0)
+visible = false
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="PageContainer/Page8"]
+transform = Transform3D(-0.985916, 0, 0, 0, -0.636408, -3.63798e-12, 0, 2.32831e-09, -0.00407733, -0.000726104, -0.320164, -0.00286609)
+mesh = SubResource("BoxMesh_2ecdp")
+
+[node name="Sprite3D" type="Sprite3D" parent="PageContainer/Page8"]
+transform = Transform3D(3.90065e-09, -0.097762, -8.63155e-08, 0.0892345, 4.21593e-09, 0.00661878, -0.000598213, -8.57509e-09, 0.987313, 0, -0.324054, -0.00682781)
+flip_h = true
+texture = SubResource("ViewportTexture_fiu20")
+
+[node name="Sprite3D2" type="Sprite3D" parent="PageContainer/Page8"]
+transform = Transform3D(3.90065e-09, -0.097762, -8.63155e-08, 0.0892345, 4.21593e-09, 0.00661878, -0.000598213, -8.57509e-09, 0.987313, 0, -0.324115, 0.00217281)
+double_sided = false
+texture = SubResource("ViewportTexture_exru0")
+
+[node name="Page2_FrontContent" type="SubViewport" parent="PageContainer/Page8"]
+transparent_bg = true
+size = Vector2i(700, 1000)
+render_target_update_mode = 4
+
+[node name="UI_Page2" parent="PageContainer/Page8/Page2_FrontContent" instance=ExtResource("2_m7i7e")]
+
+[node name="Page2_BackContent" type="SubViewport" parent="PageContainer/Page8"]
+transparent_bg = true
+size = Vector2i(700, 1000)
+
+[node name="Page2_BackContent" parent="PageContainer/Page8/Page2_BackContent" instance=ExtResource("3_0dyby")]
+
+[node name="Page9" type="Node3D" parent="PageContainer"]
+transform = Transform3D(1, 0, 0, 0, -0.303966, -0.952681, 0, 0.952681, -0.303966, 0, -1.19209e-07, 0)
+visible = false
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="PageContainer/Page9"]
+transform = Transform3D(-0.985916, 0, 0, 0, -0.636408, -3.63798e-12, 0, 2.32831e-09, -0.00407733, -0.000726104, -0.320164, -0.00286609)
+mesh = SubResource("BoxMesh_2ecdp")
+
+[node name="Sprite3D" type="Sprite3D" parent="PageContainer/Page9"]
+transform = Transform3D(3.90065e-09, -0.097762, -8.63155e-08, 0.0892345, 4.21593e-09, 0.00661878, -0.000598213, -8.57509e-09, 0.987313, 0, -0.324054, -0.00682781)
+flip_h = true
+texture = SubResource("ViewportTexture_2ecdp")
+
+[node name="Sprite3D2" type="Sprite3D" parent="PageContainer/Page9"]
+transform = Transform3D(3.90065e-09, -0.097762, -8.63155e-08, 0.0892345, 4.21593e-09, 0.00661878, -0.000598213, -8.57509e-09, 0.987313, 0, -0.324115, 0.00217281)
+double_sided = false
+texture = SubResource("ViewportTexture_m7i7e")
+
+[node name="Page1_FrontContent" type="SubViewport" parent="PageContainer/Page9"]
+transparent_bg = true
+size = Vector2i(700, 1000)
+render_target_update_mode = 4
+
+[node name="Page1_FrontContent" parent="PageContainer/Page9/Page1_FrontContent" instance=ExtResource("2_2ecdp")]
+
+[node name="Page1_BackContent" type="SubViewport" parent="PageContainer/Page9"]
+transparent_bg = true
+size = Vector2i(700, 1000)
+
+[node name="Page1_BackContent" parent="PageContainer/Page9/Page1_BackContent" instance=ExtResource("3_cdgaa")]
+
+[node name="Page10" type="Node3D" parent="PageContainer"]
+transform = Transform3D(1, 0, 0, 0, -0.303966, -0.952681, 0, 0.952681, -0.303966, 0, -1.19209e-07, 0)
+visible = false
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="PageContainer/Page10"]
+transform = Transform3D(-0.985916, 0, 0, 0, -0.636408, -3.63798e-12, 0, 2.32831e-09, -0.00407733, -0.000726104, -0.320164, -0.00286609)
+mesh = SubResource("BoxMesh_2ecdp")
+
+[node name="Sprite3D" type="Sprite3D" parent="PageContainer/Page10"]
+transform = Transform3D(3.90065e-09, -0.097762, -8.63155e-08, 0.0892345, 4.21593e-09, 0.00661878, -0.000598213, -8.57509e-09, 0.987313, 0, -0.324054, -0.00682781)
+flip_h = true
+texture = SubResource("ViewportTexture_fiu20")
+
+[node name="Sprite3D2" type="Sprite3D" parent="PageContainer/Page10"]
+transform = Transform3D(3.90065e-09, -0.097762, -8.63155e-08, 0.0892345, 4.21593e-09, 0.00661878, -0.000598213, -8.57509e-09, 0.987313, 0, -0.324115, 0.00217281)
+double_sided = false
+texture = SubResource("ViewportTexture_exru0")
+
+[node name="Page2_FrontContent" type="SubViewport" parent="PageContainer/Page10"]
+transparent_bg = true
+size = Vector2i(700, 1000)
+render_target_update_mode = 4
+
+[node name="UI_Page2" parent="PageContainer/Page10/Page2_FrontContent" instance=ExtResource("2_m7i7e")]
+
+[node name="Page2_BackContent" type="SubViewport" parent="PageContainer/Page10"]
+transparent_bg = true
+size = Vector2i(700, 1000)
+
+[node name="Page2_BackContent" parent="PageContainer/Page10/Page2_BackContent" instance=ExtResource("3_0dyby")]
 
 [node name="Collider" type="CollisionShape3D" parent="."]
 shape = SubResource("BoxShape3D_obgbs")
