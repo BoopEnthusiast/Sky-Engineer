@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://bxfp6vwwufuht"]
+
+[ext_resource type="Script" uid="uid://clbiwpac184qw" path="res://interactibles/item_components/magnetic_shape.gd" id="1_11pfi"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_moufg"]
+
+[node name="MagneticShape" type="Area3D" groups=["Magnetic"]]
+script = ExtResource("1_11pfi")
+
+[node name="Collider" type="CollisionShape3D" parent="."]
+shape = SubResource("SphereShape3D_moufg")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="area_exited" from="." to="." method="_on_area_exited"]

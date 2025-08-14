@@ -27,18 +27,16 @@ func _ready() -> void:
 		return
 	
 	assert(is_instance_valid(item_to_grab), "The item: " + get_parent().name + " does not have its item_to_grab set. Node at: " + get_path().get_concatenated_names())
-	
-	# Make sure the item_to_grab is ready
-	if not item_to_grab.is_node_ready():
-		await item_to_grab.ready
-	
-	# TODO: Something, I forgot, maybe remove this and the if statement checking if it's ready?
 
 
-func _process(delta):
+func _physics_process(delta):
 	if is_currently_grabbed:
 		var weight: float = 1 - exp(-grab_weight * delta)
+		if get_tree().get_frame() % 60 == 0:
+			print("Grabbable item: " + item_to_grab.name) 
+			print(item_to_grab.global_position)
 		item_to_grab.global_position = item_to_grab.global_position.lerp(Nodes.player.point_manipulator.global_position, weight)
+		if get_tree().get_frame() % 60 == 0: print(item_to_grab.global_position)
 		Nodes.world.selector_mesh.global_position = global_position
 
 

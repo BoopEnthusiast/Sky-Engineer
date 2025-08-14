@@ -24,14 +24,14 @@ var _previous_closest_item: ItemShape
 @onready var _inventory_selector: InventorySelector = $InventorySelector
 
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	_interact_with_inventory_slot()
 	
 	_update_global_variables()
 	
 	_find_closest_items()
 	
-	_move_grabbed_items(delta)
+	_move_grabbed_items()
 
 
 func _interact_with_inventory_slot() -> void:
@@ -95,7 +95,7 @@ func _find_closest_items() -> void:
 				_selector_mesh.global_position = _selected_item_to_grab.global_position
 
 
-func _move_grabbed_items(delta: float) -> void:
+func _move_grabbed_items() -> void:
 	if Input.is_action_just_pressed(&"select"):
 		match _closest_found_thing_type:
 			Player.Grabbable.VERTEX:

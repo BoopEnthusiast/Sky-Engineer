@@ -22,7 +22,7 @@ func _on_area_shape_entered(_area_rid: RID, area: Area3D, _area_shape_index: int
 	var closest_item: ItemShape = area
 	var closest_distance: float = global_position.distance_squared_to(area.global_position)
 	for selectable_item: ItemShape in selectable_items:
-		if selectable_item == closest_item or not selectable_item.can_be_grabbed:
+		if selectable_item == closest_item or not selectable_item.can_be_interacted_with:
 			continue
 		
 		var distance_to_item: float = global_position.distance_squared_to(selectable_item.global_position)

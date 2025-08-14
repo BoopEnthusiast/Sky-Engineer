@@ -23,6 +23,10 @@ Debug="*res://globals/debug/debug.gd"
 Paths="*res://globals/paths.gd"
 Recipes="*res://globals/recipes.gd"
 
+[global_group]
+
+Magnetic="The default group for MagneticShapes to attract"
+
 [input]
 
 look_left={

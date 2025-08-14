@@ -65,5 +65,5 @@ func closest_item_to_selector() -> void:
 ## Handles removing the outlines from [member outline_when_grabbed] or emits [signal no_longer_closest_item_to_grab].
 func no_longer_closest_item_to_selector() -> void:
 	if outline_when_interactible.size() == 0:
-		closest_item_to_interact_with.emit()
+		no_longer_closest_item_to_interact_with.emit()
 		return
