@@ -32,11 +32,7 @@ func _ready() -> void:
 func _physics_process(delta):
 	if is_currently_grabbed:
 		var weight: float = 1 - exp(-grab_weight * delta)
-		if get_tree().get_frame() % 60 == 0:
-			print("Grabbable item: " + item_to_grab.name) 
-			print(item_to_grab.global_position)
 		item_to_grab.global_position = item_to_grab.global_position.lerp(Nodes.player.point_manipulator.global_position, weight)
-		if get_tree().get_frame() % 60 == 0: print(item_to_grab.global_position)
 		Nodes.world.selector_mesh.global_position = global_position
 
 
