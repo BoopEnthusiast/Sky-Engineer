@@ -68,17 +68,19 @@ collide_with_bodies = false
 
 [node name="ReferenceCamera" type="Camera3D" parent="."]
 
-[node name="Counters" parent="." node_paths=PackedStringArray("counterpart_in_2d", "remote_transform") instance=ExtResource("2_bx01g")]
+[node name="Counters" parent="." node_paths=PackedStringArray("counterpart_in_2d", "reference_camera", "remote_transform") instance=ExtResource("2_bx01g")]
 counterpart_in_2d = NodePath("../Menu2D/Inventory/Counters")
+reference_camera = NodePath("../ReferenceCamera")
 remote_transform = NodePath("../Menu3D/Counters")
 
 [node name="Inventory" type="Node3D" parent="."]
 visible = false
 script = ExtResource("3_15prt")
 
-[node name="Inventory3D" parent="Inventory" node_paths=PackedStringArray("counterpart_in_2d", "remote_transform", "collision_area") instance=ExtResource("4_15prt")]
+[node name="Inventory3D" parent="Inventory" node_paths=PackedStringArray("counterpart_in_2d", "reference_camera", "remote_transform", "collision_area") instance=ExtResource("4_15prt")]
 z_depth = 3.0
 counterpart_in_2d = NodePath("../../Menu2D/Inventory")
+reference_camera = NodePath("../../ReferenceCamera")
 remote_transform = NodePath("../../Menu3D/Inventory")
 follow_mouse = true
 collision_area = NodePath("../../Menu2D/Inventory/InventoryArea")

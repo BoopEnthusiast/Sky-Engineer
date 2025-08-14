@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://bqr0cll00ttp"]
+
+[node name="MainMenu" type="Node"]
+
+[node name="MainMenu3D" type="Node3D" parent="."]
+
+[node name="MenuCamera" type="Camera3D" parent="MainMenu3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 5)
+
+[node name="ReferenceCamera" type="Camera3D" parent="." groups=["Reference Camera"]]
