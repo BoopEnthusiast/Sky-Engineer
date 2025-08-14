@@ -43,6 +43,7 @@ func _physics_process(delta):
 ## Do most of the things required to put the item into the [Inventory], including moving the [member item_to_grab] to the [param inventory_slot].
 func put_item_into_inventory(inventory_slot: InventorySlot) -> void:
 	can_be_interacted_with = false
+	is_currently_grabbed = false
 	inventory_slot.currently_held_item = self
 	item_to_grab.get_parent().remove_child(item_to_grab)
 	inventory_slot.add_child(item_to_grab)
@@ -53,6 +54,7 @@ func put_item_into_inventory(inventory_slot: InventorySlot) -> void:
 ## Do most of the things required to take the item from the [Inventory], including moving the [member item_to_grab] from the [param inventory_slot] to the world.
 func take_item_from_inventory(inventory_slot: InventorySlot) -> void:
 	can_be_interacted_with = true
+	is_currently_grabbed = true
 	inventory_slot.currently_held_item = null
 	var previous_global_position := item_to_grab.global_position
 	var parent := item_to_grab.get_parent()
