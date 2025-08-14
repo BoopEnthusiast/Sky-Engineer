@@ -6,7 +6,7 @@ const NEAREST_POINTS_COUNT = 2
 const MAX_CONNECTING_DISTANCE = 7
 const MAX_SELECTING_DISTANCE = 1
 
-const VERTEX_POINT = preload("res://vfx/vertex_point.tscn")
+const VERTEX_POINT = preload("res://interactibles/vertex_point.tscn")
 const DRAG_SPEED = 25.0
 
 @export var building_index: int = 0
