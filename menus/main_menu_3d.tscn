@@ -1,4 +1,8 @@
-[gd_scene format=3 uid="uid://bqr0cll00ttp"]
+[gd_scene load_steps=3 format=3 uid="uid://bqr0cll00ttp"]
+
+[ext_resource type="Script" uid="uid://cccogxgxx14v1" path="res://interactibles/menu/projected_menu_item.gd" id="1_bjpdq"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_0wd3e"]
 
 [node name="MainMenu" type="Node"]
 
@@ -7,3 +11,19 @@
 [node name="MenuCamera" type="Camera3D" parent="MainMenu3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3)
 current = true
+
+[node name="MainMenu2D" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Play" type="Node3D" parent="."]
+script = ExtResource("1_bjpdq")
+
+[node name="PlayButton" type="StaticBody3D" parent="Play"]
+
+[node name="Collider" type="CollisionShape3D" parent="Play/PlayButton"]
+shape = SubResource("BoxShape3D_0wd3e")

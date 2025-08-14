@@ -17,6 +17,9 @@ size = Vector3(0.1, 3, 0.1)
 
 [node name="Inventory3D" type="Node3D"]
 script = ExtResource("1_d8cnk")
+z_depth = 3.0
+follow_mouse = true
+update_position_while_invisible = false
 
 [node name="Wall" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.05)

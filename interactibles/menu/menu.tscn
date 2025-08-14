@@ -75,8 +75,6 @@ visible = false
 script = ExtResource("3_15prt")
 
 [node name="Inventory3D" parent="Inventory" node_paths=PackedStringArray("counterpart_in_2d", "remote_transform", "collision_area") instance=ExtResource("4_15prt")]
-z_depth = 3.0
 counterpart_in_2d = NodePath("../../Menu2D/Inventory")
 remote_transform = NodePath("../../Menu3D/Inventory")
-follow_mouse = true
 collision_area = NodePath("../../Menu2D/Inventory/InventoryArea")

@@ -63,7 +63,11 @@ extends Node3D
 ## unnecessary math for the position and will be reset anyway when it's made visible. 
 @export var update_position_while_invisible: bool = true
 
+@export_group("2D Scaling")
+@export var scales_with_2d_counterpart: bool = false
+
 var _reference_camera: Camera3D
+var _initial_2d_counterpart_size: Vector2
 
 
 func _ready() -> void:
@@ -71,11 +75,14 @@ func _ready() -> void:
 	_reference_camera = Camera3D.new()
 	add_child(new_node)
 	new_node.add_child(_reference_camera)
+	
+	_initial_2d_counterpart_size = counterpart_in_2d.size
 
 
 func _process(delta: float) -> void:
 	_handle_position(delta)
 	_handle_rotation(delta)
+	_handle_scale()
 
 
 ## Moves the global position to the remote transform's global position.[br]
@@ -188,3 +195,15 @@ func _handle_rotation(delta: float) -> void:
 	var weight: float = 1 - exp(-turn_slerp_speed * delta) # Makes it framerate-independent like it says in:
 	# https://docs.godotengine.org/en/stable/tutorials/math/interpolation.html#smoothing-motion
 	global_basis = global_basis.slerp(new_basis, weight)
+
+
+func _handle_scale() -> void:
+	if not scales_with_2d_counterpart:
+		return
+	
+	var counterpart_2d_rect_size := counterpart_in_2d.size
+	
+	var difference := (_initial_2d_counterpart_size - counterpart_2d_rect_size) / ((_initial_2d_counterpart_size + counterpart_2d_rect_size) / 2)
+	
+	scale.x = difference.x
+	scale.y = difference.y
