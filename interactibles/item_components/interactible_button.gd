@@ -15,3 +15,9 @@ signal button_pressed(toggled: bool)
 ## If this node is toggled on or not.
 ## The only affect this has is what [signal button_pressed] returns, which is the opposite of this and then this variable is flipped.
 @export var toggled_on: bool = false
+
+
+## Presses the button
+func start_interacting_with() -> void:
+	toggled_on = not toggled_on
+	button_pressed.emit(toggled_on)
