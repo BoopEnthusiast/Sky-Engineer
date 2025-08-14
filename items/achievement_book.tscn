@@ -28,7 +28,7 @@ viewport_path = NodePath("PageContainer/Page1/Page1_BackContent")
 [sub_resource type="ViewportTexture" id="ViewportTexture_fiu20"]
 viewport_path = NodePath("PageContainer/Page2/Page2_FrontContent")
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_0dyby"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_exru0"]
 viewport_path = NodePath("PageContainer/Page2/Page2_BackContent")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_obgbs"]
@@ -111,46 +111,6 @@ tracks/7/path = NodePath("PageContainer/Page1:rotation:z")
 tracks/7/interp = 1
 tracks/7/loop_wrap = true
 tracks/7/keys = {
-"handle_modes": PackedInt32Array(0, 0),
-"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0, 1.2)
-}
-tracks/8/type = "rotation_3d"
-tracks/8/imported = false
-tracks/8/enabled = true
-tracks/8/path = NodePath("PageContainer/Page2")
-tracks/8/interp = 1
-tracks/8/loop_wrap = true
-tracks/8/keys = PackedFloat32Array()
-tracks/9/type = "bezier"
-tracks/9/imported = false
-tracks/9/enabled = true
-tracks/9/path = NodePath("PageContainer/Page2:rotation:x")
-tracks/9/interp = 1
-tracks/9/loop_wrap = true
-tracks/9/keys = {
-"handle_modes": PackedInt32Array(0, 0),
-"points": PackedFloat32Array(-0.654568, -0.25, 0, 0.25, 0, -0.932006, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0, 1.2)
-}
-tracks/10/type = "bezier"
-tracks/10/imported = false
-tracks/10/enabled = true
-tracks/10/path = NodePath("PageContainer/Page2:rotation:y")
-tracks/10/interp = 1
-tracks/10/loop_wrap = true
-tracks/10/keys = {
-"handle_modes": PackedInt32Array(0, 0),
-"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0, 1.2)
-}
-tracks/11/type = "bezier"
-tracks/11/imported = false
-tracks/11/enabled = true
-tracks/11/path = NodePath("PageContainer/Page2:rotation:z")
-tracks/11/interp = 1
-tracks/11/loop_wrap = true
-tracks/11/keys = {
 "handle_modes": PackedInt32Array(0, 0),
 "points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0),
 "times": PackedFloat32Array(0, 1.2)
@@ -355,46 +315,6 @@ tracks/6/keys = {
 "update": 0,
 "values": [Vector3(1.57567, 0, 0), Vector3(1.88394, 0, 0)]
 }
-tracks/7/type = "rotation_3d"
-tracks/7/imported = false
-tracks/7/enabled = true
-tracks/7/path = NodePath("PageContainer/Page2")
-tracks/7/interp = 1
-tracks/7/loop_wrap = true
-tracks/7/keys = PackedFloat32Array()
-tracks/8/type = "bezier"
-tracks/8/imported = false
-tracks/8/enabled = true
-tracks/8/path = NodePath("PageContainer/Page2:rotation:x")
-tracks/8/interp = 1
-tracks/8/loop_wrap = true
-tracks/8/keys = {
-"handle_modes": PackedInt32Array(0, 0),
-"points": PackedFloat32Array(-0.932617, -0.25, 0, 0.25, 0, -0.654568, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0, 1.2)
-}
-tracks/9/type = "bezier"
-tracks/9/imported = false
-tracks/9/enabled = true
-tracks/9/path = NodePath("PageContainer/Page2:rotation:y")
-tracks/9/interp = 1
-tracks/9/loop_wrap = true
-tracks/9/keys = {
-"handle_modes": PackedInt32Array(0, 0),
-"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0, 1.2)
-}
-tracks/10/type = "bezier"
-tracks/10/imported = false
-tracks/10/enabled = true
-tracks/10/path = NodePath("PageContainer/Page2:rotation:z")
-tracks/10/interp = 1
-tracks/10/loop_wrap = true
-tracks/10/keys = {
-"handle_modes": PackedInt32Array(0, 0),
-"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0, 1.2)
-}
 
 [sub_resource type="Animation" id="Animation_2ecdp"]
 resource_name = "Page1 flip"
@@ -420,46 +340,6 @@ tracks/1/keys = {
 
 [sub_resource type="Animation" id="Animation_0dyby"]
 resource_name = "Page 2 flip"
-tracks/0/type = "rotation_3d"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("PageContainer/Page2")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = PackedFloat32Array()
-tracks/1/type = "bezier"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("PageContainer/Page2:rotation:x")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"handle_modes": PackedInt32Array(0, 0),
-"points": PackedFloat32Array(-0.654498, -0.25, 0, 0.25, 0, 1.86005, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0, 1)
-}
-tracks/2/type = "bezier"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("PageContainer/Page2:rotation:y")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"handle_modes": PackedInt32Array(0, 0),
-"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0, 1)
-}
-tracks/3/type = "bezier"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("PageContainer/Page2:rotation:z")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"handle_modes": PackedInt32Array(0, 0),
-"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0, 1)
-}
 
 [sub_resource type="Animation" id="Animation_kte5c"]
 length = 1.2
@@ -535,18 +415,18 @@ tracks/5/keys = {
 tracks/6/type = "bezier"
 tracks/6/imported = false
 tracks/6/enabled = true
-tracks/6/path = NodePath("PageContainer/Page2:rotation:x")
+tracks/6/path = NodePath("PageContainer/Page1:rotation:x")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/keys = {
 "handle_modes": PackedInt32Array(0),
-"points": PackedFloat32Array(-0.932617, -0.25, 0, 0.25, 0),
+"points": PackedFloat32Array(1.88321, -0.25, 0, 0.25, 0),
 "times": PackedFloat32Array(0)
 }
 tracks/7/type = "bezier"
 tracks/7/imported = false
 tracks/7/enabled = true
-tracks/7/path = NodePath("PageContainer/Page2:rotation:y")
+tracks/7/path = NodePath("PageContainer/Page1:rotation:y")
 tracks/7/interp = 1
 tracks/7/loop_wrap = true
 tracks/7/keys = {
@@ -557,7 +437,7 @@ tracks/7/keys = {
 tracks/8/type = "bezier"
 tracks/8/imported = false
 tracks/8/enabled = true
-tracks/8/path = NodePath("PageContainer/Page2:rotation:z")
+tracks/8/path = NodePath("PageContainer/Page1:rotation:z")
 tracks/8/interp = 1
 tracks/8/loop_wrap = true
 tracks/8/keys = {
@@ -568,18 +448,18 @@ tracks/8/keys = {
 tracks/9/type = "bezier"
 tracks/9/imported = false
 tracks/9/enabled = true
-tracks/9/path = NodePath("PageContainer/Page1:rotation:x")
+tracks/9/path = NodePath(".:position:x")
 tracks/9/interp = 1
 tracks/9/loop_wrap = true
 tracks/9/keys = {
 "handle_modes": PackedInt32Array(0),
-"points": PackedFloat32Array(1.88321, -0.25, 0, 0.25, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
 "times": PackedFloat32Array(0)
 }
 tracks/10/type = "bezier"
 tracks/10/imported = false
 tracks/10/enabled = true
-tracks/10/path = NodePath("PageContainer/Page1:rotation:y")
+tracks/10/path = NodePath(".:position:y")
 tracks/10/interp = 1
 tracks/10/loop_wrap = true
 tracks/10/keys = {
@@ -590,7 +470,7 @@ tracks/10/keys = {
 tracks/11/type = "bezier"
 tracks/11/imported = false
 tracks/11/enabled = true
-tracks/11/path = NodePath("PageContainer/Page1:rotation:z")
+tracks/11/path = NodePath(".:position:z")
 tracks/11/interp = 1
 tracks/11/loop_wrap = true
 tracks/11/keys = {
@@ -601,18 +481,18 @@ tracks/11/keys = {
 tracks/12/type = "bezier"
 tracks/12/imported = false
 tracks/12/enabled = true
-tracks/12/path = NodePath(".:position:x")
+tracks/12/path = NodePath("RightCover:rotation:x")
 tracks/12/interp = 1
 tracks/12/loop_wrap = true
 tracks/12/keys = {
 "handle_modes": PackedInt32Array(0),
-"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"points": PackedFloat32Array(0.218166, -0.25, 0, 0.25, 0),
 "times": PackedFloat32Array(0)
 }
 tracks/13/type = "bezier"
 tracks/13/imported = false
 tracks/13/enabled = true
-tracks/13/path = NodePath(".:position:y")
+tracks/13/path = NodePath("RightCover:rotation:y")
 tracks/13/interp = 1
 tracks/13/loop_wrap = true
 tracks/13/keys = {
@@ -623,43 +503,10 @@ tracks/13/keys = {
 tracks/14/type = "bezier"
 tracks/14/imported = false
 tracks/14/enabled = true
-tracks/14/path = NodePath(".:position:z")
+tracks/14/path = NodePath("RightCover:rotation:z")
 tracks/14/interp = 1
 tracks/14/loop_wrap = true
 tracks/14/keys = {
-"handle_modes": PackedInt32Array(0),
-"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0)
-}
-tracks/15/type = "bezier"
-tracks/15/imported = false
-tracks/15/enabled = true
-tracks/15/path = NodePath("RightCover:rotation:x")
-tracks/15/interp = 1
-tracks/15/loop_wrap = true
-tracks/15/keys = {
-"handle_modes": PackedInt32Array(0),
-"points": PackedFloat32Array(0.218166, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0)
-}
-tracks/16/type = "bezier"
-tracks/16/imported = false
-tracks/16/enabled = true
-tracks/16/path = NodePath("RightCover:rotation:y")
-tracks/16/interp = 1
-tracks/16/loop_wrap = true
-tracks/16/keys = {
-"handle_modes": PackedInt32Array(0),
-"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0)
-}
-tracks/17/type = "bezier"
-tracks/17/imported = false
-tracks/17/enabled = true
-tracks/17/path = NodePath("RightCover:rotation:z")
-tracks/17/interp = 1
-tracks/17/loop_wrap = true
-tracks/17/keys = {
 "handle_modes": PackedInt32Array(0),
 "points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
 "times": PackedFloat32Array(0)
@@ -785,28 +632,28 @@ size = Vector2i(700, 1000)
 [node name="Page1_BackContent" parent="PageContainer/Page1/Page1_BackContent" instance=ExtResource("3_cdgaa")]
 
 [node name="Page2" type="Node3D" parent="PageContainer"]
-transform = Transform3D(1, 0, 0, 0, 0.595734, 0.803181, 0, -0.803181, 0.595734, 0, 0, 0)
+transform = Transform3D(1, 0, 0, 0, -0.248081, -0.968738, 0, 0.968738, -0.248081, 0, -1.19209e-07, 0)
 
-[node name="Sprite3D3" type="Sprite3D" parent="PageContainer/Page2"]
-transform = Transform3D(3.90065e-09, -0.097762, -1.49083e-07, -0.0709521, 5.55484e-09, -0.598793, 0.0541196, 1.43287e-08, -0.785032, 0.0012334, 0.261137, -0.190648)
+[node name="MeshInstance3D" type="MeshInstance3D" parent="PageContainer/Page2"]
+transform = Transform3D(-0.985916, 0, 0, 0, -0.636408, -3.63798e-12, 0, 2.32831e-09, -0.00407733, -0.000726104, -0.320164, -0.00286609)
+mesh = SubResource("BoxMesh_2ecdp")
+
+[node name="Sprite3D" type="Sprite3D" parent="PageContainer/Page2"]
+transform = Transform3D(3.90065e-09, -0.097762, -8.63155e-08, 0.0892345, 4.21593e-09, 0.00661878, -0.000598213, -8.57509e-09, 0.987313, 0, -0.324054, -0.00682781)
 flip_h = true
 texture = SubResource("ViewportTexture_fiu20")
 
-[node name="Sprite3D4" type="Sprite3D" parent="PageContainer/Page2"]
-transform = Transform3D(3.90065e-09, -0.097762, -1.49083e-07, -0.0709521, 5.55484e-09, -0.598793, 0.0541196, 1.43287e-08, -0.785032, 0.0012334, 0.255652, -0.197838)
+[node name="Sprite3D2" type="Sprite3D" parent="PageContainer/Page2"]
+transform = Transform3D(3.90065e-09, -0.097762, -8.63155e-08, 0.0892345, 4.21593e-09, 0.00661878, -0.000598213, -8.57509e-09, 0.987313, 0, -0.324115, 0.00217281)
 double_sided = false
-texture = SubResource("ViewportTexture_0dyby")
-
-[node name="MeshInstance3D2" type="MeshInstance3D" parent="PageContainer/Page2"]
-transform = Transform3D(-0.985916, 0, 0, 0, 0.504775, 0.00248313, 0, -0.387578, 0.00323398, -0.000726104, 0.255687, -0.192709)
-mesh = SubResource("BoxMesh_2ecdp")
-skeleton = NodePath("../../Page1")
+texture = SubResource("ViewportTexture_exru0")
 
 [node name="Page2_FrontContent" type="SubViewport" parent="PageContainer/Page2"]
 transparent_bg = true
 size = Vector2i(700, 1000)
+render_target_update_mode = 4
 
-[node name="Page2_FrontContent" parent="PageContainer/Page2/Page2_FrontContent" instance=ExtResource("2_m7i7e")]
+[node name="UI_Page2" parent="PageContainer/Page2/Page2_FrontContent" instance=ExtResource("2_m7i7e")]
 
 [node name="Page2_BackContent" type="SubViewport" parent="PageContainer/Page2"]
 transparent_bg = true
