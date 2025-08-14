@@ -10,6 +10,7 @@ var _is_closest_building_valid: bool
 var _selected_item: ItemShape
 var _selected_item_to_grab: Node3D
 var _is_selected_item_valid: bool
+var _is_selected_item_grabbable: bool
 
 var _selector_mesh: MeshInstance3D = Nodes.world.selector_mesh
 
@@ -62,7 +63,8 @@ func _update_global_variables() -> void:
 	
 	_selected_item = _item_selector.selected_item
 	_is_selected_item_valid = is_instance_valid(_selected_item)
-	if _is_selected_item_valid:
+	_is_selected_item_grabbable = _selected_item is GrabbableItem
+	if _is_selected_item_valid and _is_selected_item_grabbable:
 		_selected_item_to_grab = _selected_item.item_to_grab
 	
 	_selector_mesh = Nodes.world.selector_mesh
@@ -88,11 +90,18 @@ func _find_closest_items() -> void:
 		
 		# Check if the item selected is closer than the building
 		if _is_selected_item_valid:
-			var distance_to_item = _selected_item_to_grab.global_position.distance_squared_to(_player.point_manipulator.global_position)
+			var distance_to_item: float
+			if _is_selected_item_grabbable:
+				distance_to_item = _selected_item_to_grab.global_position.distance_squared_to(_player.point_manipulator.global_position)
+			else:
+				distance_to_item = _selected_item.global_position.distance_squared_to(_player.point_manipulator.global_position)
 			if distance_to_item < _closest_found_thing_distance:
 				_closest_found_thing_type = Player.Grabbable.ITEM
 				_closest_found_thing_distance = distance_to_item
-				_selector_mesh.global_position = _selected_item_to_grab.global_position
+				if _is_selected_item_grabbable:
+					_selector_mesh.global_position = _selected_item_to_grab.global_position
+				else:
+					_selector_mesh.global_position = _selected_item.global_position
 
 
 func _move_grabbed_items() -> void:
