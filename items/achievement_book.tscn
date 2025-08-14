@@ -1,8 +1,8 @@
-[gd_scene load_steps=25 format=3 uid="uid://51vq4jifog5g"]
+[gd_scene load_steps=24 format=3 uid="uid://51vq4jifog5g"]
 
 [ext_resource type="Script" uid="uid://bhgnv6yva4lmv" path="res://items/achievement_book.gd" id="1_kte5c"]
 [ext_resource type="PackedScene" uid="uid://cg2afeyy1kh8t" path="res://items/page_1_front_content.tscn" id="2_2ecdp"]
-[ext_resource type="Script" uid="uid://bhp216l3sqvnc" path="res://items/page_container.gd" id="2_fiu20"]
+[ext_resource type="PackedScene" uid="uid://cm50iq55vf512" path="res://interactibles/item_components/interactible_button.tscn" id="2_exru0"]
 [ext_resource type="PackedScene" uid="uid://ixphkp33vpxg" path="res://items/page_2_front_content.tscn" id="2_m7i7e"]
 [ext_resource type="PackedScene" uid="uid://brn37ucrk8kjq" path="res://items/page_2_back_content.tscn" id="3_0dyby"]
 [ext_resource type="PackedScene" uid="uid://b8rqv12sglaq7" path="res://items/page_1_back_content.tscn" id="3_cdgaa"]
@@ -13,9 +13,6 @@ size = Vector3(1, 0.05, 0.7)
 
 [sub_resource type="BoxMesh" id="BoxMesh_ut8ve"]
 size = Vector3(1, 0.05, 0.7)
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_2ecdp"]
-size = Vector3(0.1, 0.1, 0.1)
 
 [sub_resource type="BoxMesh" id="BoxMesh_2ecdp"]
 
@@ -574,11 +571,8 @@ shape = SubResource("BoxShape3D_ut8ve")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.025, -0.35)
 mesh = SubResource("BoxMesh_ut8ve")
 
-[node name="PageFlipButtonRight" type="Area3D" parent="RightCover"]
-transform = Transform3D(1, 0, 0, 0, 0.953191, 0.30237, 0, -0.30237, 0.953191, 0.202444, -0.237684, -0.749275)
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="RightCover/PageFlipButtonRight"]
-shape = SubResource("BoxShape3D_2ecdp")
+[node name="TurnPageForwardButton" parent="RightCover" instance=ExtResource("2_exru0")]
+transform = Transform3D(1, 0, 0, 0, 0.976296, 0.216439, 0, -0.216439, 0.976296, 0.289651, 0.16936, 0.463251)
 
 [node name="Left Cover" type="AnimatableBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.95424, 0.299039, 0, -0.299039, 0.95424, 0, 0, 0)
@@ -592,14 +586,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.025, 0.35)
 mesh = SubResource("BoxMesh_ut8ve")
 skeleton = NodePath("../../RightCover")
 
-[node name="PageFlipButtonLeft" type="Area3D" parent="Left Cover"]
-transform = Transform3D(1, 0, 0, 0, 0.95424, -0.299041, 0, 0.299041, 0.95424, 0.202444, -0.186411, 0.594839)
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Left Cover/PageFlipButtonLeft"]
-shape = SubResource("BoxShape3D_2ecdp")
+[node name="TurnPageBackwardButton" parent="Left Cover" instance=ExtResource("2_exru0")]
+transform = Transform3D(1, 0, 0, 0, 0.954242, -0.29904, 0, 0.29904, 0.954242, 0.289651, 0.271304, -0.513728)
 
 [node name="PageContainer" type="Node3D" parent="."]
-script = ExtResource("2_fiu20")
 
 [node name="Page1" type="Node3D" parent="PageContainer"]
 transform = Transform3D(1, 0, 0, 0, -0.307356, -0.951593, 0, 0.951593, -0.307356, 0, -1.19209e-07, 0)
@@ -796,5 +786,5 @@ libraries = {
 [node name="GrabbableItem" parent="." node_paths=PackedStringArray("item_to_grab") instance=ExtResource("7_fiu20")]
 item_to_grab = NodePath("..")
 
-[connection signal="input_event" from="RightCover/PageFlipButtonRight" to="." method="_on_page_flip_button_right_input_event"]
-[connection signal="input_event" from="Left Cover/PageFlipButtonLeft" to="." method="_on_page_flip_button_left_input_event"]
+[connection signal="button_pressed" from="RightCover/TurnPageForwardButton" to="." method="_on_turn_page_forward_button_button_pressed"]
+[connection signal="button_pressed" from="Left Cover/TurnPageBackwardButton" to="." method="_on_turn_page_backward_button_button_pressed"]
