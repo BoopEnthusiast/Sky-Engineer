@@ -23,6 +23,19 @@ Debug="*res://globals/debug/debug.gd"
 Paths="*res://globals/paths.gd"
 Recipes="*res://globals/recipes.gd"
 
+[file_customization]
+
+folder_colors={
+"res://globals/": "yellow",
+"res://interactibles/": "pink",
+"res://interactibles/item_components/": "green",
+"res://interactibles/menu/": "red",
+"res://items/": "gray",
+"res://menus/": "teal",
+"res://src/": "green",
+"res://worlds/": "blue"
+}
+
 [global_group]
 
 Magnetic="The default group for MagneticShapes to attract"
