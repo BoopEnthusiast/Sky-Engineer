@@ -1,0 +1,14 @@
+[gd_scene load_steps=4 format=3 uid="uid://cdmwqqj6rdgyy"]
+
+[ext_resource type="Script" uid="uid://d1v2sq7eab82m" path="res://items/leaf.gd" id="1_f24q6"]
+[ext_resource type="PackedScene" uid="uid://bxfp6vwwufuht" path="res://interactibles/item_components/magnetic_shape.tscn" id="2_7hupd"]
+[ext_resource type="PackedScene" uid="uid://cxg8kmc638awu" path="res://interactibles/item_components/grabbable_item.tscn" id="2_wf77o"]
+
+[node name="Leaf" type="Node3D"]
+script = ExtResource("1_f24q6")
+
+[node name="GrabbableItem" parent="." node_paths=PackedStringArray("item_to_grab") instance=ExtResource("2_wf77o")]
+item_to_grab = NodePath("..")
+
+[node name="MagneticShape" parent="." node_paths=PackedStringArray("item_to_be_pulled") instance=ExtResource("2_7hupd")]
+item_to_be_pulled = NodePath("..")

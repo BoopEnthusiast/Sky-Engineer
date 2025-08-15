@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://bxfp6vwwufuht"]
 
-[ext_resource type="Script" uid="uid://clbiwpac184qw" path="res://interactibles/item_components/magnetic_shape.gd" id="1_11pfi"]
+[ext_resource type="Script" uid="uid://clbiwpac184qw" path="res://items/magnetic_shape.gd" id="1_11pfi"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_moufg"]
 

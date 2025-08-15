@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://dpl5fe338ir03"]
+
+[ext_resource type="Script" uid="uid://de8mxx3e5upui" path="res://items/leafgen.gd" id="1_pd1c7"]
+
+[node name="Leafgen" type="Node3D"]
+script = ExtResource("1_pd1c7")
