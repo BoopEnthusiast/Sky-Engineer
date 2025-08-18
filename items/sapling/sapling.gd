@@ -13,22 +13,21 @@ var growing:bool = false
 
 var branch = true
 
-var number_of_limbs:int = 10000
+var number_of_limbs:int = 1000
 
 var number_of_sublimbs:int = 0
 
-var limbs = [0]
+var limbs:Dictionary
 
-var astar_test
+var treeshape:Shoot
 
 func _ready():
-	astar_test = AStar2D.new()
-	astar_test.add_point(0,Vector2i(0,0),1)
-	astar_test.add_point(1,Vector2i(0,0),1)
-	astar_test.add_point(2,Vector2i(0,0),1)
 	#randomize()
 	$Mesh.multimesh.instance_count = 1 + number_of_limbs
 	$Mesh.spawn_trunk()
+	treeshape = Shoot.new(0)
+	treeshape.height = starting_height
+	limbs.set(0,treeshape)
 	plant()
 	pass
 
@@ -53,8 +52,10 @@ func reset():
 	# if the vertex it's on is destroyed. It doesn't work with
 	# the current tree mesh.
 	progress = 0
-	$Mesh.mesh.size.y = starting_height
-	$Mesh.position.y = 0
+	$Mesh.multimesh.instance_count = 0
+	$Mesh.multimesh.instance_count = 1 + number_of_limbs
+	$GrabbableItem.can_be_interacted_with = true
+	$Mesh.spawn_trunk()
 	$Collider.shape.size.y = starting_height
 	$Collider.position.y = 0
 
@@ -64,34 +65,29 @@ func grow_slow(time:float):
 	#      improve collision detection.
 	#      I'm thinking AStar might help with the former,
 	#      not sure about performance, though.
-	if progress < max_progress and growing:
+	if growing:
+		if limbs.size() == 0:
+			growing = false
+			#reset()
+		
 		progress += time
 		
 		var timegrowth = GROWTH_PER_SEC * time
-		
-		if(progress > 1 and limbs.size() < number_of_limbs + 1 and randf() > 0.9):
-			var partition_one:float = randf()
-			var partition_two:float = 1 - partition_one
-			var thiccness:float = randf_range(0.25,0.5)
-			var angle:float = randf_range(-1.5,1.5)
-			var index:int
-			
-			index = randi_range(0, limbs.size() - 1)
-			
-			limbs.append($Mesh.spawn_limb(index,1,Vector3(partition_one,0,partition_two).normalized(), angle,thiccness))
-			limbs.erase(index)
-			#partition_one = randf()
-			#partition_two = 1 - partition_one
-			#thiccness = randf()
-			#angle = randf()
-			#limbs.append($Mesh.spawn_limb(0,1, Vector3(partition_one,0,partition_two).normalized(), angle,thiccness))
-			#limbs.remove_at(0)
-			
-		
-		for index in limbs:
+		for index in limbs.keys():
+			var limbshape = limbs.get(index)
+			limbshape.height += timegrowth
 			$Mesh.grow_limb(index,timegrowth)
+			for branch in limbshape.branches.keys():
+				if limbshape.height >= limbshape.branches.get(branch):
+					var val = $Mesh.spawn_limb(index, 1, branch.direction,branch.angle,0.5)
+					branch.index = val
+					limbs.set(val, branch)
+					limbshape.branches.erase(branch)
+				
+			if(limbshape.height >= limbshape.max_height):
+				limbs.erase(index)
 		
-		$Collider.shape.size.y = starting_height + (GROWTH_PER_SEC * progress)
+		$Collider.shape.size = $Mesh.multimesh.get_aabb().size
 		$Collider.position.y = (GROWTH_PER_SEC/2) * progress
 		
 	elif growing:

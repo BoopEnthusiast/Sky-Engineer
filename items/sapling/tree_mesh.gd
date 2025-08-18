@@ -9,9 +9,10 @@ func _ready():
 func spawn_trunk():
 	var trunk_basis = Basis()
 	trunk_basis = trunk_basis.scaled(Vector3(1,2,1))
+	#trunk_basis = trunk_basis.rotated(Vector3(0,0,1), 1)
 	multimesh.set_instance_transform(0,Transform3D(trunk_basis ,Vector3(0,0,0)))
 
-func spawn_limb(parent_index:int,at:float, direction:Vector3, angle:float, _width:float) -> int:
+func spawn_limb(parent_index:int,at:float, direction:Vector3, angle:float, width:float = 0.35) -> int:
 	# Start rendering a limb instance branching from the limb represented by parent_index. Return the index of the new limb
 	
 	new_limb_index += 1
@@ -24,16 +25,18 @@ func spawn_limb(parent_index:int,at:float, direction:Vector3, angle:float, _widt
 	
 	#the following snipit of code may be useful if you want to dasy-chain limbs together
 	var parent_basis:Basis = parent.basis
-	#var rot = parent_basis.get_rotation_quaternion()
-	#var dir = rot.get_axis()
-	#var anf = rot.get_angle()
+	var rot = parent_basis.get_rotation_quaternion()
+	var dir = rot.get_axis()
+	var anf = rot.get_angle()
 	var sca = parent_basis.get_scale()
-	new_basis = new_basis.scaled(Vector3(sca.x * 0.35, 0.0001, sca.z * 0.35)) 
+	new_basis = new_basis.scaled(Vector3(sca.x * width, 0.0001, sca.z * width)) 
 	#new_basis = newbasis.rotated(Vector3(0,1,0),0.785)
 	#new_basis = newbasis.rotated(Vector3(parent_direction,parent_angle)
 	
 	#new_basis = new_basis.scaled(Vector3(width,0.0001,width))
 	new_basis = new_basis.rotated(direction,angle)
+	new_basis = new_basis.rotated(parent_basis.get_rotation_quaternion().get_axis(),parent_basis.get_rotation_quaternion().get_angle())
+	
 	
 	
 	multimesh.set_instance_transform(new_limb_index,Transform3D(new_basis,limb_origin) )

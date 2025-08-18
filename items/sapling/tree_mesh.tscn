@@ -1,14 +1,14 @@
 [gd_scene load_steps=4 format=3 uid="uid://cfuu81dmjkuiq"]
 
-[ext_resource type="ArrayMesh" uid="uid://cyoo6oopwa8n1" path="res://items/treetrunk.obj" id="1_3f7un"]
-[ext_resource type="Script" uid="uid://dtdmkesf2mvf0" path="res://items/tree_mesh.gd" id="2_hfva7"]
+[ext_resource type="ArrayMesh" uid="uid://cyoo6oopwa8n1" path="res://items/sapling/treetrunk.obj" id="1_2pcdh"]
+[ext_resource type="Script" uid="uid://dtdmkesf2mvf0" path="res://items/sapling/tree_mesh.gd" id="2_0hyt4"]
 
 [sub_resource type="MultiMesh" id="MultiMesh_pjsic"]
 transform_format = 1
 instance_count = 3
-mesh = ExtResource("1_3f7un")
+mesh = ExtResource("1_2pcdh")
 buffer = PackedFloat32Array(1.4013e-45, 0, 2.10195e-44, 1.96182e-44, 1.4013e-45, 1.82169e-44, 2.8026e-45, 1.4013e-45, 1.96182e-44, 1.82169e-44, 2.8026e-45, 1.68156e-44, 4.2039e-45, 2.8026e-45, 1.82169e-44, 1.68156e-44, 4.2039e-45, 1.54143e-44, 5.60519e-45, 4.2039e-45, 1.68156e-44, 1.54143e-44, 5.60519e-45, 1.4013e-44, 7.00649e-45, 5.60519e-45, 1.54143e-44, 1.4013e-44, 7.00649e-45, 1.26117e-44, 8.40779e-45, 7.00649e-45, 1.4013e-44, 1.26117e-44, 8.40779e-45, 1.12104e-44)
 
 [node name="MultiMeshInstance3D" type="MultiMeshInstance3D"]
 multimesh = SubResource("MultiMesh_pjsic")
-script = ExtResource("2_hfva7")
+script = ExtResource("2_0hyt4")

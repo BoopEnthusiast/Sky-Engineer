@@ -1,0 +1,19 @@
+[gd_scene load_steps=5 format=3 uid="uid://j18nl5mh6ifn"]
+
+[ext_resource type="Script" uid="uid://di8syfwwutj10" path="res://items/sapling/sapling.gd" id="1_4koot"]
+[ext_resource type="PackedScene" uid="uid://cxg8kmc638awu" path="res://interactibles/item_components/grabbable_item.tscn" id="2_7xvhd"]
+[ext_resource type="PackedScene" uid="uid://cfuu81dmjkuiq" path="res://items/sapling/tree_mesh.tscn" id="3_vqmuw"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_rncus"]
+size = Vector3(1, 2.41821, 1)
+
+[node name="Sapling" type="AnimatableBody3D"]
+script = ExtResource("1_4koot")
+
+[node name="GrabbableItem" parent="." node_paths=PackedStringArray("item_to_grab") instance=ExtResource("2_7xvhd")]
+item_to_grab = NodePath("..")
+
+[node name="Collider" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_rncus")
+
+[node name="Mesh" parent="." instance=ExtResource("3_vqmuw")]
