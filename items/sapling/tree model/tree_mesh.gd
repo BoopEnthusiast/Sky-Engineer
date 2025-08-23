@@ -26,14 +26,15 @@ func spawn_limb(parent_index:int,at:float, direction:Vector3, angle:float, width
 	var new_basis = Basis()
 	
 	var parent_basis:Basis = parent.basis
-	var rot = parent_basis.get_rotation_quaternion()
-	var dir = rot.get_axis()
-	var anf = rot.get_angle()
+	
 	var sca = parent_basis.get_scale()
 	new_basis = new_basis.scaled(Vector3(sca.x * width, 0.0001, sca.z * width)) 
 	
 	new_basis = new_basis.rotated(direction,angle)
-	new_basis = new_basis.rotated(parent_basis.get_rotation_quaternion().get_axis(),parent_basis.get_rotation_quaternion().get_angle())
+	var newaxis = parent_basis.get_rotation_quaternion().get_axis()
+	if !newaxis.is_normalized():
+		newaxis = Vector3(0,1,0)
+	new_basis = new_basis.rotated(newaxis,parent_basis.get_rotation_quaternion().get_angle())
 	
 	multimesh.set_instance_transform(new_limb_index,Transform3D(new_basis,limb_origin) )
 	

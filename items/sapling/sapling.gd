@@ -11,8 +11,6 @@ const GROWTH_PER_SEC:float = 1
 
 var growing:bool = false
 
-var branch = true
-
 var number_of_limbs:int = 1000
 
 var number_of_sublimbs:int = 0
@@ -23,7 +21,7 @@ var treeshape:Shoot
 
 func _ready():
 	#randomize()
-	treeshape = Shoot.new(0)
+	treeshape = Shoot.new(0,0,8,8)
 	$Mesh.set_instance_count(treeshape.get_instance_quantity())
 	$Mesh.spawn_trunk()
 	
