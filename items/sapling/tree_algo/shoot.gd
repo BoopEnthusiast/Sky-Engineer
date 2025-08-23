@@ -25,6 +25,7 @@ func _init(tree_depth:int, tree_min_mast:float = 0, tree_max_mast:float = 4, tre
 	max_height = tree_max_height
 	
 	var quantity:int = (randi() % 10) + 1 - (depth*3)
+	#var quantity:int = 4 - (depth*4)
 	
 	if depth > 0:
 		mast_point = randf_range(tree_min_mast, tree_max_mast)
@@ -35,12 +36,16 @@ func _init(tree_depth:int, tree_min_mast:float = 0, tree_max_mast:float = 4, tre
 	
 	width = wid
 	
-	var flots:Array[float] = [randf_range(-PI,PI)]
+	var flots:Array[float] = [randf_range(PI,2*PI)]
 	
 	for n in quantity:
-		var h_angle = 0
+		var h_angle = flots[0]
 		for t_angle in flots:
-			h_angle += t_angle
+			var threesixty = 2*PI
+			var diff = fmod((h_angle - t_angle), threesixty)
+			var dst = fmod(2*diff, threesixty) - diff
+			h_angle = t_angle + (dst*randf_range(0.1,0.9))
+		h_angle -= PI
 		flots.append(h_angle)
 		var v_angle = randf_range(0.7,1.5)
 		
