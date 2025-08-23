@@ -20,7 +20,8 @@ var mast_point:float = max_height
 var width:float = 1.0
 
 
-func _init(depth:int, min_mast:float = 0, max_mast:float = 4, max_height:float = 4, dir:Vector3 = Vector3(0,0,0), ang:float = 0, wid:float = 1.0):
+func _init(tree_depth:int, min_mast:float = 0, max_mast:float = 4, max_height:float = 4, dir:Vector3 = Vector3(0,0,0), ang:float = 0, wid:float = 1.0):
+	depth = tree_depth
 	
 	var quantity:int = (randi() % 10) + 1 - (depth * 5)
 	

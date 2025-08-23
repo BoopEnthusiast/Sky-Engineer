@@ -1,8 +1,5 @@
+class_name Foliage
 extends MultiMeshInstance3D
-
-func _ready():
-	var ten = 10
-	#multimesh.set_instance_transform(0,Transform3D(Basis() ,Vector3(1,1,1)))
 
 func spawn_foliage(index:int, parent:Transform3D):
 	var limb_tip:Vector3 = parent * Vector3(0,0.75,0)
