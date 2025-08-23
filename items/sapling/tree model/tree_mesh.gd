@@ -3,6 +3,8 @@ extends MultiMeshInstance3D
 
 var new_limb_index:int = 0
 
+var starting_collision_points:PackedVector3Array = multimesh.mesh.create_convex_shape(true, true).points
+
 func _ready():
 	spawn_trunk()
 
@@ -74,3 +76,28 @@ func transform_limb(index:int, height:float, width:float, direction:Vector3, ang
 func set_instance_count(count:int):
 	$Foliage.multimesh.instance_count = count
 	multimesh.instance_count = count
+
+func generate_collision_geometry() -> ConvexPolygonShape3D:
+	# composes all the branches into one, big convex polygon shape. 
+	# I'm quite proud of this one.
+	# try not to call it too often. It probably uses a bunch of CPU, or GPU, or both.
+	# TODO The collision geometry this generates is still more complex than it has to be
+	#      So, I'm looking at simplifying it.
+	#      POTENTIAL WAYS TO DO THIS:
+	#      -add only points representing the tips of branches to the polygon shape. (not sure it works that way...)
+	#
+	#      -take inspiration from the Mesh::convex_decompose function in the godot source code, here: https://github.com/godotengine/godot/blob/master/scene/resources/mesh.cpp
+	#       (I have no idea how that func works, but it only runs if you try to create a convex shape from a mesh with simplify set to true)
+	#
+	#      -use simpler shape3ds to represent each individual branch (not sure this would actually help much)
+	
+	var resulting_points:PackedVector3Array = PackedVector3Array() 
+	
+	for index in range(multimesh.instance_count):
+		multimesh.get_instance_transform(index)
+		var transformed_points = multimesh.get_instance_transform(index) * starting_collision_points
+		resulting_points.append_array(transformed_points)
+	
+	var collision_form:ConvexPolygonShape3D = ConvexPolygonShape3D.new()
+	collision_form.set_points(resulting_points)
+	return collision_form

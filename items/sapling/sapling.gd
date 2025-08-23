@@ -88,8 +88,9 @@ func grow_slow(time:float):
 			if(limbshape.height >= limbshape.max_height):
 				limbs.erase(index)
 		
-		$Collider.shape.size = $Mesh.multimesh.get_aabb().size
-		$Collider.position.y = (GROWTH_PER_SEC/2) * progress
+		#$Collider.make_convex_from_siblings()
+		#$Collider.position.y = (GROWTH_PER_SEC/2) * progress
+		$Collider.shape = $Mesh.generate_collision_geometry()
 		
 	elif growing:
 		growing = false

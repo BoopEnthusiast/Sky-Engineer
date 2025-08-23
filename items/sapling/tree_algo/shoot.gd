@@ -44,7 +44,6 @@ func _init(depth:int, min_mast:float = 0, max_mast:float = 4, max_height:float =
 		var v_angle = randf_range(0.7,1.5)
 		
 		var fullrot = Quaternion.from_euler(Vector3(0,h_angle,v_angle)).normalized()
-		#flots.append(part.inverse())
 		
 		var shoot = Shoot.new(depth + 1, 0, max_height, max_height/randf_range(0.25,0.75), fullrot.get_axis().normalized(), fullrot.get_angle(), 0.5)
 		branches.set(shoot, shoot.mast_point)
