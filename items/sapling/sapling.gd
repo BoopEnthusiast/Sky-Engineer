@@ -5,15 +5,9 @@ extends AnimatableBody3D
 
 var progress:float = 0
 
-@export var max_progress:int = 15
-
 const GROWTH_PER_SEC:float = 1
 
 var growing:bool = false
-
-var number_of_limbs:int = 1000
-
-var number_of_sublimbs:int = 0
 
 var limbs:Dictionary
 
@@ -45,18 +39,16 @@ func plant():
 	$GrabbableItem.can_be_interacted_with = false
 	growing = true
 
-# DEPRECATED
 func reset():
 	# This is intended to be used to break the tree back down
-	# if the vertex it's on is destroyed. It doesn't work with
-	# the current tree mesh.
+	# if the vertex it's on is destroyed.
+	growing = false
 	progress = 0
-	$Mesh.multimesh.instance_count = 0
-	$Mesh.multimesh.instance_count = 1 + number_of_limbs
+	$Mesh.set_instance_count(0)
+	$Mesh.set_instance_count(treeshape.get_instance_quantity())
 	$GrabbableItem.can_be_interacted_with = true
 	$Mesh.spawn_trunk()
-	$Collider.shape.size.y = starting_height
-	$Collider.position.y = 0
+	$Collider.shape = $Mesh.generate_collision_geometry()
 
 func grow_slow(time:float):
 	# grows the tree by a certan amount each frame.
@@ -68,7 +60,6 @@ func grow_slow(time:float):
 		if limbs.size() == 0:
 			growing = false
 			$Collider.shape = $Mesh.generate_collision_geometry()
-			#reset()
 		
 		progress += time
 		
