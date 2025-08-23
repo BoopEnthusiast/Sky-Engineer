@@ -67,6 +67,7 @@ func grow_slow(time:float):
 	if growing:
 		if limbs.size() == 0:
 			growing = false
+			$Collider.shape = $Mesh.generate_collision_geometry()
 			#reset()
 		
 		progress += time
@@ -88,7 +89,9 @@ func grow_slow(time:float):
 		
 		#$Collider.make_convex_from_siblings()
 		#$Collider.position.y = (GROWTH_PER_SEC/2) * progress
-		$Collider.shape = $Mesh.generate_collision_geometry()
+		if(progress > 1):
+			$Collider.shape = $Mesh.generate_collision_geometry()
+			progress = 0
 		
 	elif growing:
 		growing = false

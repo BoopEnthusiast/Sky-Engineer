@@ -5,7 +5,12 @@ var new_limb_index:int = 0
 
 var starting_collision_points:PackedVector3Array = multimesh.mesh.create_convex_shape(true, true).points
 
+var boxes:Array[PackedVector3Array] = []
+
+var collision_form:ConvexPolygonShape3D = ConvexPolygonShape3D.new()
+
 func _ready():
+	boxes.resize(1)
 	spawn_trunk()
 
 func spawn_trunk():
@@ -14,6 +19,7 @@ func spawn_trunk():
 	var trunk_transform = Transform3D(trunk_basis ,Vector3(0,0,0))
 	multimesh.set_instance_transform(0,trunk_transform)
 	$Foliage.spawn_foliage(0,trunk_transform)
+	boxes[0] = trunk_transform * starting_collision_points
 
 func spawn_limb(parent_index:int,at:float, direction:Vector3, angle:float, width:float = 0.35) -> int:
 	# Start rendering a limb instance branching from the limb represented by parent_index. Return the index of the new limb
@@ -36,9 +42,15 @@ func spawn_limb(parent_index:int,at:float, direction:Vector3, angle:float, width
 		newaxis = Vector3(0,1,0)
 	new_basis = new_basis.rotated(newaxis,parent_basis.get_rotation_quaternion().get_angle())
 	
-	multimesh.set_instance_transform(new_limb_index,Transform3D(new_basis,limb_origin) )
+	var newtransform = Transform3D(new_basis,limb_origin)
 	
-	$Foliage.spawn_foliage(new_limb_index, Transform3D(new_basis,limb_origin))
+	multimesh.set_instance_transform(new_limb_index,newtransform )
+	
+	$Foliage.spawn_foliage(new_limb_index, newtransform)
+	
+	var send = PackedVector3Array()
+	send.append(newtransform * Vector3(0,1,0))
+	boxes[new_limb_index] = send
 	
 	return new_limb_index
 
@@ -65,6 +77,13 @@ func grow_limb(index:int,amount:float):
 	var new_transform:Transform3D = Transform3D(new_basis,old_transform.origin)
 	multimesh.set_instance_transform(index,new_transform)
 	$Foliage.grow_foliage(index,amount,new_transform)
+	
+	if(index != 0):
+		var send = PackedVector3Array()
+		send.append(new_transform * Vector3(0,1,0))
+		boxes[index] = send
+	else:
+		boxes[new_limb_index] = new_transform * starting_collision_points
 
 # DEPRECATED
 func transform_limb(index:int, height:float, width:float, direction:Vector3, angle:float, location:float):
@@ -77,6 +96,7 @@ func transform_limb(index:int, height:float, width:float, direction:Vector3, ang
 func set_instance_count(count:int):
 	$Foliage.multimesh.instance_count = count
 	multimesh.instance_count = count
+	boxes.resize(count)
 
 func generate_collision_geometry() -> ConvexPolygonShape3D:
 	# composes all the branches into one, big convex polygon shape. 
@@ -91,14 +111,11 @@ func generate_collision_geometry() -> ConvexPolygonShape3D:
 	#       (I have no idea how that func works, but it only runs if you try to create a convex shape from a mesh with simplify set to true)
 	#
 	#      -use simpler shape3ds to represent each individual branch (not sure this would actually help much)
-	
 	var resulting_points:PackedVector3Array = PackedVector3Array() 
 	
-	for index in range(multimesh.instance_count):
-		multimesh.get_instance_transform(index)
-		var transformed_points = multimesh.get_instance_transform(index) * starting_collision_points
-		resulting_points.append_array(transformed_points)
+	for index in boxes.size():
+		if(boxes[index] != null):
+			resulting_points.append_array(boxes[index])
+	collision_form.points = resulting_points
 	
-	var collision_form:ConvexPolygonShape3D = ConvexPolygonShape3D.new()
-	collision_form.set_points(resulting_points)
 	return collision_form
