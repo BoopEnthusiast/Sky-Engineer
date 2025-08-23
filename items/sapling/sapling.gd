@@ -18,24 +18,22 @@ func _ready():
 	treeshape = Shoot.new(0,0,8,8)
 	$Mesh.set_instance_count(treeshape.get_instance_quantity())
 	$Mesh.spawn_trunk()
-	
 	treeshape.height = starting_height
 	limbs.set(0,treeshape)
+	$Collider.shape = $Mesh.generate_collision_geometry()
 	plant()
-	pass
 
 func _process(delta):
 	#I'm not putting the full grow function in here.
 	#just calling it, and passing in delta allows
 	#for greater flexability.
 	if growing:
-		grow_slow(delta)
+		grow(delta)
 
 func plant():
 	# Stops tree from being grabbed, and sets it growing
 	# TODO integrate with vertex snapping, so the tree
 	#      can be properly planted on surfaces.
-	
 	$GrabbableItem.can_be_interacted_with = false
 	growing = true
 
@@ -45,12 +43,13 @@ func reset():
 	growing = false
 	progress = 0
 	$Mesh.set_instance_count(0)
-	$Mesh.set_instance_count(treeshape.get_instance_quantity())
 	$GrabbableItem.can_be_interacted_with = true
+	$Mesh.set_instance_count(treeshape.get_instance_quantity())
 	$Mesh.spawn_trunk()
+	limbs.set(0,treeshape)
 	$Collider.shape = $Mesh.generate_collision_geometry()
 
-func grow_slow(time:float):
+func grow(time:float):
 	# grows the tree by a certan amount each frame.
 	# TODO figure out how to controll the branch structure, 
 	#      improve collision detection.
@@ -60,9 +59,7 @@ func grow_slow(time:float):
 		if limbs.size() == 0:
 			growing = false
 			$Collider.shape = $Mesh.generate_collision_geometry()
-		
 		progress += time
-		
 		var timegrowth = GROWTH_PER_SEC * time
 		for index in limbs.keys():
 			var limbshape = limbs.get(index)
@@ -74,15 +71,8 @@ func grow_slow(time:float):
 					branch.index = val
 					limbs.set(val, branch)
 					limbshape.branches.erase(branch)
-				
 			if(limbshape.height >= limbshape.max_height):
 				limbs.erase(index)
-		
-		#$Collider.make_convex_from_siblings()
-		#$Collider.position.y = (GROWTH_PER_SEC/2) * progress
 		if(progress > 1):
 			$Collider.shape = $Mesh.generate_collision_geometry()
 			progress = 0
-		
-	elif growing:
-		growing = false

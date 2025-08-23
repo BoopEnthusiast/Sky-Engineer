@@ -13,8 +13,6 @@ var direction:Vector3 = Vector3(0,0,0)
 
 var angle:float = 0.0
 
-var thiccness:float = 1.0
-
 var mast_point:float = max_height
 
 var width:float = 1.0
