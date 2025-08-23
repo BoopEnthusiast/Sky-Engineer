@@ -54,3 +54,10 @@ func _init(depth:int, min_mast:float = 0, max_mast:float = 4, max_height:float =
 	
 	
 	var ten = 10
+
+func get_instance_quantity()->int:
+	var count:int = 1
+	
+	for child in branches.keys():
+		count += child.get_instance_quantity()
+	return count

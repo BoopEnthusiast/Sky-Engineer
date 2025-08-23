@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://di8syfwwutj10" path="res://items/sapling/sapling.gd" id="1_4koot"]
 [ext_resource type="PackedScene" uid="uid://cxg8kmc638awu" path="res://interactibles/item_components/grabbable_item.tscn" id="2_7xvhd"]
-[ext_resource type="PackedScene" uid="uid://cfuu81dmjkuiq" path="res://items/sapling/tree_mesh.tscn" id="3_vqmuw"]
+[ext_resource type="PackedScene" uid="uid://cfuu81dmjkuiq" path="res://items/sapling/tree model/tree_mesh.tscn" id="3_vqmuw"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_rncus"]
 size = Vector3(1, 2.41821, 1)

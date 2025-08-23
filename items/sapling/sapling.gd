@@ -23,9 +23,10 @@ var treeshape:Shoot
 
 func _ready():
 	#randomize()
-	$Mesh.multimesh.instance_count = 1 + number_of_limbs
-	$Mesh.spawn_trunk()
 	treeshape = Shoot.new(0)
+	$Mesh.set_instance_count(treeshape.get_instance_quantity())
+	$Mesh.spawn_trunk()
+	
 	treeshape.height = starting_height
 	limbs.set(0,treeshape)
 	plant()

@@ -9,8 +9,9 @@ func _ready():
 func spawn_trunk():
 	var trunk_basis = Basis()
 	trunk_basis = trunk_basis.scaled(Vector3(1,2,1))
-	#trunk_basis = trunk_basis.rotated(Vector3(0,0,1), 1)
-	multimesh.set_instance_transform(0,Transform3D(trunk_basis ,Vector3(0,0,0)))
+	var trunk_transform = Transform3D(trunk_basis ,Vector3(0,0,0))
+	multimesh.set_instance_transform(0,trunk_transform)
+	$Foliage.spawn_foliage(0,trunk_transform)
 
 func spawn_limb(parent_index:int,at:float, direction:Vector3, angle:float, width:float = 0.35) -> int:
 	# Start rendering a limb instance branching from the limb represented by parent_index. Return the index of the new limb
@@ -34,6 +35,8 @@ func spawn_limb(parent_index:int,at:float, direction:Vector3, angle:float, width
 	
 	multimesh.set_instance_transform(new_limb_index,Transform3D(new_basis,limb_origin) )
 	
+	$Foliage.spawn_foliage(new_limb_index, Transform3D(new_basis,limb_origin))
+	
 	return new_limb_index
 
 func grow_limb(index:int,amount:float):
@@ -56,7 +59,9 @@ func grow_limb(index:int,amount:float):
 	if direction.is_normalized():
 		new_basis = new_basis.rotated(direction,angle)
 	
-	multimesh.set_instance_transform(index,Transform3D(new_basis,old_transform.origin))
+	var new_transform:Transform3D = Transform3D(new_basis,old_transform.origin)
+	multimesh.set_instance_transform(index,new_transform)
+	$Foliage.grow_foliage(index,amount,new_transform)
 
 # DEPRECATED
 func transform_limb(index:int, height:float, width:float, direction:Vector3, angle:float, location:float):
@@ -65,3 +70,7 @@ func transform_limb(index:int, height:float, width:float, direction:Vector3, ang
 	new_basis = new_basis.scaled(Vector3(width,height,width))
 	new_basis = new_basis.rotated(direction,angle)
 	multimesh.set_instance_transform(index,Transform3D(new_basis ,Vector3(0,location,0)))
+
+func set_instance_count(count:int):
+	$Foliage.multimesh.instance_count = count
+	multimesh.instance_count = count
