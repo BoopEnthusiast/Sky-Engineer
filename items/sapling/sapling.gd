@@ -79,7 +79,7 @@ func grow_slow(time:float):
 			$Mesh.grow_limb(index,timegrowth)
 			for branch in limbshape.branches.keys():
 				if limbshape.height >= limbshape.branches.get(branch):
-					var val = $Mesh.spawn_limb(index, 1, branch.direction,branch.angle,0.5)
+					var val = $Mesh.spawn_limb(index, 1, branch.direction,branch.angle,branch.width)
 					branch.index = val
 					limbs.set(val, branch)
 					limbshape.branches.erase(branch)
