@@ -1,0 +1,2 @@
+class_name Cauldron
+extends AnimatableBody3D
