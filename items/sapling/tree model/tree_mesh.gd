@@ -14,11 +14,14 @@ func _ready():
 	spawn_trunk()
 
 func spawn_trunk():
+	# Create the trunk of the tree
 	var trunk_basis = Basis()
 	trunk_basis = trunk_basis.scaled(Vector3(1,2,1))
 	var trunk_transform = Transform3D(trunk_basis ,Vector3(0,0,0))
 	multimesh.set_instance_transform(0,trunk_transform)
 	$Foliage.spawn_foliage(0,trunk_transform)
+	
+	# Generate collision geometry for the tree trunk
 	boxes[0] = trunk_transform * starting_collision_points
 
 func spawn_limb(parent_index:int,at:float, direction:Vector3, angle:float, width:float = 0.35) -> int:
@@ -48,6 +51,7 @@ func spawn_limb(parent_index:int,at:float, direction:Vector3, angle:float, width
 	
 	$Foliage.spawn_foliage(new_limb_index, newtransform)
 	
+	# Generate collision geometry for this branch
 	var send = PackedVector3Array()
 	send.append(newtransform * Vector3(0,1,0))
 	boxes[new_limb_index] = send
@@ -59,9 +63,8 @@ func grow_limb(index:int,amount:float):
 	# TODO make limbs get thiccer as they grow...
 	
 	# TODO I don't like having to make a new transform every time. I could perhaps store the old scale
-	#      in custom instance data. At least that would mean having to dig around the old transform
-	#      looking for variables less.
-	
+	#      in custom instance data. At least that would mean less having to dig around the old transform
+	#      looking for variables.
 	var old_transform:Transform3D = multimesh.get_instance_transform(index)
 	var old_basis:Basis = old_transform.basis
 	var old_scale:Vector3 = old_basis.get_scale()
@@ -78,6 +81,8 @@ func grow_limb(index:int,amount:float):
 	multimesh.set_instance_transform(index,new_transform)
 	$Foliage.grow_foliage(index,amount,new_transform)
 	
+	# Update the colision geometry for this limb.
+	# if the branch is not the trunk, the colision geometry will be less detailed.
 	if(index != 0):
 		var send = PackedVector3Array()
 		send.append(new_transform * Vector3(0,1,0))
@@ -94,6 +99,9 @@ func transform_limb(index:int, height:float, width:float, direction:Vector3, ang
 	multimesh.set_instance_transform(index,Transform3D(new_basis ,Vector3(0,location,0)))
 
 func set_instance_count(count:int):
+	# Set the multimesh instance count.
+	# Used to ensure the that the amount of foliage
+	# and the numver of branches is consistant.
 	$Foliage.multimesh.instance_count = count
 	multimesh.instance_count = count
 	boxes.resize(count)

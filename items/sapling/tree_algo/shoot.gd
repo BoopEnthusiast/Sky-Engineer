@@ -1,3 +1,5 @@
+#This class creates the data structure the tree uses to decide which branch goes where.
+
 class_name Shoot
 extends Object
 
@@ -7,7 +9,6 @@ var branches:Dictionary[Shoot,float] = {}
 @export var index:int = 0
 var max_height:float = 4.0
 var depth:int = 0
-var probability:float = 1.0
 
 var direction:Vector3 = Vector3(0,0,0)
 
@@ -19,11 +20,11 @@ var width:float = 1.0
 
 
 func _init(tree_depth:int, tree_min_mast:float = 0, tree_max_mast:float = 4, tree_max_height:float = 4.0, dir:Vector3 = Vector3(0,0,0), ang:float = 0, wid:float = 1.0):
+	# Constructor for a limb of the tree.
 	depth = tree_depth
 	max_height = tree_max_height
 	
 	var quantity:int = (randi() % 10) + 1 - (depth*3)
-	#var quantity:int = 4 - (depth*4)
 	
 	if depth > 0:
 		mast_point = randf_range(tree_min_mast, tree_max_mast)
@@ -56,6 +57,7 @@ func _init(tree_depth:int, tree_min_mast:float = 0, tree_max_mast:float = 4, tre
 		pass
 
 func get_instance_quantity()->int:
+	# Returns the number of limbs (including the trunk) the tree has.
 	var count:int = 1
 	
 	for child in branches.keys():
