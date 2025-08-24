@@ -146,3 +146,4 @@ bring_closer={
 3d_physics/layer_1="World, Player, Etc."
 3d_physics/layer_2="Inventory"
 3d_physics/layer_3="Items"
+3d_physics/layer_4="3D Menu"

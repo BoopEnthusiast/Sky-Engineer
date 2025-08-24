@@ -8,12 +8,12 @@
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_felrd"]
 
-[sub_resource type="Sky" id="Sky_m313i"]
+[sub_resource type="Sky" id="Sky_12do3"]
 sky_material = SubResource("ProceduralSkyMaterial_felrd")
 
 [sub_resource type="Environment" id="Environment_46j3l"]
 background_mode = 2
-sky = SubResource("Sky_m313i")
+sky = SubResource("Sky_12do3")
 
 [sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_bnm7t"]
 

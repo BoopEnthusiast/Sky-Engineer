@@ -1,8 +1,17 @@
-[gd_scene load_steps=3 format=3 uid="uid://bqr0cll00ttp"]
+[gd_scene load_steps=6 format=3 uid="uid://bqr0cll00ttp"]
 
-[ext_resource type="Script" uid="uid://cccogxgxx14v1" path="res://interactibles/menu/projected_menu_item.gd" id="1_bjpdq"]
+[ext_resource type="PackedScene" uid="uid://dgmjn354mjr02" path="res://interactibles/menu/main_menu/button_3d.tscn" id="1_bjpdq"]
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_0wd3e"]
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_bjpdq"]
+
+[sub_resource type="Sky" id="Sky_m313i"]
+sky_material = SubResource("ProceduralSkyMaterial_bjpdq")
+
+[sub_resource type="Environment" id="Environment_0wd3e"]
+background_mode = 2
+sky = SubResource("Sky_m313i")
+
+[sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_8yirn"]
 
 [node name="MainMenu" type="Node"]
 
@@ -13,6 +22,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3)
 current = true
 
 [node name="MainMenu2D" type="Control" parent="."]
+visible = false
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -20,10 +30,49 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Play" type="Node3D" parent="."]
-script = ExtResource("1_bjpdq")
+[node name="MainButtons" type="VBoxContainer" parent="MainMenu2D"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.374132
+anchor_top = 0.152778
+anchor_right = 0.625868
+anchor_bottom = 0.847222
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true
 
-[node name="PlayButton" type="StaticBody3D" parent="Play"]
+[node name="Play" type="Panel" parent="MainMenu2D/MainButtons"]
+layout_mode = 2
+size_flags_vertical = 3
 
-[node name="Collider" type="CollisionShape3D" parent="Play/PlayButton"]
-shape = SubResource("BoxShape3D_0wd3e")
+[node name="Settings" type="Panel" parent="MainMenu2D/MainButtons"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Quit" type="Panel" parent="MainMenu2D/MainButtons"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Play" parent="." node_paths=PackedStringArray("counterpart_in_2d") instance=ExtResource("1_bjpdq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+text = "Play"
+size = Vector3(1.9, 0.8, 0.8)
+counterpart_in_2d = NodePath("../MainMenu2D/MainButtons/Play")
+
+[node name="Settings" parent="." node_paths=PackedStringArray("counterpart_in_2d") instance=ExtResource("1_bjpdq")]
+text = "Settings"
+size = Vector3(1.9, 0.8, 0.8)
+counterpart_in_2d = NodePath("../MainMenu2D/MainButtons/Settings")
+
+[node name="Quit" parent="." node_paths=PackedStringArray("counterpart_in_2d") instance=ExtResource("1_bjpdq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
+text = "Quit"
+size = Vector3(1.9, 0.8, 0.8)
+counterpart_in_2d = NodePath("../MainMenu2D/MainButtons/Quit")
+
+[node name="Sun" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.707107, -0.5, 0.5, 0, 0.707107, 0.707107, -0.707107, -0.5, 0.5, 0, 3.90252, 0)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_0wd3e")
+camera_attributes = SubResource("CameraAttributesPractical_8yirn")
