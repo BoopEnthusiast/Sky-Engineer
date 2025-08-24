@@ -11,7 +11,6 @@ var selected_item_distance: float = INF
 
 func _process(_delta: float) -> void:
 	_update_selected_item()
-	print(selectable_items,"\t\t",selected_item)
 
 
 func _on_area_shape_entered(_area_rid: RID, area: Area3D, _area_shape_index: int, _local_shape_index: int) -> void:
