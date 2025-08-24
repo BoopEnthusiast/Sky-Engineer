@@ -68,7 +68,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -4.69181)
 [node name="AchievementBook" parent="." instance=ExtResource("4_wp1yw")]
 
 [node name="Leafgen" parent="." instance=ExtResource("5_12do3")]
-spawn_center = null
 spawn_radius = 2.0
 length_min = 0.35
 length_max = 0.45
