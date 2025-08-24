@@ -1,8 +1,8 @@
 [gd_scene load_steps=8 format=3 uid="uid://cfuu81dmjkuiq"]
 
-[ext_resource type="ArrayMesh" uid="uid://cyoo6oopwa8n1" path="res://items/sapling/tree model/treetrunk.obj" id="1_2pcdh"]
-[ext_resource type="Script" uid="uid://dtdmkesf2mvf0" path="res://items/sapling/tree model/tree_mesh.gd" id="2_0hyt4"]
-[ext_resource type="Script" uid="uid://cbnmtvvhcepq5" path="res://items/sapling/tree model/foliage.gd" id="3_dl3yj"]
+[ext_resource type="ArrayMesh" uid="uid://cyoo6oopwa8n1" path="res://items/sapling/tree_model/treetrunk.obj" id="1_2pcdh"]
+[ext_resource type="Script" uid="uid://dtdmkesf2mvf0" path="res://items/sapling/tree_model/tree_mesh.gd" id="2_0hyt4"]
+[ext_resource type="Script" uid="uid://cbnmtvvhcepq5" path="res://items/sapling/tree_model/foliage.gd" id="3_dl3yj"]
 
 [sub_resource type="MultiMesh" id="MultiMesh_pjsic"]
 transform_format = 1
