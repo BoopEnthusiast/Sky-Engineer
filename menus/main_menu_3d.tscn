@@ -18,7 +18,6 @@ sky = SubResource("Sky_m313i")
 [node name="MainMenu3D" type="Node3D" parent="."]
 
 [node name="MenuCamera" type="Camera3D" parent="MainMenu3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3)
 current = true
 
 [node name="MainMenu2D" type="Control" parent="."]
@@ -30,45 +29,50 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="MainButtons" type="VBoxContainer" parent="MainMenu2D"]
-layout_mode = 1
-anchors_preset = -1
+[node name="Play" type="Panel" parent="MainMenu2D"]
+layout_mode = 2
 anchor_left = 0.374132
 anchor_top = 0.152778
-anchor_right = 0.625868
-anchor_bottom = 0.847222
-grow_horizontal = 2
-grow_vertical = 2
+anchor_right = 0.625
+anchor_bottom = 0.37963
+offset_bottom = 1.52588e-05
+size_flags_vertical = 3
 metadata/_edit_use_anchors_ = true
 
-[node name="Play" type="Panel" parent="MainMenu2D/MainButtons"]
+[node name="Settings" type="Panel" parent="MainMenu2D"]
 layout_mode = 2
+anchor_left = 0.374132
+anchor_top = 0.385803
+anchor_right = 0.625
+anchor_bottom = 0.612655
 size_flags_vertical = 3
+metadata/_edit_use_anchors_ = true
 
-[node name="Settings" type="Panel" parent="MainMenu2D/MainButtons"]
+[node name="Quit" type="Panel" parent="MainMenu2D"]
 layout_mode = 2
+anchor_left = 0.374132
+anchor_top = 0.618827
+anchor_right = 0.625
+anchor_bottom = 0.845679
 size_flags_vertical = 3
-
-[node name="Quit" type="Panel" parent="MainMenu2D/MainButtons"]
-layout_mode = 2
-size_flags_vertical = 3
+metadata/_edit_use_anchors_ = true
 
 [node name="Play" parent="." node_paths=PackedStringArray("counterpart_in_2d") instance=ExtResource("1_bjpdq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 text = "Play"
 size = Vector3(1.9, 0.8, 0.8)
-counterpart_in_2d = NodePath("../MainMenu2D/MainButtons/Play")
+counterpart_in_2d = NodePath("../MainMenu2D/Play")
 
 [node name="Settings" parent="." node_paths=PackedStringArray("counterpart_in_2d") instance=ExtResource("1_bjpdq")]
 text = "Settings"
 size = Vector3(1.9, 0.8, 0.8)
-counterpart_in_2d = NodePath("../MainMenu2D/MainButtons/Settings")
+counterpart_in_2d = NodePath("../MainMenu2D/Settings")
 
 [node name="Quit" parent="." node_paths=PackedStringArray("counterpart_in_2d") instance=ExtResource("1_bjpdq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
 text = "Quit"
 size = Vector3(1.9, 0.8, 0.8)
-counterpart_in_2d = NodePath("../MainMenu2D/MainButtons/Quit")
+counterpart_in_2d = NodePath("../MainMenu2D/Quit")
 
 [node name="Sun" type="DirectionalLight3D" parent="."]
 transform = Transform3D(0.707107, -0.5, 0.5, 0, 0.707107, 0.707107, -0.707107, -0.5, 0.5, 0, 3.90252, 0)
