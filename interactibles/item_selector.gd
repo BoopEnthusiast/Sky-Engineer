@@ -10,7 +10,7 @@ var selected_item_distance: float = INF
 
 
 func _process(_delta: float) -> void:
-	_update_closest_item()
+	_update_selected_item()
 	print(selectable_items,"\t\t",selected_item)
 
 
@@ -18,17 +18,17 @@ func _on_area_shape_entered(_area_rid: RID, area: Area3D, _area_shape_index: int
 	if area is not ItemShape:
 		return
 	selectable_items.append(area)
-	_update_closest_item()
+	_update_selected_item()
 
 
 func _on_area_shape_exited(_area_rid: RID, area: Area3D, _area_shape_index: int, _local_shape_index: int) -> void:
 	if area is not ItemShape:
 		return
 	selectable_items.erase(area)
-	_update_closest_item()
+	_update_selected_item()
 
 
-func _update_closest_item() -> void:
+func _update_selected_item() -> void:
 	# If there's no items in range, select none of them
 	if selectable_items.size() == 0:
 		selected_item = null
