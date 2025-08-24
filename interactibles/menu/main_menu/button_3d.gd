@@ -14,14 +14,13 @@ func _ready() -> void:
 	if not counterpart_in_2d.is_node_ready():
 		await counterpart_in_2d.ready
 	_initial_position = counterpart_in_2d.position
+	print("Node: " + counterpart_in_2d.name,"\t",_initial_position)
 
 
 func _process(delta: float) -> void:
 	# Move towards mouse
 	if _is_mouse_inside:
 		var weight: float = 1 - exp(-LERP_SPEED * delta)
-		#var position_to_move_to := _last_mouse_position - counterpart_in_2d.size / 2
-		#position_to_move_to = position_to_move_to.direction_to(counterpart_in_2d.global_position) * lerp(position_to_move_to.length(), 0, 0.8)
 		counterpart_in_2d.global_position = counterpart_in_2d.global_position.lerp(_last_mouse_position, weight)
 	# Move back to start
 	elif _initial_position != counterpart_in_2d.position:
@@ -31,7 +30,7 @@ func _process(delta: float) -> void:
 	super(delta)
 
 
-func _on_static_body_input_event(camera: Node, event: InputEvent, event_position: Vector3, _normal: Vector3, _shape_idx: int) -> void:
+func _on_static_body_input_event(camera: Node, event: InputEvent, event_position: Vector3, normal: Vector3, shape_idx: int) -> void:
 	if event is InputEventMouseMotion:
 		_last_mouse_position = get_viewport().get_camera_3d().unproject_position(event_position)
 

@@ -8,17 +8,16 @@ size = Vector3(1.8, 0.8, 0.8)
 [sub_resource type="BoxShape3D" id="BoxShape3D_a4wc5"]
 size = Vector3(1.8, 0.8, 0.8)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gmagp"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4unvk"]
 albedo_color = Color(0, 0, 0, 1)
 
-[sub_resource type="TextMesh" id="TextMesh_uo70h"]
-material = SubResource("StandardMaterial3D_gmagp")
+[sub_resource type="TextMesh" id="TextMesh_gmagp"]
+material = SubResource("StandardMaterial3D_4unvk")
 text = "Play"
 pixel_size = 0.03
 
 [node name="Button3D" type="Node3D"]
 script = ExtResource("1_4unvk")
-scales_with_2d_counterpart = true
 
 [node name="StaticBody" type="StaticBody3D" parent="."]
 collision_layer = 4
@@ -33,7 +32,7 @@ shape = SubResource("BoxShape3D_a4wc5")
 
 [node name="TextMesh" type="MeshInstance3D" parent="StaticBody"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.525)
-mesh = SubResource("TextMesh_uo70h")
+mesh = SubResource("TextMesh_gmagp")
 
 [connection signal="input_event" from="StaticBody" to="." method="_on_static_body_input_event"]
 [connection signal="mouse_entered" from="StaticBody" to="." method="_on_static_body_mouse_entered"]
