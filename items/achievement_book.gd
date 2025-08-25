@@ -11,7 +11,8 @@ var is_open = true
 
 func _ready() -> void:
 	for i in range(page_container.get_child_count()):
-		page_container.get_child(i).visible = (i == 0)
+		page_container.get_child(i).visible = (i == current_page_index)
+	print("current page index", current_page_index)
 	set_book_state_from_inventory() 
 
 	
@@ -44,19 +45,28 @@ func _on_item_shape_being_taken_from_inventory() -> void:
 
 func turn_page_forward():
 	if current_page_index < page_container.get_child_count() - 1:
-		animation_player.play("Flip_forward")
-		page_container.get_child(current_page_index + 1).hide() # Then hide the old page
+		
+		# Build the animation name dynamically from the current page index.
+		var animation_name = "Page_" + str(current_page_index) + "_Flip"
+		
+		animation_player.play(animation_name)
+		page_container.get_child(current_page_index).hide()
 		current_page_index += 1
-		page_container.get_child(current_page_index).show() # And show the new page
+		page_container.get_child(current_page_index).show()
 		await animation_player.animation_finished
 		print("Turned page forward. Current page index: ", current_page_index)
 	else:
 		print("Already at the end of the book")
 
+
 func turn_page_backward():
 	if current_page_index > 0:
-		animation_player.play_backwards("Flip_forward")
-		page_container.get_child(current_page_index - 1).hide()
+		
+		# Get the animation for the page you're flipping TO (the previous page).
+		var animation_name = "Page_" + str(current_page_index - 1) + "_Flip"
+		
+		animation_player.play_backwards(animation_name)
+		page_container.get_child(current_page_index).hide()
 		current_page_index -= 1
 		page_container.get_child(current_page_index).show()
 		await animation_player.animation_finished
