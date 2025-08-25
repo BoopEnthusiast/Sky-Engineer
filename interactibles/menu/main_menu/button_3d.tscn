@@ -1,8 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://dgmjn354mjr02"]
+[gd_scene load_steps=7 format=3 uid="uid://dgmjn354mjr02"]
 
 [ext_resource type="Script" uid="uid://ddi6qn7xgkwck" path="res://interactibles/menu/main_menu/button_3d_tool.gd" id="1_4unvk"]
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4unvk"]
+
 [sub_resource type="BoxMesh" id="BoxMesh_4unvk"]
+material = SubResource("StandardMaterial3D_4unvk")
 size = Vector3(1.8, 0.8, 0.8)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_a4wc5"]
