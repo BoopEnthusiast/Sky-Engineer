@@ -7,12 +7,13 @@ extends AnimatableBody3D
 var current_page_index = 0
 var is_in_inventory = false
 var is_open = true
+var is_turning = false
 
 
 func _ready() -> void:
 	for i in range(page_container.get_child_count()):
 		page_container.get_child(i).visible = (i == current_page_index)
-	print("current page index", current_page_index)
+	print("current page index ", current_page_index)
 	set_book_state_from_inventory() 
 
 	
@@ -45,15 +46,15 @@ func _on_item_shape_being_taken_from_inventory() -> void:
 
 func turn_page_forward():
 	if current_page_index < page_container.get_child_count() - 1:
-		
-		# Build the animation name dynamically from the current page index.
 		var animation_name = "Page_" + str(current_page_index) + "_Flip"
-		
 		animation_player.play(animation_name)
-		page_container.get_child(current_page_index).hide()
-		current_page_index += 1
-		page_container.get_child(current_page_index).show()
+		page_container.get_child(current_page_index + 1).show()
+		is_turning = true
 		await animation_player.animation_finished
+		if current_page_index >= 1:
+			page_container.get_child(current_page_index - 1).hide()
+		current_page_index += 1
+		is_turning = false
 		print("Turned page forward. Current page index: ", current_page_index)
 	else:
 		print("Already at the end of the book")
@@ -61,15 +62,16 @@ func turn_page_forward():
 
 func turn_page_backward():
 	if current_page_index > 0:
-		
-		# Get the animation for the page you're flipping TO (the previous page).
 		var animation_name = "Page_" + str(current_page_index - 1) + "_Flip"
-		
 		animation_player.play_backwards(animation_name)
+		#page_container.get_child(current_page_index).hide()
+		page_container.get_child(current_page_index - 1).show()
+		is_turning = true
+		await animation_player.animation_finished
 		page_container.get_child(current_page_index).hide()
 		current_page_index -= 1
-		page_container.get_child(current_page_index).show()
-		await animation_player.animation_finished
+		is_turning = false
+
 		print("Turned page backward. Current page index: ", current_page_index)
 	else:
 		print("Already at the beginning of the book")
@@ -78,12 +80,18 @@ func turn_page_backward():
 @warning_ignore("unused_parameter")
 func _on_turn_page_forward_button_button_pressed(toggled: bool) -> void:
 		if is_open: # Only allow page flipping if the book is open
-			if current_page_index < page_container.get_child_count():
-				turn_page_forward()
+			if current_page_index < page_container.get_child_count() - 1:
+				if is_turning == false:
+					turn_page_forward()
 
 
 @warning_ignore("unused_parameter")
 func _on_turn_page_backward_button_button_pressed(toggled: bool) -> void:
 		if is_open: # Only allow page flipping if the book is open
 			if current_page_index >= 0:
-				turn_page_backward()
+				if is_turning == false:
+					turn_page_backward()
+
+
+func _on_animation_player_animation_finished(anim_name: StringName) -> void:
+	print(anim_name)
