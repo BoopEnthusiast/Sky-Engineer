@@ -21,6 +21,7 @@ pixel_size = 0.03
 
 [node name="Button3D" type="Node3D"]
 script = ExtResource("1_4unvk")
+scales_with_2d_counterpart = true
 
 [node name="StaticBody" type="StaticBody3D" parent="."]
 collision_layer = 4

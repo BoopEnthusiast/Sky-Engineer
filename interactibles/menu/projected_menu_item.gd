@@ -67,7 +67,7 @@ extends Node3D
 @export var scales_with_2d_counterpart: bool = false
 
 var _reference_camera: Camera3D
-var _initial_2d_counterpart_size: Vector2
+var _initial_2d_counterpart_aspect: float
 
 
 func _ready() -> void:
@@ -76,7 +76,7 @@ func _ready() -> void:
 	add_child(new_node)
 	new_node.add_child(_reference_camera)
 	
-	_initial_2d_counterpart_size = counterpart_in_2d.size
+	_initial_2d_counterpart_aspect = counterpart_in_2d.size.aspect()
 
 
 func _process(delta: float) -> void:
@@ -201,9 +201,12 @@ func _handle_scale() -> void:
 	if not scales_with_2d_counterpart:
 		return
 	
-	var counterpart_2d_rect_size := counterpart_in_2d.size
+	var new_aspect := counterpart_in_2d.size.aspect()
+	var difference := -(_initial_2d_counterpart_aspect - new_aspect) / ((_initial_2d_counterpart_aspect + new_aspect) / 2) + 1
 	
-	var difference := (_initial_2d_counterpart_size - counterpart_2d_rect_size) / ((_initial_2d_counterpart_size + counterpart_2d_rect_size) / 2)
-	
-	scale.x = difference.x
-	scale.y = difference.y
+	if difference > 1:
+		scale.x = difference * 2.0 - 1.0
+		scale.y = 1.0
+	else:
+		scale.x = 1.0
+		scale.y = 1.0 / difference / 2.0 + 0.5
