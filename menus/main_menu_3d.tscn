@@ -21,7 +21,6 @@ sky = SubResource("Sky_m313i")
 current = true
 
 [node name="MainMenu2D" type="Control" parent="."]
-visible = false
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -37,7 +36,6 @@ anchor_right = 0.625
 anchor_bottom = 0.37963
 offset_bottom = 1.52588e-05
 size_flags_vertical = 3
-metadata/_edit_use_anchors_ = true
 
 [node name="Settings" type="Panel" parent="MainMenu2D"]
 layout_mode = 2
@@ -46,7 +44,6 @@ anchor_top = 0.385803
 anchor_right = 0.625
 anchor_bottom = 0.612655
 size_flags_vertical = 3
-metadata/_edit_use_anchors_ = true
 
 [node name="Quit" type="Panel" parent="MainMenu2D"]
 layout_mode = 2
@@ -55,23 +52,22 @@ anchor_top = 0.618827
 anchor_right = 0.625
 anchor_bottom = 0.845679
 size_flags_vertical = 3
-metadata/_edit_use_anchors_ = true
 
 [node name="Play" parent="." node_paths=PackedStringArray("counterpart_in_2d") instance=ExtResource("1_bjpdq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 text = "Play"
-size = Vector3(1.9, 0.8, 0.8)
+size = Vector3(2.5, 1.3, 1.3)
 counterpart_in_2d = NodePath("../MainMenu2D/Play")
 
 [node name="Settings" parent="." node_paths=PackedStringArray("counterpart_in_2d") instance=ExtResource("1_bjpdq")]
 text = "Settings"
-size = Vector3(1.9, 0.8, 0.8)
+size = Vector3(2.5, 1.3, 1.3)
 counterpart_in_2d = NodePath("../MainMenu2D/Settings")
 
 [node name="Quit" parent="." node_paths=PackedStringArray("counterpart_in_2d") instance=ExtResource("1_bjpdq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
 text = "Quit"
-size = Vector3(1.9, 0.8, 0.8)
+size = Vector3(2.5, 1.3, 1.3)
 counterpart_in_2d = NodePath("../MainMenu2D/Quit")
 
 [node name="Sun" type="DirectionalLight3D" parent="."]
