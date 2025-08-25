@@ -6,11 +6,11 @@ const WORLD = preload("res://worlds/world.tscn")
 const PLAYER = preload("res://interactibles/player.tscn")
 const MENU = preload("res://interactibles/menu/menu.tscn")
 
-@onready var main_menu: MainMenu = $Menu/MainMenu
+@onready var main_menu: Node = $MainMenu
 
 
 func _on_main_menu_play_game() -> void:
-	main_menu.visible = false
+	main_menu.queue_free()
 	
 	var world = WORLD.instantiate()
 	add_child(world)
