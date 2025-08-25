@@ -237,12 +237,12 @@ resource_name = "Page_1_Flip_2"
 tracks/0/type = "bezier"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("PageContainer/Page2:rotation:x")
+tracks/0/path = NodePath("PageContainer/Page2:rotation:z")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "handle_modes": PackedInt32Array(0, 0),
-"points": PackedFloat32Array(1.87965, -0.25, 0, 0.25, 0, 4.37554, -0.25, 0, 0.25, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0),
 "times": PackedFloat32Array(0, 1)
 }
 tracks/1/type = "bezier"
@@ -259,12 +259,12 @@ tracks/1/keys = {
 tracks/2/type = "bezier"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("PageContainer/Page2:rotation:z")
+tracks/2/path = NodePath("PageContainer/Page2:rotation:x")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
 "handle_modes": PackedInt32Array(0, 0),
-"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0),
+"points": PackedFloat32Array(1.87965, -0.25, 0, 0.25, 0, 4.37554, -0.25, 0, 0.25, 0),
 "times": PackedFloat32Array(0, 1)
 }
 
@@ -809,8 +809,7 @@ size = Vector2i(700, 1000)
 [node name="Page1_BackContent" parent="PageContainer/Page1/Page1_BackContent" instance=ExtResource("3_cdgaa")]
 
 [node name="Page2" type="Node3D" parent="PageContainer"]
-transform = Transform3D(1, 0, 0, 0, -0.330514, 0.943799, 0, -0.943799, -0.330514, 0, -1.19209e-07, 0)
-visible = false
+transform = Transform3D(1, 0, 0, 0, -0.303966, -0.952681, 0, 0.952681, -0.303966, 0, -1.19209e-07, 0)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="PageContainer/Page2"]
 transform = Transform3D(-0.985916, 0, 0, 0, -0.636408, -3.63798e-12, 0, 2.32831e-09, -0.00407733, -0.000726104, -0.320164, -0.00286609)
@@ -1100,3 +1099,4 @@ item_to_grab = NodePath("..")
 
 [connection signal="button_pressed" from="RightCover/TurnPageForwardButton" to="." method="_on_turn_page_forward_button_button_pressed"]
 [connection signal="button_pressed" from="Left Cover/TurnPageBackwardButton" to="." method="_on_turn_page_backward_button_button_pressed"]
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
