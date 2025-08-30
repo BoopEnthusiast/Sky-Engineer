@@ -4,7 +4,7 @@ extends Area3D
 ## This component turns [member item_to_rotate] towards a node when that node enters/exits this component.
 ##
 ## Attach the scene turn_to_node.tscn as a child of whatever node you want to rotate and set its various properties.
-## Do not add this node just as a node without using the scene. 
+## Do not add this node just as a node without using the scene.
 
 ## Emitted when this component starts rotating [member item_to_rotate] towards the node.
 signal started_rotating()
