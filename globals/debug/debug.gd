@@ -1,3 +1,4 @@
+@tool
 extends Node
 ## A class full of useful functions for making visual representations of numbers to help debug.[br]
 ## The first instance of this being used was making 3 different lines to show the directions of a 3D
@@ -10,6 +11,11 @@ var _debug_canvas_item: DebugCanvasItem
 
 
 func _ready() -> void:
+	if Engine.is_editor_hint():
+		for child: Node in get_children():
+			child.queue_free()
+		return
+	
 	_debug_label = Label.new()
 	add_child(_debug_label)
 	

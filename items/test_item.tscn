@@ -1,0 +1,27 @@
+[gd_scene load_steps=5 format=3 uid="uid://j82r68kriohc"]
+
+[ext_resource type="PackedScene" uid="uid://cxg8kmc638awu" path="res://interactibles/item_components/grabbable_item.tscn" id="1_i8ldy"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_xl1sa"]
+size = Vector3(0.5, 0.5, 0.5)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_i8ldy"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_i8ldy"]
+material = SubResource("StandardMaterial3D_i8ldy")
+size = Vector3(0.5, 0.5, 0.5)
+
+[node name="TestItem" type="AnimatableBody3D"]
+
+[node name="Collider" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_xl1sa")
+
+[node name="Mesh" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_i8ldy")
+
+[node name="GrabbableItem" parent="." node_paths=PackedStringArray("item_to_grab", "outline_when_interactible") instance=ExtResource("1_i8ldy")]
+item_to_grab = NodePath("..")
+can_be_grabbed = true
+can_be_rotated = true
+rotation_speed = 4.0
+outline_when_interactible = [NodePath("../Mesh")]

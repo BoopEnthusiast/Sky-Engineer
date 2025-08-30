@@ -4,18 +4,18 @@
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4unvk"]
 
-[sub_resource type="BoxMesh" id="BoxMesh_4unvk"]
+[sub_resource type="BoxMesh" id="BoxMesh_a4wc5"]
 material = SubResource("StandardMaterial3D_4unvk")
 size = Vector3(1.8, 0.8, 0.8)
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_a4wc5"]
+[sub_resource type="BoxShape3D" id="BoxShape3D_gmagp"]
 size = Vector3(1.8, 0.8, 0.8)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gmagp"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_uo70h"]
 albedo_color = Color(0, 0, 0, 1)
 
-[sub_resource type="TextMesh" id="TextMesh_uo70h"]
-material = SubResource("StandardMaterial3D_gmagp")
+[sub_resource type="TextMesh" id="TextMesh_1pdqh"]
+material = SubResource("StandardMaterial3D_uo70h")
 text = "Play"
 pixel_size = 0.03
 
@@ -28,15 +28,15 @@ collision_layer = 4
 collision_mask = 0
 
 [node name="Mesh" type="MeshInstance3D" parent="StaticBody"]
-mesh = SubResource("BoxMesh_4unvk")
+mesh = SubResource("BoxMesh_a4wc5")
 skeleton = NodePath("../..")
 
 [node name="Collider" type="CollisionShape3D" parent="StaticBody"]
-shape = SubResource("BoxShape3D_a4wc5")
+shape = SubResource("BoxShape3D_gmagp")
 
 [node name="TextMesh" type="MeshInstance3D" parent="StaticBody"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.525)
-mesh = SubResource("TextMesh_uo70h")
+mesh = SubResource("TextMesh_1pdqh")
 
 [connection signal="input_event" from="StaticBody" to="." method="_on_static_body_input_event"]
 [connection signal="mouse_entered" from="StaticBody" to="." method="_on_static_body_mouse_entered"]
