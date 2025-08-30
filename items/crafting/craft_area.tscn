@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://dmcvub1lf7c11"]
+
+[ext_resource type="Script" uid="uid://bmikrbcatrego" path="res://items/crafting/craft_area.gd" id="1_csx3n"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_csx3n"]
+
+[node name="CraftArea" type="AnimatableBody3D"]
+script = ExtResource("1_csx3n")
+shape = SubResource("BoxShape3D_csx3n")
+
+[node name="Collider" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_csx3n")
+
+[node name="Mesh" type="MeshInstance3D" parent="."]
