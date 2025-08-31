@@ -2,14 +2,12 @@ class_name BuildingNode
 extends StaticBody3D
 
 
-const NEAREST_POINTS_COUNT = 2
-const MAX_CONNECTING_DISTANCE = 7
-const MAX_SELECTING_DISTANCE = 1
-
-const VERTEX_POINT = preload("res://interactibles/vertex_point.tscn")
+const NEAREST_POINTS_COUNT = 2.0
+const MAX_CONNECTING_DISTANCE = 7.0
+const MAX_SELECTING_DISTANCE = 1.0
 const DRAG_SPEED = 25.0
 
-@export var building_index: int = 0
+const VERTEX_POINT = preload("res://interactibles/vertex_point.tscn")
 
 @export var points: PackedVector3Array = [
 	Vector3(1, 0.03, 1),
@@ -23,6 +21,8 @@ const DRAG_SPEED = 25.0
 	Color.from_ok_hsl(0.5, 1.0, 0.8),
 	Color.from_ok_hsl(0.75, 1.0, 0.8),
 ]
+
+var building_index: int = 0
 
 var had_selected_point: bool = false
 var has_process_queued_up: bool = false
@@ -92,7 +92,7 @@ func _process(delta: float) -> void:
 				has_process_queued_up = true
 	
 	# Stop coloring points
-	if Input.is_action_just_released(&"color"):
+	if (Input.is_action_just_released(&"color") or (_index_being_grabbed and Input.is_action_just_released(&"select"))) and _coloring >= 0:
 		Nodes.player.mouse_captured = true
 		_coloring = -1
 	

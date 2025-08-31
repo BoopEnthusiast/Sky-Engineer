@@ -1,13 +1,14 @@
-[gd_scene load_steps=23 format=3 uid="uid://51vq4jifog5g"]
+[gd_scene load_steps=34 format=3 uid="uid://51vq4jifog5g"]
 
 [ext_resource type="Script" uid="uid://bhgnv6yva4lmv" path="res://items/achievement_book.gd" id="1_kte5c"]
-[ext_resource type="PackedScene" uid="uid://cg2afeyy1kh8t" path="res://items/page_1_front_content.tscn" id="2_2ecdp"]
+[ext_resource type="PackedScene" uid="uid://cg2afeyy1kh8t" path="res://items/Pages_content_scenes/page_1_front_content.tscn" id="2_2ecdp"]
 [ext_resource type="PackedScene" uid="uid://cm50iq55vf512" path="res://interactibles/item_components/interactible_button.tscn" id="2_exru0"]
-[ext_resource type="PackedScene" uid="uid://ixphkp33vpxg" path="res://items/page_2_front_content.tscn" id="2_m7i7e"]
-[ext_resource type="PackedScene" uid="uid://brn37ucrk8kjq" path="res://items/page_2_back_content.tscn" id="3_0dyby"]
-[ext_resource type="PackedScene" uid="uid://b8rqv12sglaq7" path="res://items/page_1_back_content.tscn" id="3_cdgaa"]
-[ext_resource type="Animation" uid="uid://dqsf1mg7onkss" path="res://Flip_forward.res" id="7_exru0"]
+[ext_resource type="PackedScene" uid="uid://ixphkp33vpxg" path="res://items/Pages_content_scenes/page_2_front_content.tscn" id="2_m7i7e"]
+[ext_resource type="PackedScene" uid="uid://brn37ucrk8kjq" path="res://items/Pages_content_scenes/page_2_back_content.tscn" id="3_0dyby"]
+[ext_resource type="PackedScene" uid="uid://b8rqv12sglaq7" path="res://items/Pages_content_scenes/page_1_back_content.tscn" id="3_cdgaa"]
+[ext_resource type="PackedScene" uid="uid://vk3ldjbibcbi" path="res://items/Pages_content_scenes/page_3_front_content.tscn" id="7_exru0"]
 [ext_resource type="PackedScene" uid="uid://cxg8kmc638awu" path="res://interactibles/item_components/grabbable_item.tscn" id="7_fiu20"]
+[ext_resource type="PackedScene" uid="uid://cpiyto5abjb7n" path="res://items/page_3_back_content.tscn" id="8_bneui"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ut8ve"]
 size = Vector3(1, 0.05, 0.7)
@@ -28,6 +29,12 @@ viewport_path = NodePath("PageContainer/Page2/Page2_FrontContent")
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_exru0"]
 viewport_path = NodePath("PageContainer/Page2/Page2_BackContent")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_bneui"]
+viewport_path = NodePath("PageContainer/Page3/Page3_FrontContent")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_cuwhq"]
+viewport_path = NodePath("PageContainer/Page3/Page3_BackContent")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_obgbs"]
 size = Vector3(1, 0.1, 0.1)
@@ -114,131 +121,6 @@ tracks/7/keys = {
 "times": PackedFloat32Array(0, 1.2)
 }
 
-[sub_resource type="Animation" id="Animation_fiu20"]
-resource_name = "Floating "
-length = 1.2
-loop_mode = 1
-tracks/0/type = "position_3d"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = PackedFloat32Array()
-tracks/1/type = "bezier"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".:position:x")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"handle_modes": PackedInt32Array(0, 0, 0),
-"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0, 0.6, 1.2)
-}
-tracks/2/type = "bezier"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath(".:position:y")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"handle_modes": PackedInt32Array(0, 0, 0),
-"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 0.0125387, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0, 0.6, 1.2)
-}
-tracks/3/type = "bezier"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath(".:position:z")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"handle_modes": PackedInt32Array(0, 0, 0),
-"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0, 0.6, 1.2)
-}
-tracks/4/type = "rotation_3d"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("RightCover")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = PackedFloat32Array()
-tracks/5/type = "bezier"
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/path = NodePath("RightCover:rotation:x")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/keys = {
-"handle_modes": PackedInt32Array(0, 0, 0),
-"points": PackedFloat32Array(0.307178, -0.25, 0, 0.25, 0, 0.218166, -0.25, 0, 0.25, 0, 0.307178, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0, 0.6, 1.2)
-}
-tracks/6/type = "bezier"
-tracks/6/imported = false
-tracks/6/enabled = true
-tracks/6/path = NodePath("RightCover:rotation:y")
-tracks/6/interp = 1
-tracks/6/loop_wrap = true
-tracks/6/keys = {
-"handle_modes": PackedInt32Array(0, 0, 0),
-"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0, 0.6, 1.2)
-}
-tracks/7/type = "bezier"
-tracks/7/imported = false
-tracks/7/enabled = true
-tracks/7/path = NodePath("RightCover:rotation:z")
-tracks/7/interp = 1
-tracks/7/loop_wrap = true
-tracks/7/keys = {
-"handle_modes": PackedInt32Array(0, 0, 0),
-"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0, 0.6, 1.2)
-}
-tracks/8/type = "rotation_3d"
-tracks/8/imported = false
-tracks/8/enabled = true
-tracks/8/path = NodePath("Left Cover")
-tracks/8/interp = 1
-tracks/8/loop_wrap = true
-tracks/8/keys = PackedFloat32Array()
-tracks/9/type = "bezier"
-tracks/9/imported = false
-tracks/9/enabled = true
-tracks/9/path = NodePath("Left Cover:rotation:x")
-tracks/9/interp = 1
-tracks/9/loop_wrap = true
-tracks/9/keys = {
-"handle_modes": PackedInt32Array(0, 0, 0),
-"points": PackedFloat32Array(5.9795, -0.25, 0, 0.25, 0, 6.06851, -0.25, 0, 0.25, 0, 5.9795, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0, 0.6, 1.2)
-}
-tracks/10/type = "bezier"
-tracks/10/imported = false
-tracks/10/enabled = true
-tracks/10/path = NodePath("Left Cover:rotation:y")
-tracks/10/interp = 1
-tracks/10/loop_wrap = true
-tracks/10/keys = {
-"handle_modes": PackedInt32Array(0, 0, 0),
-"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0, 0.6, 1.2)
-}
-tracks/11/type = "bezier"
-tracks/11/imported = false
-tracks/11/enabled = true
-tracks/11/path = NodePath("Left Cover:rotation:z")
-tracks/11/interp = 1
-tracks/11/loop_wrap = true
-tracks/11/keys = {
-"handle_modes": PackedInt32Array(0, 0, 0),
-"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0, 0.6, 1.2)
-}
-
 [sub_resource type="Animation" id="Animation_ut8ve"]
 resource_name = "Open"
 length = 1.2
@@ -312,6 +194,366 @@ tracks/6/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Vector3(1.57567, 0, 0), Vector3(1.88394, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_exru0"]
+resource_name = "Page_0_Flip"
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PageContainer/Page1:rotation:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(1.87972, -0.25, 0, 0.25, 0, 4.37554, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 1)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("PageContainer/Page1:rotation:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 1)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("PageContainer/Page1:rotation:z")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 1)
+}
+
+[sub_resource type="Animation" id="Animation_dmcek"]
+resource_name = "Page_1_Flip_2"
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PageContainer/Page2:rotation:z")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 1)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("PageContainer/Page2:rotation:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 1)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("PageContainer/Page2:rotation:x")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(1.87965, -0.25, 0, 0.25, 0, 4.37554, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 1)
+}
+
+[sub_resource type="Animation" id="Animation_bneui"]
+resource_name = "Page_3_Flip"
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PageContainer/Page3:rotation:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(1.87972, -0.25, 0, 0.25, 0, 4.37554, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 1)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("PageContainer/Page3:rotation:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 1)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("PageContainer/Page3:rotation:z")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 1)
+}
+
+[sub_resource type="Animation" id="Animation_cuwhq"]
+resource_name = "Page_4_Flip"
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PageContainer/Page4:rotation:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(1.87972, -0.25, 0, 0.25, 0, 4.37554, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(-5.96046e-08, 1)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("PageContainer/Page4:rotation:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(-5.96046e-08, 1)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("PageContainer/Page4:rotation:z")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(-5.96046e-08, 1)
+}
+
+[sub_resource type="Animation" id="Animation_ppb5n"]
+resource_name = "Page_5_Flip"
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PageContainer/Page5:rotation:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(1.87965, -0.25, 0, 0.25, 0, 4.37554, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 1)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("PageContainer/Page5:rotation:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 1)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("PageContainer/Page5:rotation:z")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 1)
+}
+
+[sub_resource type="Animation" id="Animation_3ukjm"]
+resource_name = "Page_6_Flip"
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PageContainer/Page6:rotation:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(1.87965, -0.25, 0, 0.25, 0, 4.37554, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.966667)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("PageContainer/Page6:rotation:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.966667)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("PageContainer/Page6:rotation:z")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.966667)
+}
+
+[sub_resource type="Animation" id="Animation_ax4ku"]
+resource_name = "Page_7_Flip"
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PageContainer/Page7:rotation:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(1.87965, -0.25, 0, 0.25, 0, 4.37554, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 1)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("PageContainer/Page7:rotation:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 1)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("PageContainer/Page7:rotation:z")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 1)
+}
+
+[sub_resource type="Animation" id="Animation_4rntc"]
+resource_name = "Page_8_Flip"
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PageContainer/Page8:rotation:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(1.87965, -0.25, 0, 0.25, 0, 4.37554, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 1)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("PageContainer/Page8:rotation:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 1)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("PageContainer/Page8:rotation:z")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 1)
+}
+
+[sub_resource type="Animation" id="Animation_bnyxi"]
+resource_name = "Page_9_Flip"
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PageContainer/Page9:rotation:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(1.87965, -0.25, 0, 0.25, 0, 4.37554, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.966667)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("PageContainer/Page9:rotation:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.966667)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("PageContainer/Page9:rotation:z")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.966667)
+}
+
+[sub_resource type="Animation" id="Animation_mwi6q"]
+resource_name = "Page_10_Flip"
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PageContainer/Page10:rotation:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(1.87965, -0.25, 0, 0.25, 0, 4.37554, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 1)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("PageContainer/Page10:rotation:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 1)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("PageContainer/Page10:rotation:z")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 1)
 }
 
 [sub_resource type="Animation" id="Animation_kte5c"]
@@ -485,51 +727,21 @@ tracks/14/keys = {
 "times": PackedFloat32Array(0)
 }
 
-[sub_resource type="Animation" id="Animation_obgbs"]
-resource_name = "open"
-length = 2.0
-tracks/0/type = "bezier"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Left Cover:rotation:x")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"handle_modes": PackedInt32Array(0, 0),
-"points": PackedFloat32Array(-3.14159, -0.25, 0, 0.25, 0, -6.3573e-08, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0, 2)
-}
-tracks/1/type = "bezier"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Left Cover:rotation:y")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"handle_modes": PackedInt32Array(0, 0),
-"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0, 2)
-}
-tracks/2/type = "bezier"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Left Cover:rotation:z")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"handle_modes": PackedInt32Array(0, 0),
-"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0, 2)
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_kte5c"]
 _data = {
 &"Close": SubResource("Animation_cdgaa"),
-&"Flip_forward": ExtResource("7_exru0"),
-&"Floating ": SubResource("Animation_fiu20"),
 &"Open": SubResource("Animation_ut8ve"),
-&"RESET": SubResource("Animation_kte5c"),
-&"open": SubResource("Animation_obgbs")
+&"Page_0_Flip": SubResource("Animation_exru0"),
+&"Page_1_Flip": SubResource("Animation_dmcek"),
+&"Page_2_Flip": SubResource("Animation_bneui"),
+&"Page_3_Flip": SubResource("Animation_cuwhq"),
+&"Page_4_Flip": SubResource("Animation_ppb5n"),
+&"Page_5_Flip": SubResource("Animation_3ukjm"),
+&"Page_6_Flip": SubResource("Animation_ax4ku"),
+&"Page_7_Flip": SubResource("Animation_4rntc"),
+&"Page_8_Flip": SubResource("Animation_bnyxi"),
+&"Page_9_Flip": SubResource("Animation_mwi6q"),
+&"RESET": SubResource("Animation_kte5c")
 }
 
 [node name="AchievementBook" type="AnimatableBody3D"]
@@ -547,7 +759,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.025, -0.35)
 mesh = SubResource("BoxMesh_ut8ve")
 
 [node name="TurnPageForwardButton" parent="RightCover" instance=ExtResource("2_exru0")]
-transform = Transform3D(1, 0, 0, 0, 0.976296, 0.216439, 0, -0.216439, 0.976296, 0.289651, 0.16936, 0.463251)
+transform = Transform3D(1, 0, 0, 0, 0.976296, 0.216439, 0, -0.216439, 0.976296, 0.289651, 0.351663, 0.504462)
 
 [node name="Left Cover" type="AnimatableBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.95424, 0.299039, 0, -0.299039, 0.95424, 0, 0, 0)
@@ -562,7 +774,7 @@ mesh = SubResource("BoxMesh_ut8ve")
 skeleton = NodePath("../../RightCover")
 
 [node name="TurnPageBackwardButton" parent="Left Cover" instance=ExtResource("2_exru0")]
-transform = Transform3D(1, 0, 0, 0, 0.954242, -0.29904, 0, 0.29904, 0.954242, 0.289651, 0.271304, -0.513728)
+transform = Transform3D(1, 0, 0, 0, 0.954242, -0.29904, 0, 0.29904, 0.954242, 0.289651, 0.366677, -0.522855)
 
 [node name="PageContainer" type="Node3D" parent="."]
 
@@ -598,7 +810,6 @@ size = Vector2i(700, 1000)
 
 [node name="Page2" type="Node3D" parent="PageContainer"]
 transform = Transform3D(1, 0, 0, 0, -0.303966, -0.952681, 0, 0.952681, -0.303966, 0, -1.19209e-07, 0)
-visible = false
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="PageContainer/Page2"]
 transform = Transform3D(-0.985916, 0, 0, 0, -0.636408, -3.63798e-12, 0, 2.32831e-09, -0.00407733, -0.000726104, -0.320164, -0.00286609)
@@ -628,7 +839,7 @@ size = Vector2i(700, 1000)
 [node name="Page2_BackContent" parent="PageContainer/Page2/Page2_BackContent" instance=ExtResource("3_0dyby")]
 
 [node name="Page3" type="Node3D" parent="PageContainer"]
-transform = Transform3D(1, 0, 0, 0, -0.303966, -0.952681, 0, 0.952681, -0.303966, 0, -1.19209e-07, 0)
+transform = Transform3D(1, 0, 0, 0, -0.304033, -0.95266, 0, 0.95266, -0.304033, 0, -1.19209e-07, 0)
 visible = false
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="PageContainer/Page3"]
@@ -638,28 +849,28 @@ mesh = SubResource("BoxMesh_2ecdp")
 [node name="Sprite3D" type="Sprite3D" parent="PageContainer/Page3"]
 transform = Transform3D(3.90065e-09, -0.097762, -8.63155e-08, 0.0892345, 4.21593e-09, 0.00661878, -0.000598213, -8.57509e-09, 0.987313, 0, -0.324054, -0.00682781)
 flip_h = true
-texture = SubResource("ViewportTexture_2ecdp")
+texture = SubResource("ViewportTexture_bneui")
 
 [node name="Sprite3D2" type="Sprite3D" parent="PageContainer/Page3"]
 transform = Transform3D(3.90065e-09, -0.097762, -8.63155e-08, 0.0892345, 4.21593e-09, 0.00661878, -0.000598213, -8.57509e-09, 0.987313, 0, -0.324115, 0.00217281)
 double_sided = false
-texture = SubResource("ViewportTexture_m7i7e")
+texture = SubResource("ViewportTexture_cuwhq")
 
-[node name="Page1_FrontContent" type="SubViewport" parent="PageContainer/Page3"]
+[node name="Page3_FrontContent" type="SubViewport" parent="PageContainer/Page3"]
 transparent_bg = true
 size = Vector2i(700, 1000)
 render_target_update_mode = 4
 
-[node name="Page1_FrontContent" parent="PageContainer/Page3/Page1_FrontContent" instance=ExtResource("2_2ecdp")]
+[node name="Page3_FrontContent" parent="PageContainer/Page3/Page3_FrontContent" instance=ExtResource("7_exru0")]
 
-[node name="Page1_BackContent" type="SubViewport" parent="PageContainer/Page3"]
+[node name="Page3_BackContent" type="SubViewport" parent="PageContainer/Page3"]
 transparent_bg = true
 size = Vector2i(700, 1000)
 
-[node name="Page1_BackContent" parent="PageContainer/Page3/Page1_BackContent" instance=ExtResource("3_cdgaa")]
+[node name="Page3_BackContent" parent="PageContainer/Page3/Page3_BackContent" instance=ExtResource("8_bneui")]
 
 [node name="Page4" type="Node3D" parent="PageContainer"]
-transform = Transform3D(1, 0, 0, 0, -0.303966, -0.952681, 0, 0.952681, -0.303966, 0, -1.19209e-07, 0)
+transform = Transform3D(1, 0, 0, 0, -0.304033, -0.95266, 0, 0.95266, -0.304033, 0, -1.19209e-07, 0)
 visible = false
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="PageContainer/Page4"]
@@ -888,3 +1099,4 @@ item_to_grab = NodePath("..")
 
 [connection signal="button_pressed" from="RightCover/TurnPageForwardButton" to="." method="_on_turn_page_forward_button_button_pressed"]
 [connection signal="button_pressed" from="Left Cover/TurnPageBackwardButton" to="." method="_on_turn_page_backward_button_button_pressed"]
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

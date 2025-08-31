@@ -1,0 +1,2 @@
+class_name InventoryCrafting
+extends Node3D

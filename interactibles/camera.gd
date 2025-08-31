@@ -120,16 +120,16 @@ func _move_grabbed_items() -> void:
 			_player.currently_grabbing.stop_interacting_with()
 		_player.currently_grabbing = null
 	
-	if is_instance_valid(_selected_item) and _selected_item != _previous_closest_item:
-		if is_instance_valid(_previous_closest_item):
-			_previous_closest_item.no_longer_closest_item_to_selector()
-		_selected_item.closest_item_to_selector()
-		_previous_closest_item = _selected_item
-	elif _closest_found_thing_type != Player.Grabbable.ITEM and is_instance_valid(_previous_closest_item):
-		_previous_closest_item.no_longer_closest_item_to_selector()
-		_previous_closest_item = null
-	
 	if not is_instance_valid(_player.currently_grabbing):
+		if is_instance_valid(_selected_item) and _selected_item != _previous_closest_item:
+			if is_instance_valid(_previous_closest_item):
+				_previous_closest_item.no_longer_closest_item_to_selector()
+			_selected_item.closest_item_to_selector()
+			_previous_closest_item = _selected_item
+		elif _closest_found_thing_type != Player.Grabbable.ITEM and is_instance_valid(_previous_closest_item):
+			_previous_closest_item.no_longer_closest_item_to_selector()
+			_previous_closest_item = null
+		
 		match _closest_found_thing_type:
 			Player.Grabbable.NOTHING:
 				Nodes.world.selector_mesh.global_position = _player.point_manipulator.global_position
