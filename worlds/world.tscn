@@ -17,6 +17,9 @@ sky_material = SubResource("ProceduralSkyMaterial_felrd")
 [sub_resource type="Environment" id="Environment_46j3l"]
 background_mode = 2
 sky = SubResource("Sky_12do3")
+volumetric_fog_enabled = true
+volumetric_fog_density = 0.01
+volumetric_fog_anisotropy = 0.7
 
 [sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_bnm7t"]
 
@@ -44,6 +47,9 @@ rings = 8
 
 [node name="World" type="Node3D"]
 script = ExtResource("1_m138w")
+
+[node name="FogVolume" type="FogVolume" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 190.518, 0)
 
 [node name="Sun" type="DirectionalLight3D" parent="."]
 transform = Transform3D(0.707107, -0.5, 0.5, 0, 0.707107, 0.707107, -0.707107, -0.5, 0.5, 0, 3.90252, 0)
