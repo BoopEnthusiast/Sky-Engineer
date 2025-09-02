@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://db1skk0t078ap"]
+
+[ext_resource type="Texture2D" uid="uid://iycii327ywj0" path="res://cloud.png" id="1_b3oxr"]
+[ext_resource type="Script" uid="uid://bmt2a6xmqt8fc" path="res://worlds/cloud.gd" id="2_qaedo"]
+
+[node name="Cloud" type="Sprite3D"]
+transform = Transform3D(2.98606, 0, 0, 0, 2.69394, 0, 0, 0, 1, 0, 0, 0)
+billboard = 1
+texture = ExtResource("1_b3oxr")
+script = ExtResource("2_qaedo")

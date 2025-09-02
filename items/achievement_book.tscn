@@ -1096,6 +1096,9 @@ libraries = {
 
 [node name="GrabbableItem" parent="." node_paths=PackedStringArray("item_to_grab") instance=ExtResource("7_fiu20")]
 item_to_grab = NodePath("..")
+can_be_grabbed = true
+can_be_rotated = true
+rotation_speed = 4.0
 
 [connection signal="button_pressed" from="RightCover/TurnPageForwardButton" to="." method="_on_turn_page_forward_button_button_pressed"]
 [connection signal="button_pressed" from="Left Cover/TurnPageBackwardButton" to="." method="_on_turn_page_backward_button_button_pressed"]

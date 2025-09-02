@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://cxus3ioklaaki"]
+[gd_scene load_steps=18 format=3 uid="uid://cxus3ioklaaki"]
 
 [ext_resource type="Script" uid="uid://dobv4rbfvosds" path="res://worlds/world.gd" id="1_m138w"]
 [ext_resource type="PackedScene" uid="uid://bjxbdvhb0xhsj" path="res://interactibles/building.tscn" id="2_c7htk"]
@@ -6,6 +6,8 @@
 [ext_resource type="PackedScene" uid="uid://51vq4jifog5g" path="res://items/achievement_book.tscn" id="4_wp1yw"]
 [ext_resource type="PackedScene" uid="uid://dpl5fe338ir03" path="res://items/leafgen.tscn" id="5_12do3"]
 [ext_resource type="PackedScene" uid="uid://j82r68kriohc" path="res://items/test_item.tscn" id="6_3euow"]
+[ext_resource type="PackedScene" uid="uid://hdym8uqhclcm" path="res://worlds/cloud_manager.tscn" id="7_5rksg"]
+[ext_resource type="PackedScene" uid="uid://db1skk0t078ap" path="res://worlds/cloud.tscn" id="8_iw727"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_felrd"]
 
@@ -77,3 +79,6 @@ width_max = 0.18
 
 [node name="TestItem" parent="." instance=ExtResource("6_3euow")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.99653, 1.51875, -0.545993)
+
+[node name="CloudManager" parent="." instance=ExtResource("7_5rksg")]
+cloud_scene = ExtResource("8_iw727")
