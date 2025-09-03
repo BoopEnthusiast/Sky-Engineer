@@ -5,6 +5,7 @@
 
 [node name="Cloud" type="Sprite3D"]
 transform = Transform3D(2.98606, 0, 0, 0, 2.69394, 0, 0, 0, 1, 0, 0, 0)
+pixel_size = 0.0385
 billboard = 1
 texture = ExtResource("1_b3oxr")
 script = ExtResource("2_qaedo")

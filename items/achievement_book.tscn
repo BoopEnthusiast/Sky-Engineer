@@ -8,7 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://b8rqv12sglaq7" path="res://items/Pages_content_scenes/page_1_back_content.tscn" id="3_cdgaa"]
 [ext_resource type="PackedScene" uid="uid://vk3ldjbibcbi" path="res://items/Pages_content_scenes/page_3_front_content.tscn" id="7_exru0"]
 [ext_resource type="PackedScene" uid="uid://cxg8kmc638awu" path="res://interactibles/item_components/grabbable_item.tscn" id="7_fiu20"]
-[ext_resource type="PackedScene" uid="uid://cpiyto5abjb7n" path="res://items/page_3_back_content.tscn" id="8_bneui"]
+[ext_resource type="PackedScene" uid="uid://cpiyto5abjb7n" path="res://items/Pages_content_scenes/page_3_back_content.tscn" id="8_bneui"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ut8ve"]
 size = Vector3(1, 0.05, 0.7)
@@ -810,6 +810,7 @@ size = Vector2i(700, 1000)
 
 [node name="Page2" type="Node3D" parent="PageContainer"]
 transform = Transform3D(1, 0, 0, 0, -0.303966, -0.952681, 0, 0.952681, -0.303966, 0, -1.19209e-07, 0)
+visible = false
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="PageContainer/Page2"]
 transform = Transform3D(-0.985916, 0, 0, 0, -0.636408, -3.63798e-12, 0, 2.32831e-09, -0.00407733, -0.000726104, -0.320164, -0.00286609)
@@ -1102,4 +1103,5 @@ rotation_speed = 4.0
 
 [connection signal="button_pressed" from="RightCover/TurnPageForwardButton" to="." method="_on_turn_page_forward_button_button_pressed"]
 [connection signal="button_pressed" from="Left Cover/TurnPageBackwardButton" to="." method="_on_turn_page_backward_button_button_pressed"]
-[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
+[connection signal="put_into_inventory" from="GrabbableItem" to="." method="_on_grabbable_item_put_into_inventory"]
+[connection signal="taken_from_inventory" from="GrabbableItem" to="." method="_on_grabbable_item_taken_from_inventory"]
