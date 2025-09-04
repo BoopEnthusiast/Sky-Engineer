@@ -35,6 +35,7 @@ const ROTATION_SLOW = 300.0
 
 ## Whether this item is currently grabbed or not.
 var is_currently_grabbed := false
+## Whether this item is currently being rotated or not.
 var is_being_rotated := false
 
 var _basis_to_turn_to: Basis
