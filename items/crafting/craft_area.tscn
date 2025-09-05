@@ -2,13 +2,34 @@
 
 [ext_resource type="Script" uid="uid://bmikrbcatrego" path="res://items/crafting/craft_area.gd" id="1_csx3n"]
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_csx3n"]
+[sub_resource type="SphereShape3D" id="SphereShape3D_csx3n"]
 
-[node name="CraftArea" type="AnimatableBody3D"]
+[node name="CraftArea" type="Area3D"]
 script = ExtResource("1_csx3n")
-shape = SubResource("BoxShape3D_csx3n")
+shape = SubResource("SphereShape3D_csx3n")
 
 [node name="Collider" type="CollisionShape3D" parent="."]
-shape = SubResource("BoxShape3D_csx3n")
+shape = SubResource("SphereShape3D_csx3n")
 
 [node name="Mesh" type="MeshInstance3D" parent="."]
+
+[node name="Crafting" type="Timer" parent="."]
+
+[node name="ProgressBar" type="Sprite3D" parent="."]
+
+[node name="SubViewport" type="SubViewport" parent="."]
+size = Vector2i(800, 200)
+
+[node name="ProgressBar" type="ProgressBar" parent="SubViewport"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 100
+
+[connection signal="area_entered" from="." to="." method="_on_node_entered"]
+[connection signal="area_exited" from="." to="." method="_on_node_exited"]
+[connection signal="body_entered" from="." to="." method="_on_node_entered"]
+[connection signal="body_exited" from="." to="." method="_on_node_exited"]
+[connection signal="timeout" from="Crafting" to="." method="_on_crafting_timeout"]
