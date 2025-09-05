@@ -5,7 +5,7 @@ extends Area3D
 
 
 ## Emitted when the crafting is finished.
-signal finished_crafting(scene: PackedScene)
+signal finished_crafting(new_node: Node)
 ## Emitted when the crafting starts.[br]
 ## [br]
 ## It is not emitted when [member instant_crafting] is enabled.
@@ -41,9 +41,6 @@ var recipe_lists: Array[Dictionary]
 ## The nodes that are inside this [CraftArea].
 var nodes_inside: Array[Node3D]
 
-var _update_thread: Thread
-var _update_semaphore: Semaphore
-var _update_mutex: Mutex
 var _nodes_used_to_craft: Array[Node3D]
 var _to_craft: PackedScene
 
@@ -61,18 +58,8 @@ var _to_craft: PackedScene
 @onready var _collider: CollisionShape3D = $Collider
 
 
-func _ready() -> void:
-	_update_thread = Thread.new()
-	_update_semaphore = Semaphore.new()
-	_update_mutex = Mutex.new()
-
-
 func _process(_delta: float) -> void:
 	progress_bar.value = crafting_timer.wait_time - crafting_timer.time_left
-
-
-func _exit_tree() -> void:
-	_update_thread.wait_to_finish()
 
 
 ## Adds a recipe list. This recipe should be a recipe list from the [code]recipes.gd[/code]/[code]Recipes[/code] singleton.
@@ -82,13 +69,11 @@ func add_recipe_list(list: Dictionary) -> void:
 
 ## Starts the process of crafting, which either is instant or after the [member crafting_timer] times out depending on [member instant_crafting].
 func start_crafting() -> void:
-	_update_if_should_craft()
-	if _to_craft == null:
+	if not _update_if_should_craft():
 		return
 	
 	if instant_crafting:
-		_craft()
-		finished_crafting.emit(_to_craft)
+		finished_crafting.emit(_craft())
 	else:
 		if crafting_timer.is_stopped():
 			crafting_timer.start()
@@ -107,13 +92,51 @@ func change_wait_time(time: float) -> void:
 	progress_bar.max_value = time
 
 
-func _craft() -> void:
-	pass
+func _craft() -> Node:
+	for node: Node3D in _nodes_used_to_craft:
+		node.queue_free()
+	var new_node := _to_craft.instantiate()
+	Nodes.world.add_child(new_node)
+	return new_node
 
 
 func _update_if_should_craft() -> bool:
-	# TODO: make this function
+	# Get the available groups on all the nodes inside this craft area and the list of nodes that have them
+	var available_groups: Dictionary[StringName, Array]
+	for node: Node3D in nodes_inside:
+		for node_group: StringName in node.get_groups():
+			# Ignore internal groups (like those from the editor)
+			if node_group.begins_with("_"):
+				continue
+			if available_groups.has(node_group):
+				available_groups[node_group].append(node)
+			else:
+				available_groups[node_group] = [node]
 	
+	# For each list available to this craft area
+	for recipe_list: Dictionary[Dictionary, PackedScene] in recipe_lists:
+		# Get each recipe dictionary
+		for recipe: Dictionary[StringName, int] in recipe_list:
+			# Check if this recipe has all the requisite groups and enough items to make it
+			var has_all_requirements := recipe.size() > 0
+			var required_nodes: Array[Node3D]
+			for key: StringName in recipe:
+				if available_groups.has(key):
+					if available_groups[key].size() >= recipe[key]:
+						# Add only the required amount of nodes to the required nodes in case there's more than the required amount
+						for i: int in range(recipe[key]):
+							required_nodes.append(available_groups[key][i])
+					else:
+						has_all_requirements = false
+						break
+				else:
+					has_all_requirements = false
+					break
+			# Found a matching recipe! Set private variables and return true
+			if has_all_requirements:
+				_nodes_used_to_craft = required_nodes
+				_to_craft = recipe_list[recipe]
+				return true
 	return false
 
 
@@ -130,12 +153,9 @@ func _on_node_exited(node: Node3D) -> void:
 func _check_crafting_state() -> void:
 	if crafting_timer.is_stopped():
 		start_crafting()
-	else:
-		_update_if_should_craft()
-		if _to_craft == null:
-			cancel_crafting()
+	elif not _update_if_should_craft():
+		cancel_crafting()
 
 
 func _on_crafting_timeout() -> void:
-	_craft()
-	finished_crafting.emit(_to_craft)
+	finished_crafting.emit(_craft())
