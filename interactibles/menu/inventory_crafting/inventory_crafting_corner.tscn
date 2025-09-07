@@ -1,0 +1,33 @@
+[gd_scene load_steps=5 format=3 uid="uid://ctgi1euimhht5"]
+
+[ext_resource type="Script" uid="uid://b1q8m3r6k25bd" path="res://interactibles/menu/inventory_crafting/inventory_crafting_corner.gd" id="1_2yrrf"]
+[ext_resource type="PackedScene" uid="uid://cxg8kmc638awu" path="res://interactibles/item_components/grabbable_item.tscn" id="1_8bb6w"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2yrrf"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_l8rvk"]
+material = SubResource("StandardMaterial3D_2yrrf")
+radius = 0.025
+height = 0.25
+
+[node name="CraftingCorner" type="Node3D"]
+script = ExtResource("1_2yrrf")
+
+[node name="X" type="MeshInstance3D" parent="."]
+transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 0.125, 0, 0)
+mesh = SubResource("CapsuleMesh_l8rvk")
+
+[node name="Y" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.125, 0)
+mesh = SubResource("CapsuleMesh_l8rvk")
+
+[node name="Z" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0.125)
+mesh = SubResource("CapsuleMesh_l8rvk")
+
+[node name="GrabbableItem" parent="." node_paths=PackedStringArray("item_to_grab") instance=ExtResource("1_8bb6w")]
+item_to_grab = NodePath("..")
+can_be_grabbed = true
+can_be_rotated = true
+rotation_speed = 4.0
+interact_range = 0.3

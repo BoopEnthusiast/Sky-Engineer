@@ -1,14 +1,12 @@
-[gd_scene load_steps=8 format=3 uid="uid://chmysfru4gt6y"]
+[gd_scene load_steps=7 format=3 uid="uid://chmysfru4gt6y"]
 
 [ext_resource type="Script" uid="uid://cxnb002sxkxne" path="res://interactibles/menu/menu.gd" id="1_abbww"]
 [ext_resource type="PackedScene" uid="uid://guxbachm7ara" path="res://interactibles/menu/counters.tscn" id="2_bx01g"]
 [ext_resource type="Script" uid="uid://dgqx2444re8md" path="res://interactibles/menu/inventory/inventory.gd" id="3_15prt"]
 [ext_resource type="PackedScene" uid="uid://b6ym164ochl8a" path="res://interactibles/menu/inventory/inventory_3d.tscn" id="4_15prt"]
-[ext_resource type="Script" uid="uid://blxncxj4cw4hi" path="res://interactibles/menu/inventory_crafting.gd" id="5_qjxdy"]
+[ext_resource type="PackedScene" uid="uid://btx4e5ca8wuey" path="res://interactibles/menu/inventory_crafting/inventory_crafting.tscn" id="5_qjxdy"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tyti5"]
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_15prt"]
 
 [node name="Menu" type="Node"]
 script = ExtResource("1_abbww")
@@ -74,7 +72,6 @@ counterpart_in_2d = NodePath("../Menu2D/Inventory/Counters")
 remote_transform = NodePath("../Menu3D/Counters")
 
 [node name="Inventory" type="Node3D" parent="."]
-visible = false
 script = ExtResource("3_15prt")
 
 [node name="Inventory3D" parent="Inventory" node_paths=PackedStringArray("counterpart_in_2d", "remote_transform", "collision_area") instance=ExtResource("4_15prt")]
@@ -82,10 +79,4 @@ counterpart_in_2d = NodePath("../../Menu2D/Inventory")
 remote_transform = NodePath("../../Menu3D/Inventory")
 collision_area = NodePath("../../Menu2D/Inventory/InventoryArea")
 
-[node name="InventoryCrafting" type="Node3D" parent="."]
-script = ExtResource("5_qjxdy")
-
-[node name="CraftArea" type="Area3D" parent="InventoryCrafting"]
-
-[node name="Collider" type="CollisionShape3D" parent="InventoryCrafting/CraftArea"]
-shape = SubResource("BoxShape3D_15prt")
+[node name="InventoryCrafting" parent="Inventory" instance=ExtResource("5_qjxdy")]

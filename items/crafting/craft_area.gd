@@ -28,13 +28,24 @@ signal started_crafting()
 ## If this [CraftArea] immediatly starts crafting when all necessary items for a craft are in the area,
 ## or if it should wait until [member crafting_timer] times out.
 @export var instant_crafting := false
-## If this [CraftArea] should display [member progress_bar] of how close the item is to being made.
-@export var display_progress_bar := true:
+## If this [CraftArea] should display [member progress_bar] of how close the item is to being made.[br]
+## [br]
+## It is made invisible when the game starts. You should probably leave this true.
+@export var display_progress_bar_sprite := true:
 	set(value):
 		if not is_node_ready():
 			await ready
-		progress_bar.visible = value
-		display_progress_bar = value
+		progress_bar_sprite.visible = value
+		display_progress_bar_sprite = value
+## How high the progress bar is from the center of the node.
+@export var progress_bar_sprite_height := 2.0:
+	set(value):
+		if not is_node_ready():
+			await ready
+		if not progress_bar_sprite.is_node_ready():
+			await progress_bar_sprite.ready
+		progress_bar_sprite_height = value
+		progress_bar_sprite.position.y = value
 
 ## The various recipe lists this [CraftArea] checks for matching recipes to the nodes inside of it.
 var recipe_lists: Array[Dictionary]
@@ -58,6 +69,13 @@ var _to_craft: PackedScene
 @onready var _collider: CollisionShape3D = $Collider
 
 
+func _ready() -> void:
+	if Engine.is_editor_hint():
+		progress_bar_sprite.visible = display_progress_bar_sprite
+	else:
+		progress_bar_sprite.visible = false
+
+
 func _process(_delta: float) -> void:
 	progress_bar.value = crafting_timer.wait_time - crafting_timer.time_left
 
@@ -77,12 +95,14 @@ func start_crafting() -> void:
 	else:
 		if crafting_timer.is_stopped():
 			crafting_timer.start()
+			progress_bar.visible = true
 			started_crafting.emit()
 
 
 ## Cancels crafting if [member instant_crafting] is not enabled and this [CraftArea] is currently crafting.
 func cancel_crafting() -> void:
 	if not crafting_timer.is_stopped():
+		progress_bar.visible = false
 		crafting_timer.stop()
 
 

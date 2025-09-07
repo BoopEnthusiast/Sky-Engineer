@@ -36,7 +36,13 @@ func _update_selected_item() -> void:
 	
 	# Update selected item distance
 	if is_instance_valid(selected_item):
-		selected_item_distance = global_position.distance_squared_to(selected_item.global_position)
+		if not selected_item.can_be_interacted_with or not selected_item.is_visible_in_tree():
+			selected_item = null
+			selected_item_distance = INF
+		else:
+			selected_item_distance = global_position.distance_squared_to(selected_item.global_position)
+	else:
+		selected_item_distance = INF
 	
 	# Find the closest item to the item selector that's in range of the item selector
 	var items_to_remove: Array[ItemShape]
@@ -44,8 +50,7 @@ func _update_selected_item() -> void:
 		if not is_instance_valid(selectable_item):
 			items_to_remove.append(selectable_item)
 			continue
-		
-		if not selectable_item.can_be_interacted_with or selectable_item == selected_item:
+		elif not selectable_item.can_be_interacted_with or not selectable_item.is_visible_in_tree() or selectable_item == selected_item:
 			continue
 		
 		if not is_instance_valid(selected_item):
@@ -58,3 +63,8 @@ func _update_selected_item() -> void:
 	
 	for item_to_remove: ItemShape in items_to_remove:
 		selectable_items.erase(item_to_remove)
+	
+	# If there's no items in range, select none of them
+	if selectable_items.size() == 0:
+		selected_item = null
+		selected_item_distance = INF

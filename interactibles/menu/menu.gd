@@ -10,6 +10,9 @@ const LERP_SPEED = 8.0
 @onready var ray_cast_2d: RayCast2D = $Menu2D/RayCast2D
 
 @onready var inventory: Inventory = $Inventory
+@onready var inventory_position: Vector3:
+	get():
+		return inventory.inventory_3d.global_position
 
 
 func _enter_tree() -> void:

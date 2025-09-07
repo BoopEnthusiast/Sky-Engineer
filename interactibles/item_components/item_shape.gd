@@ -24,9 +24,10 @@ const OUTLINE = preload("res://interactibles/item_components/outline.tres")
 	set(value):
 		can_be_interacted_with = value
 		monitorable = value
-		if is_instance_valid(Nodes.player):
-			if not value and Nodes.player.currently_grabbing == self:
-				Nodes.player.currently_grabbing = null
+		if not Engine.is_editor_hint():
+			if is_instance_valid(Nodes.player):
+				if not value and Nodes.player.currently_grabbing == self:
+					Nodes.player.currently_grabbing = null
 ## Sets the size of the collider of the sphere that checks if the player can grab it or not.
 @export var interact_range: float = 0.5:
 	set(value):
