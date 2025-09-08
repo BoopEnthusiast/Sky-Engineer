@@ -1,0 +1,175 @@
+[gd_scene load_steps=5 format=3 uid="uid://ciyrid1t7ijlk"]
+
+[ext_resource type="Script" uid="uid://dsv5w2d72lb2q" path="res://menus/options_menu.gd" id="1_6r3ve"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_6r3ve"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_wyyb7"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_cet7k"]
+
+[node name="OptionsMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_6r3ve")
+
+[node name="Background" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.0392157, 0.0392157, 0.0588235, 0.239216)
+
+[node name="Options Container" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -112.0
+offset_right = 112.0
+offset_bottom = 646.0
+grow_horizontal = 2
+
+[node name="Spacer3" type="Control" parent="Options Container"]
+custom_minimum_size = Vector2(0, 5)
+layout_mode = 2
+
+[node name="Titile" type="Label" parent="Options Container"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 42
+text = "Options"
+
+[node name="Spacer1" type="Control" parent="Options Container"]
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+
+[node name="AudioContainer" type="VBoxContainer" parent="Options Container"]
+layout_mode = 2
+
+[node name="Audio" type="Label" parent="Options Container/AudioContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 21
+text = "Audio"
+
+[node name="Spacer1" type="Control" parent="Options Container/AudioContainer"]
+custom_minimum_size = Vector2(0, 10)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Options Container/AudioContainer"]
+layout_mode = 2
+size_flags_horizontal = 6
+text = "Master Volume"
+
+[node name="MasterVolumeSlider" type="HSlider" parent="Options Container/AudioContainer"]
+layout_mode = 2
+
+[node name="Music" type="Label" parent="Options Container/AudioContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Music"
+
+[node name="HSlider" type="HSlider" parent="Options Container/AudioContainer"]
+layout_mode = 2
+
+[node name="SFX" type="Label" parent="Options Container/AudioContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Sound Effects"
+
+[node name="HSlider2" type="HSlider" parent="Options Container/AudioContainer"]
+layout_mode = 2
+
+[node name="Spacer2" type="Control" parent="Options Container/AudioContainer"]
+custom_minimum_size = Vector2(0, 10)
+layout_mode = 2
+
+[node name="VideoContainer" type="VBoxContainer" parent="Options Container"]
+layout_mode = 2
+
+[node name="Video" type="Label" parent="Options Container/VideoContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 22
+text = "Video"
+
+[node name="Spacer1" type="Control" parent="Options Container/VideoContainer"]
+custom_minimum_size = Vector2(0, 10)
+layout_mode = 2
+
+[node name="Fullscreen" type="Label" parent="Options Container/VideoContainer"]
+layout_mode = 2
+size_flags_horizontal = 6
+text = "Fullscreen"
+
+[node name="CheckButton" type="CheckButton" parent="Options Container/VideoContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_styles/focus = SubResource("StyleBoxEmpty_6r3ve")
+
+[node name="Vsync" type="Label" parent="Options Container/VideoContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "V-sync"
+
+[node name="CheckButton2" type="CheckButton" parent="Options Container/VideoContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_styles/focus = SubResource("StyleBoxEmpty_wyyb7")
+
+[node name="Vsync2" type="Label" parent="Options Container/VideoContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Uncapped FPS"
+
+[node name="NotRecommendedLabel" type="Label" parent="Options Container/VideoContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0.386719, 0.386719, 0.386719, 1)
+theme_override_font_sizes/font_size = 12
+text = "(not recommended)"
+
+[node name="Uncapped FPS" type="CheckButton" parent="Options Container/VideoContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_styles/focus = SubResource("StyleBoxEmpty_cet7k")
+
+[node name="FPSLabel" type="Label" parent="Options Container/VideoContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 18
+text = "FPS"
+
+[node name="SpinBox" type="SpinBox" parent="Options Container/VideoContainer"]
+layout_mode = 2
+min_value = 30.0
+max_value = 240.0
+value = 60.0
+
+[node name="Spacer2" type="Control" parent="Options Container/VideoContainer"]
+custom_minimum_size = Vector2(0, 5)
+layout_mode = 2
+
+[node name="Back" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 473.0
+offset_top = 17.0
+offset_right = 555.0
+offset_bottom = 59.0
+grow_horizontal = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+theme_override_font_sizes/font_size = 16
+text = "Back"
+
+[connection signal="pressed" from="Back" to="." method="_on_back_pressed"]
