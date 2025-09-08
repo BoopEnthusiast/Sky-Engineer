@@ -1,27 +1,34 @@
-extends AnimatableBody3D
+extends Node3D
 
 @onready var animation_player = $AnimationPlayer
 @onready var page_container = $PageContainer
+@onready var right_cover: AnimatableBody3D = $RightCover
+@onready var left_cover: AnimatableBody3D = $"Left Cover"
+@onready var turn_page_forward_button: InteractibleButton = $RightCover/TurnPageForwardButton
+@onready var turn_page_backward_button: InteractibleButton = $"Left Cover/TurnPageBackwardButton"
 
 
 var current_page_index = 0
 var is_in_inventory = false
 var is_open = true
 var is_turning = false
-var player_position = global_transform.origin
+
 
 
 func _ready() -> void:
 	for i in range(page_container.get_child_count()):
 		page_container.get_child(i).visible = (i == current_page_index)
 	print("current page index ", current_page_index)
-	set_book_state_from_inventory() 
+	right_cover.add_collision_exception_with(left_cover)
+	left_cover.add_collision_exception_with(right_cover)
+	set_book_state_from_inventory()
 
 
 func _physics_process(_delta: float) -> void:
-	look_at(player_position, Vector3.UP)
+	look_at(Nodes.player.camera.global_position, Vector3.UP)
+	basis = basis.rotated(basis.y.normalized(), PI/2)
+	basis = basis.rotated(basis.z.normalized(), -PI/2)
 
-	
 func set_book_state_from_inventory():
 	if is_in_inventory:
 		close_book()
@@ -30,11 +37,16 @@ func set_book_state_from_inventory():
 		
 func open_book():
 	animation_player.play("Open")
-	await animation_player.animation_finished
 	page_container.visible = true
+	await animation_player.animation_finished
+	turn_page_forward_button.can_be_interacted_with = true
+	turn_page_backward_button.can_be_interacted_with = true
+
 
 func close_book():
 	animation_player.play("Close")
+	turn_page_forward_button.can_be_interacted_with = false
+	turn_page_backward_button.can_be_interacted_with = false
 	await animation_player.animation_finished
 	page_container.visible = false 
 
@@ -72,16 +84,14 @@ func turn_page_backward():
 		print("Already at the beginning of the book")
 
 
-@warning_ignore("unused_parameter")
-func _on_turn_page_forward_button_button_pressed(toggled: bool) -> void:
+
+func _on_turn_page_forward_button_button_pressed(_toggled: bool) -> void:
 		if is_open == true: # Only allow page flipping if the book is open
 			if current_page_index < page_container.get_child_count() - 1:
 				if is_turning == false:
 					turn_page_forward()
 
-
-@warning_ignore("unused_parameter")
-func _on_turn_page_backward_button_button_pressed(toggled: bool) -> void:
+func _on_turn_page_backward_button_button_pressed(_toggled: bool) -> void:
 		if is_open == true: # Only allow page flipping if the book is open
 			if current_page_index >= 0:
 				if is_turning == false:
