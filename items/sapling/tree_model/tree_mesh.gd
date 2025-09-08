@@ -10,6 +10,8 @@ var boxes:Array[PackedVector3Array] = []
 var collision_form:ConvexPolygonShape3D = ConvexPolygonShape3D.new()
 
 func _ready():
+	multimesh = multimesh.duplicate()
+	$Foliage.multimesh = $Foliage.multimesh.duplicate()
 	boxes.resize(1)
 	spawn_trunk()
 

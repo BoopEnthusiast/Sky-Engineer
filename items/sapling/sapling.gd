@@ -1,7 +1,12 @@
 class_name Sapling
 extends AnimatableBody3D
 
-@onready var starting_height = 1.0
+@onready var collider: CollisionShape3D = $Collider
+
+@onready var mesh: TreeMesh = $Mesh
+
+
+var starting_height = 1.0
 
 var progress:float = 0
 
@@ -15,9 +20,10 @@ var treeshape:Shoot
 
 func _ready():
 	#randomize()
+	collider.shape = collider.shape.duplicate()
 	treeshape = Shoot.new(0,0,8,8)
-	$Mesh.set_instance_count(treeshape.get_instance_quantity())
-	$Mesh.spawn_trunk()
+	mesh.set_instance_count(treeshape.get_instance_quantity())
+	mesh.spawn_trunk()
 	treeshape.height = starting_height
 	limbs.set(0,treeshape)
 	$Collider.shape = $Mesh.generate_collision_geometry()
