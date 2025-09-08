@@ -7,12 +7,11 @@ extends Node3D
 @onready var turn_page_forward_button: InteractibleButton = $RightCover/TurnPageForwardButton
 @onready var turn_page_backward_button: InteractibleButton = $"Left Cover/TurnPageBackwardButton"
 
-
 var current_page_index = 0
 var is_in_inventory = false
 var is_open = true
 var is_turning = false
-
+var was_player_close = true
 
 
 func _ready() -> void:
@@ -25,9 +24,16 @@ func _ready() -> void:
 
 
 func _physics_process(_delta: float) -> void:
-	look_at(Nodes.player.camera.global_position, Vector3.UP)
-	basis = basis.rotated(basis.y.normalized(), PI/2)
-	basis = basis.rotated(basis.z.normalized(), -PI/2)
+	var is_player_close = Nodes.player.global_position.distance_squared_to(global_position) < 13
+	if is_player_close:
+		look_at(Nodes.player.camera.global_position, Vector3.UP)
+		basis = basis.rotated(basis.y.normalized(), PI/2)
+		basis = basis.rotated(basis.z.normalized(), -PI/2)
+	if not is_player_close and was_player_close:
+		close_book()
+	elif is_player_close and not was_player_close:
+		open_book()
+	was_player_close = is_player_close
 
 func set_book_state_from_inventory():
 	if is_in_inventory:
@@ -36,54 +42,43 @@ func set_book_state_from_inventory():
 		open_book()
 		
 func open_book():
-	animation_player.play("Open")
+	animation_player.play(&"Open")
 	page_container.visible = true
 	await animation_player.animation_finished
 	turn_page_forward_button.can_be_interacted_with = true
 	turn_page_backward_button.can_be_interacted_with = true
 
-
 func close_book():
-	animation_player.play("Close")
+	animation_player.play(&"Close")
 	turn_page_forward_button.can_be_interacted_with = false
 	turn_page_backward_button.can_be_interacted_with = false
 	await animation_player.animation_finished
 	page_container.visible = false 
+	#print_stack()
 
 func turn_page_forward():
 	if is_open == true:
 		if current_page_index < page_container.get_child_count() - 1:
-			var animation_name = "Page_" + str(current_page_index) + "_Flip"
+			var animation_name = &"Page_" + str(current_page_index) + &"_Flip"
 			animation_player.play(animation_name)
-			page_container.get_child(current_page_index + 1).show()
 			is_turning = true
 			await animation_player.animation_finished
-			if current_page_index >= 1:
-				page_container.get_child(current_page_index - 1).hide()
 			current_page_index += 1
 			is_turning = false
-			print("Turned page forward. Current page index: ", current_page_index)
-		else:
-			print("Already at the end of the book")
-
 
 func turn_page_backward():
 	if current_page_index > 0:
-		var animation_name = "Page_" + str(current_page_index - 1) + "_Flip"
+		var animation_name = &"Page_" + str(current_page_index - 1) + &"_Flip"
 		animation_player.play_backwards(animation_name)
-		#page_container.get_child(current_page_index).hide()
-		page_container.get_child(current_page_index - 1).show()
 		is_turning = true
 		await animation_player.animation_finished
-		page_container.get_child(current_page_index).hide()
 		current_page_index -= 1
 		is_turning = false
-
-		print("Turned page backward. Current page index: ", current_page_index)
-	else:
-		print("Already at the beginning of the book")
-
-
+		
+func switch_page_visibility(index: int):
+	var page = page_container.get_child(index)
+	page.visible = not page.visible
+	print(page)
 
 func _on_turn_page_forward_button_button_pressed(_toggled: bool) -> void:
 		if is_open == true: # Only allow page flipping if the book is open
@@ -99,11 +94,15 @@ func _on_turn_page_backward_button_button_pressed(_toggled: bool) -> void:
 
 func _on_grabbable_item_put_into_inventory() -> void:
 	is_in_inventory = true
+	var tween = get_tree().create_tween()
+	tween.tween_property(self, ^"scale", Vector3.ONE*0.35, 1)
 	close_book()
 	print("Book is in inventory")
 
 
 func _on_grabbable_item_taken_from_inventory() -> void:
 	is_in_inventory = false
+	var tween = get_tree().create_tween()
+	tween.tween_property(self, ^"scale", Vector3.ONE, 1)
 	open_book()
 	print("Book is out of inventory")
