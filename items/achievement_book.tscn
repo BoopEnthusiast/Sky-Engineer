@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=3 uid="uid://51vq4jifog5g"]
+[gd_scene load_steps=35 format=3 uid="uid://51vq4jifog5g"]
 
 [ext_resource type="Script" uid="uid://bhgnv6yva4lmv" path="res://items/achievement_book.gd" id="1_kte5c"]
 [ext_resource type="PackedScene" uid="uid://cg2afeyy1kh8t" path="res://items/Pages_content_scenes/page_1_front_content.tscn" id="2_2ecdp"]
@@ -15,6 +15,18 @@ size = Vector3(1, 0.05, 0.7)
 
 [sub_resource type="BoxMesh" id="BoxMesh_ut8ve"]
 size = Vector3(1, 0.05, 0.7)
+
+[sub_resource type="GDScript" id="GDScript_bneui"]
+script/source = "extends Node3D
+
+#func _set(property: StringName, value: Variant) -> bool:
+	#if property == &\"visible\":
+		#print(value)
+		#visible = value
+		##print(get_stack())
+		#return true
+	#return false
+"
 
 [sub_resource type="BoxMesh" id="BoxMesh_2ecdp"]
 
@@ -36,86 +48,62 @@ viewport_path = NodePath("PageContainer/Page3/Page3_FrontContent")
 [sub_resource type="ViewportTexture" id="ViewportTexture_cuwhq"]
 viewport_path = NodePath("PageContainer/Page3/Page3_BackContent")
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_obgbs"]
-size = Vector3(1, 0.1, 0.1)
-
 [sub_resource type="Animation" id="Animation_cdgaa"]
 resource_name = "Close"
 length = 1.2
-tracks/0/type = "rotation_3d"
+tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("RightCover")
+tracks/0/path = NodePath("RightCover:rotation")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
-tracks/0/keys = PackedFloat32Array()
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0.307178, 0, 0), Vector3(0, 0, 0)]
+}
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("RightCover:rotation")
+tracks/1/path = NodePath("Left Cover:rotation")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
 "times": PackedFloat32Array(0, 1.2),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector3(0.307178, 0, 0), Vector3(0, 0, 0)]
-}
-tracks/2/type = "rotation_3d"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Left Cover")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = PackedFloat32Array()
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("Left Cover:rotation")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0, 1.2),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
 "values": [Vector3(5.9795, 0, 0), Vector3(3.14159, 0, 0)]
 }
-tracks/4/type = "rotation_3d"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("PageContainer/Page1")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = PackedFloat32Array()
-tracks/5/type = "bezier"
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/path = NodePath("PageContainer/Page1:rotation:x")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/keys = {
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("PageContainer/Page1:rotation:x")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
 "handle_modes": PackedInt32Array(0, 0),
 "points": PackedFloat32Array(1.88321, -0.25, 0, 0.25, 0, 1.57603, -0.25, 0, 0.25, 0),
 "times": PackedFloat32Array(0, 1.2)
 }
-tracks/6/type = "bezier"
-tracks/6/imported = false
-tracks/6/enabled = true
-tracks/6/path = NodePath("PageContainer/Page1:rotation:y")
-tracks/6/interp = 1
-tracks/6/loop_wrap = true
-tracks/6/keys = {
+tracks/3/type = "bezier"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("PageContainer/Page1:rotation:y")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
 "handle_modes": PackedInt32Array(0, 0),
 "points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0),
 "times": PackedFloat32Array(0, 1.2)
 }
-tracks/7/type = "bezier"
-tracks/7/imported = false
-tracks/7/enabled = true
-tracks/7/path = NodePath("PageContainer/Page1:rotation:z")
-tracks/7/interp = 1
-tracks/7/loop_wrap = true
-tracks/7/keys = {
+tracks/4/type = "bezier"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("PageContainer/Page1:rotation:z")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
 "handle_modes": PackedInt32Array(0, 0),
 "points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0),
 "times": PackedFloat32Array(0, 1.2)
@@ -157,39 +145,25 @@ tracks/2/keys = {
 "points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0),
 "times": PackedFloat32Array(0, 1.2)
 }
-tracks/3/type = "rotation_3d"
+tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("RightCover")
+tracks/3/path = NodePath("RightCover:rotation")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
-tracks/3/keys = PackedFloat32Array()
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("RightCover:rotation")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
+tracks/3/keys = {
 "times": PackedFloat32Array(0, 1.2),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Vector3(0, 0, 0), Vector3(0.307178, 0, 0)]
 }
-tracks/5/type = "rotation_3d"
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/path = NodePath("PageContainer/Page1")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/keys = PackedFloat32Array()
-tracks/6/type = "value"
-tracks/6/imported = false
-tracks/6/enabled = true
-tracks/6/path = NodePath("PageContainer/Page1:rotation")
-tracks/6/interp = 1
-tracks/6/loop_wrap = true
-tracks/6/keys = {
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("PageContainer/Page1:rotation")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
 "times": PackedFloat32Array(0, 1.2),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
@@ -231,6 +205,20 @@ tracks/2/keys = {
 "points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0),
 "times": PackedFloat32Array(0, 1)
 }
+tracks/3/type = "method"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.1),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [1],
+"method": &"switch_page_visibility"
+}]
+}
 
 [sub_resource type="Animation" id="Animation_dmcek"]
 resource_name = "Page_1_Flip_2"
@@ -266,6 +254,23 @@ tracks/2/keys = {
 "handle_modes": PackedInt32Array(0, 0),
 "points": PackedFloat32Array(1.87965, -0.25, 0, 0.25, 0, 4.37554, -0.25, 0, 0.25, 0),
 "times": PackedFloat32Array(0, 1)
+}
+tracks/3/type = "method"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.1, 0.9),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": [2],
+"method": &"switch_page_visibility"
+}, {
+"args": [0],
+"method": &"switch_page_visibility"
+}]
 }
 
 [sub_resource type="Animation" id="Animation_bneui"]
@@ -303,6 +308,23 @@ tracks/2/keys = {
 "points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0),
 "times": PackedFloat32Array(0, 1)
 }
+tracks/3/type = "method"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.1, 0.9),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": [3],
+"method": &"switch_page_visibility"
+}, {
+"args": [1],
+"method": &"switch_page_visibility"
+}]
+}
 
 [sub_resource type="Animation" id="Animation_cuwhq"]
 resource_name = "Page_4_Flip"
@@ -338,6 +360,23 @@ tracks/2/keys = {
 "handle_modes": PackedInt32Array(0, 0),
 "points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0),
 "times": PackedFloat32Array(-5.96046e-08, 1)
+}
+tracks/3/type = "method"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.1, 0.9),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": [3],
+"method": &"switch_page_visibility"
+}, {
+"args": [2],
+"method": &"switch_page_visibility"
+}]
 }
 
 [sub_resource type="Animation" id="Animation_ppb5n"]
@@ -726,6 +765,75 @@ tracks/14/keys = {
 "points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
 "times": PackedFloat32Array(0)
 }
+tracks/15/type = "bezier"
+tracks/15/imported = false
+tracks/15/enabled = true
+tracks/15/path = NodePath(".:scale:x")
+tracks/15/interp = 1
+tracks/15/loop_wrap = true
+tracks/15/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/16/type = "bezier"
+tracks/16/imported = false
+tracks/16/enabled = true
+tracks/16/path = NodePath(".:scale:y")
+tracks/16/interp = 1
+tracks/16/loop_wrap = true
+tracks/16/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/17/type = "bezier"
+tracks/17/imported = false
+tracks/17/enabled = true
+tracks/17/path = NodePath(".:scale:z")
+tracks/17/interp = 1
+tracks/17/loop_wrap = true
+tracks/17/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+
+[sub_resource type="Animation" id="Animation_erp0m"]
+resource_name = "enter_inventory"
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0, 0.35, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 1)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:scale:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0, 0.35, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 1)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:scale:z")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0, 0.35, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 1)
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_kte5c"]
 _data = {
@@ -741,14 +849,16 @@ _data = {
 &"Page_7_Flip": SubResource("Animation_4rntc"),
 &"Page_8_Flip": SubResource("Animation_bnyxi"),
 &"Page_9_Flip": SubResource("Animation_mwi6q"),
-&"RESET": SubResource("Animation_kte5c")
+&"RESET": SubResource("Animation_kte5c"),
+&"enter_inventory": SubResource("Animation_erp0m")
 }
 
-[node name="AchievementBook" type="AnimatableBody3D"]
+[node name="AchievementBook" type="Node3D"]
 script = ExtResource("1_kte5c")
 
 [node name="RightCover" type="AnimatableBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.976296, -0.216439, 0, 0.216439, 0.976296, 0, 0, 0)
+sync_to_physics = false
 
 [node name="Collider" type="CollisionShape3D" parent="RightCover"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.025, -0.35)
@@ -763,6 +873,7 @@ transform = Transform3D(1, 0, 0, 0, 0.976296, 0.216439, 0, -0.216439, 0.976296, 
 
 [node name="Left Cover" type="AnimatableBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.95424, 0.299039, 0, -0.299039, 0.95424, 0, 0, 0)
+sync_to_physics = false
 
 [node name="Collider" type="CollisionShape3D" parent="Left Cover"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.025, 0.35)
@@ -777,6 +888,7 @@ skeleton = NodePath("../../RightCover")
 transform = Transform3D(1, 0, 0, 0, 0.954242, -0.29904, 0, 0.29904, 0.954242, 0.289651, 0.366677, -0.522855)
 
 [node name="PageContainer" type="Node3D" parent="."]
+script = SubResource("GDScript_bneui")
 
 [node name="Page1" type="Node3D" parent="PageContainer"]
 transform = Transform3D(1, 0, 0, 0, -0.307356, -0.951593, 0, 0.951593, -0.307356, 0, -1.19209e-07, 0)
@@ -810,7 +922,6 @@ size = Vector2i(700, 1000)
 
 [node name="Page2" type="Node3D" parent="PageContainer"]
 transform = Transform3D(1, 0, 0, 0, -0.303966, -0.952681, 0, 0.952681, -0.303966, 0, -1.19209e-07, 0)
-visible = false
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="PageContainer/Page2"]
 transform = Transform3D(-0.985916, 0, 0, 0, -0.636408, -3.63798e-12, 0, 2.32831e-09, -0.00407733, -0.000726104, -0.320164, -0.00286609)
@@ -841,7 +952,6 @@ size = Vector2i(700, 1000)
 
 [node name="Page3" type="Node3D" parent="PageContainer"]
 transform = Transform3D(1, 0, 0, 0, -0.304033, -0.95266, 0, 0.95266, -0.304033, 0, -1.19209e-07, 0)
-visible = false
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="PageContainer/Page3"]
 transform = Transform3D(-0.985916, 0, 0, 0, -0.636408, -3.63798e-12, 0, 2.32831e-09, -0.00407733, -0.000726104, -0.320164, -0.00286609)
@@ -871,8 +981,7 @@ size = Vector2i(700, 1000)
 [node name="Page3_BackContent" parent="PageContainer/Page3/Page3_BackContent" instance=ExtResource("8_bneui")]
 
 [node name="Page4" type="Node3D" parent="PageContainer"]
-transform = Transform3D(1, 0, 0, 0, -0.304033, -0.95266, 0, 0.95266, -0.304033, 0, -1.19209e-07, 0)
-visible = false
+transform = Transform3D(1, 0, 0, 0, -0.396984, -0.917824, 0, 0.917824, -0.396984, 0, -1.19209e-07, 0)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="PageContainer/Page4"]
 transform = Transform3D(-0.985916, 0, 0, 0, -0.636408, -3.63798e-12, 0, 2.32831e-09, -0.00407733, -0.000726104, -0.320164, -0.00286609)
@@ -903,7 +1012,6 @@ size = Vector2i(700, 1000)
 
 [node name="Page5" type="Node3D" parent="PageContainer"]
 transform = Transform3D(1, 0, 0, 0, -0.303966, -0.952681, 0, 0.952681, -0.303966, 0, -1.19209e-07, 0)
-visible = false
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="PageContainer/Page5"]
 transform = Transform3D(-0.985916, 0, 0, 0, -0.636408, -3.63798e-12, 0, 2.32831e-09, -0.00407733, -0.000726104, -0.320164, -0.00286609)
@@ -934,7 +1042,6 @@ size = Vector2i(700, 1000)
 
 [node name="Page6" type="Node3D" parent="PageContainer"]
 transform = Transform3D(1, 0, 0, 0, -0.303966, -0.952681, 0, 0.952681, -0.303966, 0, -1.19209e-07, 0)
-visible = false
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="PageContainer/Page6"]
 transform = Transform3D(-0.985916, 0, 0, 0, -0.636408, -3.63798e-12, 0, 2.32831e-09, -0.00407733, -0.000726104, -0.320164, -0.00286609)
@@ -1086,9 +1193,6 @@ transparent_bg = true
 size = Vector2i(700, 1000)
 
 [node name="Page2_BackContent" parent="PageContainer/Page10/Page2_BackContent" instance=ExtResource("3_0dyby")]
-
-[node name="Collider" type="CollisionShape3D" parent="."]
-shape = SubResource("BoxShape3D_obgbs")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
