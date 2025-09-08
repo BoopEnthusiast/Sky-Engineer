@@ -8,7 +8,7 @@ var current_page_index = 0
 var is_in_inventory = false
 var is_open = true
 var is_turning = false
-#var PlayerScript = load("res://interactibles/player.gd").new()
+var player_position = global_transform.origin
 
 
 func _ready() -> void:
@@ -17,9 +17,9 @@ func _ready() -> void:
 	print("current page index ", current_page_index)
 	set_book_state_from_inventory() 
 
-#@warning_ignore("unused_parameter")
-#func _physics_process(delta: float) -> void:
-	#look_at(PlayerScript.look_dir.transform.origin, Vector3.UP)
+
+func _physics_process(_delta: float) -> void:
+	look_at(player_position, Vector3.UP)
 
 	
 func set_book_state_from_inventory():
