@@ -11,13 +11,13 @@ var current_page_index = 0
 var is_in_inventory = false
 var is_open = true
 var is_turning = false
-var was_player_close = true
+var was_player_close = false
+var is_opening = false
 
 
 func _ready() -> void:
 	for i in range(page_container.get_child_count()):
 		page_container.get_child(i).visible = (i == current_page_index)
-	print("current page index ", current_page_index)
 	right_cover.add_collision_exception_with(left_cover)
 	left_cover.add_collision_exception_with(right_cover)
 	set_book_state_from_inventory()
@@ -30,6 +30,7 @@ func _physics_process(_delta: float) -> void:
 		basis = basis.rotated(basis.y.normalized(), PI/2)
 		basis = basis.rotated(basis.z.normalized(), -PI/2)
 	if not is_player_close and was_player_close:
+		print("1")
 		close_book()
 	elif is_player_close and not was_player_close:
 		open_book()
@@ -37,24 +38,33 @@ func _physics_process(_delta: float) -> void:
 
 func set_book_state_from_inventory():
 	if is_in_inventory:
+		print("2")
 		close_book()
 	else:
 		open_book()
 		
 func open_book():
+	if is_opening:
+		await animation_player.animation_finished
+	is_opening = true
 	animation_player.play(&"Open")
 	page_container.visible = true
 	await animation_player.animation_finished
+	is_opening = false
 	turn_page_forward_button.can_be_interacted_with = true
 	turn_page_backward_button.can_be_interacted_with = true
 
 func close_book():
+	if is_opening:
+		await animation_player.animation_finished
+	is_opening = true
 	animation_player.play(&"Close")
 	turn_page_forward_button.can_be_interacted_with = false
 	turn_page_backward_button.can_be_interacted_with = false
 	await animation_player.animation_finished
+	is_opening = false
 	page_container.visible = false 
-	#print_stack()
+	print_stack()
 
 func turn_page_forward():
 	if is_open == true:
@@ -96,6 +106,7 @@ func _on_grabbable_item_put_into_inventory() -> void:
 	is_in_inventory = true
 	var tween = get_tree().create_tween()
 	tween.tween_property(self, ^"scale", Vector3.ONE*0.35, 1)
+	print("3")
 	close_book()
 	print("Book is in inventory")
 
