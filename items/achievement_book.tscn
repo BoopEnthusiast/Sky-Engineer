@@ -359,7 +359,7 @@ tracks/3/keys = {
 "times": PackedFloat32Array(0.1, 0.9),
 "transitions": PackedFloat32Array(1, 1),
 "values": [{
-"args": [3],
+"args": [4],
 "method": &"switch_page_visibility"
 }, {
 "args": [2],
@@ -402,6 +402,23 @@ tracks/2/keys = {
 "points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0),
 "times": PackedFloat32Array(0, 1)
 }
+tracks/3/type = "method"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.1, 0.9),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": [5],
+"method": &"switch_page_visibility"
+}, {
+"args": [3],
+"method": &"switch_page_visibility"
+}]
+}
 
 [sub_resource type="Animation" id="Animation_3ukjm"]
 resource_name = "Page_6_Flip"
@@ -437,6 +454,23 @@ tracks/2/keys = {
 "handle_modes": PackedInt32Array(0, 0),
 "points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0),
 "times": PackedFloat32Array(0, 0.966667)
+}
+tracks/3/type = "method"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.1, 0.9),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": [6],
+"method": &"switch_page_visibility"
+}, {
+"args": [4],
+"method": &"switch_page_visibility"
+}]
 }
 
 [sub_resource type="Animation" id="Animation_ax4ku"]
@@ -474,6 +508,23 @@ tracks/2/keys = {
 "points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0),
 "times": PackedFloat32Array(0, 1)
 }
+tracks/3/type = "method"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.1, 0.9),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": [7],
+"method": &"switch_page_visibility"
+}, {
+"args": [5],
+"method": &"switch_page_visibility"
+}]
+}
 
 [sub_resource type="Animation" id="Animation_4rntc"]
 resource_name = "Page_8_Flip"
@@ -509,6 +560,23 @@ tracks/2/keys = {
 "handle_modes": PackedInt32Array(0, 0),
 "points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0),
 "times": PackedFloat32Array(0, 1)
+}
+tracks/3/type = "method"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.1, 0.9),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": [8],
+"method": &"switch_page_visibility"
+}, {
+"args": [6],
+"method": &"switch_page_visibility"
+}]
 }
 
 [sub_resource type="Animation" id="Animation_bnyxi"]
@@ -546,6 +614,23 @@ tracks/2/keys = {
 "points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0),
 "times": PackedFloat32Array(0, 0.966667)
 }
+tracks/3/type = "method"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.1, 0.9),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": [9],
+"method": &"switch_page_visibility"
+}, {
+"args": [7],
+"method": &"switch_page_visibility"
+}]
+}
 
 [sub_resource type="Animation" id="Animation_mwi6q"]
 resource_name = "Page_10_Flip"
@@ -581,6 +666,23 @@ tracks/2/keys = {
 "handle_modes": PackedInt32Array(0, 0),
 "points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0),
 "times": PackedFloat32Array(0, 1)
+}
+tracks/3/type = "method"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.1, 0.9),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": [10],
+"method": &"switch_page_visibility"
+}, {
+"args": [8],
+"method": &"switch_page_visibility"
+}]
 }
 
 [sub_resource type="Animation" id="Animation_kte5c"]
@@ -909,6 +1011,7 @@ size = Vector2i(700, 1000)
 
 [node name="Page2" type="Node3D" parent="PageContainer"]
 transform = Transform3D(1, 0, 0, 0, -0.303966, -0.952681, 0, 0.952681, -0.303966, 0, -1.19209e-07, 0)
+visible = false
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="PageContainer/Page2"]
 transform = Transform3D(-0.985916, 0, 0, 0, -0.636408, -3.63798e-12, 0, 2.32831e-09, -0.00407733, -0.000726104, -0.320164, -0.00286609)
@@ -939,6 +1042,7 @@ size = Vector2i(700, 1000)
 
 [node name="Page3" type="Node3D" parent="PageContainer"]
 transform = Transform3D(1, 0, 0, 0, -0.304033, -0.95266, 0, 0.95266, -0.304033, 0, -1.19209e-07, 0)
+visible = false
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="PageContainer/Page3"]
 transform = Transform3D(-0.985916, 0, 0, 0, -0.636408, -3.63798e-12, 0, 2.32831e-09, -0.00407733, -0.000726104, -0.320164, -0.00286609)
@@ -968,7 +1072,8 @@ size = Vector2i(700, 1000)
 [node name="Page3_BackContent" parent="PageContainer/Page3/Page3_BackContent" instance=ExtResource("8_bneui")]
 
 [node name="Page4" type="Node3D" parent="PageContainer"]
-transform = Transform3D(1, 0, 0, 0, -0.396984, -0.917824, 0, 0.917824, -0.396984, 0, -1.19209e-07, 0)
+transform = Transform3D(1, 0, 0, 0, -0.304033, -0.95266, 0, 0.95266, -0.304033, 0, -1.19209e-07, 0)
+visible = false
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="PageContainer/Page4"]
 transform = Transform3D(-0.985916, 0, 0, 0, -0.636408, -3.63798e-12, 0, 2.32831e-09, -0.00407733, -0.000726104, -0.320164, -0.00286609)
@@ -999,6 +1104,7 @@ size = Vector2i(700, 1000)
 
 [node name="Page5" type="Node3D" parent="PageContainer"]
 transform = Transform3D(1, 0, 0, 0, -0.303966, -0.952681, 0, 0.952681, -0.303966, 0, -1.19209e-07, 0)
+visible = false
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="PageContainer/Page5"]
 transform = Transform3D(-0.985916, 0, 0, 0, -0.636408, -3.63798e-12, 0, 2.32831e-09, -0.00407733, -0.000726104, -0.320164, -0.00286609)
@@ -1029,6 +1135,7 @@ size = Vector2i(700, 1000)
 
 [node name="Page6" type="Node3D" parent="PageContainer"]
 transform = Transform3D(1, 0, 0, 0, -0.303966, -0.952681, 0, 0.952681, -0.303966, 0, -1.19209e-07, 0)
+visible = false
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="PageContainer/Page6"]
 transform = Transform3D(-0.985916, 0, 0, 0, -0.636408, -3.63798e-12, 0, 2.32831e-09, -0.00407733, -0.000726104, -0.320164, -0.00286609)
@@ -1058,7 +1165,7 @@ size = Vector2i(700, 1000)
 [node name="Page2_BackContent" parent="PageContainer/Page6/Page2_BackContent" instance=ExtResource("3_0dyby")]
 
 [node name="Page7" type="Node3D" parent="PageContainer"]
-transform = Transform3D(1, 0, 0, 0, -0.303966, -0.952681, 0, 0.952681, -0.303966, 0, -1.19209e-07, 0)
+transform = Transform3D(1, 0, 0, 0, -0.396922, -0.91785, 0, 0.91785, -0.396922, 0, -1.19209e-07, 0)
 visible = false
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="PageContainer/Page7"]
@@ -1089,7 +1196,7 @@ size = Vector2i(700, 1000)
 [node name="Page1_BackContent" parent="PageContainer/Page7/Page1_BackContent" instance=ExtResource("3_cdgaa")]
 
 [node name="Page8" type="Node3D" parent="PageContainer"]
-transform = Transform3D(1, 0, 0, 0, -0.303966, -0.952681, 0, 0.952681, -0.303966, 0, -1.19209e-07, 0)
+transform = Transform3D(1, 0, 0, 0, -0.396922, -0.91785, 0, 0.91785, -0.396922, 0, -1.19209e-07, 0)
 visible = false
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="PageContainer/Page8"]
@@ -1120,7 +1227,7 @@ size = Vector2i(700, 1000)
 [node name="Page2_BackContent" parent="PageContainer/Page8/Page2_BackContent" instance=ExtResource("3_0dyby")]
 
 [node name="Page9" type="Node3D" parent="PageContainer"]
-transform = Transform3D(1, 0, 0, 0, -0.303966, -0.952681, 0, 0.952681, -0.303966, 0, -1.19209e-07, 0)
+transform = Transform3D(1, 0, 0, 0, -0.399102, -0.916904, 0, 0.916904, -0.399102, 0, -1.19209e-07, 0)
 visible = false
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="PageContainer/Page9"]
@@ -1151,7 +1258,7 @@ size = Vector2i(700, 1000)
 [node name="Page1_BackContent" parent="PageContainer/Page9/Page1_BackContent" instance=ExtResource("3_cdgaa")]
 
 [node name="Page10" type="Node3D" parent="PageContainer"]
-transform = Transform3D(1, 0, 0, 0, -0.303966, -0.952681, 0, 0.952681, -0.303966, 0, -1.19209e-07, 0)
+transform = Transform3D(1, 0, 0, 0, -0.396922, -0.91785, 0, 0.91785, -0.396922, 0, -1.19209e-07, 0)
 visible = false
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="PageContainer/Page10"]
@@ -1188,9 +1295,6 @@ libraries = {
 
 [node name="GrabbableItem" parent="." node_paths=PackedStringArray("item_to_grab") instance=ExtResource("7_fiu20")]
 item_to_grab = NodePath("..")
-can_be_grabbed = true
-can_be_rotated = true
-rotation_speed = 4.0
 
 [connection signal="button_pressed" from="RightCover/TurnPageForwardButton" to="." method="_on_turn_page_forward_button_button_pressed"]
 [connection signal="button_pressed" from="Left Cover/TurnPageBackwardButton" to="." method="_on_turn_page_backward_button_button_pressed"]
