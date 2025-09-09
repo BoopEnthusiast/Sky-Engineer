@@ -5,4 +5,7 @@
 
 [node name="GrabbableItem" instance=ExtResource("1_r1c1f")]
 script = ExtResource("2_qprfe")
+can_be_grabbed = true
 grab_weight = 4.0
+can_be_rotated = true
+rotation_speed = 4.0
