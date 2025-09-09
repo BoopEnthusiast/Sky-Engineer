@@ -5,6 +5,7 @@ extends MeshInstance3D
 
 var start_position: Vector3
 
+
 func _ready() -> void:
 	start_position = global_position
 	

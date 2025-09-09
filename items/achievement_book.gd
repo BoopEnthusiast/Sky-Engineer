@@ -6,6 +6,7 @@ extends Node3D
 @onready var left_cover: AnimatableBody3D = $"Left Cover"
 @onready var turn_page_forward_button: InteractibleButton = $RightCover/TurnPageForwardButton
 @onready var turn_page_backward_button: InteractibleButton = $"Left Cover/TurnPageBackwardButton"
+@onready var book_audio: AudioStreamPlayer3D = $AudioStreamPlayer3D
 
 var current_page_index = 0
 var is_in_inventory = false
@@ -46,8 +47,10 @@ func open_book():
 		await animation_player.animation_finished
 	is_opening = true
 	animation_player.play(&"Open")
+	book_audio.play()
 	page_container.visible = true
-	await animation_player.animation_finished
+	if await animation_player.animation_finished:
+		book_audio.stop()
 	is_opening = false
 	turn_page_forward_button.can_be_interacted_with = true
 	turn_page_backward_button.can_be_interacted_with = true
@@ -57,9 +60,11 @@ func close_book():
 		await animation_player.animation_finished
 	is_opening = true
 	animation_player.play(&"Close")
+	book_audio.play()
 	turn_page_forward_button.can_be_interacted_with = false
 	turn_page_backward_button.can_be_interacted_with = false
-	await animation_player.animation_finished
+	if await animation_player.animation_finished:
+		book_audio.stop()
 	is_opening = false
 	page_container.visible = false 
 

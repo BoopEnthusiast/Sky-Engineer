@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=3 uid="uid://51vq4jifog5g"]
+[gd_scene load_steps=35 format=3 uid="uid://51vq4jifog5g"]
 
 [ext_resource type="Script" uid="uid://bhgnv6yva4lmv" path="res://items/achievement_book.gd" id="1_kte5c"]
 [ext_resource type="PackedScene" uid="uid://cg2afeyy1kh8t" path="res://items/Pages_content_scenes/page_1_front_content.tscn" id="2_2ecdp"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://vk3ldjbibcbi" path="res://items/Pages_content_scenes/page_3_front_content.tscn" id="7_exru0"]
 [ext_resource type="PackedScene" uid="uid://cxg8kmc638awu" path="res://interactibles/item_components/grabbable_item.tscn" id="7_fiu20"]
 [ext_resource type="PackedScene" uid="uid://cpiyto5abjb7n" path="res://items/Pages_content_scenes/page_3_back_content.tscn" id="8_bneui"]
+[ext_resource type="AudioStream" uid="uid://c61kh22nipkg" path="res://sound/663461__geoff-bremner-audio__page_flip_book_paper_1.wav" id="10_cuwhq"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ut8ve"]
 size = Vector3(1, 0.05, 0.7)
@@ -1295,6 +1296,12 @@ libraries = {
 
 [node name="GrabbableItem" parent="." node_paths=PackedStringArray("item_to_grab") instance=ExtResource("7_fiu20")]
 item_to_grab = NodePath("..")
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("10_cuwhq")
+volume_db = -10.667
+max_db = -3.0
+emission_angle_enabled = true
 
 [connection signal="button_pressed" from="RightCover/TurnPageForwardButton" to="." method="_on_turn_page_forward_button_button_pressed"]
 [connection signal="button_pressed" from="Left Cover/TurnPageBackwardButton" to="." method="_on_turn_page_backward_button_button_pressed"]
