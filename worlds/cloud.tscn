@@ -1,11 +1,15 @@
-[gd_scene load_steps=3 format=3 uid="uid://db1skk0t078ap"]
+[gd_scene load_steps=4 format=3 uid="uid://db1skk0t078ap"]
 
-[ext_resource type="Texture2D" uid="uid://iycii327ywj0" path="res://cloud.png" id="1_b3oxr"]
 [ext_resource type="Script" uid="uid://bmt2a6xmqt8fc" path="res://worlds/cloud.gd" id="2_qaedo"]
 
-[node name="Cloud" type="Sprite3D"]
-transform = Transform3D(2.98606, 0, 0, 0, 2.69394, 0, 0, 0, 1, 0, 0, 0)
-pixel_size = 0.0385
-billboard = 1
-texture = ExtResource("1_b3oxr")
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vlalf"]
+transparency = 1
+albedo_color = Color(1, 1, 1, 0.26)
+
+[sub_resource type="BoxMesh" id="BoxMesh_vlalf"]
+material = SubResource("StandardMaterial3D_vlalf")
+
+[node name="Cloud" type="MeshInstance3D"]
+transform = Transform3D(17.9161, 0, 0, 0, 2.26488, 0, 0, 0, 21.4541, 0, 0, 0)
+mesh = SubResource("BoxMesh_vlalf")
 script = ExtResource("2_qaedo")

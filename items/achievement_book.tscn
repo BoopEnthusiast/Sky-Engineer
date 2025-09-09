@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=3 uid="uid://51vq4jifog5g"]
+[gd_scene load_steps=34 format=3 uid="uid://51vq4jifog5g"]
 
 [ext_resource type="Script" uid="uid://bhgnv6yva4lmv" path="res://items/achievement_book.gd" id="1_kte5c"]
 [ext_resource type="PackedScene" uid="uid://cg2afeyy1kh8t" path="res://items/Pages_content_scenes/page_1_front_content.tscn" id="2_2ecdp"]
@@ -15,18 +15,6 @@ size = Vector3(1, 0.05, 0.7)
 
 [sub_resource type="BoxMesh" id="BoxMesh_ut8ve"]
 size = Vector3(1, 0.05, 0.7)
-
-[sub_resource type="GDScript" id="GDScript_bneui"]
-script/source = "extends Node3D
-
-#func _set(property: StringName, value: Variant) -> bool:
-	#if property == &\"visible\":
-		#print(value)
-		#visible = value
-		##print(get_stack())
-		#return true
-	#return false
-"
 
 [sub_resource type="BoxMesh" id="BoxMesh_2ecdp"]
 
@@ -888,7 +876,6 @@ skeleton = NodePath("../../RightCover")
 transform = Transform3D(1, 0, 0, 0, 0.954242, -0.29904, 0, 0.29904, 0.954242, 0.289651, 0.366677, -0.522855)
 
 [node name="PageContainer" type="Node3D" parent="."]
-script = SubResource("GDScript_bneui")
 
 [node name="Page1" type="Node3D" parent="PageContainer"]
 transform = Transform3D(1, 0, 0, 0, -0.307356, -0.951593, 0, 0.951593, -0.307356, 0, -1.19209e-07, 0)

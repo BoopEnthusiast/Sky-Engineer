@@ -88,3 +88,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.99653, 1.51875, -0.545993)
 
 [node name="CloudManager" parent="." instance=ExtResource("7_5rksg")]
 cloud_scene = ExtResource("8_iw727")
+cloud_count = 50
+min_speed = 0.01
+max_speed = 0.05

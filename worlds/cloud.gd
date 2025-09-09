@@ -1,4 +1,4 @@
-extends Sprite3D
+extends MeshInstance3D
 
 @export var speed: float = 0.5
 @export var direction: Vector3 = Vector3(1, 0, 0)
