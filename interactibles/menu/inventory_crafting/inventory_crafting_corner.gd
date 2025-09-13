@@ -9,7 +9,9 @@ signal position_changed(corner: InventoryCraftingCorner)
 
 func _set(property: StringName, value: Variant) -> bool:
 	if property == "global_position":
+		var rot := rotation
 		global_position = value
+		rotation = rot
 		position_changed.emit(self)
 		return true
 	return false

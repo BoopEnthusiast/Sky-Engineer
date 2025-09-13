@@ -16,7 +16,6 @@ func _ready() -> void:
 	for i: int in range(-1, 2, 2):
 		for o: int in range(-1, 2, 2):
 			for k: int in range(-1, 2, 2):
-				print(i,"\t",o,"\t",k)
 				var new_corner: InventoryCraftingCorner = INVENTORY_CRAFTING_CORNER.instantiate()
 				add_child(new_corner)
 				
@@ -29,10 +28,6 @@ func _ready() -> void:
 				
 				new_corner.position_changed.connect(_on_corner_position_changed)
 				corners.append(new_corner)
-				
-				for mesh: MeshInstance3D in new_corner.meshes:
-					mesh.mesh = mesh.mesh.duplicate(true)
-					mesh.mesh.material.albedo_color = Color(float(i), float(o), float(k))
 
 
 func reset_position() -> void:
@@ -43,9 +38,9 @@ func _on_corner_position_changed(corner: InventoryCraftingCorner) -> void:
 	for corn: InventoryCraftingCorner in corners:
 		if corn == corner:
 			continue
-		if corn.rotation.x == corner.rotation.x:
-			corn.position.y = corner.position.y
-		if corn.rotation.y == corner.rotation.y:
-			corn.position.z = corner.position.z
-		if corn.rotation.z == corner.rotation.z:
+		if corn.rotation_degrees.z == corner.rotation_degrees.z:
 			corn.position.x = corner.position.x
+		if corn.rotation_degrees.x == corner.rotation_degrees.x:
+			corn.position.y = corner.position.y
+		if corn.rotation_degrees.y == corner.rotation_degrees.y:
+			corn.position.z = corner.position.z
