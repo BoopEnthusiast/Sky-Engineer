@@ -17,19 +17,22 @@ func _ready() -> void:
 		for o: int in range(-1, 2, 2):
 			for k: int in range(-1, 2, 2):
 				print(i,"\t",o,"\t",k)
-				var new_corner: Node3D = INVENTORY_CRAFTING_CORNER.instantiate()
+				var new_corner: InventoryCraftingCorner = INVENTORY_CRAFTING_CORNER.instantiate()
 				add_child(new_corner)
 				
 				new_corner.position = Vector3(i, o, k) * 0.5 * craft_area.shape.size
-				print(new_corner.position)
 				new_corner.rotation_degrees.x = max(o, 0) * 90
 				new_corner.rotation_degrees.y = max(k, 0) * 90
 				new_corner.rotation_degrees.z = max(i, 0) * 90
-				print(new_corner.rotation_degrees)
-				new_corner.x.mesh.material.albedo = Color(max(i, 0), max(o, 0), max(k, 0))
-				new_corner.position_changed.connect(_on_corner_position_changed)
+				if i > 0 and k > 0:
+					new_corner.rotation_degrees.y = -90
 				
+				new_corner.position_changed.connect(_on_corner_position_changed)
 				corners.append(new_corner)
+				
+				for mesh: MeshInstance3D in new_corner.meshes:
+					mesh.mesh = mesh.mesh.duplicate(true)
+					mesh.mesh.material.albedo_color = Color(float(i), float(o), float(k))
 
 
 func reset_position() -> void:

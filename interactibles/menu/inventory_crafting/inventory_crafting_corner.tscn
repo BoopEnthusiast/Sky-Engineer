@@ -27,4 +27,5 @@ mesh = SubResource("CapsuleMesh_l8rvk")
 
 [node name="GrabbableItem" parent="." node_paths=PackedStringArray("item_to_grab") instance=ExtResource("1_8bb6w")]
 item_to_grab = NodePath("..")
+can_go_in_inventory = false
 interact_range = 0.3

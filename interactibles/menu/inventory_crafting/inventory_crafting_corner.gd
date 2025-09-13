@@ -4,9 +4,7 @@ extends Node3D
 
 signal position_changed(corner: InventoryCraftingCorner)
 
-@onready var x: MeshInstance3D = $X
-@onready var y: MeshInstance3D = $Y
-@onready var z: MeshInstance3D = $Z
+@onready var meshes: Array[MeshInstance3D] = [$X, $Y, $Z]
 
 
 func _set(property: StringName, value: Variant) -> bool:
