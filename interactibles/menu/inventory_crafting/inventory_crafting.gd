@@ -8,26 +8,33 @@ const LERP_SPEED = 10.0
 const SIT_BELOW_INVENTORY_DISTANCE = 1.5
 
 var corners: Array[InventoryCraftingCorner]
+var shape: BoxShape3D
 
 @onready var craft_area: CraftArea = $CraftArea
 
 
 func _ready() -> void:
+	assert(craft_area.shape is BoxShape3D, "The inventory crafting's area is not a box shape")
+	shape = craft_area.shape
+	
 	for i: int in range(-1, 2, 2):
 		for o: int in range(-1, 2, 2):
 			for k: int in range(-1, 2, 2):
 				var new_corner: InventoryCraftingCorner = INVENTORY_CRAFTING_CORNER.instantiate()
 				add_child(new_corner)
+				new_corner.index = Vector3i(i, o, k)
 				
-				new_corner.position = Vector3(i, o, k) * 0.5 * craft_area.shape.size
-				new_corner.rotation_degrees.x = max(o, 0) * 90
-				new_corner.rotation_degrees.y = max(k, 0) * 90
-				new_corner.rotation_degrees.z = max(i, 0) * 90
-				if i > 0 and k > 0:
-					new_corner.rotation_degrees.y = -90
+				new_corner.basis = new_corner.basis.rotated(Vector3.RIGHT, max(o, 0) * PI / 2)
+				new_corner.basis = new_corner.basis.rotated(Vector3.UP, max(k, 0) * PI / 2)
+				new_corner.basis = new_corner.basis.rotated(Vector3.BACK, max(i, 0) * PI / 2)
+				if new_corner.index == Vector3i(1, 1, -1):
+					new_corner.rotation = Vector3(0.0, -PI / 2, -PI / 2)
+				if new_corner.index == Vector3i(1, 1, 1):
+					new_corner.rotation = Vector3(0.0, -PI / 2, PI)
 				
 				new_corner.position_changed.connect(_on_corner_position_changed)
 				corners.append(new_corner)
+	_update_corner_positions()
 
 
 func reset_position() -> void:
@@ -35,12 +42,16 @@ func reset_position() -> void:
 
 
 func _on_corner_position_changed(corner: InventoryCraftingCorner) -> void:
+	var other_corner: InventoryCraftingCorner
 	for corn: InventoryCraftingCorner in corners:
-		if corn == corner:
-			continue
-		if corn.rotation_degrees.z == corner.rotation_degrees.z:
-			corn.position.x = corner.position.x
-		if corn.rotation_degrees.x == corner.rotation_degrees.x:
-			corn.position.y = corner.position.y
-		if corn.rotation_degrees.y == corner.rotation_degrees.y:
-			corn.position.z = corner.position.z
+		if corn.index == -corner.index:
+			other_corner = corn
+			break
+	shape.size = corner.position.abs() * 2
+	global_position = other_corner.global_position.lerp(corner.global_position, 0.5)
+	_update_corner_positions()
+
+
+func _update_corner_positions() -> void:
+	for corner: InventoryCraftingCorner in corners:
+		corner.position = shape.size / 2 * Vector3(corner.index)
