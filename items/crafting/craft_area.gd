@@ -87,7 +87,7 @@ func add_recipe_list(list: Dictionary) -> void:
 
 ## Starts the process of crafting, which either is instant or after the [member crafting_timer] times out depending on [member instant_crafting].
 func start_crafting() -> void:
-	if not _update_if_should_craft():
+	if not is_visible_in_tree() or not _update_if_should_craft():
 		return
 	
 	if instant_crafting:
@@ -173,9 +173,10 @@ func _on_node_exited(node: Node3D) -> void:
 func _check_crafting_state() -> void:
 	if crafting_timer.is_stopped():
 		start_crafting()
-	elif not _update_if_should_craft():
+	elif not is_visible_in_tree() or not _update_if_should_craft():
 		cancel_crafting()
 
 
 func _on_crafting_timeout() -> void:
-	finished_crafting.emit(_craft())
+	if is_visible_in_tree():
+		finished_crafting.emit(_craft())
