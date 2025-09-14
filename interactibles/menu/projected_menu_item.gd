@@ -90,6 +90,7 @@ func _process(delta: float) -> void:
 ## This is useful if you have follow_mouse turned on and want this node hidden most of the time,
 ## but to appear at the center of the screen when you make it visible.
 func move_to_remote_transform() -> void:
+	_handle_position(0.0)
 	global_position = remote_transform.global_position
 
 
