@@ -4,6 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://cxg8kmc638awu" path="res://interactibles/item_components/grabbable_item.tscn" id="1_8bb6w"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2yrrf"]
+shading_mode = 0
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_l8rvk"]
 material = SubResource("StandardMaterial3D_2yrrf")

@@ -39,6 +39,8 @@ func _ready() -> void:
 
 func reset_position() -> void:
 	global_position = Nodes.menu.inventory_position + Vector3.DOWN * SIT_BELOW_INVENTORY_DISTANCE
+	shape.size = shape.size.minf(5.0)
+	_update_corner_positions()
 
 
 func _on_corner_position_changed(corner: InventoryCraftingCorner) -> void:
