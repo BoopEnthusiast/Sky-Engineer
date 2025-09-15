@@ -4,3 +4,4 @@
 
 [node name="ItemVarient" type="Node3D"]
 script = ExtResource("1_v0dn1")
+substance = null

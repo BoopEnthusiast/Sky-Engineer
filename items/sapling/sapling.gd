@@ -26,19 +26,10 @@ var painter
 #These are just here for the sake of demonstration.
 #they should be replaced with a variable dictating 
 #the type of cauldron
-@export var primary_tint:Color
-@export var secondary_tint:Color
-@export var tertiary_tint:Color
-
-
-
+@export var substance:StringName
 
 func _ready():
-	
-	varient.primary_tint = primary_tint
-	varient.secondary_tint = secondary_tint
-	varient.tertiary_tint = tertiary_tint
-	
+	varient.substance = Substances.SUBSTANCES[substance]
 	varient.primary_target = mesh.material_override
 	varient.secondary_target = mesh.foliage.material_override
 	

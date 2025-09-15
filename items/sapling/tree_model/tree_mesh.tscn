@@ -14,6 +14,7 @@ buffer = PackedFloat32Array(1.4013e-45, 0, 2.10195e-44, 1.96182e-44, 1.4013e-45,
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_y2u2n"]
 transparency = 1
+shading_mode = 0
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_uii1d"]
 transparency = 1
