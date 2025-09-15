@@ -792,7 +792,7 @@ tracks/8/keys = {
 }
 tracks/9/type = "bezier"
 tracks/9/imported = false
-tracks/9/enabled = true
+tracks/9/enabled = false
 tracks/9/path = NodePath(".:position:x")
 tracks/9/interp = 1
 tracks/9/loop_wrap = true
@@ -803,7 +803,7 @@ tracks/9/keys = {
 }
 tracks/10/type = "bezier"
 tracks/10/imported = false
-tracks/10/enabled = true
+tracks/10/enabled = false
 tracks/10/path = NodePath(".:position:y")
 tracks/10/interp = 1
 tracks/10/loop_wrap = true
@@ -814,7 +814,7 @@ tracks/10/keys = {
 }
 tracks/11/type = "bezier"
 tracks/11/imported = false
-tracks/11/enabled = true
+tracks/11/enabled = false
 tracks/11/path = NodePath(".:position:z")
 tracks/11/interp = 1
 tracks/11/loop_wrap = true

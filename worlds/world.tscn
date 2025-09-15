@@ -68,8 +68,6 @@ mesh = SubResource("SphereMesh_felrd")
 [node name="Sapling" parent="." instance=ExtResource("3_c7htk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -4.69181)
 
-[node name="AchievementBook" parent="." instance=ExtResource("4_wp1yw")]
-
 [node name="Leafgen" parent="." instance=ExtResource("5_12do3")]
 spawn_radius = 2.0
 length_min = 0.35
@@ -85,3 +83,6 @@ cloud_scene = ExtResource("8_iw727")
 cloud_count = 50
 min_speed = 0.01
 max_speed = 0.05
+
+[node name="AchievementBook" parent="." instance=ExtResource("4_wp1yw")]
+transform = Transform3D(-0.915663, 0.116847, 0.384589, 0, 0.956814, -0.290702, -0.401948, -0.266185, -0.876118, 3.925, 2.27632, 0)
