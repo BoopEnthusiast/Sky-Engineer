@@ -9,9 +9,13 @@ var boxes:Array[PackedVector3Array] = []
 
 var collision_form:ConvexPolygonShape3D = ConvexPolygonShape3D.new()
 
+@onready var foliage:MultiMeshInstance3D =  $Foliage
+
 func _ready():
+	material_override = material_override.duplicate()
 	multimesh = multimesh.duplicate()
-	$Foliage.multimesh = $Foliage.multimesh.duplicate()
+	foliage.material_override = foliage.material_override.duplicate()
+	foliage.multimesh = foliage.multimesh.duplicate()
 	boxes.resize(1)
 	spawn_trunk()
 
@@ -21,7 +25,7 @@ func spawn_trunk():
 	trunk_basis = trunk_basis.scaled(Vector3(1,2,1))
 	var trunk_transform = Transform3D(trunk_basis ,Vector3(0,0,0))
 	multimesh.set_instance_transform(0,trunk_transform)
-	$Foliage.spawn_foliage(0,trunk_transform)
+	foliage.spawn_foliage(0,trunk_transform)
 	
 	# Generate collision geometry for the tree trunk
 	boxes[0] = trunk_transform * starting_collision_points
@@ -51,7 +55,7 @@ func spawn_limb(parent_index:int,at:float, direction:Vector3, angle:float, width
 	
 	multimesh.set_instance_transform(new_limb_index,newtransform )
 	
-	$Foliage.spawn_foliage(new_limb_index, newtransform)
+	foliage.spawn_foliage(new_limb_index, newtransform)
 	
 	# Generate collision geometry for this branch
 	var send = PackedVector3Array()
@@ -81,7 +85,7 @@ func grow_limb(index:int,amount:float):
 	
 	var new_transform:Transform3D = Transform3D(new_basis,old_transform.origin)
 	multimesh.set_instance_transform(index,new_transform)
-	$Foliage.grow_foliage(index,amount,new_transform)
+	foliage.grow_foliage(index,amount,new_transform)
 	
 	# Update the colision geometry for this limb.
 	# if the branch is not the trunk, the colision geometry will be less detailed.
@@ -104,7 +108,7 @@ func set_instance_count(count:int):
 	# Set the multimesh instance count.
 	# Used to ensure the that the amount of foliage
 	# and the numver of branches is consistant.
-	$Foliage.multimesh.instance_count = count
+	foliage.multimesh.instance_count = count
 	multimesh.instance_count = count
 	boxes.resize(count)
 

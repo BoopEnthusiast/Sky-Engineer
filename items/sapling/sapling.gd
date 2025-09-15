@@ -5,6 +5,8 @@ extends AnimatableBody3D
 
 @onready var mesh: TreeMesh = $Mesh
 
+@onready var varient:ItemVarient =  $ItemVarient
+
 
 var starting_height = 1.0
 
@@ -18,8 +20,30 @@ var limbs:Dictionary
 
 var treeshape:Shoot
 
+var painter
+
+
+#These are just here for the sake of demonstration.
+#they should be replaced with a variable dictating 
+#the type of cauldron
+@export var primary_tint:Color
+@export var secondary_tint:Color
+@export var tertiary_tint:Color
+
+
+
+
 func _ready():
+	
+	varient.primary_tint = primary_tint
+	varient.secondary_tint = secondary_tint
+	varient.tertiary_tint = tertiary_tint
+	
+	varient.primary_target = mesh.material_override
+	varient.secondary_target = mesh.foliage.material_override
+	
 	#randomize()
+	varient.paint()
 	collider.shape = collider.shape.duplicate()
 	treeshape = Shoot.new(0,0,8,8)
 	mesh.set_instance_count(treeshape.get_instance_quantity())

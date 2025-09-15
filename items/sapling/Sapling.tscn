@@ -1,11 +1,18 @@
-[gd_scene load_steps=5 format=3 uid="uid://j18nl5mh6ifn"]
+[gd_scene load_steps=9 format=3 uid="uid://j18nl5mh6ifn"]
 
 [ext_resource type="Script" uid="uid://di8syfwwutj10" path="res://items/sapling/sapling.gd" id="1_4koot"]
 [ext_resource type="PackedScene" uid="uid://cxg8kmc638awu" path="res://interactibles/item_components/grabbable_item.tscn" id="2_7xvhd"]
 [ext_resource type="PackedScene" uid="uid://cfuu81dmjkuiq" path="res://items/sapling/tree_model/tree_mesh.tscn" id="3_vqmuw"]
+[ext_resource type="Script" uid="uid://brl62s7cf7ml1" path="res://interactibles/item_components/item_varient.gd" id="4_7xvhd"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_rncus"]
 size = Vector3(1, 2.41821, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7xvhd"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vqmuw"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_onevx"]
 
 [node name="Sapling" type="AnimatableBody3D"]
 script = ExtResource("1_4koot")
@@ -17,3 +24,10 @@ item_to_grab = NodePath("..")
 shape = SubResource("BoxShape3D_rncus")
 
 [node name="Mesh" parent="." instance=ExtResource("3_vqmuw")]
+
+[node name="ItemVarient" type="Node3D" parent="."]
+script = ExtResource("4_7xvhd")
+primary_target = SubResource("StandardMaterial3D_7xvhd")
+secondary_target = SubResource("StandardMaterial3D_vqmuw")
+tertiary_target = SubResource("StandardMaterial3D_onevx")
+metadata/_custom_type_script = "uid://brl62s7cf7ml1"

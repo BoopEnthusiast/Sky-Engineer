@@ -1,14 +1,19 @@
-[gd_scene load_steps=8 format=3 uid="uid://cfuu81dmjkuiq"]
+[gd_scene load_steps=10 format=3 uid="uid://cfuu81dmjkuiq"]
 
 [ext_resource type="ArrayMesh" uid="uid://cyoo6oopwa8n1" path="res://items/sapling/tree_model/treetrunk.obj" id="1_2pcdh"]
 [ext_resource type="Script" uid="uid://dtdmkesf2mvf0" path="res://items/sapling/tree_model/tree_mesh.gd" id="2_0hyt4"]
 [ext_resource type="Script" uid="uid://cbnmtvvhcepq5" path="res://items/sapling/tree_model/foliage.gd" id="3_dl3yj"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ve085"]
 
 [sub_resource type="MultiMesh" id="MultiMesh_pjsic"]
 transform_format = 1
 instance_count = 3
 mesh = ExtResource("1_2pcdh")
 buffer = PackedFloat32Array(1.4013e-45, 0, 2.10195e-44, 1.96182e-44, 1.4013e-45, 1.82169e-44, 2.8026e-45, 1.4013e-45, 1.96182e-44, 1.82169e-44, 2.8026e-45, 1.68156e-44, 4.2039e-45, 2.8026e-45, 1.82169e-44, 1.68156e-44, 4.2039e-45, 1.54143e-44, 5.60519e-45, 4.2039e-45, 1.68156e-44, 1.54143e-44, 5.60519e-45, 1.4013e-44, 7.00649e-45, 5.60519e-45, 1.54143e-44, 1.4013e-44, 7.00649e-45, 1.26117e-44, 8.40779e-45, 7.00649e-45, 1.4013e-44, 1.26117e-44, 8.40779e-45, 1.12104e-44)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_y2u2n"]
+transparency = 1
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_uii1d"]
 transparency = 1
@@ -26,9 +31,11 @@ mesh = SubResource("SphereMesh_l2isb")
 buffer = PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
 
 [node name="MultiMeshInstance3D" type="MultiMeshInstance3D"]
+material_override = SubResource("StandardMaterial3D_ve085")
 multimesh = SubResource("MultiMesh_pjsic")
 script = ExtResource("2_0hyt4")
 
 [node name="Foliage" type="MultiMeshInstance3D" parent="."]
+material_override = SubResource("StandardMaterial3D_y2u2n")
 multimesh = SubResource("MultiMesh_uii1d")
 script = ExtResource("3_dl3yj")

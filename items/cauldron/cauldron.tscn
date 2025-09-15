@@ -1,10 +1,13 @@
-[gd_scene load_steps=11 format=3 uid="uid://cdx2akt1fdbo6"]
+[gd_scene load_steps=15 format=3 uid="uid://cdx2akt1fdbo6"]
 
 [ext_resource type="Script" uid="uid://dwww8wxmoht6h" path="res://items/cauldron/cauldron.gd" id="1_c8q8q"]
 [ext_resource type="PackedScene" uid="uid://cxg8kmc638awu" path="res://interactibles/item_components/grabbable_item.tscn" id="1_ooymf"]
 [ext_resource type="PackedScene" uid="uid://dmcvub1lf7c11" path="res://items/crafting/craft_area.tscn" id="3_8bgns"]
 [ext_resource type="ArrayMesh" uid="uid://bpr8f4om6l2hs" path="res://items/cauldron/cauldron.obj" id="3_uqxqa"]
 [ext_resource type="Script" uid="uid://bm2nru30ftdjo" path="res://items/cauldron/craft_cauldron.gd" id="4_otinv"]
+[ext_resource type="Material" uid="uid://cofbsq3d4ca3" path="res://items/cauldron/cauldron.tres" id="6_j558p"]
+[ext_resource type="PackedScene" uid="uid://cywqtlrqsvtew" path="res://interactibles/spinny_camera.tscn" id="7_0qv8p"]
+[ext_resource type="PackedScene" uid="uid://db1pkxoa1jpjg" path="res://interactibles/item_components/item_varient.tscn" id="7_hpxsa"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_otinv"]
 height = 0.551
@@ -13,29 +16,13 @@ radius = 0.421
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_c8q8q"]
 height = 1.0
 
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_j558p"]
-emission_shape_offset = Vector3(-0.15, -4.17, -0.155)
-emission_shape_scale = Vector3(1.055, 1, 1.18)
-emission_shape = 6
-emission_ring_axis = Vector3(0, -1, 0)
-emission_ring_height = 0.0
-emission_ring_radius = 2.0
-emission_ring_inner_radius = 0.0
-emission_ring_cone_angle = 68.7
-spread = 180.0
-flatness = 1.0
-initial_velocity_min = 0.77
-initial_velocity_max = 0.77
-gravity = Vector3(0, -0.01, 0)
-scale_min = 4.0
-scale_max = 4.0
-collision_mode = 1
-collision_friction = 0.0
-collision_bounce = 1.0
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0qv8p"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hpxsa"]
 
 [sub_resource type="SphereMesh" id="SphereMesh_otinv"]
-radius = 0.02
-height = 0.04
+radius = 0.04
+height = 0.08
 radial_segments = 6
 rings = 3
 
@@ -64,15 +51,17 @@ visible = false
 shape = SubResource("CylinderShape3D_c8q8q")
 
 [node name="Mesh" type="MeshInstance3D" parent="."]
+material_override = SubResource("StandardMaterial3D_0qv8p")
 mesh = ExtResource("3_uqxqa")
 
-[node name="GPUParticles3D" type="GPUParticles3D" parent="."]
+[node name="Bubbles" type="GPUParticles3D" parent="."]
 transform = Transform3D(0.155, 0, 0, 0, 0.2, 0, 0, 0, 0.14, 0.03, 1.21, 0)
-amount = 200
+material_override = SubResource("StandardMaterial3D_hpxsa")
+amount = 115
 lifetime = 3.0
 speed_scale = 2.25
 fixed_fps = 15
-process_material = SubResource("ParticleProcessMaterial_j558p")
+process_material = ExtResource("6_j558p")
 draw_pass_1 = SubResource("SphereMesh_otinv")
 
 [node name="GPUParticlesCollisionHeightField3D" type="GPUParticlesCollisionHeightField3D" parent="."]
@@ -99,13 +88,13 @@ max_value = 3.0
 step = 0.01
 tick_count = 300
 
-[node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(0.687506, -0.402906, 0.604155, 0, 0.831964, 0.55483, -0.726179, -0.381449, 0.57198, 1.05977, 1.80477, 0.635365)
-cull_mask = 524287
+[node name="SpinnyCamera" parent="." instance=ExtResource("7_0qv8p")]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0333846, 0.724472, 0)
 visible = false
 shape = SubResource("CylinderShape3D_j558p")
+
+[node name="Varient" parent="." instance=ExtResource("7_hpxsa")]
 
 [connection signal="drag_ended" from="Control/CenterContainer/HSlider" to="." method="_on_h_slider_drag_ended"]

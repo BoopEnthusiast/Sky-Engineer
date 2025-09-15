@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://db1pkxoa1jpjg"]
+
+[ext_resource type="Script" uid="uid://brl62s7cf7ml1" path="res://interactibles/item_components/item_varient.gd" id="1_v0dn1"]
+
+[node name="ItemVarient" type="Node3D"]
+script = ExtResource("1_v0dn1")

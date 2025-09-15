@@ -1,0 +1,21 @@
+[gd_resource type="ParticleProcessMaterial" format=3 uid="uid://cofbsq3d4ca3"]
+
+[resource]
+emission_shape_offset = Vector3(-0.15, -3.7, -0.155)
+emission_shape_scale = Vector3(1.055, 1, 1.18)
+emission_shape = 6
+emission_ring_axis = Vector3(0, -1, 0)
+emission_ring_height = 0.0
+emission_ring_radius = 2.0
+emission_ring_inner_radius = 0.0
+emission_ring_cone_angle = 68.7
+spread = 180.0
+flatness = 1.0
+initial_velocity_min = 0.77
+initial_velocity_max = 0.77
+gravity = Vector3(0, -0.01, 0)
+scale_min = 2.5
+scale_max = 2.5
+collision_mode = 1
+collision_friction = 0.0
+collision_bounce = 1.0
