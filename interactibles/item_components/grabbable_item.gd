@@ -32,6 +32,8 @@ const ROTATION_SLOW = 300.0
 		can_be_rotated = value
 ## Determines fast the player rotates this item. Larger numbers slow rotation.
 @export var rotation_speed: float = 4.0
+## If this [GrabbableItem] can be put in the inventory or not.
+@export var can_go_in_inventory := true
 
 ## Whether this item is currently grabbed or not.
 var is_currently_grabbed := false
@@ -81,6 +83,8 @@ func _physics_process(delta):
 
 ## Do most of the things required to put the item into the [Inventory], including moving the [member item_to_grab] to the [param inventory_slot].
 func put_item_into_inventory(inventory_slot: InventorySlot) -> void:
+	if not can_go_in_inventory:
+		return
 	can_be_interacted_with = false
 	is_currently_grabbed = false
 	inventory_slot.currently_held_item = self

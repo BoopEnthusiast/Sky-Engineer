@@ -46,6 +46,12 @@ signal started_crafting()
 			await progress_bar_sprite.ready
 		progress_bar_sprite_height = value
 		progress_bar_sprite.position.y = value
+## How long it takes to craft, assuming [member instant_crafting] is false.
+@export var wait_time := 3.0:
+	set(value):
+		if not is_node_ready():
+			await ready
+		change_wait_time(value)
 
 ## The various recipe lists this [CraftArea] checks for matching recipes to the nodes inside of it.
 var recipe_lists: Array[Dictionary]
@@ -87,7 +93,7 @@ func add_recipe_list(list: Dictionary) -> void:
 
 ## Starts the process of crafting, which either is instant or after the [member crafting_timer] times out depending on [member instant_crafting].
 func start_crafting() -> void:
-	if not _update_if_should_craft():
+	if not is_visible_in_tree() or not _update_if_should_craft():
 		return
 	
 	if instant_crafting:
@@ -108,6 +114,7 @@ func cancel_crafting() -> void:
 
 ## Changes the wait time for [member crafting_timer] and the max value for [member progress_bar].
 func change_wait_time(time: float) -> void:
+	wait_time = time
 	crafting_timer.wait_time = time
 	progress_bar.max_value = time
 
@@ -173,9 +180,10 @@ func _on_node_exited(node: Node3D) -> void:
 func _check_crafting_state() -> void:
 	if crafting_timer.is_stopped():
 		start_crafting()
-	elif not _update_if_should_craft():
+	elif not is_visible_in_tree() or not _update_if_should_craft():
 		cancel_crafting()
 
 
 func _on_crafting_timeout() -> void:
-	finished_crafting.emit(_craft())
+	if is_visible_in_tree():
+		finished_crafting.emit(_craft())
