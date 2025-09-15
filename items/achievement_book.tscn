@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=3 uid="uid://51vq4jifog5g"]
+[gd_scene load_steps=36 format=3 uid="uid://51vq4jifog5g"]
 
 [ext_resource type="Script" uid="uid://bhgnv6yva4lmv" path="res://items/achievement_book.gd" id="1_kte5c"]
 [ext_resource type="PackedScene" uid="uid://cg2afeyy1kh8t" path="res://items/Pages_content_scenes/page_1_front_content.tscn" id="2_2ecdp"]
@@ -14,7 +14,11 @@
 [sub_resource type="BoxShape3D" id="BoxShape3D_ut8ve"]
 size = Vector3(1, 0.05, 0.7)
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_cuwhq"]
+albedo_color = Color(0.280223, 0.187674, 0.0693819, 1)
+
 [sub_resource type="BoxMesh" id="BoxMesh_ut8ve"]
+material = SubResource("StandardMaterial3D_cuwhq")
 size = Vector3(1, 0.05, 0.7)
 
 [sub_resource type="BoxMesh" id="BoxMesh_2ecdp"]
@@ -1296,8 +1300,10 @@ libraries = {
 
 [node name="GrabbableItem" parent="." node_paths=PackedStringArray("item_to_grab") instance=ExtResource("7_fiu20")]
 item_to_grab = NodePath("..")
+can_go_in_inventory = true
 
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0)
 stream = ExtResource("10_cuwhq")
 volume_db = -10.667
 max_db = -3.0
