@@ -51,7 +51,9 @@ signal started_crafting()
 	set(value):
 		if not is_node_ready():
 			await ready
-		change_wait_time(value)
+		crafting_timer.wait_time = value
+		progress_bar.max_value = value
+		wait_time = value
 
 ## The various recipe lists this [CraftArea] checks for matching recipes to the nodes inside of it.
 var recipe_lists: Array[Dictionary]
@@ -110,13 +112,6 @@ func cancel_crafting() -> void:
 	if not crafting_timer.is_stopped():
 		progress_bar.visible = false
 		crafting_timer.stop()
-
-
-## Changes the wait time for [member crafting_timer] and the max value for [member progress_bar].
-func change_wait_time(time: float) -> void:
-	wait_time = time
-	crafting_timer.wait_time = time
-	progress_bar.max_value = time
 
 
 func _craft() -> Node:
