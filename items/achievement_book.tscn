@@ -1,11 +1,13 @@
-[gd_scene load_steps=36 format=3 uid="uid://51vq4jifog5g"]
+[gd_scene load_steps=37 format=3 uid="uid://51vq4jifog5g"]
 
 [ext_resource type="Script" uid="uid://bhgnv6yva4lmv" path="res://items/achievement_book.gd" id="1_kte5c"]
 [ext_resource type="PackedScene" uid="uid://cg2afeyy1kh8t" path="res://items/Pages_content_scenes/page_1_front_content.tscn" id="2_2ecdp"]
+[ext_resource type="Script" uid="uid://cg7c8k580jwwf" path="res://items/cover_mesh.gd" id="2_dmcek"]
 [ext_resource type="PackedScene" uid="uid://cm50iq55vf512" path="res://interactibles/item_components/interactible_button.tscn" id="2_exru0"]
 [ext_resource type="PackedScene" uid="uid://ixphkp33vpxg" path="res://items/Pages_content_scenes/page_2_front_content.tscn" id="2_m7i7e"]
 [ext_resource type="PackedScene" uid="uid://brn37ucrk8kjq" path="res://items/Pages_content_scenes/page_2_back_content.tscn" id="3_0dyby"]
 [ext_resource type="PackedScene" uid="uid://b8rqv12sglaq7" path="res://items/Pages_content_scenes/page_1_back_content.tscn" id="3_cdgaa"]
+[ext_resource type="Script" uid="uid://b33iyx325o0wx" path="res://items/page_mesh.gd" id="4_ppb5n"]
 [ext_resource type="PackedScene" uid="uid://vk3ldjbibcbi" path="res://items/Pages_content_scenes/page_3_front_content.tscn" id="7_exru0"]
 [ext_resource type="PackedScene" uid="uid://cxg8kmc638awu" path="res://interactibles/item_components/grabbable_item.tscn" id="7_fiu20"]
 [ext_resource type="PackedScene" uid="uid://cpiyto5abjb7n" path="res://items/Pages_content_scenes/page_3_back_content.tscn" id="8_bneui"]
@@ -14,11 +16,7 @@
 [sub_resource type="BoxShape3D" id="BoxShape3D_ut8ve"]
 size = Vector3(1, 0.05, 0.7)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_cuwhq"]
-albedo_color = Color(0.280223, 0.187674, 0.0693819, 1)
-
 [sub_resource type="BoxMesh" id="BoxMesh_ut8ve"]
-material = SubResource("StandardMaterial3D_cuwhq")
 size = Vector3(1, 0.05, 0.7)
 
 [sub_resource type="BoxMesh" id="BoxMesh_2ecdp"]
@@ -962,6 +960,7 @@ shape = SubResource("BoxShape3D_ut8ve")
 [node name="Mesh" type="MeshInstance3D" parent="RightCover"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.025, -0.35)
 mesh = SubResource("BoxMesh_ut8ve")
+script = ExtResource("2_dmcek")
 
 [node name="TurnPageForwardButton" parent="RightCover" instance=ExtResource("2_exru0")]
 transform = Transform3D(1, 0, 0, 0, 0.976296, 0.216439, 0, -0.216439, 0.976296, 0.289651, 0.351663, 0.504462)
@@ -978,6 +977,7 @@ shape = SubResource("BoxShape3D_ut8ve")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.025, 0.35)
 mesh = SubResource("BoxMesh_ut8ve")
 skeleton = NodePath("../../RightCover")
+script = ExtResource("2_dmcek")
 
 [node name="TurnPageBackwardButton" parent="Left Cover" instance=ExtResource("2_exru0")]
 transform = Transform3D(1, 0, 0, 0, 0.954242, -0.29904, 0, 0.29904, 0.954242, 0.289651, 0.366677, -0.522855)
@@ -990,6 +990,7 @@ transform = Transform3D(1, 0, 0, 0, -0.307356, -0.951593, 0, 0.951593, -0.307356
 [node name="MeshInstance3D" type="MeshInstance3D" parent="PageContainer/Page1"]
 transform = Transform3D(-0.985916, 0, 0, 0, -0.636408, -3.63798e-12, 0, 2.32831e-09, -0.00407733, -0.000726104, -0.320164, -0.00286609)
 mesh = SubResource("BoxMesh_2ecdp")
+script = ExtResource("4_ppb5n")
 
 [node name="Sprite3D" type="Sprite3D" parent="PageContainer/Page1"]
 transform = Transform3D(3.90065e-09, -0.097762, -8.63155e-08, 0.0892345, 4.21593e-09, 0.00661878, -0.000598213, -8.57509e-09, 0.987313, 0, -0.324054, -0.00682781)
@@ -1021,6 +1022,7 @@ visible = false
 [node name="MeshInstance3D" type="MeshInstance3D" parent="PageContainer/Page2"]
 transform = Transform3D(-0.985916, 0, 0, 0, -0.636408, -3.63798e-12, 0, 2.32831e-09, -0.00407733, -0.000726104, -0.320164, -0.00286609)
 mesh = SubResource("BoxMesh_2ecdp")
+script = ExtResource("4_ppb5n")
 
 [node name="Sprite3D" type="Sprite3D" parent="PageContainer/Page2"]
 transform = Transform3D(3.90065e-09, -0.097762, -8.63155e-08, 0.0892345, 4.21593e-09, 0.00661878, -0.000598213, -8.57509e-09, 0.987313, 0, -0.324054, -0.00682781)
@@ -1052,6 +1054,7 @@ visible = false
 [node name="MeshInstance3D" type="MeshInstance3D" parent="PageContainer/Page3"]
 transform = Transform3D(-0.985916, 0, 0, 0, -0.636408, -3.63798e-12, 0, 2.32831e-09, -0.00407733, -0.000726104, -0.320164, -0.00286609)
 mesh = SubResource("BoxMesh_2ecdp")
+script = ExtResource("4_ppb5n")
 
 [node name="Sprite3D" type="Sprite3D" parent="PageContainer/Page3"]
 transform = Transform3D(3.90065e-09, -0.097762, -8.63155e-08, 0.0892345, 4.21593e-09, 0.00661878, -0.000598213, -8.57509e-09, 0.987313, 0, -0.324054, -0.00682781)
@@ -1083,6 +1086,7 @@ visible = false
 [node name="MeshInstance3D" type="MeshInstance3D" parent="PageContainer/Page4"]
 transform = Transform3D(-0.985916, 0, 0, 0, -0.636408, -3.63798e-12, 0, 2.32831e-09, -0.00407733, -0.000726104, -0.320164, -0.00286609)
 mesh = SubResource("BoxMesh_2ecdp")
+script = ExtResource("4_ppb5n")
 
 [node name="Sprite3D" type="Sprite3D" parent="PageContainer/Page4"]
 transform = Transform3D(3.90065e-09, -0.097762, -8.63155e-08, 0.0892345, 4.21593e-09, 0.00661878, -0.000598213, -8.57509e-09, 0.987313, 0, -0.324054, -0.00682781)
@@ -1114,6 +1118,7 @@ visible = false
 [node name="MeshInstance3D" type="MeshInstance3D" parent="PageContainer/Page5"]
 transform = Transform3D(-0.985916, 0, 0, 0, -0.636408, -3.63798e-12, 0, 2.32831e-09, -0.00407733, -0.000726104, -0.320164, -0.00286609)
 mesh = SubResource("BoxMesh_2ecdp")
+script = ExtResource("4_ppb5n")
 
 [node name="Sprite3D" type="Sprite3D" parent="PageContainer/Page5"]
 transform = Transform3D(3.90065e-09, -0.097762, -8.63155e-08, 0.0892345, 4.21593e-09, 0.00661878, -0.000598213, -8.57509e-09, 0.987313, 0, -0.324054, -0.00682781)
@@ -1145,6 +1150,7 @@ visible = false
 [node name="MeshInstance3D" type="MeshInstance3D" parent="PageContainer/Page6"]
 transform = Transform3D(-0.985916, 0, 0, 0, -0.636408, -3.63798e-12, 0, 2.32831e-09, -0.00407733, -0.000726104, -0.320164, -0.00286609)
 mesh = SubResource("BoxMesh_2ecdp")
+script = ExtResource("4_ppb5n")
 
 [node name="Sprite3D" type="Sprite3D" parent="PageContainer/Page6"]
 transform = Transform3D(3.90065e-09, -0.097762, -8.63155e-08, 0.0892345, 4.21593e-09, 0.00661878, -0.000598213, -8.57509e-09, 0.987313, 0, -0.324054, -0.00682781)
@@ -1176,6 +1182,7 @@ visible = false
 [node name="MeshInstance3D" type="MeshInstance3D" parent="PageContainer/Page7"]
 transform = Transform3D(-0.985916, 0, 0, 0, -0.636408, -3.63798e-12, 0, 2.32831e-09, -0.00407733, -0.000726104, -0.320164, -0.00286609)
 mesh = SubResource("BoxMesh_2ecdp")
+script = ExtResource("4_ppb5n")
 
 [node name="Sprite3D" type="Sprite3D" parent="PageContainer/Page7"]
 transform = Transform3D(3.90065e-09, -0.097762, -8.63155e-08, 0.0892345, 4.21593e-09, 0.00661878, -0.000598213, -8.57509e-09, 0.987313, 0, -0.324054, -0.00682781)
@@ -1207,6 +1214,7 @@ visible = false
 [node name="MeshInstance3D" type="MeshInstance3D" parent="PageContainer/Page8"]
 transform = Transform3D(-0.985916, 0, 0, 0, -0.636408, -3.63798e-12, 0, 2.32831e-09, -0.00407733, -0.000726104, -0.320164, -0.00286609)
 mesh = SubResource("BoxMesh_2ecdp")
+script = ExtResource("4_ppb5n")
 
 [node name="Sprite3D" type="Sprite3D" parent="PageContainer/Page8"]
 transform = Transform3D(3.90065e-09, -0.097762, -8.63155e-08, 0.0892345, 4.21593e-09, 0.00661878, -0.000598213, -8.57509e-09, 0.987313, 0, -0.324054, -0.00682781)
@@ -1238,6 +1246,7 @@ visible = false
 [node name="MeshInstance3D" type="MeshInstance3D" parent="PageContainer/Page9"]
 transform = Transform3D(-0.985916, 0, 0, 0, -0.636408, -3.63798e-12, 0, 2.32831e-09, -0.00407733, -0.000726104, -0.320164, -0.00286609)
 mesh = SubResource("BoxMesh_2ecdp")
+script = ExtResource("4_ppb5n")
 
 [node name="Sprite3D" type="Sprite3D" parent="PageContainer/Page9"]
 transform = Transform3D(3.90065e-09, -0.097762, -8.63155e-08, 0.0892345, 4.21593e-09, 0.00661878, -0.000598213, -8.57509e-09, 0.987313, 0, -0.324054, -0.00682781)
@@ -1269,6 +1278,7 @@ visible = false
 [node name="MeshInstance3D" type="MeshInstance3D" parent="PageContainer/Page10"]
 transform = Transform3D(-0.985916, 0, 0, 0, -0.636408, -3.63798e-12, 0, 2.32831e-09, -0.00407733, -0.000726104, -0.320164, -0.00286609)
 mesh = SubResource("BoxMesh_2ecdp")
+script = ExtResource("4_ppb5n")
 
 [node name="Sprite3D" type="Sprite3D" parent="PageContainer/Page10"]
 transform = Transform3D(3.90065e-09, -0.097762, -8.63155e-08, 0.0892345, 4.21593e-09, 0.00661878, -0.000598213, -8.57509e-09, 0.987313, 0, -0.324054, -0.00682781)
