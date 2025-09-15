@@ -1,0 +1,75 @@
+[gd_scene load_steps=11 format=3 uid="uid://chyggfnvwonbn"]
+
+[ext_resource type="Script" uid="uid://d02hh40m3v31r" path="res://worlds/day_night_cycle.gd" id="1_dox6n"]
+[ext_resource type="PackedScene" uid="uid://ccx1abp1pwj8u" path="res://star.tscn" id="2_evd4h"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_evd4h"]
+shading_mode = 0
+
+[sub_resource type="SphereMesh" id="SphereMesh_li1b5"]
+material = SubResource("StandardMaterial3D_evd4h")
+radius = 10.0
+height = 20.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_alosl"]
+shading_mode = 0
+albedo_color = Color(0.89452, 0.475846, 0.223938, 1)
+
+[sub_resource type="SphereMesh" id="SphereMesh_ehc8j"]
+material = SubResource("StandardMaterial3D_alosl")
+radius = 20.0
+height = 40.0
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_evd4h"]
+sky_top_color = Color(0.323942, 0.441501, 0.691203, 1)
+
+[sub_resource type="Sky" id="Sky_12do3"]
+sky_material = SubResource("ProceduralSkyMaterial_evd4h")
+
+[sub_resource type="Environment" id="Environment_li1b5"]
+background_mode = 2
+sky = SubResource("Sky_12do3")
+volumetric_fog_enabled = true
+volumetric_fog_density = 0.01
+volumetric_fog_anisotropy = 0.7
+
+[sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_alosl"]
+
+[node name="DayNightCycle" type="Node3D" node_paths=PackedStringArray("sun", "moon", "world_env", "sun_mesh", "moon_mesh")]
+script = ExtResource("1_dox6n")
+sun = NodePath("Sun")
+moon = NodePath("Moon")
+world_env = NodePath("WorldEnvironment")
+star_sky = ExtResource("2_evd4h")
+star_count = null
+sun_mesh = NodePath("Sun2")
+moon_mesh = NodePath("Moon2")
+spawn_area = null
+day_length = 10.0
+sun_max_energy = null
+moon_max_energy = null
+day_sky_color = null
+night_sky_color = null
+
+[node name="Moon2" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 8134.5)
+mesh = SubResource("SphereMesh_li1b5")
+skeleton = NodePath("../Sun2")
+
+[node name="Sun2" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 8134.5)
+mesh = SubResource("SphereMesh_ehc8j")
+
+[node name="Sun" type="DirectionalLight3D" parent="."]
+light_color = Color(0.733105, 0.457276, 0.125091, 1)
+shadow_enabled = true
+
+[node name="Moon" type="DirectionalLight3D" parent="."]
+light_color = Color(0.737778, 0.888557, 0.996132, 1)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_li1b5")
+camera_attributes = SubResource("CameraAttributesPractical_alosl")
+
+[node name="FogVolume" type="FogVolume" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 190.518, 0)
