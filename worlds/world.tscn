@@ -73,6 +73,7 @@ mesh = SubResource("SphereMesh_felrd")
 
 [node name="Sapling" parent="." instance=ExtResource("3_c7htk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -4.69181)
+substance = &"WOOD"
 
 [node name="Leafgen" parent="." instance=ExtResource("5_12do3")]
 spawn_radius = 2.0
