@@ -1,14 +1,27 @@
-[gd_scene load_steps=15 format=3 uid="uid://cxus3ioklaaki"]
+[gd_scene load_steps=18 format=3 uid="uid://cxus3ioklaaki"]
 
 [ext_resource type="Script" uid="uid://dobv4rbfvosds" path="res://worlds/world.gd" id="1_m138w"]
 [ext_resource type="PackedScene" uid="uid://bjxbdvhb0xhsj" path="res://interactibles/building.tscn" id="2_c7htk"]
-[ext_resource type="PackedScene" uid="uid://chyggfnvwonbn" path="res://worlds/day_night_cycle.tscn" id="2_iw727"]
 [ext_resource type="PackedScene" uid="uid://j18nl5mh6ifn" path="res://items/sapling/Sapling.tscn" id="3_c7htk"]
 [ext_resource type="PackedScene" uid="uid://51vq4jifog5g" path="res://items/achievement_book.tscn" id="4_wp1yw"]
 [ext_resource type="PackedScene" uid="uid://dpl5fe338ir03" path="res://items/leafgen.tscn" id="5_12do3"]
 [ext_resource type="PackedScene" uid="uid://j82r68kriohc" path="res://items/test_item.tscn" id="6_3euow"]
 [ext_resource type="PackedScene" uid="uid://hdym8uqhclcm" path="res://worlds/cloud_manager.tscn" id="7_5rksg"]
 [ext_resource type="PackedScene" uid="uid://db1skk0t078ap" path="res://worlds/cloud.tscn" id="8_iw727"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_felrd"]
+
+[sub_resource type="Sky" id="Sky_12do3"]
+sky_material = SubResource("ProceduralSkyMaterial_felrd")
+
+[sub_resource type="Environment" id="Environment_46j3l"]
+background_mode = 2
+sky = SubResource("Sky_12do3")
+volumetric_fog_enabled = true
+volumetric_fog_density = 0.01
+volumetric_fog_anisotropy = 0.7
+
+[sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_bnm7t"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_46j3l"]
 cull_mode = 2
@@ -35,22 +48,15 @@ rings = 8
 [node name="World" type="Node3D"]
 script = ExtResource("1_m138w")
 
-[node name="DayNightCycle" parent="." instance=ExtResource("2_iw727")]
-star_count = 200
-spawn_area = Vector3(1000, 150, 1000)
-day_length = 50.0
-sun_max_energy = 1.0
-moon_max_energy = 0.3
-day_sky_color = Color(0.5, 0.7, 1, 1)
-night_sky_color = Color(0.02, 0.02, 0.05, 1)
-
 [node name="FogVolume" type="FogVolume" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 190.518, 0)
-visible = false
 
 [node name="Sun" type="DirectionalLight3D" parent="."]
 transform = Transform3D(0.707107, -0.5, 0.5, 0, 0.707107, 0.707107, -0.707107, -0.5, 0.5, 0, 3.90252, 0)
-visible = false
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_46j3l")
+camera_attributes = SubResource("CameraAttributesPractical_bnm7t")
 
 [node name="StartingPlatform" type="StaticBody3D" parent="."]
 
