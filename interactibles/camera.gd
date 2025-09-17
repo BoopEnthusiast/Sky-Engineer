@@ -45,10 +45,10 @@ func _interact_with_inventory_slot() -> void:
 	
 	var currently_selected_has_item := is_instance_valid(selected_inventory_slot.currently_held_item)
 	
-	if Input.is_action_just_pressed("select") and not is_currently_grabbing and currently_selected_has_item:
+	if Input.is_action_just_pressed(&"select") and not is_currently_grabbing and currently_selected_has_item:
 		_player.currently_grabbing = selected_inventory_slot.currently_held_item
 		selected_inventory_slot.currently_held_item.take_item_from_inventory(selected_inventory_slot)
-	elif Input.is_action_just_released("select") and is_currently_grabbing:
+	elif Input.is_action_just_released(&"select") and is_currently_grabbing:
 		if _player.currently_grabbing is ItemShape and not currently_selected_has_item:
 			_player.currently_grabbing.put_item_into_inventory(selected_inventory_slot)
 
