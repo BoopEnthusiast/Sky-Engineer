@@ -2,10 +2,9 @@
 
 [ext_resource type="Script" uid="uid://cupm1hjks46px" path="res://items/workbench/base_workbench.gd" id="1_gu2bx"]
 [ext_resource type="PackedScene" uid="uid://dmcvub1lf7c11" path="res://items/crafting/craft_area.tscn" id="2_1gerb"]
+[ext_resource type="ArrayMesh" uid="uid://dbdlxne3phric" path="res://items/workbench/asset/workbench.res" id="2_rhqtc"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_5c28s"]
-
-[sub_resource type="BoxMesh" id="BoxMesh_5c28s"]
 
 [node name="BaseWorkbench" type="AnimatableBody3D"]
 script = ExtResource("1_gu2bx")
@@ -14,6 +13,7 @@ script = ExtResource("1_gu2bx")
 shape = SubResource("BoxShape3D_5c28s")
 
 [node name="Mesh" type="MeshInstance3D" parent="."]
-mesh = SubResource("BoxMesh_5c28s")
+transform = Transform3D(0.49995437, -0.0067541897, 0, 0.0067541897, 0.49995437, 0, 0, 0, 0.5, 0, 0, 0)
+mesh = ExtResource("2_rhqtc")
 
 [node name="CraftArea" parent="." instance=ExtResource("2_1gerb")]
