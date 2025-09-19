@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://cxus3ioklaaki"]
+[gd_scene load_steps=19 format=3 uid="uid://cxus3ioklaaki"]
 
 [ext_resource type="Script" uid="uid://dobv4rbfvosds" path="res://worlds/world.gd" id="1_m138w"]
 [ext_resource type="PackedScene" uid="uid://bjxbdvhb0xhsj" path="res://interactibles/building.tscn" id="2_c7htk"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://j82r68kriohc" path="res://items/test_item.tscn" id="6_3euow"]
 [ext_resource type="PackedScene" uid="uid://hdym8uqhclcm" path="res://worlds/cloud_manager.tscn" id="7_5rksg"]
 [ext_resource type="PackedScene" uid="uid://db1skk0t078ap" path="res://worlds/cloud.tscn" id="8_iw727"]
+[ext_resource type="PackedScene" uid="uid://dcmoyh5qusbh" path="res://items/workbench/wooden_workbench.tscn" id="9_iw727"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_felrd"]
 
@@ -92,4 +93,7 @@ min_speed = 0.01
 max_speed = 0.05
 
 [node name="AchievementBook" parent="." instance=ExtResource("4_wp1yw")]
-transform = Transform3D(-0.915663, 0.116847, 0.384589, 0, 0.956814, -0.290702, -0.401948, -0.266185, -0.876118, 3.925, 2.27632, 0)
+transform = Transform3D(-0.9156626, 0.116847, 0.3845891, 0, 0.95681363, -0.29070196, -0.40194777, -0.2661849, -0.8761184, 3.925, 2.27632, 0)
+
+[node name="Wooden Workbench" parent="." instance=ExtResource("9_iw727")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 20.159296)

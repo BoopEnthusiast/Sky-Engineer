@@ -1,0 +1,11 @@
+[gd_scene load_steps=4 format=3 uid="uid://dcmoyh5qusbh"]
+
+[ext_resource type="PackedScene" uid="uid://bu60jjn6tr2ll" path="res://items/workbench/base_workbench.tscn" id="1_tj3lw"]
+[ext_resource type="ArrayMesh" uid="uid://dbdlxne3phric" path="res://items/workbench/asset/workbench.res" id="2_goyam"]
+[ext_resource type="Script" uid="uid://0gr8eqiwa75p" path="res://items/workbench/wooden_workbench.gd" id="2_pvi7r"]
+
+[node name="Wooden Workbench" instance=ExtResource("1_tj3lw")]
+script = ExtResource("2_pvi7r")
+
+[node name="Mesh" parent="." index="1"]
+mesh = ExtResource("2_goyam")
