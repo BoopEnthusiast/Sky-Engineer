@@ -22,6 +22,12 @@ PlayerState="*res://globals/player_state.gd"
 Debug="*res://globals/debug/debug.gd"
 Paths="*res://globals/paths.gd"
 Recipes="*res://globals/recipes.gd"
+Substances="*res://globals/substances.gd"
+
+[editor]
+
+version_control/plugin_name="GitPlugin"
+version_control/autoload_on_startup=true
 
 [file_customization]
 
