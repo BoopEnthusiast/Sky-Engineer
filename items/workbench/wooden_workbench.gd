@@ -1,4 +1,4 @@
-class_name BaseWorkbench
+class_name WoodenWorkbench
 extends AnimatableBody3D
 
 
