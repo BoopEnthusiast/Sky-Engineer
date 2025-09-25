@@ -17,3 +17,4 @@ const WOODEN_WORKBENCH: Dictionary[Dictionary, PackedScene] = {
 }
 const STONE_WORKBENCH: Dictionary[Dictionary, PackedScene] = {
 	{ &"Wood": 7, }: preload("res://items/cauldron/cauldron.tscn"),
+}
