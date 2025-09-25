@@ -1,8 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://bqr0cll00ttp"]
+[gd_scene load_steps=10 format=3 uid="uid://bqr0cll00ttp"]
 
 [ext_resource type="Script" uid="uid://7tucd7tnihiw" path="res://interactibles/menu/main_menu/main_list.gd" id="1_0wd3e"]
 [ext_resource type="Script" uid="uid://djtoc4vybp7eh" path="res://menus/main_menu_3d.gd" id="1_8yirn"]
 [ext_resource type="PackedScene" uid="uid://dgmjn354mjr02" path="res://interactibles/menu/main_menu/button_3d.tscn" id="1_bjpdq"]
+[ext_resource type="AudioStream" uid="uid://dp13q85m5ru7i" path="res://sound/144953__deleted_user_2104797__wobble_wood_9.wav" id="4_cmf0u"]
+[ext_resource type="AudioStream" uid="uid://c34hagyvx04go" path="res://sound/237422__plasterbrain__hover-1.ogg" id="5_sx8r8"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_bjpdq"]
 
@@ -48,7 +50,7 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="Play" type="Panel" parent="MainMenu2D/MainList"]
-layout_mode = 2
+layout_mode = 0
 anchor_left = 0.374132
 anchor_top = 0.152778
 anchor_right = 0.625
@@ -57,7 +59,7 @@ offset_bottom = 3.05176e-05
 size_flags_vertical = 3
 
 [node name="Settings" type="Panel" parent="MainMenu2D/MainList"]
-layout_mode = 2
+layout_mode = 0
 anchor_left = 0.374132
 anchor_top = 0.385803
 anchor_right = 0.625
@@ -65,7 +67,7 @@ anchor_bottom = 0.612655
 size_flags_vertical = 3
 
 [node name="Quit" type="Panel" parent="MainMenu2D/MainList"]
-layout_mode = 2
+layout_mode = 0
 anchor_left = 0.374132
 anchor_top = 0.618827
 anchor_right = 0.625
@@ -92,6 +94,23 @@ text = "Quit"
 size = Vector3(2.5, 1.3, 1.3)
 counterpart_in_2d = NodePath("../../MainMenu2D/MainList/Quit")
 
+[node name="Audio" type="Node" parent="."]
+unique_name_in_owner = true
+
+[node name="HoverSound" type="AudioStreamPlayer" parent="Audio"]
+stream = ExtResource("4_cmf0u")
+volume_db = -20.0
+max_polyphony = 5
+bus = &"SFX"
+
+[node name="SelectSound" type="AudioStreamPlayer" parent="Audio"]
+stream = ExtResource("5_sx8r8")
+volume_db = -20.0
+bus = &"SFX"
+
+[connection signal="hovered" from="MainList/Play" to="." method="_on_play_hovered"]
 [connection signal="pressed" from="MainList/Play" to="." method="_on_play_pressed"]
+[connection signal="hovered" from="MainList/Settings" to="." method="_on_settings_hovered"]
 [connection signal="pressed" from="MainList/Settings" to="MainList" method="_on_settings_pressed"]
+[connection signal="hovered" from="MainList/Quit" to="." method="_on_quit_hovered"]
 [connection signal="pressed" from="MainList/Quit" to="MainList" method="_on_quit_pressed"]

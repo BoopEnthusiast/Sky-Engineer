@@ -1,6 +1,7 @@
 @tool
 extends Button3D
 
+signal hovered # when mouse is hovering button
 
 ## Changes the displayed text on this [Button3D].
 @export var text: String = "":
@@ -36,3 +37,6 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	if not Engine.is_editor_hint():
 		super(delta)
+
+func _on_static_body_mouse_entered() -> void:
+	hovered.emit()

@@ -57,13 +57,13 @@ func _on_master_volume_changed(value: float):
 # when music and sfx added
 func _on_music_volume_changed(value: float):
 	print("Music Volume: ", value)
-	#var db = linear_to_db(value / 100.0)
-	#AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Music"), db)
+	var db = linear_to_db(value / 100.0)
+	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Music"), db)
 
 func _on_sfx_volume_changed(value: float):
 	print("SFX Volume: ", value)
-	#var db = linear_to_db(value / 100.0)
-	#AudioServer.set_bus_volume_db(AudioServer.get_bus_index("SFX"), db)
+	var db = linear_to_db(value / 100.0)
+	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("SFX"), db)
 
 # Video methods
 func _on_fullscreen_toggled(button_pressed: bool):
@@ -143,8 +143,8 @@ func load_settings():
 	
 	# Apply the settings
 	_on_master_volume_changed(master_volume_slider.value)
-	#_on_music_volume_changed(music_volume_slider.value)
-	#_on_sfx_volume_changed(sfx_volume_slider.value)
+	_on_music_volume_changed(music_volume_slider.value)
+	_on_sfx_volume_changed(sfx_volume_slider.value)
 	_on_fullscreen_toggled(fullscreen_toggle.button_pressed)
 	_on_vsync_toggled(vsync_toggle.button_pressed)
 	_on_uncapped_fps_toggled(uncapped_fps_toggle.button_pressed)
