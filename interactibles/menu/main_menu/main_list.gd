@@ -1,6 +1,7 @@
 extends Node3D
 
 func _on_settings_pressed() -> void:
+	%Audio/SelectSound.play()
 	var options_scene = preload("res://menus/options_menu.tscn")
 	var options_instance = options_scene.instantiate()
 	
@@ -13,6 +14,7 @@ func _on_settings_pressed() -> void:
 	
 # Bring back menu
 func _on_back_from_options():
+	%Audio/HoverSound.play()
 	show()
 	var options_node = get_tree().current_scene.get_node("OptionsMenu")
 	if options_node:
