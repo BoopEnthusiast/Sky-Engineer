@@ -2,14 +2,14 @@
 
 [ext_resource type="PackedScene" uid="uid://bu60jjn6tr2ll" path="res://items/workbench/base_workbench.tscn" id="1_nj2kh"]
 [ext_resource type="Script" uid="uid://cc4uqqpstdoed" path="res://items/workbench/stone_workbench.gd" id="2_lubbu"]
-[ext_resource type="ArrayMesh" uid="uid://cjmalfim7omxt" path="res://items/workbench/asset/stone_workbench1.res" id="3_ttwle"]
+[ext_resource type="ArrayMesh" uid="uid://d4f53l8d82a2i" path="res://items/workbench/asset/stone_workbench2.res" id="3_4ba60"]
 
 [node name="StoneWorkbench" instance=ExtResource("1_nj2kh")]
 script = ExtResource("2_lubbu")
 
 [node name="Mesh" parent="." index="1"]
-transform = Transform3D(0.30497217, -0.004120056, 0, 0.004120056, 0.30497217, 0, 0, 0, 0.305, 0, -0.4253943, 0.09078205)
-mesh = ExtResource("3_ttwle")
+transform = Transform3D(0.49995434, -0.0067541893, 0, 0.0067541893, 0.49995434, 0, 0, 0, 0.5, 0, -0.4253943, 0.09078205)
+mesh = ExtResource("3_4ba60")
 
 [node name="CraftArea" parent="." index="2"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.4463321, 0)
