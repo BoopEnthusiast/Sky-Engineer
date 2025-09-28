@@ -16,6 +16,7 @@ var shape: BoxShape3D
 func _ready() -> void:
 	assert(craft_area.shape is BoxShape3D, "The inventory crafting's area is not a box shape")
 	shape = craft_area.shape
+	craft_area.add_recipe_list(Recipes.INVENTORY)
 	
 	for i: int in range(-1, 2, 2):
 		for o: int in range(-1, 2, 2):

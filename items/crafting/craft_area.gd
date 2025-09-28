@@ -96,6 +96,7 @@ func add_recipe_list(list: Dictionary) -> void:
 ## Starts the process of crafting, which either is instant or after the [member crafting_timer] times out depending on [member instant_crafting].
 func start_crafting() -> void:
 	if not is_visible_in_tree() or not _update_if_should_craft():
+		print("Not crafting")
 		return
 	
 	if instant_crafting:

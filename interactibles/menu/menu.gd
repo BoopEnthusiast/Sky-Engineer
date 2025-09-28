@@ -9,6 +9,7 @@ const LERP_SPEED = 8.0
 @onready var menu_2d: Control = $Menu2D
 @onready var ray_cast_2d: RayCast2D = $Menu2D/RayCast2D
 
+@onready var counters: Counters = $Counters
 @onready var inventory: Inventory = $Inventory
 @onready var inventory_position: Vector3:
 	get():

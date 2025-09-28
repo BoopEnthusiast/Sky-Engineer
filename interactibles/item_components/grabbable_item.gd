@@ -81,6 +81,12 @@ func _physics_process(delta):
 			item_to_grab.basis = item_to_grab.basis.slerp(_basis_to_turn_to, weight)
 
 
+func _exit_tree() -> void:
+	if Nodes.player.currently_grabbing == self or is_currently_grabbed:
+		stop_interacting_with()
+		Nodes.player.currently_grabbing = null
+
+
 ## Do most of the things required to put the item into the [Inventory], including moving the [member item_to_grab] to the [param inventory_slot].
 func put_item_into_inventory(inventory_slot: InventorySlot) -> void:
 	if not can_go_in_inventory:
