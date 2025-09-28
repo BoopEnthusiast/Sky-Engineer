@@ -15,6 +15,7 @@ shape = SubResource("SphereShape3D_csx3n")
 shape = SubResource("SphereShape3D_csx3n")
 
 [node name="Crafting" type="Timer" parent="."]
+one_shot = true
 
 [node name="ProgressBar" type="Sprite3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)

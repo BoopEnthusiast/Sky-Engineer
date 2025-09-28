@@ -63,7 +63,7 @@ func _update_global_variables() -> void:
 	
 	_selected_item = _item_selector.selected_item
 	_is_selected_item_valid = is_instance_valid(_selected_item)
-	_is_selected_item_grabbable = _selected_item is GrabbableItem
+	_is_selected_item_grabbable = _selected_item is GrabbableItem if _is_selected_item_valid else false
 	if _is_selected_item_valid and _is_selected_item_grabbable:
 		_selected_item_to_grab = _selected_item.item_to_grab
 	
