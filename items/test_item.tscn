@@ -11,7 +11,7 @@ size = Vector3(0.5, 0.5, 0.5)
 material = SubResource("StandardMaterial3D_i8ldy")
 size = Vector3(0.5, 0.5, 0.5)
 
-[node name="TestItem" type="AnimatableBody3D"]
+[node name="TestItem" type="AnimatableBody3D" groups=["Test"]]
 
 [node name="Collider" type="CollisionShape3D" parent="."]
 shape = SubResource("BoxShape3D_xl1sa")
@@ -21,7 +21,5 @@ mesh = SubResource("BoxMesh_i8ldy")
 
 [node name="GrabbableItem" parent="." node_paths=PackedStringArray("item_to_grab", "outline_when_interactible") instance=ExtResource("1_i8ldy")]
 item_to_grab = NodePath("..")
-can_be_grabbed = true
-can_be_rotated = true
-rotation_speed = 4.0
+can_go_in_inventory = true
 outline_when_interactible = [NodePath("../Mesh")]

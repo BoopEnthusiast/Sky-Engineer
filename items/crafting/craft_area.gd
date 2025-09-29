@@ -78,6 +78,7 @@ var _to_craft: PackedScene
 
 
 func _ready() -> void:
+	wait_time = wait_time
 	if Engine.is_editor_hint():
 		progress_bar_sprite.visible = display_progress_bar_sprite
 	else:
@@ -103,14 +104,14 @@ func start_crafting() -> void:
 	else:
 		if crafting_timer.is_stopped():
 			crafting_timer.start()
-			progress_bar.visible = true
+			progress_bar_sprite.visible = true
 			started_crafting.emit()
 
 
 ## Cancels crafting if [member instant_crafting] is not enabled and this [CraftArea] is currently crafting.
 func cancel_crafting() -> void:
 	if not crafting_timer.is_stopped():
-		progress_bar.visible = false
+		progress_bar_sprite.visible = false
 		crafting_timer.stop()
 
 
@@ -119,6 +120,7 @@ func _craft() -> Node:
 		node.queue_free()
 	var new_node := _to_craft.instantiate()
 	Nodes.world.add_child(new_node)
+	progress_bar_sprite.visible = false
 	return new_node
 
 

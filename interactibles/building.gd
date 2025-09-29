@@ -75,6 +75,9 @@ func _process(delta: float) -> void:
 			if points.size() <= 0:
 				Nodes.world.remove_building(self)
 				queue_free()
+			if Nodes.player.currently_grabbing == self:
+				stopped_grabbing_this()
+				Nodes.player.currently_grabbing = null
 			has_process_queued_up = true
 		
 		# Move points
