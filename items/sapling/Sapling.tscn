@@ -10,9 +10,11 @@ size = Vector3(1, 2.41821, 1)
 
 [node name="Sapling" type="AnimatableBody3D"]
 script = ExtResource("1_4koot")
+substance = &"WOOD"
 
 [node name="GrabbableItem" parent="." node_paths=PackedStringArray("item_to_grab") instance=ExtResource("2_7xvhd")]
 item_to_grab = NodePath("..")
+can_go_in_inventory = true
 
 [node name="Collider" type="CollisionShape3D" parent="."]
 shape = SubResource("BoxShape3D_rncus")
@@ -21,5 +23,5 @@ shape = SubResource("BoxShape3D_rncus")
 
 [node name="ItemVarient" type="Node3D" parent="."]
 script = ExtResource("4_7xvhd")
-substance = Dictionary[String, Array]({})
+substance = Dictionary[StringName, Array]({})
 metadata/_custom_type_script = "uid://brl62s7cf7ml1"

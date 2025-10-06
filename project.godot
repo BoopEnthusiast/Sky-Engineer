@@ -27,6 +27,7 @@ Debug="*res://globals/debug/debug.gd"
 Paths="*res://globals/paths.gd"
 Recipes="*res://globals/recipes.gd"
 Substances="*res://globals/substances.gd"
+StartingInventory="*res://globals/starting_inventory.gd"
 
 [editor]
 

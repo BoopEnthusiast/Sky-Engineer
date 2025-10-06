@@ -7,6 +7,8 @@ extends AnimatableBody3D
 
 @onready var varient:ItemVarient =  $ItemVarient
 
+@onready var grabber:GrabbableItem = $GrabbableItem
+
 
 var starting_height = 1.0
 
@@ -41,8 +43,14 @@ func _ready():
 	mesh.spawn_trunk()
 	treeshape.height = starting_height
 	limbs.set(0,treeshape)
-	$Collider.shape = $Mesh.generate_collision_geometry()
-	plant()
+	var objectshape = mesh.generate_collision_geometry()
+	collider.shape = objectshape
+	$GrabbableItem/Collider.shape = collider.shape
+	var outlinemesh = MeshInstance3D.new()
+	outlinemesh.mesh = objectshape
+	var testarray:Array[MeshInstance3D] = [outlinemesh]
+	$GrabbableItem.outline_when_interactible = testarray
+	#plant()
 
 func _process(delta):
 	#I'm not putting the full grow function in here.
@@ -63,12 +71,12 @@ func reset():
 	# if the vertex it's on is destroyed.
 	growing = false
 	progress = 0
-	$Mesh.set_instance_count(0)
+	mesh.set_instance_count(0)
 	$GrabbableItem.can_be_interacted_with = true
-	$Mesh.set_instance_count(treeshape.get_instance_quantity())
-	$Mesh.spawn_trunk()
+	mesh.set_instance_count(treeshape.get_instance_quantity())
+	mesh.spawn_trunk()
 	limbs.set(0,treeshape)
-	$Collider.shape = $Mesh.generate_collision_geometry()
+	collider.shape = mesh.generate_collision_geometry()
 
 func grow(time:float):
 	# grows the tree by a certan amount each frame.
@@ -79,21 +87,21 @@ func grow(time:float):
 	if growing:
 		if limbs.size() == 0:
 			growing = false
-			$Collider.shape = $Mesh.generate_collision_geometry()
+			collider.shape = mesh.generate_collision_geometry()
 		progress += time
 		var timegrowth = GROWTH_PER_SEC * time
 		for index in limbs.keys():
 			var limbshape = limbs.get(index)
 			limbshape.height += timegrowth
-			$Mesh.grow_limb(index,timegrowth)
+			mesh.grow_limb(index,timegrowth)
 			for branch in limbshape.branches.keys():
 				if limbshape.height >= limbshape.branches.get(branch):
-					var val = $Mesh.spawn_limb(index, 1, branch.direction,branch.angle,branch.width)
+					var val = mesh.spawn_limb(index, 1, branch.direction,branch.angle,branch.width)
 					branch.index = val
 					limbs.set(val, branch)
 					limbshape.branches.erase(branch)
 			if(limbshape.height >= limbshape.max_height):
 				limbs.erase(index)
 		if(progress > 1):
-			$Collider.shape = $Mesh.generate_collision_geometry()
+			collider.shape = mesh.generate_collision_geometry()
 			progress = 0
