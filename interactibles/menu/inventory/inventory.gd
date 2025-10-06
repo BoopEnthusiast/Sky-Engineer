@@ -14,7 +14,7 @@ func _ready() -> void:
 			var coords = Vector2i(i,o)
 			if StartingInventory.BASICLOADOUT.has(coords):
 				var startitem = StartingInventory.BASICLOADOUT.get(coords).instantiate()
-				inventory_3d.inventory_slots[i][o].add_child(startitem)
+				Nodes.world.add_child(startitem)
 				startitem.grabber.put_item_into_inventory(inventory_3d.inventory_slots[i][o])
 
 

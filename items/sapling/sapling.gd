@@ -43,13 +43,8 @@ func _ready():
 	mesh.spawn_trunk()
 	treeshape.height = starting_height
 	limbs.set(0,treeshape)
-	var objectshape = mesh.generate_collision_geometry()
-	collider.shape = objectshape
+	collider.shape = mesh.generate_collision_geometry()
 	$GrabbableItem/Collider.shape = collider.shape
-	var outlinemesh = MeshInstance3D.new()
-	outlinemesh.mesh = objectshape
-	var testarray:Array[MeshInstance3D] = [outlinemesh]
-	$GrabbableItem.outline_when_interactible = testarray
 	#plant()
 
 func _process(delta):
@@ -105,3 +100,13 @@ func grow(time:float):
 		if(progress > 1):
 			collider.shape = mesh.generate_collision_geometry()
 			progress = 0
+
+
+func _on_grabbable_item_put_into_inventory() -> void:
+	position = Vector3(0,-0.25,0)
+	scale = Vector3(0.5,0.25,0.5)
+
+
+func _on_grabbable_item_taken_from_inventory() -> void:
+	#position = Vector3(0,0,0)
+	scale = Vector3(1,1,1)

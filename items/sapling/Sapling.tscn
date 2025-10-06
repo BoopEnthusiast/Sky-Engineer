@@ -25,3 +25,6 @@ shape = SubResource("BoxShape3D_rncus")
 script = ExtResource("4_7xvhd")
 substance = Dictionary[StringName, Array]({})
 metadata/_custom_type_script = "uid://brl62s7cf7ml1"
+
+[connection signal="put_into_inventory" from="GrabbableItem" to="." method="_on_grabbable_item_put_into_inventory"]
+[connection signal="taken_from_inventory" from="GrabbableItem" to="." method="_on_grabbable_item_taken_from_inventory"]
