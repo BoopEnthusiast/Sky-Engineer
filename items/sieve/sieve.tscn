@@ -1,0 +1,33 @@
+[gd_scene load_steps=7 format=3 uid="uid://dlxcilphurl6s"]
+
+[ext_resource type="Script" uid="uid://bscs5o1ox6n72" path="res://items/sieve/sieve.gd" id="1_rkwar"]
+[ext_resource type="ArrayMesh" uid="uid://ojxckjpdyet2" path="res://items/sieve/asset/sieve_mesh.res" id="2_bq2up"]
+[ext_resource type="PackedScene" uid="uid://cxg8kmc638awu" path="res://interactibles/item_components/grabbable_item.tscn" id="3_v7ayr"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_md8x7"]
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_rkwar"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_bq2up"]
+
+[node name="sieve" type="AnimatableBody3D"]
+script = ExtResource("1_rkwar")
+
+[node name="Collider" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_md8x7")
+
+[node name="Mesh" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -0.99999994, 8.742277e-08, 0, -8.742277e-08, -0.99999994, 0, 0, 0)
+mesh = ExtResource("2_bq2up")
+
+[node name="GrabbableItem" parent="." node_paths=PackedStringArray("item_to_grab", "outline_when_interactible") instance=ExtResource("3_v7ayr")]
+item_to_grab = NodePath("..")
+can_go_in_inventory = true
+outline_when_interactible = [null]
+
+[node name="Dust" type="GPUParticles3D" parent="."]
+emitting = false
+process_material = SubResource("ParticleProcessMaterial_rkwar")
+draw_pass_1 = SubResource("SphereMesh_bq2up")
+
+[node name="Timer" type="Timer" parent="."]
