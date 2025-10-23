@@ -53,7 +53,7 @@ func _regenerate_mesh() -> void:
 	var rng = RandomNumberGenerator.new()
 	rng.seed = random_seed
 	
-	var height_scale = 0.7
+	var height_scale = 0.84
 	var width_scale = 0.8
 	
 	var points: Array[Vector3] = []
