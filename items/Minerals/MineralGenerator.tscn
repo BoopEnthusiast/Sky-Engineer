@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://bhhyh6g4qnkqk"]
+
+[ext_resource type="Script" uid="uid://cwltorv7f4hx0" path="res://items/Minerals/mineral_generator.gd" id="1_x2whl"]
+
+[node name="MineralGenerator" type="Node3D"]
+script = ExtResource("1_x2whl")

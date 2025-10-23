@@ -82,6 +82,9 @@ func _physics_process(delta):
 
 
 func _exit_tree() -> void:
+	if Engine.is_editor_hint():
+		return 
+		
 	if Nodes.player.currently_grabbing == self or is_currently_grabbed:
 		stop_interacting_with()
 		Nodes.player.currently_grabbing = null

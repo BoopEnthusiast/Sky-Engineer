@@ -1,0 +1,138 @@
+[gd_scene load_steps=10 format=3 uid="uid://cnx55ry5bph11"]
+
+[ext_resource type="Script" uid="uid://2t06rwvkh4pt" path="res://menus/save_menu.gd" id="1_vaepa"]
+[ext_resource type="Script" uid="uid://dc3j8ewabkcat" path="res://menus/save_button_list.gd" id="2_74wsn"]
+[ext_resource type="PackedScene" uid="uid://dgmjn354mjr02" path="res://interactibles/menu/main_menu/button_3d.tscn" id="2_unvut"]
+[ext_resource type="AudioStream" uid="uid://dp13q85m5ru7i" path="res://sound/144953__deleted_user_2104797__wobble_wood_9.wav" id="4_rw6gt"]
+[ext_resource type="AudioStream" uid="uid://c34hagyvx04go" path="res://sound/237422__plasterbrain__hover-1.ogg" id="5_or40m"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_vaepa"]
+
+[sub_resource type="Sky" id="Sky_m313i"]
+sky_material = SubResource("ProceduralSkyMaterial_vaepa")
+
+[sub_resource type="Environment" id="Environment_unvut"]
+background_mode = 2
+sky = SubResource("Sky_m313i")
+
+[sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_74wsn"]
+
+[node name="SaveMenu" type="Node3D"]
+script = ExtResource("1_vaepa")
+
+[node name="SaveButtonList" type="Node3D" parent="."]
+script = ExtResource("2_74wsn")
+
+[node name="Back" parent="SaveButtonList" node_paths=PackedStringArray("counterpart_in_2d") instance=ExtResource("2_unvut")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.22673059, 1.566974, 0)
+text = "Back"
+size = Vector3(1.3, 1, 0.2)
+counterpart_in_2d = NodePath("../../SaveMenu2D/MainList/Back")
+
+[node name="LoadSelected" parent="SaveButtonList" node_paths=PackedStringArray("counterpart_in_2d") instance=ExtResource("2_unvut")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0023059845, 1.1016389, 0)
+text = "Load"
+size = Vector3(2.5, 1.3, 1.3)
+counterpart_in_2d = NodePath("../../SaveMenu2D/MainList/LoadSelected")
+
+[node name="TitleSave" parent="SaveButtonList" node_paths=PackedStringArray("counterpart_in_2d") instance=ExtResource("2_unvut")]
+text = "EnterTitle"
+size = Vector3(6, 1, 0.5)
+counterpart_in_2d = NodePath("../../SaveMenu2D/MainList/TitleSave")
+
+[node name="SaveMenu3D" type="Node3D" parent="."]
+
+[node name="SaveCamera" type="Camera3D" parent="SaveMenu3D"]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 0, 0)
+current = true
+
+[node name="Sun" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.707107, -0.5, 0.5, 0, 0.707107, 0.707107, -0.707107, -0.5, 0.5, 0, 3.90252, 0)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_unvut")
+camera_attributes = SubResource("CameraAttributesPractical_74wsn")
+
+[node name="SaveMenu2D" type="Control" parent="."]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MainList" type="Control" parent="SaveMenu2D"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Back" type="Panel" parent="SaveMenu2D/MainList"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.795
+anchor_top = 0.083000004
+anchor_right = 0.966
+anchor_bottom = 0.201
+offset_left = -0.84002686
+offset_top = -16.784004
+offset_right = 0.16796875
+offset_bottom = 0.7519989
+size_flags_vertical = 3
+
+[node name="LoadSelected" type="Panel" parent="SaveMenu2D/MainList"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.3689236
+anchor_top = 0.08796296
+anchor_right = 0.6197916
+anchor_bottom = 0.33796316
+offset_bottom = -1.5258789e-05
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 3
+metadata/_edit_use_anchors_ = true
+
+[node name="TitleSave" type="Panel" parent="SaveMenu2D/MainList"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.25868055
+anchor_top = 0.4521605
+anchor_right = 0.7352431
+anchor_bottom = 0.64506173
+metadata/_edit_use_anchors_ = true
+
+[node name="CenterContainer" type="CenterContainer" parent="SaveMenu2D/MainList"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Audio" type="Node" parent="."]
+unique_name_in_owner = true
+
+[node name="HoverSound" type="AudioStreamPlayer" parent="Audio"]
+stream = ExtResource("4_rw6gt")
+volume_db = -20.0
+max_polyphony = 5
+bus = &"SFX"
+
+[node name="SelectSound" type="AudioStreamPlayer" parent="Audio"]
+stream = ExtResource("5_or40m")
+volume_db = -20.0
+bus = &"SFX"
+
+[connection signal="pressed" from="SaveButtonList/Back" to="." method="_on_back_pressed"]
+[connection signal="pressed" from="SaveButtonList/LoadSelected" to="." method="_on_load_selected_pressed"]
+[connection signal="pressed" from="SaveButtonList/TitleSave" to="." method="_on_title_save_pressed"]

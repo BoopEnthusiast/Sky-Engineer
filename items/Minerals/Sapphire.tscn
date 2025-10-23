@@ -1,0 +1,12 @@
+[gd_scene load_steps=2 format=3 uid="uid://b6rsi1s7g87u2"]
+
+[ext_resource type="PackedScene" uid="uid://dchsnvfojxb7b" path="res://items/Minerals/Mineral.tscn" id="1_4cipd"]
+
+[node name="Mineral" instance=ExtResource("1_4cipd")]
+mineral_color = Color(0.3491902, 0.58383155, 0.95468724, 1)
+mineral_opacity = 0.996
+roughness = 0.1
+metallic = 0.2
+
+[node name="GrabbableItem" parent="." index="1" node_paths=PackedStringArray("item_to_grab")]
+item_to_grab = NodePath("..")

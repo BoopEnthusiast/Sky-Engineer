@@ -15,7 +15,7 @@ sky_material = SubResource("ProceduralSkyMaterial_bjpdq")
 background_mode = 2
 sky = SubResource("Sky_m313i")
 
-[sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_8yirn"]
+[sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_sx8r8"]
 
 [node name="MainMenu" type="Node"]
 script = ExtResource("1_8yirn")
@@ -25,11 +25,12 @@ transform = Transform3D(0.707107, -0.5, 0.5, 0, 0.707107, 0.707107, -0.707107, -
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_0wd3e")
-camera_attributes = SubResource("CameraAttributesPractical_8yirn")
+camera_attributes = SubResource("CameraAttributesPractical_sx8r8")
 
 [node name="MainMenu3D" type="Node3D" parent="."]
 
 [node name="MenuCamera" type="Camera3D" parent="MainMenu3D"]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0, 0, 0)
 current = true
 
 [node name="MainMenu2D" type="Control" parent="."]
@@ -46,35 +47,75 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = -2.0
+offset_top = 1.0
+offset_right = -2.0
+offset_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
 [node name="Play" type="Panel" parent="MainMenu2D/MainList"]
-layout_mode = 0
-anchor_left = 0.374132
-anchor_top = 0.152778
-anchor_right = 0.625
-anchor_bottom = 0.37963
-offset_bottom = 3.05176e-05
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.41300002
+anchor_top = 0.07700001
+anchor_right = 0.587
+anchor_bottom = 0.279
+offset_left = 0.2239685
+offset_top = 0.10399628
+offset_right = -0.22399902
+offset_bottom = 0.11198425
+grow_horizontal = 2
+grow_vertical = 2
 size_flags_vertical = 3
+metadata/_edit_use_anchors_ = true
 
 [node name="Settings" type="Panel" parent="MainMenu2D/MainList"]
-layout_mode = 0
-anchor_left = 0.374132
-anchor_top = 0.385803
-anchor_right = 0.625
-anchor_bottom = 0.612655
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.41300002
+anchor_top = 0.54
+anchor_right = 0.587
+anchor_bottom = 0.744
+offset_left = 0.2239685
+offset_top = 0.07998657
+offset_right = -0.22399902
+offset_bottom = -0.11199951
+grow_horizontal = 2
 size_flags_vertical = 3
+metadata/_edit_use_anchors_ = true
+
+[node name="Load" type="Panel" parent="MainMenu2D/MainList"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.41300002
+anchor_top = 0.30900002
+anchor_right = 0.587
+anchor_bottom = 0.5
+offset_left = 0.2239685
+offset_top = -0.23200989
+offset_right = -0.22399902
+offset_bottom = 8.0
+grow_horizontal = 2
+metadata/_edit_use_anchors_ = true
 
 [node name="Quit" type="Panel" parent="MainMenu2D/MainList"]
-layout_mode = 0
-anchor_left = 0.374132
-anchor_top = 0.618827
-anchor_right = 0.625
-anchor_bottom = 0.845679
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.41300002
+anchor_top = 0.772
+anchor_right = 0.587
+anchor_bottom = 0.975
+offset_left = 0.2239685
+offset_top = -0.25601196
+offset_right = -0.22399902
+offset_bottom = 0.2000122
+grow_horizontal = 2
 size_flags_vertical = 3
+metadata/_edit_use_anchors_ = true
 
 [node name="MainList" type="Node3D" parent="."]
+visible = false
 script = ExtResource("1_0wd3e")
 
 [node name="Play" parent="MainList" node_paths=PackedStringArray("counterpart_in_2d") instance=ExtResource("1_bjpdq")]
@@ -85,13 +126,18 @@ counterpart_in_2d = NodePath("../../MainMenu2D/MainList/Play")
 
 [node name="Settings" parent="MainList" node_paths=PackedStringArray("counterpart_in_2d") instance=ExtResource("1_bjpdq")]
 text = "Settings"
-size = Vector3(2.5, 1.3, 1.3)
+size = Vector3(2.1, 1.1, 1.1)
 counterpart_in_2d = NodePath("../../MainMenu2D/MainList/Settings")
+
+[node name="Load" parent="MainList" node_paths=PackedStringArray("counterpart_in_2d") instance=ExtResource("1_bjpdq")]
+text = "Load"
+size = Vector3(2.1, 1.1, 1.1)
+counterpart_in_2d = NodePath("../../MainMenu2D/MainList/Load")
 
 [node name="Quit" parent="MainList" node_paths=PackedStringArray("counterpart_in_2d") instance=ExtResource("1_bjpdq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
 text = "Quit"
-size = Vector3(2.5, 1.3, 1.3)
+size = Vector3(2.1, 1.1, 1.1)
 counterpart_in_2d = NodePath("../../MainMenu2D/MainList/Quit")
 
 [node name="Audio" type="Node" parent="."]
@@ -112,5 +158,7 @@ bus = &"SFX"
 [connection signal="pressed" from="MainList/Play" to="." method="_on_play_pressed"]
 [connection signal="hovered" from="MainList/Settings" to="." method="_on_settings_hovered"]
 [connection signal="pressed" from="MainList/Settings" to="MainList" method="_on_settings_pressed"]
+[connection signal="hovered" from="MainList/Load" to="." method="_on_load_hovered"]
+[connection signal="pressed" from="MainList/Load" to="." method="_on_load_pressed"]
 [connection signal="hovered" from="MainList/Quit" to="." method="_on_quit_hovered"]
 [connection signal="pressed" from="MainList/Quit" to="MainList" method="_on_quit_pressed"]

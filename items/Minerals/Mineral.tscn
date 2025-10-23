@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://dchsnvfojxb7b"]
+
+[ext_resource type="Script" uid="uid://dwvphv5quc24d" path="res://items/Minerals/mineral.gd" id="1_0opsi"]
+[ext_resource type="PackedScene" uid="uid://cxg8kmc638awu" path="res://interactibles/item_components/grabbable_item.tscn" id="2_a5s1q"]
+
+[node name="Mineral" type="Node3D"]
+script = ExtResource("1_0opsi")
+roughness = 0.2
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+
+[node name="GrabbableItem" parent="." instance=ExtResource("2_a5s1q")]
+can_go_in_inventory = true

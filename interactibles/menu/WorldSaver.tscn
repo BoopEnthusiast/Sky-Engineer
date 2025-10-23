@@ -1,0 +1,40 @@
+[gd_scene load_steps=3 format=3 uid="uid://dak1fegtt21wx"]
+
+[ext_resource type="Script" uid="uid://duy7vkhpct0b" path="res://interactibles/menu/world_saver.gd" id="1_k8sjb"]
+[ext_resource type="AudioStream" uid="uid://c34hagyvx04go" path="res://sound/237422__plasterbrain__hover-1.ogg" id="2_wpf88"]
+
+[node name="WorldSaver" type="Node"]
+process_mode = 3
+script = ExtResource("1_k8sjb")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Control" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="LineEdit" type="LineEdit" parent="CanvasLayer/Control"]
+layout_mode = 0
+anchor_left = 11.675
+anchor_top = 5.675
+anchor_right = 16.45
+anchor_bottom = 6.45
+text = "TitleSave"
+metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="Label" parent="CanvasLayer/Control"]
+layout_mode = 0
+offset_left = 468.0
+offset_top = 197.0
+offset_right = 624.0
+offset_bottom = 220.0
+text = "Input save title here"
+
+[node name="Audio" type="Node" parent="."]
+
+[node name="SelectSound" type="AudioStreamPlayer" parent="Audio"]
+stream = ExtResource("2_wpf88")
+volume_db = -20.0
+bus = &"SFX"

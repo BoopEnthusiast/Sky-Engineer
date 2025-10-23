@@ -73,6 +73,8 @@ func closest_item_to_selector() -> void:
 	outline_material.set_shader_parameter(&"outline_threshold", outline_threshold)
 	
 	for to_outline: MeshInstance3D in outline_when_interactible:
+		if not is_instance_valid(to_outline):
+			continue
 		if not is_instance_valid(to_outline.mesh):
 			push_warning("Node at " + to_outline.get_path().get_concatenated_names() + " does not have a mesh but is marked by an ItemShape to be outlined")
 			continue
@@ -98,6 +100,8 @@ func no_longer_closest_item_to_selector() -> void:
 		return
 	
 	for to_outline: MeshInstance3D in outline_when_interactible:
+		if not is_instance_valid(to_outline):
+			continue
 		if not is_instance_valid(to_outline.mesh):
 			push_warning("Node at " + to_outline.get_path().get_concatenated_names() + " does not have a mesh but is marked by an ItemShape to be outlined")
 			continue
