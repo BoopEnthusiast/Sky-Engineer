@@ -2,12 +2,14 @@ class_name GameManager
 extends Node
 
 const MAIN_MENU = preload("res://menus/main_menu_3d.tscn")
+const SETTINGS_MENU = preload("res://menus/settings_menu.tscn")
 const SAVE_MENU = preload("res://menus/save_menu.tscn")
 const WORLD = preload("res://worlds/world.tscn")
 const PLAYER = preload("res://interactibles/player.tscn")
 const MENU = preload("res://interactibles/menu/menu.tscn")
 
 @onready var main_menu: Node = $MainMenu
+@onready var settings_menu: Node = null
 @onready var save_menu: Node = null
 
 func _ready():
@@ -60,7 +62,29 @@ func _on_main_menu_load_pressed() -> void:
 func _on_save_menu_back_pressed() -> void:
 	save_menu.queue_free() 
 	main_menu = MAIN_MENU.instantiate()
+	var camera = main_menu.get_node("MainMenu3D/MenuCamera")
+	if camera:
+		camera.rotation_degrees.y = 90
 	add_child(main_menu)
 	
 	main_menu.play_game.connect(_on_main_menu_play_game)
 	main_menu.load_pressed.connect(_on_main_menu_load_pressed)
+	main_menu.settings_pressed.connect(_on_main_menu_settings_pressed)
+	
+
+
+func _on_main_menu_settings_pressed() -> void:
+	main_menu.queue_free()
+	settings_menu = SETTINGS_MENU.instantiate()
+	add_child(settings_menu)
+	settings_menu.back_to_main.connect(_on_settings_menu_back_pressed)
+
+
+func _on_settings_menu_back_pressed() -> void:
+	settings_menu.queue_free()
+	main_menu = MAIN_MENU.instantiate()
+	add_child(main_menu)
+	
+	main_menu.play_game.connect(_on_main_menu_play_game)
+	main_menu.load_pressed.connect(_on_main_menu_load_pressed)
+	main_menu.settings_pressed.connect(_on_main_menu_settings_pressed)

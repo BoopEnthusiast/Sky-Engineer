@@ -130,7 +130,7 @@ func cancel_title_editing():
 func _on_back_pressed():
 	%Audio/SelectSound.play()
 	var tween = create_tween()
-	tween.tween_property(camera, "rotation_degrees:y", 90, 0.5) \
+	tween.tween_property(camera, "rotation_degrees:y", -110, 0.5) \
 		.set_trans(Tween.TRANS_SINE) \
 		.set_ease(Tween.EASE_IN_OUT)
 	tween.connect("finished", Callable(self, "_emit_back_pressed"))

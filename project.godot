@@ -12,7 +12,8 @@ config_version=5
 
 config/name="Sky Engineer"
 run/main_scene="uid://cufvj6utwi5f3"
-config/features=PackedStringArray("4.4", "Forward Plus")
+config/features=PackedStringArray("4.5", "Forward Plus")
+run/max_fps=60
 config/icon="res://icon.svg"
 
 [audio]

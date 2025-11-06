@@ -35,6 +35,3 @@ func _on_button_hovered(button):
 func _on_button_unhovered(button):
 	if button_original_scales.has(button):
 		button.set_meta("target_scale", button_original_scales[button])
-
-func _on_quit_pressed() -> void:
-	get_tree().quit()

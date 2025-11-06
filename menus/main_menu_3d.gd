@@ -3,6 +3,7 @@ extends Node
 
 signal play_game()
 signal load_pressed()
+signal settings_pressed()
 @onready var camera: Camera3D
 @onready var MainList: Node3D = $MainList
 
@@ -45,3 +46,14 @@ func _emit_load_pressed():
 
 func _on_load_hovered():
 	%Audio/HoverSound.play()
+
+func _on_settings_pressed() -> void:
+	%Audio/SelectSound.play()
+	var tween = create_tween()
+	tween.tween_property(camera, "rotation_degrees:y", 90, 0.5) \
+		.set_trans(Tween.TRANS_SINE) \
+		.set_ease(Tween.EASE_IN_OUT)
+	tween.connect("finished", Callable(self, "_emit_settings_pressed"))
+
+func _emit_settings_pressed():
+	settings_pressed.emit()

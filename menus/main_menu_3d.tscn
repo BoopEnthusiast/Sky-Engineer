@@ -157,7 +157,7 @@ bus = &"SFX"
 [connection signal="hovered" from="MainList/Play" to="." method="_on_play_hovered"]
 [connection signal="pressed" from="MainList/Play" to="." method="_on_play_pressed"]
 [connection signal="hovered" from="MainList/Settings" to="." method="_on_settings_hovered"]
-[connection signal="pressed" from="MainList/Settings" to="MainList" method="_on_settings_pressed"]
+[connection signal="pressed" from="MainList/Settings" to="." method="_on_settings_pressed"]
 [connection signal="hovered" from="MainList/Load" to="." method="_on_load_hovered"]
 [connection signal="pressed" from="MainList/Load" to="." method="_on_load_pressed"]
 [connection signal="hovered" from="MainList/Quit" to="." method="_on_quit_hovered"]

@@ -1,0 +1,82 @@
+[gd_scene load_steps=14 format=3 uid="uid://cw54q6k8bglfm"]
+
+[ext_resource type="Script" uid="uid://dm701l7nnm7lq" path="res://interactibles/menu/main_menu/3d_slider.gd" id="1_c447k"]
+[ext_resource type="Script" uid="uid://b1v6lvj0ptm0m" path="res://interactibles/menu/main_menu/handle.gd" id="2_xm8op"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xm8op"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_uwini"]
+material = SubResource("StandardMaterial3D_xm8op")
+size = Vector3(1.8, 0.8, 0.8)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_e3o8d"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_c447k"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_xm8op"]
+material = SubResource("StandardMaterial3D_c447k")
+size = Vector3(1.8, 0.8, 0.8)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rjfca"]
+albedo_color = Color(0.47007585, 0.47007585, 0.47007585, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_e3o8d"]
+size = Vector3(1.8, 0.8, 0.8)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_di1nh"]
+albedo_color = Color(0, 0, 0, 1)
+
+[sub_resource type="TextMesh" id="TextMesh_3jwsj"]
+material = SubResource("StandardMaterial3D_di1nh")
+text = "Master Volume"
+pixel_size = 0.03
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_uwini"]
+albedo_color = Color(0, 0, 0, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_xm8op"]
+
+[node name="Slider" type="Node3D"]
+transform = Transform3D(0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, 0, 0, 0)
+script = ExtResource("1_c447k")
+slider_display_text = null
+
+[node name="StaticBody" type="StaticBody3D" parent="."]
+collision_layer = 4
+collision_mask = 0
+
+[node name="Mesh" type="MeshInstance3D" parent="StaticBody"]
+transform = Transform3D(2.6111908, 0, 0, 0, 1.6813418, 0, 0, 0, 1, 0, 0.23028404, 0)
+mesh = SubResource("BoxMesh_uwini")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_e3o8d")
+
+[node name="Sliderbar" type="MeshInstance3D" parent="StaticBody"]
+transform = Transform3D(2.379543, 0, 0, 0, 0.20105912, 0, 0, 0, 1, 0, -0.14219964, 0.17921305)
+mesh = SubResource("BoxMesh_xm8op")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_rjfca")
+
+[node name="Collider" type="CollisionShape3D" parent="StaticBody"]
+transform = Transform3D(2.882247, 0, 0, 0, 2.1830318, 0, 0, 0, 1, 0, 0.18518138, 0)
+shape = SubResource("BoxShape3D_e3o8d")
+
+[node name="TextMesh" type="MeshInstance3D" parent="StaticBody"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5117012, 0.525)
+mesh = SubResource("TextMesh_3jwsj")
+
+[node name="Handle" type="Area3D" parent="StaticBody"]
+script = ExtResource("2_xm8op")
+
+[node name="Handle" type="MeshInstance3D" parent="StaticBody/Handle"]
+transform = Transform3D(0.2747599, 0, 0, 0, 0.5060095, 0, 0, 0, 1, 0, -0.1295416, 0.22591126)
+mesh = SubResource("BoxMesh_xm8op")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_uwini")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody/Handle"]
+transform = Transform3D(0.5474792, 0, 0, 0, 0.5060095, 0, 0, 0, 1, 0, -0.1295416, 0.22591126)
+shape = SubResource("BoxShape3D_xm8op")
+
+[connection signal="mouse_entered" from="StaticBody" to="." method="_on_static_body_mouse_entered"]
+[connection signal="mouse_exited" from="StaticBody" to="." method="_on_static_body_mouse_exited"]

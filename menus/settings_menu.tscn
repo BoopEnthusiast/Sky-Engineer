@@ -1,0 +1,297 @@
+[gd_scene load_steps=11 format=3 uid="uid://dhgo1n2chbg4k"]
+
+[ext_resource type="Script" uid="uid://b1k3sgjlbftf3" path="res://menus/settings_menu.gd" id="1_83qjl"]
+[ext_resource type="PackedScene" uid="uid://dgmjn354mjr02" path="res://interactibles/menu/main_menu/button_3d.tscn" id="3_i7r6j"]
+[ext_resource type="Script" uid="uid://3efyqvfw1qn3" path="res://menus/settings_button_list.gd" id="3_qiwpd"]
+[ext_resource type="PackedScene" uid="uid://cw54q6k8bglfm" path="res://interactibles/menu/main_menu/slider.tscn" id="4_qiwpd"]
+[ext_resource type="AudioStream" uid="uid://dp13q85m5ru7i" path="res://sound/144953__deleted_user_2104797__wobble_wood_9.wav" id="4_umxaj"]
+[ext_resource type="AudioStream" uid="uid://c34hagyvx04go" path="res://sound/237422__plasterbrain__hover-1.ogg" id="5_t8ni5"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_vaepa"]
+
+[sub_resource type="Sky" id="Sky_m313i"]
+sky_material = SubResource("ProceduralSkyMaterial_vaepa")
+
+[sub_resource type="Environment" id="Environment_unvut"]
+background_mode = 2
+sky = SubResource("Sky_m313i")
+
+[sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_74wsn"]
+
+[node name="SettingsMenu" type="Node3D"]
+script = ExtResource("1_83qjl")
+
+[node name="RenderScale" parent="." node_paths=PackedStringArray("counterpart_in_2d") instance=ExtResource("4_qiwpd")]
+transform = Transform3D(0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, 5.7013617, 5.5684133, 0)
+slider_display_text = "Render Scale"
+counterpart_in_2d = NodePath("../SaveMenu2D/MainList/RenderScale")
+
+[node name="SoundEffects" parent="." node_paths=PackedStringArray("counterpart_in_2d") instance=ExtResource("4_qiwpd")]
+transform = Transform3D(0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, 6.617414, 5.4883356, 0)
+slider_display_text = "Sound Effects"
+counterpart_in_2d = NodePath("../SaveMenu2D/MainList/Soundeffects")
+
+[node name="Music" parent="." node_paths=PackedStringArray("counterpart_in_2d") instance=ExtResource("4_qiwpd")]
+transform = Transform3D(0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, 0, 4.491083, 0)
+slider_display_text = "Music"
+counterpart_in_2d = NodePath("../SaveMenu2D/MainList/Panel")
+
+[node name="MasterVolumeSlider" parent="." node_paths=PackedStringArray("counterpart_in_2d") instance=ExtResource("4_qiwpd")]
+transform = Transform3D(0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, 0, 6.016991, 0)
+slider_display_text = "Master Volume"
+counterpart_in_2d = NodePath("../SaveMenu2D/MainList/Slider")
+
+[node name="SettingsTitle" parent="." node_paths=PackedStringArray("counterpart_in_2d") instance=ExtResource("3_i7r6j")]
+transform = Transform3D(1.3, 0, 0, 0, 1.3, 0, 0, 0, 1.3, 2.2267306, 5.752724, 0)
+text = "Settings"
+size = Vector3(2, 1, 1)
+counterpart_in_2d = NodePath("../SaveMenu2D/MainList/SettingsTitle")
+scales_with_2d_counterpart = false
+
+[node name="AudioTitle" parent="." node_paths=PackedStringArray("counterpart_in_2d") instance=ExtResource("3_i7r6j")]
+transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, 0.22673059, 3.526783, 0)
+text = "Audio"
+counterpart_in_2d = NodePath("../SaveMenu2D/MainList/AudioTitle")
+scales_with_2d_counterpart = false
+
+[node name="VideoTitle" parent="." node_paths=PackedStringArray("counterpart_in_2d") instance=ExtResource("3_i7r6j")]
+transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, 3.2267306, 5.7035637, 0)
+text = "Video"
+counterpart_in_2d = NodePath("../SaveMenu2D/MainList/VideoTitle")
+scales_with_2d_counterpart = false
+
+[node name="fullscreenTitle" parent="." node_paths=PackedStringArray("counterpart_in_2d") instance=ExtResource("3_i7r6j")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.7732694, 5.025616, 0)
+text = "Fullscreen"
+size = Vector3(3, 1, 1)
+counterpart_in_2d = NodePath("../SaveMenu2D/MainList/VideoButtonTitle")
+scales_with_2d_counterpart = false
+
+[node name="Vsynctitle" parent="." node_paths=PackedStringArray("counterpart_in_2d") instance=ExtResource("3_i7r6j")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.63535, 0)
+text = "Vsync"
+size = Vector3(1.5, 1, 1)
+counterpart_in_2d = NodePath("../SaveMenu2D/MainList/Vsynctitle")
+
+[node name="setFPStitle" parent="." node_paths=PackedStringArray("counterpart_in_2d") instance=ExtResource("3_i7r6j")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7.029476, 0)
+text = "FPS"
+size = Vector3(1.5, 1, 1)
+counterpart_in_2d = NodePath("../SaveMenu2D/MainList/setFPStitle")
+
+[node name="SettingsButtonList" type="Node3D" parent="."]
+script = ExtResource("3_qiwpd")
+
+[node name="Fullscreen" parent="SettingsButtonList" node_paths=PackedStringArray("counterpart_in_2d") instance=ExtResource("3_i7r6j")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.9475574, 0)
+text = "On"
+counterpart_in_2d = NodePath("../../SaveMenu2D/MainList/Videobutton")
+
+[node name="Vsync" parent="SettingsButtonList" node_paths=PackedStringArray("counterpart_in_2d") instance=ExtResource("3_i7r6j")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.6353498, 0)
+text = "Off"
+counterpart_in_2d = NodePath("../../SaveMenu2D/MainList/Vsync")
+
+[node name="setFPS" parent="SettingsButtonList" node_paths=PackedStringArray("counterpart_in_2d") instance=ExtResource("3_i7r6j")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.143839, 0)
+text = "60"
+counterpart_in_2d = NodePath("../../SaveMenu2D/MainList/setFPS")
+
+[node name="Back" parent="SettingsButtonList" node_paths=PackedStringArray("counterpart_in_2d") instance=ExtResource("3_i7r6j")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.075848, 0)
+text = "Back"
+counterpart_in_2d = NodePath("../../SaveMenu2D/MainList/Back")
+
+[node name="SaveMenu3D" type="Node3D" parent="."]
+
+[node name="SaveCamera" type="Camera3D" parent="SaveMenu3D"]
+transform = Transform3D(-0.34202012, 0, -0.9396926, 0, 1, 0, 0.9396926, 0, -0.34202012, 0, 0, 0)
+current = true
+
+[node name="Sun" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.707107, -0.5, 0.5, 0, 0.707107, 0.707107, -0.707107, -0.5, 0.5, 0, 3.90252, 0)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_unvut")
+camera_attributes = SubResource("CameraAttributesPractical_74wsn")
+
+[node name="SaveMenu2D" type="Control" parent="."]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MainList" type="Control" parent="SaveMenu2D"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="SettingsTitle" type="Panel" parent="SaveMenu2D/MainList"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.418
+anchor_top = 0.116000004
+anchor_right = 0.59300005
+anchor_bottom = 0.19800001
+offset_left = -13.536011
+offset_top = -0.16799927
+offset_right = -17.136047
+offset_bottom = -0.3040161
+size_flags_vertical = 3
+
+[node name="AudioTitle" type="Panel" parent="SaveMenu2D/MainList"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.39400002
+anchor_top = 0.446
+anchor_right = 0.605
+anchor_bottom = 0.52500004
+offset_left = 352.61197
+offset_top = -181.008
+offset_right = 352.53998
+offset_bottom = -181.20001
+
+[node name="VideoTitle" type="Panel" parent="SaveMenu2D/MainList"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.143
+anchor_top = 0.096
+anchor_right = 0.23200001
+anchor_bottom = 0.148
+offset_left = 0.2639923
+offset_top = 56.792
+offset_right = 71.73599
+offset_bottom = 57.096
+
+[node name="Slider" type="Panel" parent="SaveMenu2D/MainList"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.35300002
+anchor_top = 0.565
+anchor_right = 0.647
+anchor_bottom = 0.69000006
+offset_left = 350.344
+offset_top = -137.12
+offset_right = 350.656
+offset_bottom = -137.11978
+
+[node name="Soundeffects" type="Panel" parent="SaveMenu2D/MainList"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.35300002
+anchor_top = 0.71300006
+anchor_right = 0.647
+anchor_bottom = 0.83500004
+offset_left = 350.344
+offset_top = -137.02405
+offset_right = 350.656
+offset_bottom = -137.08014
+
+[node name="Panel" type="Panel" parent="SaveMenu2D/MainList"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.35300002
+anchor_top = 0.864
+anchor_right = 0.647
+anchor_bottom = 0.98800004
+offset_left = 350.344
+offset_top = -136.87201
+offset_right = 350.656
+offset_bottom = -137.22424
+
+[node name="Videobutton" type="Panel" parent="SaveMenu2D/MainList"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.142
+anchor_top = 0.177
+anchor_right = 0.23300001
+anchor_bottom = 0.22800002
+offset_left = -13.584
+offset_top = 212.304
+offset_right = 90.583984
+offset_bottom = 212.256
+
+[node name="VideoButtonTitle" type="Panel" parent="SaveMenu2D/MainList"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.142
+anchor_top = 0.179
+anchor_right = 0.23
+anchor_bottom = 0.24100001
+offset_left = -11.584
+offset_top = 112.007996
+offset_right = 97.04001
+offset_bottom = 111.831985
+
+[node name="Vsynctitle" type="Panel" parent="SaveMenu2D/MainList"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.075
+anchor_bottom = 0.062000003
+offset_left = 151.0
+offset_top = 416.0
+offset_right = 269.6
+offset_bottom = 415.824
+
+[node name="Vsync" type="Panel" parent="SaveMenu2D/MainList"]
+layout_mode = 0
+offset_left = 151.0
+offset_top = 517.0
+offset_right = 345.0
+offset_bottom = 557.0
+
+[node name="setFPStitle" type="Panel" parent="SaveMenu2D/MainList"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.035
+anchor_bottom = 0.031000001
+offset_left = 470.0
+offset_top = 349.0
+offset_right = 619.68
+offset_bottom = 374.912
+
+[node name="setFPS" type="Panel" parent="SaveMenu2D/MainList"]
+layout_mode = 0
+offset_left = 471.0
+offset_top = 452.0
+offset_right = 658.0
+offset_bottom = 501.0
+
+[node name="RenderScale" type="Panel" parent="SaveMenu2D/MainList"]
+layout_mode = 0
+offset_left = 385.0
+offset_top = 208.0
+offset_right = 747.0
+offset_bottom = 317.0
+
+[node name="Back" type="Panel" parent="SaveMenu2D/MainList"]
+layout_mode = 0
+offset_left = 898.0
+offset_top = 531.0
+offset_right = 938.0
+offset_bottom = 575.0
+
+[node name="Audio" type="Node" parent="."]
+unique_name_in_owner = true
+
+[node name="HoverSound" type="AudioStreamPlayer" parent="Audio"]
+stream = ExtResource("4_umxaj")
+volume_db = -20.0
+max_polyphony = 5
+bus = &"SFX"
+
+[node name="SelectSound" type="AudioStreamPlayer" parent="Audio"]
+stream = ExtResource("5_t8ni5")
+volume_db = -20.0
+bus = &"SFX"
+
+[connection signal="pressed" from="SettingsButtonList/Fullscreen" to="." method="_on_fullscreen_pressed"]
+[connection signal="pressed" from="SettingsButtonList/Vsync" to="." method="_on_vsync_pressed"]
+[connection signal="pressed" from="SettingsButtonList/setFPS" to="." method="_on_set_fps_pressed"]
+[connection signal="pressed" from="SettingsButtonList/Back" to="." method="_on_back_pressed"]

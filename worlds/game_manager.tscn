@@ -23,3 +23,4 @@ bus = &"Music"
 
 [connection signal="load_pressed" from="MainMenu" to="." method="_on_main_menu_load_pressed"]
 [connection signal="play_game" from="MainMenu" to="." method="_on_main_menu_play_game"]
+[connection signal="settings_pressed" from="MainMenu" to="." method="_on_main_menu_settings_pressed"]
